@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solution RAO — Sites, conteúdo e tráfego pago que vendem</title>
+<meta name="description" content="Sites premium, conteúdo para redes sociais e tráfego pago — tudo conduzido por uma só pessoa, do briefing ao resultado. Solution RAO.">
+
+<!--
+  PROTÓTIPO — Solution RAO (site institucional da própria agência do usuário)
+  Gerado em 10/08/2026. Pivô de escopo: era um SaaS de carrosséis (ver
+  ../CLAUDE.md), virou o site de vendas dos serviços do usuário (site, posts,
+  tráfego pago). Dados reais: logo (../logo-solution.png). Placeholders a
+  substituir: número de WhatsApp, foto do responsável (seção #sobre), casos
+  de portfólio (hoje só citam o nome dos clientes reais, sem screenshot).
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  /* Paleta: em vez do roxo-magenta-ciano genérico de "produto de IA" (era a
+     direção antiga, nunca validada — ver ../identidade/design-guide.md),
+     ficamos na família azul-metal da logo real (coerência de marca), mas
+     contida a um só azul-cobalto + platina sobre "meia-noite" — o tom exato
+     do fundo da logo (RGB ~0,3,11), para a logo se integrar sem parecer um
+     quadrado preto colado no header. */
+  :root {
+    --noite: #05070E;
+    --noite-alt: #0D111C;
+    --painel: #12161F;
+    --aco: #3A5CE0;
+    --aco-forte: #6C8CFF;
+    --platina: #C7CEDC;
+    --texto: #F2F4F9;
+    --texto-suave: #8E9AB2;
+    --linha: rgba(199, 206, 220, 0.14);
+    --fonte-titulo: 'Newsreader', Georgia, serif;
+    --fonte-corpo: 'Space Grotesk', -apple-system, sans-serif;
+    --fonte-mono: 'Space Mono', 'Courier New', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--noite); color: var(--texto);
+    font-family: var(--fonte-corpo); font-weight: 300; line-height: 1.7;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 400; line-height: 1.12; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    font-family: var(--fonte-mono); font-size: 0.74rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--aco-forte);
+  }
+  .regua { width: 40px; height: 1px; background: var(--aco); margin: 20px 0; border: none; }
+  .regua.centro { margin: 20px auto; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  /* ===== ASSINATURA — moldura de cantos =====
+     4 marcadores em L nos cantos, como a caixa de seleção de uma ferramenta
+     de design. É o elemento recorrente da página — reforça "isto foi
+     desenhado com precisão", ecoando a linguagem mono/técnica em vez de
+     decoração solta. Usado em cards de serviço, portfólio e na foto de
+     credibilidade. */
+  .moldura { position: relative; }
+  .moldura .canto {
+    position: absolute; width: 18px; height: 18px;
+    border-style: solid; opacity: 0.8; transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+  }
+  .moldura:hover .canto { opacity: 1; width: 24px; height: 24px; }
+  /* dois metais da marca, não só o azul: cantos alternam cromado/platina
+     (cor real do "R" da logo) e azul-cobalto — o par inteiro é a
+     assinatura, não uma cor sozinha */
+  .moldura .canto-tl { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; border-color: var(--platina); }
+  .moldura .canto-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; border-color: var(--platina); }
+  .moldura .canto-tr { top: -1px; right: -1px; border-width: 1.5px 1.5px 0 0; border-color: var(--aco-forte); }
+  .moldura .canto-bl { bottom: -1px; left: -1px; border-width: 0 0 1.5px 1.5px; border-color: var(--aco-forte); }
+
+  /* ===== BOTÕES ===== */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 32px; border: 1px solid var(--aco-forte);
+    font-size: 0.82rem; letter-spacing: 0.06em; color: var(--texto);
+    background: transparent; cursor: pointer; font-family: var(--fonte-corpo); font-weight: 500;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  }
+  .btn:hover { background: rgba(108,140,255,0.12); transform: translateY(-1px); }
+  .btn-solido { background: var(--aco); border-color: var(--aco); color: #fff; }
+  .btn-solido:hover { background: var(--aco-forte); border-color: var(--aco-forte); }
+
+  /* ===== HEADER ===== */
+  .cabecalho {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 40px; transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .cabecalho.rolado {
+    background: rgba(5, 7, 14, 0.88); backdrop-filter: blur(10px);
+    padding: 14px 40px; border-bottom: 1px solid var(--linha);
+  }
+  .marca-header { display: flex; align-items: center; gap: 12px; }
+  .marca-header img { width: 34px; height: 34px; border-radius: 8px; }
+  .marca-header span {
+    font-family: var(--fonte-corpo); font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+  }
+  .marca-header span em {
+    font-style: normal;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .menu-principal { display: flex; gap: 36px; list-style: none; }
+  .menu-principal a {
+    font-size: 0.82rem; letter-spacing: 0.04em; color: var(--texto-suave); transition: color 0.25s ease;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  }
+  .menu-principal a:hover { color: var(--texto); }
+  .btn-header { padding: 10px 22px; font-size: 0.76rem; }
+  .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+  .menu-toggle span { width: 22px; height: 1px; background: var(--texto); }
+
+  /* ===== HERO / SCROLLYTELLING =====
+     Vídeo (laptop numa mesa, câmera avança até revelar um site "premium")
+     preso à rolagem — a experiência de rolar A PÁGINA já demonstra o que a
+     Solution RAO vende. Mesmo mecanismo (scroll-scrubbing + rotateY de
+     profundidade) usado no hero da Arrazus, portado aqui. */
+  .hero-scrolly { position: relative; height: 300vh; }
+  .hero-scrolly.reduzido { height: 100vh; min-height: 640px; }
+  .hero-scrolly-stage {
+    position: sticky; top: 0; height: 100vh; width: 100%;
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+    background: var(--noite); perspective: 1400px;
+  }
+  .hero-scrolly.reduzido .hero-scrolly-stage { position: relative; }
+  .hero-scrolly-video {
+    /* visível desde já (não espera o evento 'loadeddata' para aparecer) —
+       um vídeo local de poucos MB carrega rápido o bastante que a espera
+       não valia o risco: se o evento atrasar ou não disparar em algum
+       navegador, o vídeo não pode ficar invisível para sempre */
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    will-change: transform; transform-origin: 50% 50%;
+  }
+  .hero-scrolly-overlay {
+    position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    /* mais escuro que a primeira versão — o vídeo mostra a tela de um site
+       (branco, cheio de detalhe) bem atrás de onde o texto fica, e a
+       sombra de texto sozinha não segurava a leitura (relato real de uso) */
+    background: linear-gradient(to bottom, rgba(5,7,14,0.82) 0%, rgba(5,7,14,0.58) 32%, rgba(5,7,14,0.6) 66%, rgba(5,7,14,0.88) 100%);
+  }
+  .hero-scrolly-bloco {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 24px; opacity: 0; pointer-events: none; color: var(--texto);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.85);
+  }
+  .hero-scrolly-bloco .btn { pointer-events: auto; }
+  .hero-scrolly-titulo, .hero-scrolly-cta { align-items: center; text-align: center; }
+  .hero-scrolly-titulo h1 {
+    font-family: var(--fonte-titulo); font-weight: 500;
+    font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -0.01em;
+  }
+  .hero-scrolly-titulo h1 em {
+    /* itálico de peso 600 (não 400) — traço grosso o bastante para segurar
+       o preenchimento em gradiente sem virar linha fina difícil de ler */
+    font-style: italic; font-weight: 600;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-scrolly-eyebrow { margin-top: 18px; }
+  .hero-scrolly-titulo-extra { display: none; }
+  .hero-scrolly-titulo-extra p { margin-top: 22px; font-size: clamp(1.05rem, 2.2vw, 1.3rem); max-width: 34ch; text-wrap: balance; color: rgba(242,244,249,0.9); }
+  .hero-scrolly-titulo-extra .btn { margin-top: 28px; }
+  .hero-scrolly.reduzido .hero-scrolly-titulo-extra { display: flex; flex-direction: column; align-items: center; }
+  .hero-scrolly.reduzido .hero-scrolly-msg1,
+  .hero-scrolly.reduzido .hero-scrolly-msg2,
+  .hero-scrolly.reduzido .hero-scrolly-cta { display: none; }
+  .hero-scrolly-msg1 { align-items: flex-start; text-align: left; }
+  .hero-scrolly-msg2 { align-items: flex-end; text-align: right; }
+  .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 {
+    font-family: var(--fonte-titulo); font-size: clamp(1.5rem, 3vw, 2.1rem); text-wrap: balance; max-width: 22ch;
+  }
+  .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { margin-top: 16px; color: rgba(242,244,249,0.9); font-size: 1rem; max-width: 40ch; }
+  .hero-scrolly-cta h2 { font-family: var(--fonte-titulo); font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+  .hero-scrolly-cta p { margin-top: 12px; color: rgba(242,244,249,0.9); max-width: 38ch; }
+  .hero-scrolly-cta .btn { margin-top: 30px; }
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    font-family: var(--fonte-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,244,249,0.85);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  .hero-scroll .linha-scroll { width: 1px; height: 32px; background: linear-gradient(var(--aco-forte), transparent); animation: scrollPulse 2.2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+  /* ===== SEÇÕES GERAIS ===== */
+  .secao { padding: 130px 0; }
+  .secao-alt { background: var(--noite-alt); }
+  .secao-cabecalho { max-width: 620px; margin-bottom: 56px; }
+  .secao-cabecalho.centro { margin-left: auto; margin-right: auto; text-align: center; }
+  .secao-cabecalho h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 8px; }
+  .secao-cabecalho p { margin-top: 20px; color: var(--texto-suave); font-size: 1.02rem; max-width: 56ch; }
+  .secao-cabecalho.centro p { margin-left: auto; margin-right: auto; }
+
+  /* ===== SERVIÇOS ===== */
+  .servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
+  .servico-card { background: var(--noite); padding: 48px 36px; position: relative; }
+  .servico-numero { font-family: var(--fonte-mono); font-size: 0.82rem; color: var(--aco-forte); }
+  .servico-card h3 { font-size: 1.3rem; margin-top: 18px; font-weight: 400; }
+  .servico-card p { margin-top: 14px; color: var(--texto-suave); font-size: 0.96rem; }
+  .servico-card ul { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .servico-card li { font-size: 0.88rem; color: var(--texto-suave); padding-left: 16px; position: relative; }
+  .servico-card li::before { content: "—"; position: absolute; left: 0; color: var(--aco); }
+
+  /* =====================================================
+     INTERLÚDIO — esfera de cristal presa na tela, mesmo princípio de
+     scroll-scrubbing do hero (currentTime = f(scroll)), só que mais curto
+     e com 1 mensagem só — o vídeo forma a esfera e ela estilhaça numa
+     explosão de partículas: metáfora de "ideia tomando forma".
+     ===================================================== */
+  .interludio { position: relative; height: 260vh; }
+  .interludio-stage {
+    position: sticky; top: 0; height: 100vh; overflow: hidden;
+    background: #000; display: flex; align-items: center; justify-content: center;
+  }
+  .interludio-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .interludio-overlay {
+    /* faltava — o cristal é um vídeo muito claro/brilhante o tempo todo,
+       sombra de texto sozinha não bastava (mesmo problema do hero, ver nota lá) */
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(ellipse 620px 420px at 50% 50%, rgba(5,7,14,0.68) 0%, rgba(5,7,14,0.42) 55%, rgba(5,7,14,0.15) 78%);
+  }
+  .interludio-bloco {
+    position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 0 32px;
+    text-align: center; opacity: 0; pointer-events: none;
+  }
+  .interludio-bloco h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); text-wrap: balance; text-shadow: 0 2px 28px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.9); }
+  .interludio-bloco p { margin-top: 18px; color: rgba(242,244,249,0.92); font-size: 1.02rem; text-shadow: 0 2px 20px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.9); }
+
+  /* ===== PORTFÓLIO ===== */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .portfolio-card { padding: 4px; }
+  .portfolio-foto {
+    aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(155deg, var(--painel), var(--noite));
+    color: var(--texto-suave); font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    text-align: center; padding: 20px; overflow: hidden;
+  }
+  .portfolio-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .portfolio-info { padding: 20px 6px 4px; }
+  .portfolio-info .categoria { font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aco-forte); }
+  .portfolio-info h3 { font-size: 1.1rem; margin-top: 10px; font-weight: 400; }
+  .portfolio-info p { margin-top: 8px; color: var(--texto-suave); font-size: 0.9rem; }
+
+  /* ===== SOBRE / CREDIBILIDADE ===== */
+  .sobre-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 70px; align-items: center; }
+  .sobre-foto { aspect-ratio: 4/5; padding: 4px; }
+  .sobre-foto-dentro {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(155deg, var(--painel), var(--noite));
+    color: var(--texto-suave); font-family: var(--fonte-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 24px;
+  }
+  .sobre-foto-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .sobre-texto p { color: var(--texto-suave); margin-top: 18px; font-size: 1.02rem; }
+  .sobre-assinatura { margin-top: 28px; font-family: var(--fonte-titulo); font-style: italic; color: var(--aco-forte); font-size: 1.15rem; }
+
+  /* ===== CTA FINAL ===== */
+  .cta-final { text-align: center; }
+  .cta-final h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); text-wrap: balance; max-width: 26ch; margin: 0 auto; }
+  .cta-final h2 em {
+    font-style: italic; font-weight: 600;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .cta-final p { margin-top: 20px; color: var(--texto-suave); max-width: 46ch; margin-left: auto; margin-right: auto; }
+  .cta-final .btn { margin-top: 34px; }
+
+  /* ===== RODAPÉ ===== */
+  .rodape { border-top: 1px solid var(--linha); padding: 48px 0; }
+  .rodape-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .rodape .marca-header span { font-size: 0.98rem; }
+  .rodape p { font-size: 0.82rem; color: var(--texto-suave); }
+  .rodape-links { display: flex; gap: 24px; }
+  .rodape-links a { font-size: 0.82rem; color: var(--texto-suave); transition: color 0.25s ease; }
+  .rodape-links a:hover { color: var(--texto); }
+
+  /* ===== REVEAL ON SCROLL ===== */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visivel { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 860px) {
+    .menu-principal { display: none; }
+    .btn-header { display: none; }
+    .menu-toggle { display: flex; }
+    .servicos-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .sobre-grid { grid-template-columns: 1fr; }
+    .secao { padding: 88px 0; }
+    .interludio { height: 200vh; }
+    .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 { font-size: 1.4rem; max-width: 18ch; }
+    .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { font-size: 0.92rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="cabecalho" id="cabecalho">
+  <a href="#topo" class="marca-header">
+    <img src="logo.png" alt="Solution RAO">
+    <span>Solution <em>RAO</em></span>
+  </a>
+  <nav>
+    <ul class="menu-principal">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn-solido btn-header" href="https://wa.me/5561996424001" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ===== HERO — scrollytelling (vídeo preso à rolagem) ===== -->
+<section class="hero-scrolly" id="topo">
+  <div class="hero-scrolly-stage" id="heroScrollyStage">
+    <video class="hero-scrolly-video" id="heroScrollyVideo" aria-hidden="true" muted autoplay playsinline preload="auto">
+      <source src="hero-site.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrolly-overlay" aria-hidden="true"></div>
+
+    <div class="hero-scrolly-bloco hero-scrolly-titulo" id="heroBlocoTitulo">
+      <span class="eyebrow hero-scrolly-eyebrow">Solution RAO</span>
+      <h1>Um site assim para<br><em>representar seu negócio.</em></h1>
+      <div class="hero-scrolly-titulo-extra">
+        <p>Sites, conteúdo para redes sociais e tráfego pago — conduzidos por uma só pessoa, do briefing ao resultado.</p>
+        <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="hero-scrolly-bloco hero-scrolly-msg1" id="heroBlocoMsg1">
+      <h2>Sites que parecem ter custado muito mais caro.</h2>
+      <p>Cada detalhe pensado para parecer feito sob medida — porque foi. Sem template genérico, sem editor arrastar-e-soltar.</p>
+    </div>
+
+    <div class="hero-scrolly-bloco hero-scrolly-msg2" id="heroBlocoMsg2">
+      <h2>Conteúdo e tráfego pago, na mesma mão que criou o site.</h2>
+      <p>Posts que combinam com a marca. Anúncios que trazem gente de verdade. Sem precisar contratar três fornecedores diferentes.</p>
+    </div>
+
+    <div class="hero-scrolly-bloco hero-scrolly-cta" id="heroBlocoCta">
+      <h2>Vamos colocar seu negócio nesse nível?</h2>
+      <p>Resposta rápida, direto comigo, sem intermediário.</p>
+      <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
+    </div>
+
+    <div class="hero-scroll" id="heroScroll">
+      <span>Role para ver</span>
+      <div class="linha-scroll"></div>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section class="secao" id="servicos">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Serviços</span>
+        <h2>Três frentes, uma só responsável</h2>
+        <p>Não é uma agência com vários atendentes repassando seu projeto. É uma pessoa só cuidando de tudo — do primeiro rascunho ao anúncio no ar.</p>
+      </div>
+      <div class="servicos-grid reveal">
+        <div class="servico-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="servico-numero">01</span>
+          <h3>Criação &amp; edição de site</h3>
+          <p>Site novo do zero ou reforma de um site que já existe — desenhado para o seu negócio, não montado a partir de um template genérico.</p>
+          <ul>
+            <li>Design sob medida, responsivo</li>
+            <li>Textos pensados para conversão</li>
+            <li>Publicação e domínio próprio</li>
+          </ul>
+        </div>
+        <div class="servico-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="servico-numero">02</span>
+          <h3>Criação de posts</h3>
+          <p>Conteúdo para redes sociais com identidade visual consistente — sem parecer que foi feito às pressas ou copiado de um concorrente.</p>
+          <ul>
+            <li>Carrosséis, artes e legendas</li>
+            <li>Calendário de publicação</li>
+            <li>Tom de voz da sua marca</li>
+          </ul>
+        </div>
+        <div class="servico-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="servico-numero">03</span>
+          <h3>Tráfego pago</h3>
+          <p>Anúncios no Meta e no Google configurados e otimizados para trazer gente que realmente pode virar cliente — não só curtidas.</p>
+          <ul>
+            <li>Campanhas no Meta Ads e Google Ads</li>
+            <li>Google Meu Negócio otimizado</li>
+            <li>Acompanhamento de resultado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTERLÚDIO — esfera de cristal presa na tela ===== -->
+  <section class="interludio" id="interludio">
+    <div class="interludio-stage">
+      <video class="interludio-video" id="interludioVideo" muted autoplay playsinline preload="auto">
+        <source src="interludio-cristal.mp4" type="video/mp4">
+      </video>
+      <div class="interludio-overlay" aria-hidden="true"></div>
+      <div class="interludio-bloco" id="interludioBloco">
+        <span class="eyebrow">Como eu trabalho</span>
+        <hr class="regua centro">
+        <h2>Uma ideia solta vira estratégia, design e execução — sem passar por mais ninguém no meio do caminho.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFÓLIO ===== -->
+  <section class="secao" id="portfolio">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Portfólio</span>
+        <h2>Segmentos que já atendi</h2>
+        <p>Alguns dos negócios que já passaram pela Solution RAO — provas reais, não maquete.</p>
+      </div>
+      <div class="portfolio-grid reveal">
+        <div class="portfolio-card">
+          <div class="portfolio-foto moldura">
+            <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+            <img src="arrazus-capa.png" alt="Site da Arrazus, clínica de estética avançada">
+          </div>
+          <div class="portfolio-info">
+            <span class="categoria">Estética avançada · site</span>
+            <h3>Arrazus</h3>
+            <p>Site com hero em vídeo e jornada em scroll, Brasília-DF.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-foto moldura">
+            <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+            <img src="portfolio-avanty.jpg" alt="Post para redes sociais da Avanty Seguros">
+          </div>
+          <div class="portfolio-info">
+            <span class="categoria">Seguros · conteúdo</span>
+            <h3>Avanty Seguros</h3>
+            <p>Identidade visual e posts para redes sociais.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-foto moldura">
+            <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+            <img src="portfolio-aquarela.jpg" alt="Site da Aquarela Mármores e Granitos">
+          </div>
+          <div class="portfolio-info">
+            <span class="categoria">Marmoraria &amp; granito · site</span>
+            <h3>Aquarela</h3>
+            <p>Site institucional com proposta comercial digital.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE / CREDIBILIDADE ===== -->
+  <section class="secao secao-alt" id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-foto moldura reveal">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <img src="foto-raphael.png" alt="Responsável pela Solution RAO" class="sobre-foto-img">
+        </div>
+        <div class="sobre-texto reveal">
+          <span class="eyebrow">Quem faz</span>
+          <hr class="regua">
+          <h2>Sem equipe grande, sem intermediário — só quem realmente vai cuidar do seu projeto.</h2>
+          <p>A Solution RAO sou eu: cada site, cada post e cada campanha passam pelas minhas mãos, do primeiro rascunho até o resultado no ar. Isso significa resposta rápida, decisão sem burocracia e um trabalho que reflete exatamente o que foi combinado.</p>
+          <p class="sobre-assinatura">"Prefiro atender poucos negócios bem do que muitos pela metade."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="secao cta-final" id="contato">
+    <div class="container">
+      <span class="eyebrow">Direto ao ponto</span>
+      <h2 style="margin-top:10px;">Seu concorrente tem site. Você tem desculpas.<br><em>Quem você acha que o cliente vai escolher?</em></h2>
+      <p>Coloque sua empresa no digital antes que mais clientes escolham quem já está lá.</p>
+      <a href="https://wa.me/5561996424001" target="_blank" rel="noopener" class="btn btn-solido">Quero meu site agora →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== RODAPÉ ===== -->
+<footer class="rodape">
+  <div class="container rodape-grid">
+    <a href="#topo" class="marca-header">
+      <img src="logo.png" alt="Solution RAO">
+      <span>Solution <em>RAO</em></span>
+    </a>
+    <div class="rodape-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#sobre">Sobre</a>
+    </div>
+    <p>Solution RAO — sites, conteúdo e tráfego pago.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ===== Header: estado "rolado" ===== */
+  var cabecalho = document.getElementById('cabecalho');
+  window.addEventListener('scroll', function () {
+    cabecalho.classList.toggle('rolado', window.scrollY > 40);
+  });
+
+  /* ===== Menu mobile ===== */
+  var menuToggle = document.getElementById('menuToggle');
+  var menuPrincipal = document.querySelector('.menu-principal');
+  menuToggle.addEventListener('click', function () {
+    var aberto = menuPrincipal.style.display === 'flex';
+    menuPrincipal.style.cssText = aberto
+      ? ''
+      : 'display:flex; position:fixed; top:64px; left:0; right:0; flex-direction:column; gap:0; background:rgba(5,7,14,0.98); padding:20px 40px; border-bottom:1px solid var(--linha);';
+  });
+
+  /* ===== Reveal on scroll ===== */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !prefersReduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visivel'); });
+  }
+
+  /* =========================================================
+     Fila de 1 seek por vez, compartilhada pelos vídeos com
+     scroll-scrubbing — mesma técnica (e mesmo motivo) do site da Arrazus:
+     sem isso, o vídeo trava tentando decodificar buscas mais rápido do
+     que consegue, e o scroll fica travado em vez de contínuo.
+     ========================================================= */
+  function criarBuscadorDeVideo(video) {
+    var emAndamento = false;
+    var alvoPendente = null;
+    function buscar(tempo) {
+      if (emAndamento) { alvoPendente = tempo; return; }
+      emAndamento = true;
+      try { video.currentTime = tempo; } catch (e) { emAndamento = false; }
+      setTimeout(function () { emAndamento = false; }, 250);
+    }
+    video.addEventListener('seeked', function () {
+      emAndamento = false;
+      if (alvoPendente !== null) {
+        var alvo = alvoPendente;
+        alvoPendente = null;
+        buscar(alvo);
+      }
+    });
+    return buscar;
+  }
+
+  /* ===== EFEITO 1 — Hero em scrollytelling ===== */
+  var heroScrollySecao = document.getElementById('topo');
+  var heroScrollyVideo = document.getElementById('heroScrollyVideo');
+  var heroScroll = document.getElementById('heroScroll');
+  var heroBlocos = {
+    titulo: document.getElementById('heroBlocoTitulo'),
+    msg1: document.getElementById('heroBlocoMsg1'),
+    msg2: document.getElementById('heroBlocoMsg2'),
+    cta: document.getElementById('heroBlocoCta')
+  };
+  var HERO_SUAVIZACAO = 0.1;
+  var heroDuracao = 0;
+  var heroProgressoAlvo = 0;
+  var heroProgressoAtual = 0;
+  var buscarNoHero = heroScrollyVideo ? criarBuscadorDeVideo(heroScrollyVideo) : function () {};
+
+  function faixaOpacidade(p, entradaIni, entradaFim, saidaIni, saidaFim) {
+    var entra = entradaIni == null ? 1 : Math.min(Math.max((p - entradaIni) / (entradaFim - entradaIni), 0), 1);
+    var sai = saidaIni == null ? 1 : 1 - Math.min(Math.max((p - saidaIni) / (saidaFim - saidaIni), 0), 1);
+    return Math.min(entra, sai);
+  }
+
+  function heroCalcularProgressoAlvo() {
+    var rect = heroScrollySecao.getBoundingClientRect();
+    var distanciaRolavel = rect.height - window.innerHeight;
+    if (distanciaRolavel <= 0) return 0;
+    return Math.min(Math.max(-rect.top / distanciaRolavel, 0), 1);
+  }
+
+  function heroRenderizar(p) {
+    if (heroDuracao) buscarNoHero(p * heroDuracao);
+
+    if (!prefersReduced) {
+      var rotacao = (p - 0.5) * 6;
+      var escala = 1 + p * 0.04;
+      heroScrollyVideo.style.transform = 'rotateY(' + rotacao.toFixed(2) + 'deg) scale(' + escala.toFixed(3) + ')';
+    }
+
+    var opTitulo = faixaOpacidade(p, null, null, 0.14, 0.20);
+    var opMsg1 = faixaOpacidade(p, 0.24, 0.32, 0.44, 0.52);
+    var opMsg2 = faixaOpacidade(p, 0.54, 0.62, 0.74, 0.82);
+    var opCta = faixaOpacidade(p, 0.84, 0.92, null, null);
+
+    heroBlocos.titulo.style.opacity = opTitulo;
+    heroBlocos.titulo.style.transform = 'translateY(' + ((1 - opTitulo) * -18) + 'px)';
+    heroBlocos.msg1.style.opacity = opMsg1;
+    heroBlocos.msg1.style.transform = 'translateX(' + ((1 - opMsg1) * -24) + 'px)';
+    heroBlocos.msg2.style.opacity = opMsg2;
+    heroBlocos.msg2.style.transform = 'translateX(' + ((1 - opMsg2) * 24) + 'px)';
+    heroBlocos.cta.style.opacity = opCta;
+    heroBlocos.cta.style.transform = 'translateY(' + ((1 - opCta) * 18) + 'px)';
+
+    if (heroScroll) heroScroll.style.opacity = Math.max(0, 0.75 - p * 5);
+  }
+
+  function heroLoop() {
+    heroProgressoAlvo = heroCalcularProgressoAlvo();
+    var diferenca = heroProgressoAlvo - heroProgressoAtual;
+    heroProgressoAtual += Math.abs(diferenca) < 0.0004 ? diferenca : diferenca * HERO_SUAVIZACAO;
+    heroRenderizar(heroProgressoAtual);
+    requestAnimationFrame(heroLoop);
+  }
+
+  if (heroScrollyVideo) {
+    function marcarDuracaoHero() { heroDuracao = heroScrollyVideo.duration || 0; }
+    if (heroScrollyVideo.readyState >= 1 && heroScrollyVideo.duration) {
+      marcarDuracaoHero();
+    } else {
+      heroScrollyVideo.addEventListener('loadedmetadata', marcarDuracaoHero);
+    }
+    heroScrollyVideo.addEventListener('loadeddata', function () {
+      heroScrollyVideo.classList.add('pronta');
+    }, { once: true });
+    heroScrollyVideo.play().then(function () { heroScrollyVideo.pause(); }).catch(function () {});
+
+    if (prefersReduced) {
+      heroScrollySecao.classList.add('reduzido');
+      heroBlocos.titulo.style.opacity = 1;
+      if (heroScroll) heroScroll.style.display = 'none';
+    } else {
+      requestAnimationFrame(heroLoop);
+    }
+  }
+
+  /* ===== EFEITO 2 — Interlúdio (esfera de cristal) ===== */
+  var interludioSecao = document.getElementById('interludio');
+  var interludioVideo = document.getElementById('interludioVideo');
+  var interludioBloco = document.getElementById('interludioBloco');
+  var interludioDuracao = 0;
+  var buscarNoInterludio = interludioVideo ? criarBuscadorDeVideo(interludioVideo) : function () {};
+  var interProgressoAlvo = 0;
+  var interProgressoAtual = 0;
+
+  function interCalcularProgressoAlvo() {
+    if (!interludioSecao) return 0;
+    var rect = interludioSecao.getBoundingClientRect();
+    var distanciaRolavel = rect.height - window.innerHeight;
+    if (distanciaRolavel <= 0) return 0;
+    return Math.min(Math.max(-rect.top / distanciaRolavel, 0), 1);
+  }
+
+  function interRenderizar(p) {
+    if (interludioDuracao) buscarNoInterludio(p * interludioDuracao);
+    if (interludioBloco) {
+      var op = faixaOpacidade(p, 0.28, 0.42, 0.68, 0.84);
+      interludioBloco.style.opacity = op;
+      interludioBloco.style.transform = 'translateY(' + ((1 - op) * 16) + 'px)';
+    }
+  }
+
+  function interLoop() {
+    interProgressoAlvo = interCalcularProgressoAlvo();
+    var diferenca = interProgressoAlvo - interProgressoAtual;
+    interProgressoAtual += prefersReduced ? diferenca : (Math.abs(diferenca) < 0.0004 ? diferenca : diferenca * 0.1);
+    interRenderizar(interProgressoAtual);
+    requestAnimationFrame(interLoop);
+  }
+
+  if (interludioVideo) {
+    function marcarDuracaoInter() { interludioDuracao = interludioVideo.duration || 0; }
+    if (interludioVideo.readyState >= 1 && interludioVideo.duration) {
+      marcarDuracaoInter();
+    } else {
+      interludioVideo.addEventListener('loadedmetadata', marcarDuracaoInter);
+    }
+    interludioVideo.addEventListener('loadeddata', function () {
+      interludioVideo.classList.add('pronta');
+    }, { once: true });
+    interludioVideo.play().then(function () { interludioVideo.pause(); }).catch(function () {});
+    requestAnimationFrame(interLoop);
+  }
+
+  /* ===== Smooth scroll com offset do header fixo ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var alvo = document.querySelector(a.getAttribute('href'));
+      if (!alvo) return;
+      e.preventDefault();
+      var y = alvo.getBoundingClientRect().top + window.scrollY - 84;
+      window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
+      menuPrincipal.style.cssText = '';
+    });
+  });
+})();
+</script>
+</body>
+</html>
