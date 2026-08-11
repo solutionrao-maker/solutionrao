@@ -308,6 +308,12 @@
     .interludio { height: 200vh; }
     .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 { font-size: 1.4rem; max-width: 18ch; }
     .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { font-size: 0.92rem; }
+    /* título do hero: em telas estreitas o clamp() batia no piso (2.4rem)
+       e, dentro do flex centralizado, a linha "Um site assim para" ficava
+       mais larga que a tela em vez de quebrar — max-width força a quebra */
+    .hero-scrolly-titulo h1 { font-size: clamp(1.7rem, 8.5vw, 2.4rem); max-width: 92%; }
+    .hero-scrolly-bloco { padding: 0 18px; }
+    .cta-final h2 { font-size: clamp(1.4rem, 6.5vw, 1.9rem); max-width: 94%; }
   }
 </style>
 </head>
@@ -327,7 +333,7 @@
       <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
-  <a class="btn btn-solido btn-header" href="https://wa.me/5561996424001" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  <a class="btn btn-solido btn-header" href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener">Falar no WhatsApp</a>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
@@ -505,7 +511,7 @@
       <span class="eyebrow">Direto ao ponto</span>
       <h2 style="margin-top:10px;">Seu concorrente tem site. Você tem desculpas.<br><em>Quem você acha que o cliente vai escolher?</em></h2>
       <p>Coloque sua empresa no digital antes que mais clientes escolham quem já está lá.</p>
-      <a href="https://wa.me/5561996424001" target="_blank" rel="noopener" class="btn btn-solido">Quero meu site agora →</a>
+      <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20criar%20meu%20site." target="_blank" rel="noopener" class="btn btn-solido">Quero meu site agora →</a>
     </div>
   </section>
 
