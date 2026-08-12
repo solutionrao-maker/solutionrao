@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="../consent.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — Solution RAO</title>
+<meta name="description" content="Como a Solution RAO trata dados de visitantes do site: navegação, Google Analytics, fontes externas e direitos previstos na LGPD.">
+
+<link rel="canonical" href="https://www.solutionrao.com.br/politica-de-privacidade">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --noite: #05070E;
+    --noite-alt: #0D111C;
+    --painel: #12161F;
+    --aco: #3A5CE0;
+    --aco-forte: #6C8CFF;
+    --platina: #C7CEDC;
+    --texto: #F2F4F9;
+    --texto-suave: #8E9AB2;
+    --linha: rgba(199, 206, 220, 0.14);
+    --fonte-titulo: 'Newsreader', Georgia, serif;
+    --fonte-corpo: 'Space Grotesk', -apple-system, sans-serif;
+    --fonte-mono: 'Space Mono', 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--noite); color: var(--texto);
+    font-family: var(--fonte-corpo); font-weight: 300; line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--aco-forte); }
+  h1, h2 { font-family: var(--fonte-titulo); font-weight: 400; line-height: 1.2; }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+
+  .cabecalho {
+    padding: 22px 40px; border-bottom: 1px solid var(--linha);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .marca-header { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .marca-header img { width: 34px; height: 34px; border-radius: 8px; }
+  .marca-header span { font-weight: 600; font-size: 1.05rem; color: var(--texto); }
+  .marca-header span em {
+    font-style: normal;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  main { padding: 72px 0 100px; }
+  .eyebrow {
+    font-family: var(--fonte-mono); font-size: 0.74rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--aco-forte);
+  }
+  h1 { font-size: clamp(2rem, 4vw, 2.6rem); margin-top: 12px; }
+  .atualizado { margin-top: 14px; color: var(--texto-suave); font-size: 0.88rem; }
+  .regua { width: 40px; height: 1px; background: var(--aco); margin: 32px 0; border: none; }
+
+  article h2 { font-size: 1.35rem; margin-top: 40px; margin-bottom: 14px; }
+  article p, article li { color: var(--texto-suave); font-size: 1rem; margin-top: 12px; }
+  article ul { padding-left: 22px; }
+  article li { margin-top: 8px; }
+  article strong { color: var(--texto); font-weight: 600; }
+
+  .rodape { border-top: 1px solid var(--linha); padding: 40px 0; margin-top: 40px; }
+  .rodape-links { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
+  .rodape-links a { font-size: 0.82rem; color: var(--texto-suave); text-decoration: none; }
+  .rodape-links a:hover { color: var(--texto); }
+  .rodape p { font-size: 0.82rem; color: var(--texto-suave); }
+
+  /* ===== BANNER DE COOKIES (mesmo componente da home) ===== */
+  .cookie-banner {
+    position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 200;
+    max-width: 760px; margin: 0 auto;
+    background: rgba(13, 17, 28, 0.97); backdrop-filter: blur(10px);
+    border: 1px solid var(--linha); border-radius: 12px;
+    padding: 24px 28px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    transform: translateY(140%); opacity: 0; pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  .cookie-banner.visivel { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .cookie-banner-texto { flex: 1 1 320px; font-size: 0.9rem; color: var(--texto-suave); line-height: 1.6; }
+  .cookie-banner-texto a { text-decoration: underline; }
+  .cookie-banner-botoes { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 26px; border: 1px solid var(--aco-forte);
+    font-size: 0.8rem; letter-spacing: 0.06em; color: var(--texto);
+    background: transparent; cursor: pointer; font-family: var(--fonte-corpo); font-weight: 500;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+  .btn:hover { background: rgba(108,140,255,0.12); transform: translateY(-1px); }
+  .btn-solido { background: var(--aco); border-color: var(--aco); color: #fff; }
+  .btn-solido:hover { background: var(--aco-forte); border-color: var(--aco-forte); }
+  .cookie-banner-recusar { border-color: var(--linha); }
+  .cookie-banner-recusar:hover { background: rgba(199,206,220,0.08); border-color: var(--platina); }
+
+  @media (max-width: 600px) {
+    .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
+    .cookie-banner-botoes { width: 100%; }
+    .cookie-banner-botoes .btn { flex: 1; text-align: center; justify-content: center; }
+    .cabecalho { padding: 18px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cabecalho">
+  <a href="/" class="marca-header">
+    <img src="../logo-otimizado.webp" alt="Solution RAO" width="34" height="34">
+    <span>Solution <em>RAO</em></span>
+  </a>
+</header>
+
+<main>
+  <div class="container">
+    <span class="eyebrow">Legal</span>
+    <h1>Política de Privacidade</h1>
+    <p class="atualizado">Última atualização: 12 de agosto de 2026.</p>
+    <hr class="regua">
+
+    <article>
+      <h2>1. Quem somos</h2>
+      <p>Este site (<strong>solutionrao.com.br</strong>) é operado por <strong>Raphael Araújo de Oliveira</strong>, atuando como profissional autônomo sob a marca <strong>Solution RAO</strong>, oferecendo serviços de criação de sites, conteúdo para redes sociais e gestão de tráfego pago.</p>
+
+      <h2>2. Quais dados podem ser tratados</h2>
+      <p>Ao visitar este site, os seguintes dados podem ser coletados:</p>
+      <ul>
+        <li><strong>Dados técnicos de navegação</strong>: endereço IP, tipo de dispositivo e navegador, páginas visitadas, tempo de permanência e origem do acesso — coletados de forma automática por ferramentas de análise, quando você consente com isso.</li>
+        <li><strong>Dados de contato</strong>: se você opta por falar pelo WhatsApp, os dados que você compartilha nessa conversa (nome, telefone, mensagens) ficam no WhatsApp/Meta, e não em nenhum sistema próprio deste site — veja a seção 6.</li>
+      </ul>
+
+      <h2>3. Endereço IP e dados técnicos</h2>
+      <p>Como em praticamente qualquer site, o seu navegador transmite automaticamente o endereço IP e outras informações técnicas (user-agent, idioma, resolução de tela) aos servidores que entregam o conteúdo — isso inclui a hospedagem do site (Vercel) e, quando aplicável, o Google Analytics e o Google Fonts (seção 4 e 5). Isso é uma característica técnica do funcionamento da internet, não uma coleta deliberada de identificação pessoal direta.</p>
+
+      <h2>4. Google Analytics (GA4)</h2>
+      <p>Usamos o Google Analytics 4 para entender como os visitantes usam o site — quais páginas são mais acessadas, de onde vêm os visitantes, quanto tempo passam no site — com a finalidade exclusiva de <strong>análise de tráfego e desempenho</strong>, para melhorar o conteúdo e a experiência.</p>
+      <p>O Google Analytics <strong>só é carregado depois que você aceita cookies</strong> no banner exibido na primeira visita (ver nossa <a href="/politica-de-cookies">Política de Cookies</a> para os detalhes técnicos). Enquanto você não decide, ou se você recusa, nenhum dado é enviado ao Google Analytics.</p>
+      <p>Os dados coletados pelo Google Analytics, quando você consente, incluem: identificador de cliente anônimo (cookie), páginas visitadas, eventos de interação, aproximação geográfica (cidade/região, não endereço exato), tipo de dispositivo e navegador. Esses dados são processados pelo Google conforme a <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidade do Google</a>.</p>
+
+      <h2>5. Google Fonts</h2>
+      <p>O site carrega as fontes tipográficas diretamente dos servidores do Google (<em>fonts.googleapis.com</em> e <em>fonts.gstatic.com</em>). Esse carregamento é uma operação técnica de exibição de texto, independente da sua escolha sobre cookies analíticos — como consequência inerente a esse carregamento, o seu navegador transmite o endereço IP ao Google no momento de baixar as fontes.</p>
+
+      <h2>6. Links externos (WhatsApp)</h2>
+      <p>Os botões "Falar no WhatsApp" deste site levam você diretamente para o aplicativo WhatsApp, de propriedade da Meta. A conversa que acontece lá é regida pela política de privacidade do próprio WhatsApp/Meta — a Solution RAO não tem acesso a nenhum sistema próprio de armazenamento dessas mensagens além do que aparece no WhatsApp do responsável pelo atendimento.</p>
+
+      <h2>7. Compartilhamento com fornecedores tecnológicos</h2>
+      <p>Os dados descritos acima podem ser processados pelos seguintes fornecedores, na função técnica de viabilizar o funcionamento do site:</p>
+      <ul>
+        <li><strong>Google</strong> — Google Analytics (análise de tráfego, mediante consentimento) e Google Fonts (exibição de tipografia).</li>
+        <li><strong>Vercel</strong> — hospedagem e entrega do site (processa dados técnicos de qualquer requisição, como qualquer provedor de hospedagem).</li>
+      </ul>
+      <p>Não vendemos nem compartilhamos dados de visitantes para fins de marketing de terceiros.</p>
+
+      <h2>8. Tempo de retenção</h2>
+      <p>Conforme a documentação pública do Google Analytics 4, os cookies analíticos padrão (<em>_ga</em> e <em>_ga_&lt;ID&gt;</em>) têm validade de até 2 anos, renovável a cada visita, salvo configuração diferente feita pelo Google. Não coletamos nem documentamos nenhum prazo de retenção adicional próprio, já que este site não mantém banco de dados de visitantes.</p>
+
+      <h2>9. Seus direitos (LGPD)</h2>
+      <p>Conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a:</p>
+      <ul>
+        <li>Confirmação da existência de tratamento de dados;</li>
+        <li>Acesso aos dados tratados;</li>
+        <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+        <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a lei;</li>
+        <li>Portabilidade dos dados a outro fornecedor de serviço;</li>
+        <li>Eliminação dos dados tratados com consentimento;</li>
+        <li>Informação sobre entidades com as quais os dados foram compartilhados;</li>
+        <li>Revogação do consentimento a qualquer momento;</li>
+        <li>Oposição a tratamento realizado em desconformidade com a lei.</li>
+      </ul>
+      <p>Você pode revogar o consentimento de cookies analíticos a qualquer momento pelo link <strong>"Preferências de cookies"</strong> no rodapé do site.</p>
+
+      <h2>10. Contato</h2>
+      <p>Para exercer qualquer um dos direitos acima ou tirar dúvidas sobre esta política, entre em contato: <strong><a href="mailto:solutionrao@gmail.com">solutionrao@gmail.com</a></strong>.</p>
+      <p>Por se tratar de atuação autônoma e individual (freelancer solo), não há um encarregado de proteção de dados (DPO) formalmente designado além do próprio responsável — o e-mail acima é o canal direto para qualquer solicitação de privacidade.</p>
+
+      <h2>11. Alterações nesta política</h2>
+      <p>Esta política pode ser atualizada conforme o site evolui. A data no topo desta página indica a versão mais recente.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-links">
+      <a href="/">Início</a>
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/politica-de-cookies">Política de Cookies</a>
+      <a href="#" id="linkPreferenciasCookies">Preferências de cookies</a>
+    </div>
+    <p>Solution RAO — sites, conteúdo e tráfego pago.</p>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Preferências de cookies">
+  <p class="cookie-banner-texto">
+    Usamos cookies analíticos para entender o uso do site e melhorar sua experiência. Você pode aceitar ou recusar o uso de cookies não essenciais. Saiba mais na <a href="/politica-de-cookies">Política de Cookies</a>.
+  </p>
+  <div class="cookie-banner-botoes">
+    <button type="button" class="btn cookie-banner-recusar" id="cookieRecusar">Recusar</button>
+    <button type="button" class="btn btn-solido" id="cookieAceitar">Aceitar</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAceitar = document.getElementById('cookieAceitar');
+  var cookieRecusar = document.getElementById('cookieRecusar');
+  var linkPreferenciasCookies = document.getElementById('linkPreferenciasCookies');
+
+  if (window.SolutionRAOConsent && cookieBanner) {
+    window.SolutionRAOConsent.inicializar(function () {
+      cookieBanner.classList.add('visivel');
+    });
+    cookieAceitar.addEventListener('click', function () {
+      window.SolutionRAOConsent.definirPreferencia('granted');
+      cookieBanner.classList.remove('visivel');
+    });
+    cookieRecusar.addEventListener('click', function () {
+      window.SolutionRAOConsent.definirPreferencia('denied');
+      cookieBanner.classList.remove('visivel');
+    });
+    if (linkPreferenciasCookies) {
+      linkPreferenciasCookies.addEventListener('click', function (e) {
+        e.preventDefault();
+        cookieBanner.classList.add('visivel');
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>

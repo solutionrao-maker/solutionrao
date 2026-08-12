@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LJGPMWB42D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LJGPMWB42D');
-</script>
+<!-- Google tag (gtag.js) — carregado sob demanda por consent.js, só após
+     consentimento (Google Consent Mode, modo Basic). Ver rodapé da página
+     pra a lógica de inicialização e o banner de cookies. -->
+<script src="consent.js"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -340,6 +336,32 @@
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visivel { opacity: 1; transform: translateY(0); }
 
+  /* ===== BANNER DE COOKIES ===== */
+  .cookie-banner {
+    position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 200;
+    max-width: 760px; margin: 0 auto;
+    background: rgba(13, 17, 28, 0.97); backdrop-filter: blur(10px);
+    border: 1px solid var(--linha); border-radius: 12px;
+    padding: 24px 28px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    transform: translateY(140%); opacity: 0; pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  .cookie-banner.visivel { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .cookie-banner-texto { flex: 1 1 320px; font-size: 0.9rem; color: var(--texto-suave); line-height: 1.6; }
+  .cookie-banner-texto a { color: var(--aco-forte); text-decoration: underline; }
+  .cookie-banner-botoes { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cookie-banner-botoes .btn { padding: 12px 26px; font-size: 0.8rem; }
+  .cookie-banner-recusar { border-color: var(--linha); }
+  .cookie-banner-recusar:hover { background: rgba(199,206,220,0.08); border-color: var(--platina); }
+
+  @media (max-width: 600px) {
+    .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
+    .cookie-banner-botoes { width: 100%; }
+    .cookie-banner-botoes .btn { flex: 1; text-align: center; justify-content: center; }
+  }
+
   @media (max-width: 860px) {
     .menu-principal { display: none; }
     .btn-header { display: none; }
@@ -571,10 +593,24 @@
       <a href="#servicos">Serviços</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#sobre">Sobre</a>
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/politica-de-cookies">Política de Cookies</a>
+      <a href="#" id="linkPreferenciasCookies">Preferências de cookies</a>
     </div>
     <p>Solution RAO — sites, conteúdo e tráfego pago.</p>
   </div>
 </footer>
+
+<!-- ===== BANNER DE COOKIES ===== -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Preferências de cookies">
+  <p class="cookie-banner-texto">
+    Usamos cookies analíticos para entender o uso do site e melhorar sua experiência. Você pode aceitar ou recusar o uso de cookies não essenciais. Saiba mais na <a href="/politica-de-cookies">Política de Cookies</a>.
+  </p>
+  <div class="cookie-banner-botoes">
+    <button type="button" class="btn cookie-banner-recusar" id="cookieRecusar">Recusar</button>
+    <button type="button" class="btn btn-solido" id="cookieAceitar">Aceitar</button>
+  </div>
+</div>
 
 <script>
 (function () {
@@ -800,6 +836,32 @@
     }
 
     requestAnimationFrame(interLoop);
+  }
+
+  /* ===== Banner de cookies / Consent Mode ===== */
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAceitar = document.getElementById('cookieAceitar');
+  var cookieRecusar = document.getElementById('cookieRecusar');
+  var linkPreferenciasCookies = document.getElementById('linkPreferenciasCookies');
+
+  if (window.SolutionRAOConsent && cookieBanner) {
+    window.SolutionRAOConsent.inicializar(function () {
+      cookieBanner.classList.add('visivel');
+    });
+    cookieAceitar.addEventListener('click', function () {
+      window.SolutionRAOConsent.definirPreferencia('granted');
+      cookieBanner.classList.remove('visivel');
+    });
+    cookieRecusar.addEventListener('click', function () {
+      window.SolutionRAOConsent.definirPreferencia('denied');
+      cookieBanner.classList.remove('visivel');
+    });
+    if (linkPreferenciasCookies) {
+      linkPreferenciasCookies.addEventListener('click', function (e) {
+        e.preventDefault();
+        cookieBanner.classList.add('visivel');
+      });
+    }
   }
 
   /* ===== Smooth scroll com offset do header fixo ===== */
