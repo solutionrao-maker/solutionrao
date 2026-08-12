@@ -365,7 +365,7 @@
 <!-- ===== HEADER ===== -->
 <header class="cabecalho" id="cabecalho">
   <a href="#topo" class="marca-header">
-    <img src="logo.png" alt="Solution RAO">
+    <img src="logo-otimizado.webp" alt="Solution RAO" width="140" height="140">
     <span>Solution <em>RAO</em></span>
   </a>
   <nav>
@@ -471,8 +471,8 @@
   <!-- ===== INTERLÚDIO — esfera de cristal presa na tela ===== -->
   <section class="interludio" id="interludio">
     <div class="interludio-stage">
-      <video class="interludio-video" id="interludioVideo" muted autoplay playsinline preload="auto">
-        <source src="interludio-cristal.mp4" type="video/mp4">
+      <video class="interludio-video" id="interludioVideo" muted autoplay playsinline preload="none">
+        <source data-src="interludio-cristal.mp4" type="video/mp4">
       </video>
       <div class="interludio-overlay" aria-hidden="true"></div>
       <div class="interludio-bloco" id="interludioBloco">
@@ -495,7 +495,7 @@
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <img src="arrazus-capa.png" alt="Site da Arrazus, clínica de estética avançada">
+            <img src="arrazus-capa-otimizado.webp" alt="Site da Arrazus, clínica de estética avançada" width="1100" height="504" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
             <span class="categoria">Estética avançada · site</span>
@@ -506,7 +506,7 @@
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <img src="portfolio-avanty.jpg" alt="Post para redes sociais da Avanty Seguros">
+            <img src="portfolio-avanty-otimizado.webp" alt="Post para redes sociais da Avanty Seguros" width="1000" height="750" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
             <span class="categoria">Seguros · conteúdo</span>
@@ -517,7 +517,7 @@
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <img src="portfolio-aquarela.jpg" alt="Site da Aquarela Mármores e Granitos">
+            <img src="portfolio-aquarela-otimizado.webp" alt="Site da Aquarela Mármores e Granitos" width="1000" height="560" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
             <span class="categoria">Marmoraria &amp; granito · site</span>
@@ -535,7 +535,7 @@
       <div class="sobre-grid">
         <div class="sobre-foto moldura reveal">
           <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-          <img src="foto-raphael.png" alt="Responsável pela Solution RAO" class="sobre-foto-img">
+          <img src="foto-raphael-otimizado.webp" alt="Responsável pela Solution RAO" class="sobre-foto-img" width="900" height="900" loading="lazy" decoding="async">
         </div>
         <div class="sobre-texto reveal">
           <span class="eyebrow">Quem faz</span>
@@ -564,7 +564,7 @@
 <footer class="rodape">
   <div class="container rodape-grid">
     <a href="#topo" class="marca-header">
-      <img src="logo.png" alt="Solution RAO">
+      <img src="logo-otimizado.webp" alt="Solution RAO" width="140" height="140" loading="lazy" decoding="async">
       <span>Solution <em>RAO</em></span>
     </a>
     <div class="rodape-links">
@@ -765,7 +765,40 @@
     interludioVideo.addEventListener('loadeddata', function () {
       interludioVideo.classList.add('pronta');
     }, { once: true });
-    interludioVideo.play().then(function () { interludioVideo.pause(); }).catch(function () {});
+
+    /* ===== Carregamento tardio do vídeo do interlúdio =====
+       10,6 MB — preload="none" no HTML pra não disputar banda com o
+       hero no carregamento inicial (ver <video> acima, sem src direto
+       no <source>, só data-src). Só busca o arquivo quando a seção se
+       aproxima do viewport, com margem de antecedência generosa, pra
+       já estar pronto pro scroll-scrubbing quando o usuário chegar lá.
+       Mesmo warm-up (play + pause) que o hero já fazia. */
+    var interludioCarregado = false;
+    function carregarInterludio() {
+      if (interludioCarregado) return;
+      interludioCarregado = true;
+      var fonte = interludioVideo.querySelector('source');
+      if (fonte && fonte.dataset.src) {
+        fonte.src = fonte.dataset.src;
+        interludioVideo.load();
+      }
+      interludioVideo.play().then(function () { interludioVideo.pause(); }).catch(function () {});
+    }
+
+    if ('IntersectionObserver' in window && interludioSecao) {
+      var interludioObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            carregarInterludio();
+            interludioObserver.disconnect();
+          }
+        });
+      }, { rootMargin: '0px 0px 1500px 0px' });
+      interludioObserver.observe(interludioSecao);
+    } else {
+      carregarInterludio();
+    }
+
     requestAnimationFrame(interLoop);
   }
 
