@@ -253,7 +253,11 @@
   /* ===== SERVIÇOS ===== */
   .servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
   .servico-card { background: var(--noite); padding: 48px 36px; position: relative; }
-  .servico-numero { font-family: var(--fonte-mono); font-size: 0.82rem; color: var(--aco-forte); }
+  /* ícone no lugar de numeração 01/02/03 (revisão de design 2026-08-14) —
+     os 3 serviços são ofertas paralelas, não um processo em sequência;
+     numerar sugeria uma ordem que não existe. */
+  .servico-icone { color: var(--aco-forte); display: inline-flex; }
+  .servico-icone svg { display: block; }
   .servico-card h3 { font-size: 1.3rem; margin-top: 18px; font-weight: 400; }
   .servico-card p { margin-top: 14px; color: var(--texto-suave); font-size: 0.96rem; }
   .servico-card ul { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
@@ -266,7 +270,12 @@
      e com 1 mensagem só — o vídeo forma a esfera e ela estilhaça numa
      explosão de partículas: metáfora de "ideia tomando forma".
      ===================================================== */
-  .interludio { position: relative; height: 260vh; }
+  /* altura reduzida de 260vh para 150vh (revisão de design 2026-08-14) —
+     o trecho hero+interlúdio somava ~5,6 telas de rolagem antes do
+     primeiro CTA de conteúdo, custo de atenção alto para quem chega por
+     anúncio pago. Efeito de scroll-scrubbing continua funcionando, só
+     mais curto. */
+  .interludio { position: relative; height: 150vh; }
   .interludio-stage {
     position: sticky; top: 0; height: 100vh; overflow: hidden;
     background: #000; display: flex; align-items: center; justify-content: center;
@@ -370,7 +379,7 @@
     .portfolio-grid { grid-template-columns: 1fr; }
     .sobre-grid { grid-template-columns: 1fr; }
     .secao { padding: 88px 0; }
-    .interludio { height: 200vh; }
+    .interludio { height: 120vh; }
     .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 { font-size: 1.4rem; max-width: 18ch; }
     .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { font-size: 0.92rem; }
     /* título do hero: em telas estreitas o clamp() batia no piso (2.4rem)
@@ -412,7 +421,7 @@
 
     <div class="hero-scrolly-bloco hero-scrolly-titulo" id="heroBlocoTitulo">
       <span class="eyebrow hero-scrolly-eyebrow">Solution RAO</span>
-      <h1>Um site assim para<br><em>representar seu negócio.</em></h1>
+      <h1>Um site feito para<br><em>transformar visita em cliente.</em></h1>
       <div class="hero-scrolly-titulo-extra">
         <p>Sites, conteúdo para redes sociais e tráfego pago — conduzidos por uma só pessoa, do briefing ao resultado.</p>
         <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
@@ -455,7 +464,7 @@
       <div class="servicos-grid reveal">
         <div class="servico-card moldura">
           <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-          <span class="servico-numero">01</span>
+          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><circle cx="6.3" cy="6.5" r="0.5" fill="currentColor" stroke="none"/><circle cx="8.6" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></span>
           <h3>Criação &amp; edição de site</h3>
           <p>Site novo do zero ou reforma de um site que já existe — desenhado para o seu negócio, não montado a partir de um template genérico.</p>
           <ul>
@@ -466,7 +475,7 @@
         </div>
         <div class="servico-card moldura">
           <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-          <span class="servico-numero">02</span>
+          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="14" height="14" rx="1.5"/><path d="M3 13V5.5A1.5 1.5 0 0 1 4.5 4H17"/></svg></span>
           <h3>Criação de posts</h3>
           <p>Conteúdo para redes sociais com identidade visual consistente — sem parecer que foi feito às pressas ou copiado de um concorrente.</p>
           <ul>
@@ -477,7 +486,7 @@
         </div>
         <div class="servico-card moldura">
           <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-          <span class="servico-numero">03</span>
+          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.8"/><circle cx="12" cy="12" r="0.7" fill="currentColor" stroke="none"/></svg></span>
           <h3>Tráfego pago</h3>
           <p>Anúncios no Meta e no Google configurados e otimizados para trazer gente que realmente pode virar cliente — não só curtidas.</p>
           <ul>
