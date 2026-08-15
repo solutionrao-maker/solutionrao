@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) — carregado sob demanda por consent.js, só após
+     consentimento (Google Consent Mode, modo Basic). Ver rodapé da página
+     pra a lógica de inicialização e o banner de cookies. -->
+<script src="/consent.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site, posts e tráfego pago para clínicas de estética | Solution RAO</title>
+<meta name="description" content="Site, conteúdo para redes sociais e anúncios feitos sob medida para clínicas de estética — pra parar de perder agendamento pra concorrente que só aparece primeiro no Google.">
+
+<link rel="canonical" href="https://www.solutionrao.com.br/estetica/">
+
+<link rel="preload" as="image" href="/hero/frames/frame-001.webp" media="(min-width: 861px)" fetchpriority="high">
+<link rel="preload" as="image" href="/hero/frames-mobile/frame-001.webp" media="(max-width: 860px)" fetchpriority="high">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Solution RAO">
+<meta property="og:url" content="https://www.solutionrao.com.br/estetica/">
+<meta property="og:title" content="Solution RAO | Site, Posts e Tráfego Pago para Clínicas de Estética">
+<meta property="og:description" content="Site, conteúdo para redes sociais e anúncios feitos sob medida para clínicas de estética — pra sua agenda não depender só de indicação.">
+<meta property="og:image" content="https://www.solutionrao.com.br/hero/clinica-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Solution RAO | Site, Posts e Tráfego Pago para Clínicas de Estética">
+<meta name="twitter:description" content="Site, conteúdo para redes sociais e anúncios feitos sob medida para clínicas de estética.">
+<meta name="twitter:image" content="https://www.solutionrao.com.br/hero/clinica-og.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Marketing digital e criação de site para clínicas de estética",
+  "provider": {
+    "@type": "Organization",
+    "name": "Solution RAO",
+    "url": "https://www.solutionrao.com.br/"
+  },
+  "areaServed": "BR",
+  "description": "Criação de site, conteúdo para redes sociais e tráfego pago voltados a clínicas de estética."
+}
+</script>
+
+<!--
+  Página de nicho — clínicas de estética. Mesma base visual/técnica do
+  site-institucional/index.html (herda CSS e scripts, ver comentários lá
+  pras decisões de design). Caminhos de asset são absolutos (/arquivo)
+  porque essa página vive uma pasta abaixo da raiz. Pensada pra receber
+  tráfego pago segmentado (Google/Meta) direto em /estetica, sem misturar
+  com a home genérica.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --noite: #05070E;
+    --noite-alt: #0D111C;
+    --painel: #12161F;
+    --aco: #3A5CE0;
+    --aco-forte: #6C8CFF;
+    --platina: #C7CEDC;
+    --texto: #F2F4F9;
+    --texto-suave: #8E9AB2;
+    --linha: rgba(199, 206, 220, 0.14);
+    --fonte-titulo: 'Newsreader', Georgia, serif;
+    --fonte-corpo: 'Space Grotesk', -apple-system, sans-serif;
+    --fonte-mono: 'Space Mono', 'Courier New', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--noite); color: var(--texto);
+    font-family: var(--fonte-corpo); font-weight: 300; line-height: 1.7;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 400; line-height: 1.12; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    font-family: var(--fonte-mono); font-size: 0.74rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--aco-forte);
+  }
+  .regua { width: 40px; height: 1px; background: var(--aco); margin: 20px 0; border: none; }
+  .regua.centro { margin: 20px auto; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  .moldura { position: relative; }
+  .moldura .canto {
+    position: absolute; width: 18px; height: 18px;
+    border-style: solid; opacity: 0.8; transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+  }
+  .moldura:hover .canto { opacity: 1; width: 24px; height: 24px; }
+  .moldura .canto-tl { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; border-color: var(--platina); }
+  .moldura .canto-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; border-color: var(--platina); }
+  .moldura .canto-tr { top: -1px; right: -1px; border-width: 1.5px 1.5px 0 0; border-color: var(--aco-forte); }
+  .moldura .canto-bl { bottom: -1px; left: -1px; border-width: 0 0 1.5px 1.5px; border-color: var(--aco-forte); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 32px; border: 1px solid var(--aco-forte);
+    font-size: 0.82rem; letter-spacing: 0.06em; color: var(--texto);
+    background: transparent; cursor: pointer; font-family: var(--fonte-corpo); font-weight: 500;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  }
+  .btn:hover { background: rgba(108,140,255,0.12); transform: translateY(-1px); }
+  .btn-solido { background: var(--aco); border-color: var(--aco); color: #fff; }
+  .btn-solido:hover { background: var(--aco-forte); border-color: var(--aco-forte); }
+
+  .cabecalho {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 40px; transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .cabecalho.rolado {
+    background: rgba(5, 7, 14, 0.88); backdrop-filter: blur(10px);
+    padding: 14px 40px; border-bottom: 1px solid var(--linha);
+  }
+  .marca-header { display: flex; align-items: center; gap: 12px; }
+  .marca-header img { width: 34px; height: 34px; border-radius: 8px; }
+  .marca-header span {
+    font-family: var(--fonte-corpo); font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+  }
+  .marca-header span em {
+    font-style: normal;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .menu-principal { display: flex; gap: 36px; list-style: none; }
+  .menu-principal a {
+    font-size: 0.82rem; letter-spacing: 0.04em; color: var(--texto-suave); transition: color 0.25s ease;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  }
+  .menu-principal a:hover { color: var(--texto); }
+  .btn-header { padding: 10px 22px; font-size: 0.76rem; }
+  .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+  .menu-toggle span { width: 22px; height: 1px; background: var(--texto); }
+
+  /* ===== HERO — scrollytelling (vídeo preso à rolagem) =====
+     currentTime do vídeo é amarrado ao progresso do scroll (ver JS) —
+     no repouso (topo da página) mostra o primeiro frame; rolar o mouse
+     avança o vídeo quadro a quadro. Mesma técnica do site institucional
+     principal, agora com o vídeo e poster específicos da clínica. */
+  .hero-scrolly { position: relative; height: 300vh; }
+  .hero-scrolly.reduzido { height: 100vh; min-height: 640px; }
+  .hero-scrolly-stage {
+    position: sticky; top: 0; height: 100vh; width: 100%;
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+    background: var(--noite); perspective: 1400px;
+  }
+  .hero-scrolly.reduzido .hero-scrolly-stage { position: relative; }
+  .hero-scrolly-video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    will-change: transform; transform-origin: 50% 50%;
+  }
+  .hero-scrolly-overlay {
+    position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    background: linear-gradient(to bottom, rgba(5,7,14,0.82) 0%, rgba(5,7,14,0.58) 32%, rgba(5,7,14,0.6) 66%, rgba(5,7,14,0.88) 100%);
+  }
+  .hero-scrolly-bloco {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 24px; opacity: 0; pointer-events: none; color: var(--texto);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.85);
+  }
+  .hero-scrolly-bloco .btn { pointer-events: auto; }
+  .hero-scrolly-titulo, .hero-scrolly-cta { align-items: center; text-align: center; }
+  .hero-scrolly-titulo h1 {
+    font-family: var(--fonte-titulo); font-weight: 500;
+    font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -0.01em;
+  }
+  .hero-scrolly-titulo h1 em {
+    font-style: italic; font-weight: 600;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-scrolly-eyebrow { margin-top: 18px; }
+  .hero-scrolly-titulo-extra { display: none; }
+  .hero-scrolly-titulo-extra p { margin-top: 22px; font-size: clamp(1.05rem, 2.2vw, 1.3rem); max-width: 34ch; text-wrap: balance; color: rgba(242,244,249,0.9); }
+  .hero-scrolly-titulo-extra .btn { margin-top: 28px; }
+  .hero-scrolly.reduzido .hero-scrolly-titulo-extra { display: flex; flex-direction: column; align-items: center; }
+  .hero-scrolly.reduzido .hero-scrolly-msg1,
+  .hero-scrolly.reduzido .hero-scrolly-msg2,
+  .hero-scrolly.reduzido .hero-scrolly-cta { display: none; }
+  .hero-scrolly-msg1 { align-items: flex-start; text-align: left; }
+  .hero-scrolly-msg2 { align-items: flex-end; text-align: right; }
+  .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 {
+    font-family: var(--fonte-titulo); font-size: clamp(1.5rem, 3vw, 2.1rem); text-wrap: balance; max-width: 22ch;
+  }
+  .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { margin-top: 16px; color: rgba(242,244,249,0.9); font-size: 1rem; max-width: 40ch; }
+  .hero-scrolly-cta h2 { font-family: var(--fonte-titulo); font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+  .hero-scrolly-cta p { margin-top: 12px; color: rgba(242,244,249,0.9); max-width: 38ch; }
+  .hero-scrolly-cta .btn { margin-top: 30px; }
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    font-family: var(--fonte-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,244,249,0.85);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  .hero-scroll .linha-scroll { width: 1px; height: 32px; background: linear-gradient(var(--aco-forte), transparent); animation: scrollPulse 2.2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+  .secao { padding: 130px 0; }
+  .secao-alt { background: var(--noite-alt); }
+  .secao-cabecalho { max-width: 620px; margin-bottom: 56px; }
+  .secao-cabecalho.centro { margin-left: auto; margin-right: auto; text-align: center; }
+  .secao-cabecalho h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 8px; }
+  .secao-cabecalho p { margin-top: 20px; color: var(--texto-suave); font-size: 1.02rem; max-width: 56ch; }
+  .secao-cabecalho.centro p { margin-left: auto; margin-right: auto; }
+
+  /* ===== PROBLEMA (dores específicas da clínica de estética) =====
+     seção nova, não existe no site genérico — reaproveita a grade de
+     3 colunas dos serviços, mas com ícone de alerta, pra abrir a página
+     reconhecendo a dor de quem chegou via anúncio segmentado antes de
+     oferecer a solução. */
+  .problema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
+  .problema-card { background: var(--noite); padding: 44px 34px; position: relative; }
+  .problema-icone { color: #E0725A; display: inline-flex; }
+  .problema-icone svg { display: block; }
+  .problema-card h3 { font-size: 1.12rem; margin-top: 16px; font-weight: 400; }
+  .problema-card p { margin-top: 12px; color: var(--texto-suave); font-size: 0.92rem; }
+
+  .servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
+  .servico-card { background: var(--noite); padding: 48px 36px; position: relative; }
+  .servico-icone { color: var(--aco-forte); display: inline-flex; }
+  .servico-icone svg { display: block; }
+  .servico-card h3 { font-size: 1.3rem; margin-top: 18px; font-weight: 400; }
+  .servico-card p { margin-top: 14px; color: var(--texto-suave); font-size: 0.96rem; }
+  .servico-card ul { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .servico-card li { font-size: 0.88rem; color: var(--texto-suave); padding-left: 16px; position: relative; }
+  .servico-card li::before { content: "—"; position: absolute; left: 0; color: var(--aco); }
+
+  .interludio { position: relative; height: 150vh; }
+  .interludio-stage {
+    position: sticky; top: 0; height: 100vh; overflow: hidden;
+    background: #000; display: flex; align-items: center; justify-content: center;
+  }
+  .interludio-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .interludio-overlay {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(ellipse 620px 420px at 50% 50%, rgba(5,7,14,0.68) 0%, rgba(5,7,14,0.42) 55%, rgba(5,7,14,0.15) 78%);
+  }
+  .interludio-bloco {
+    position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 0 32px;
+    text-align: center; opacity: 0; pointer-events: none;
+  }
+  .interludio-bloco h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); text-wrap: balance; text-shadow: 0 2px 28px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.9); }
+  .interludio-bloco p { margin-top: 18px; color: rgba(242,244,249,0.92); font-size: 1.02rem; text-shadow: 0 2px 20px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.9); }
+
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .portfolio-card { padding: 4px; }
+  .portfolio-foto {
+    aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(155deg, var(--painel), var(--noite));
+    color: var(--texto-suave); font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    text-align: center; padding: 20px; overflow: hidden;
+  }
+  .portfolio-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .portfolio-info { padding: 20px 6px 4px; }
+  .portfolio-info .categoria { font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aco-forte); }
+  .portfolio-info h3 { font-size: 1.1rem; margin-top: 10px; font-weight: 400; }
+  .portfolio-info p { margin-top: 8px; color: var(--texto-suave); font-size: 0.9rem; }
+
+  /* ===== CARROSSÉIS DE EXEMPLO =====
+     Mostra os posts de verdade (não maquete) que entrariam num
+     calendário de conteúdo pra clínica de estética — cada deck rola
+     na horizontal com scroll-snap nativo, como um carrossel de feed. */
+  .carrosseis-deck + .carrosseis-deck { margin-top: 56px; }
+  .carrosseis-cabecalho { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+  .carrosseis-cabecalho h3 { font-size: 1.2rem; font-weight: 400; }
+  .carrosseis-cabecalho span { font-family: var(--fonte-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--texto-suave); }
+  .carrosseis-trilho {
+    display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px;
+    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; scrollbar-color: var(--aco) transparent;
+  }
+  .carrosseis-trilho::-webkit-scrollbar { height: 6px; }
+  .carrosseis-trilho::-webkit-scrollbar-thumb { background: var(--aco); border-radius: 3px; }
+  .carrosseis-slide {
+    position: relative; flex: 0 0 auto; width: 240px; aspect-ratio: 4/5;
+    scroll-snap-align: start; overflow: hidden; border-radius: 4px;
+    background: var(--painel);
+  }
+  .carrosseis-slide img { width: 100%; height: 100%; object-fit: cover; }
+  .carrosseis-marca {
+    position: absolute; right: 10px; bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(5,7,14,0.55); backdrop-filter: blur(4px);
+    border: 1px solid rgba(199,206,220,0.25); border-radius: 999px;
+    padding: 5px 10px 5px 5px;
+  }
+  .carrosseis-marca img { width: 18px; height: 18px; border-radius: 5px; flex: none; }
+  .carrosseis-marca span { font-family: var(--fonte-mono); font-size: 0.6rem; letter-spacing: 0.05em; color: var(--texto); white-space: nowrap; }
+  .carrosseis-dica { margin-top: 10px; font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--texto-suave); }
+
+  .sobre-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 70px; align-items: center; }
+  .sobre-foto { aspect-ratio: 4/5; padding: 4px; }
+  .sobre-foto-dentro {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(155deg, var(--painel), var(--noite));
+    color: var(--texto-suave); font-family: var(--fonte-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 24px;
+  }
+  .sobre-foto-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .sobre-texto p { color: var(--texto-suave); margin-top: 18px; font-size: 1.02rem; }
+  .sobre-assinatura { margin-top: 28px; font-family: var(--fonte-titulo); font-style: italic; color: var(--aco-forte); font-size: 1.15rem; }
+
+  .cta-final { text-align: center; }
+  .cta-final h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); text-wrap: balance; max-width: 26ch; margin: 0 auto; }
+  .cta-final h2 em {
+    font-style: italic; font-weight: 600;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .cta-final p { margin-top: 20px; color: var(--texto-suave); max-width: 46ch; margin-left: auto; margin-right: auto; }
+  .cta-final .btn { margin-top: 34px; }
+
+  .rodape { border-top: 1px solid var(--linha); padding: 48px 0; }
+  .rodape-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .rodape .marca-header span { font-size: 0.98rem; }
+  .rodape p { font-size: 0.82rem; color: var(--texto-suave); }
+  .rodape-links { display: flex; gap: 24px; }
+  .rodape-links a { font-size: 0.82rem; color: var(--texto-suave); transition: color 0.25s ease; }
+  .rodape-links a:hover { color: var(--texto); }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visivel { opacity: 1; transform: translateY(0); }
+
+  .cookie-banner {
+    position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 200;
+    max-width: 760px; margin: 0 auto;
+    background: rgba(13, 17, 28, 0.97); backdrop-filter: blur(10px);
+    border: 1px solid var(--linha); border-radius: 12px;
+    padding: 24px 28px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    transform: translateY(140%); opacity: 0; pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  .cookie-banner.visivel { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .cookie-banner-texto { flex: 1 1 320px; font-size: 0.9rem; color: var(--texto-suave); line-height: 1.6; }
+  .cookie-banner-texto a { color: var(--aco-forte); text-decoration: underline; }
+  .cookie-banner-botoes { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cookie-banner-botoes .btn { padding: 12px 26px; font-size: 0.8rem; }
+  .cookie-banner-recusar { border-color: var(--linha); }
+  .cookie-banner-recusar:hover { background: rgba(199,206,220,0.08); border-color: var(--platina); }
+
+  @media (max-width: 600px) {
+    .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
+    .cookie-banner-botoes { width: 100%; }
+    .cookie-banner-botoes .btn { flex: 1; text-align: center; justify-content: center; }
+  }
+
+  @media (max-width: 860px) {
+    .menu-principal { display: none; }
+    .btn-header { display: none; }
+    .menu-toggle { display: flex; }
+    .problema-grid { grid-template-columns: 1fr; }
+    .servicos-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .carrosseis-slide { width: 190px; }
+    .sobre-grid { grid-template-columns: 1fr; }
+    .secao { padding: 88px 0; }
+    .interludio { height: 120vh; }
+    .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 { font-size: 1.4rem; max-width: 18ch; }
+    .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { font-size: 0.92rem; }
+    .hero-scrolly-titulo h1 { font-size: clamp(1.7rem, 8.5vw, 2.4rem); max-width: 92%; }
+    .hero-scrolly-bloco { padding: 0 18px; }
+    .cta-final h2 { font-size: clamp(1.4rem, 6.5vw, 1.9rem); max-width: 94%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="cabecalho" id="cabecalho">
+  <a href="#topo" class="marca-header">
+    <img src="/logo-otimizado.webp" alt="Solution RAO" width="140" height="140">
+    <span>Solution <em>RAO</em></span>
+  </a>
+  <nav>
+    <ul class="menu-principal">
+      <li><a href="#problema">O problema</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#conteudo">Conteúdo</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn-solido btn-header" href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20para%20cl%C3%ADnicas%20de%20est%C3%A9tica%20e%20quero%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ===== HERO — scrollytelling (sequência de imagens presa à rolagem) =====
+     96 frames extraídos dos vídeos da clínica (12fps, ver /hero/frames/
+     no desktop e /hero/frames-mobile/ no celular — vídeo vertical 9:16
+     dedicado, não o horizontal cortado) em vez do <video> original —
+     nitidez maior (sem blur de compressão de vídeo) e troca de frame por
+     índice é instantânea (imagens já em cache), sem a latência/imprecisão
+     de video.currentTime seeking. O JS escolhe o conjunto de frames pela
+     largura da tela. ===== -->
+<section class="hero-scrolly" id="topo">
+  <div class="hero-scrolly-stage" id="heroScrollyStage">
+    <img class="hero-scrolly-video" id="heroScrollyFrame" src="/hero/frames/frame-001.webp" width="1280" height="720" alt="" aria-hidden="true" fetchpriority="high">
+    <div class="hero-scrolly-overlay" aria-hidden="true"></div>
+
+    <div class="hero-scrolly-bloco hero-scrolly-titulo" id="heroBlocoTitulo">
+      <span class="eyebrow hero-scrolly-eyebrow">Solution RAO para Clínicas de Estética</span>
+      <h1>Sua clínica merece parar de<br><em>viver só de indicação.</em></h1>
+      <div class="hero-scrolly-titulo-extra">
+        <p>Site, posts para redes sociais e anúncios pensados pra quem procura "clínica de estética perto de mim" — e encontra você antes do concorrente.</p>
+        <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="hero-scrolly-bloco hero-scrolly-msg1" id="heroBlocoMsg1">
+      <h2>Um site que vende procedimento, não só "sobre nós".</h2>
+      <p>Página por especialidade, antes-e-depois em destaque, botão de agendamento a um toque — pensado pra quem já está decidido a marcar um horário.</p>
+    </div>
+
+    <div class="hero-scrolly-bloco hero-scrolly-msg2" id="heroBlocoMsg2">
+      <h2>Posts e anúncios na mesma mão que criou o site.</h2>
+      <p>Conteúdo que mostra resultado sem parecer propaganda de farmácia, e campanhas segmentadas por bairro e por procedimento.</p>
+    </div>
+
+    <div class="hero-scrolly-bloco hero-scrolly-cta" id="heroBlocoCta">
+      <h2>Vamos lotar sua agenda de verdade?</h2>
+      <p>Resposta rápida, direto comigo, sem intermediário.</p>
+      <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
+    </div>
+
+    <div class="hero-scroll" id="heroScroll">
+      <span>Role para ver</span>
+      <div class="linha-scroll"></div>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <!-- ===== PROBLEMA ===== -->
+  <section class="secao" id="problema">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">O que toda clínica de estética sente</span>
+        <h2>Você não tem um problema de trabalho bem feito. Tem um problema de ser encontrada.</h2>
+        <p>Reconhece algum destes?</p>
+      </div>
+      <div class="problema-grid reveal">
+        <div class="problema-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="problema-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+          <h3>Quem busca no Google acha o concorrente primeiro</h3>
+          <p>Site lento, sem Google Meu Negócio otimizado ou sem site nenhum — cada busca perdida é um agendamento que foi parar na clínica ao lado.</p>
+        </div>
+        <div class="problema-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="problema-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/></svg></span>
+          <h3>Instagram bonito, mas sem agenda</h3>
+          <p>Postar sem estratégia gera curtida, não paciente. Sem chamada clara pra agendar, o post vira só decoração no feed.</p>
+        </div>
+        <div class="problema-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="problema-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg></span>
+          <h3>Anúncio rodando sem trazer paciente novo</h3>
+          <p>Impulsionar post não é campanha. Sem segmentação por bairro, idade e procedimento, o dinheiro vai pra quem nunca vai agendar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section class="secao secao-alt" id="servicos">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Serviços</span>
+        <h2>Três frentes, uma só responsável pela sua clínica</h2>
+        <p>Não é uma agência com vários atendentes repassando seu projeto. É uma pessoa só cuidando de tudo — do primeiro rascunho ao anúncio no ar.</p>
+      </div>
+      <div class="servicos-grid reveal">
+        <div class="servico-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><circle cx="6.3" cy="6.5" r="0.5" fill="currentColor" stroke="none"/><circle cx="8.6" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></span>
+          <h3>Site para clínica de estética</h3>
+          <p>Página por procedimento, antes-e-depois, botão de WhatsApp fixo — desenhado pra converter visita em agendamento, não só pra existir.</p>
+          <ul>
+            <li>Design sob medida, responsivo</li>
+            <li>Google Meu Negócio otimizado</li>
+            <li>Botão de agendamento sempre visível</li>
+          </ul>
+        </div>
+        <div class="servico-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="14" height="14" rx="1.5"/><path d="M3 13V5.5A1.5 1.5 0 0 1 4.5 4H17"/></svg></span>
+          <h3>Posts que geram agendamento</h3>
+          <p>Conteúdo que mostra resultado real com consentimento da paciente, calendário por procedimento e chamada clara pra marcar horário.</p>
+          <ul>
+            <li>Carrosséis de antes-e-depois</li>
+            <li>Calendário de publicação por procedimento</li>
+            <li>Tom de voz que gera confiança, não hype</li>
+          </ul>
+        </div>
+        <div class="servico-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.8"/><circle cx="12" cy="12" r="0.7" fill="currentColor" stroke="none"/></svg></span>
+          <h3>Tráfego pago por procedimento</h3>
+          <p>Campanhas segmentadas por bairro, idade e interesse em estética — cada real investido buscando paciente que realmente vai agendar.</p>
+          <ul>
+            <li>Campanhas no Meta Ads e Google Ads</li>
+            <li>Segmentação por procedimento e região</li>
+            <li>Acompanhamento de custo por agendamento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTERLÚDIO — esfera de cristal presa na tela ===== -->
+  <section class="interludio" id="interludio">
+    <div class="interludio-stage">
+      <img class="interludio-video" id="interludioFrame" src="" alt="" aria-hidden="true">
+      <div class="interludio-overlay" aria-hidden="true"></div>
+      <div class="interludio-bloco" id="interludioBloco">
+        <span class="eyebrow">Como eu trabalho</span>
+        <hr class="regua centro">
+        <h2>Uma clínica sem presença digital vira estratégia, design e campanha — sem passar por mais ninguém no meio do caminho.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFÓLIO ===== -->
+  <section class="secao" id="portfolio">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Portfólio</span>
+        <h2>Já desenhei para o universo da estética</h2>
+        <p>Trabalhos reais e projetos em desenvolvimento no segmento de estética e cosméticos.</p>
+      </div>
+      <div class="portfolio-grid reveal">
+        <div class="portfolio-card">
+          <div class="portfolio-foto moldura">
+            <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+            <img src="/arrazus-capa-otimizado.webp" alt="Site da Arrazus, clínica de estética avançada" width="1100" height="504" loading="lazy" decoding="async">
+          </div>
+          <div class="portfolio-info">
+            <span class="categoria">Estética avançada · site</span>
+            <h3>Arrazus</h3>
+            <p>Site com hero em vídeo e jornada em scroll, Brasília-DF.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-foto moldura">
+            <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+            <span>Bella Aura<br>Instituto de Estética</span>
+          </div>
+          <div class="portfolio-info">
+            <span class="categoria">Estética · projeto de site</span>
+            <h3>Bella Aura</h3>
+            <p>Proposta de site com galeria de resultados antes-e-depois.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-foto moldura">
+            <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+            <span>Vivaben<br>Instituto de Estética</span>
+          </div>
+          <div class="portfolio-info">
+            <span class="categoria">Estética · projeto de site</span>
+            <h3>Vivaben</h3>
+            <p>Site com galeria de resultados e opção de hero em partículas.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-foto moldura">
+            <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+            <span>Relpps<br>Cosméticos</span>
+          </div>
+          <div class="portfolio-info">
+            <span class="categoria">Cosméticos · loja online</span>
+            <h3>Relpps Cosméticos</h3>
+            <p>Loja online com blog de conteúdo por categoria de produto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CARROSSÉIS DE EXEMPLO ===== -->
+  <section class="secao secao-alt" id="conteudo">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Exemplos de conteúdo</span>
+        <h2>O tipo de post que entra no seu calendário</h2>
+        <p>Carrosséis reais, prontos pra Instagram — arraste pra o lado e veja a sequência completa.</p>
+      </div>
+
+      <div class="carrosseis-deck reveal">
+        <div class="carrosseis-cabecalho">
+          <h3>"Você não precisa de mais Botox."</h3>
+          <span>7 slides</span>
+        </div>
+        <div class="carrosseis-trilho">
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-botox/slide-01.webp" alt="Carrossel Botox, slide 1 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-botox/slide-02.webp" alt="Carrossel Botox, slide 2 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-botox/slide-03.webp" alt="Carrossel Botox, slide 3 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-botox/slide-04.webp" alt="Carrossel Botox, slide 4 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-botox/slide-05.webp" alt="Carrossel Botox, slide 5 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-botox/slide-06.webp" alt="Carrossel Botox, slide 6 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-botox/slide-07.webp" alt="Carrossel Botox, slide 7 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+        </div>
+        <p class="carrosseis-dica">Arraste para o lado →</p>
+      </div>
+
+      <div class="carrosseis-deck reveal">
+        <div class="carrosseis-cabecalho">
+          <h3>"Isso não é edição de foto."</h3>
+          <span>7 slides</span>
+        </div>
+        <div class="carrosseis-trilho">
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-rino/slide-01.webp" alt="Carrossel rinomodelação, slide 1 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-rino/slide-02.webp" alt="Carrossel rinomodelação, slide 2 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-rino/slide-03.webp" alt="Carrossel rinomodelação, slide 3 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-rino/slide-04.webp" alt="Carrossel rinomodelação, slide 4 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-rino/slide-05.webp" alt="Carrossel rinomodelação, slide 5 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-rino/slide-06.webp" alt="Carrossel rinomodelação, slide 6 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+          <div class="carrosseis-slide"><img src="/estetica/carrossel-rino/slide-07.webp" alt="Carrossel rinomodelação, slide 7 de 7" loading="lazy" decoding="async"><span class="carrosseis-marca"><img src="/logo-otimizado.webp" alt=""><span>Solution RAO</span></span></div>
+        </div>
+        <p class="carrosseis-dica">Arraste para o lado →</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE / CREDIBILIDADE ===== -->
+  <section class="secao" id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-foto moldura reveal">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <img src="/foto-raphael-otimizado.webp" alt="Responsável pela Solution RAO" class="sobre-foto-img" width="900" height="900" loading="lazy" decoding="async">
+        </div>
+        <div class="sobre-texto reveal">
+          <span class="eyebrow">Quem faz</span>
+          <hr class="regua">
+          <h2>Sem equipe grande, sem intermediário — só quem realmente vai cuidar da presença digital da sua clínica.</h2>
+          <p>A Solution RAO sou eu: cada site, cada post e cada campanha passam pelas minhas mãos, do primeiro rascunho até o resultado no ar. Já desenhei site e conteúdo pra negócios do universo da estética e cosméticos — entendo a rotina de agenda cheia, sazonalidade de procedimento e o peso que a prova visual (antes-e-depois) tem nessa área.</p>
+          <p class="sobre-assinatura">"Prefiro atender poucas clínicas bem do que muitas pela metade."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="secao cta-final" id="contato">
+    <div class="container">
+      <span class="eyebrow">Direto ao ponto</span>
+      <h2 style="margin-top:10px;">A clínica da esquina já tem site e anúncio no ar.<br><em>Sua agenda pode esperar mais um mês?</em></h2>
+      <p>Coloque sua clínica no digital antes que mais pacientes escolham quem já está lá.</p>
+      <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20para%20cl%C3%ADnicas%20de%20est%C3%A9tica%20e%20quero%20criar%20meu%20site." target="_blank" rel="noopener" class="btn btn-solido">Quero minha clínica no digital →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== RODAPÉ ===== -->
+<footer class="rodape">
+  <div class="container rodape-grid">
+    <a href="#topo" class="marca-header">
+      <img src="/logo-otimizado.webp" alt="Solution RAO" width="140" height="140" loading="lazy" decoding="async">
+      <span>Solution <em>RAO</em></span>
+    </a>
+    <div class="rodape-links">
+      <a href="#problema">O problema</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="/">Site institucional</a>
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/politica-de-cookies">Política de Cookies</a>
+      <a href="#" id="linkPreferenciasCookies">Preferências de cookies</a>
+    </div>
+    <p>Solution RAO — sites, conteúdo e tráfego pago para clínicas de estética.</p>
+  </div>
+</footer>
+
+<!-- ===== BANNER DE COOKIES ===== -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Preferências de cookies">
+  <p class="cookie-banner-texto">
+    Usamos cookies analíticos para entender o uso do site e melhorar sua experiência. Você pode aceitar ou recusar o uso de cookies não essenciais. Saiba mais na <a href="/politica-de-cookies">Política de Cookies</a>.
+  </p>
+  <div class="cookie-banner-botoes">
+    <button type="button" class="btn cookie-banner-recusar" id="cookieRecusar">Recusar</button>
+    <button type="button" class="btn btn-solido" id="cookieAceitar">Aceitar</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ===== Header: estado "rolado" ===== */
+  var cabecalho = document.getElementById('cabecalho');
+  window.addEventListener('scroll', function () {
+    cabecalho.classList.toggle('rolado', window.scrollY > 40);
+  });
+
+  /* ===== Menu mobile ===== */
+  var menuToggle = document.getElementById('menuToggle');
+  var menuPrincipal = document.querySelector('.menu-principal');
+  menuToggle.addEventListener('click', function () {
+    var aberto = menuPrincipal.style.display === 'flex';
+    menuPrincipal.style.cssText = aberto
+      ? ''
+      : 'display:flex; position:fixed; top:64px; left:0; right:0; flex-direction:column; gap:0; background:rgba(5,7,14,0.98); padding:20px 40px; border-bottom:1px solid var(--linha);';
+  });
+
+  /* ===== Reveal on scroll ===== */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !prefersReduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visivel'); });
+  }
+
+  /* ===== EFEITO 1 — Hero em scrollytelling (sequência de imagens) ===== */
+  var heroScrollySecao = document.getElementById('topo');
+  var heroScrollyFrame = document.getElementById('heroScrollyFrame');
+  var heroScroll = document.getElementById('heroScroll');
+  var heroBlocos = {
+    titulo: document.getElementById('heroBlocoTitulo'),
+    msg1: document.getElementById('heroBlocoMsg1'),
+    msg2: document.getElementById('heroBlocoMsg2'),
+    cta: document.getElementById('heroBlocoCta')
+  };
+  var HERO_SUAVIZACAO = 0.1;
+  var HERO_TOTAL_FRAMES = 96;
+  /* Abaixo de 861px usa o vídeo vertical (9:16) gravado específico pra
+     celular — em vez de forçar o corte do vídeo horizontal, mostra o
+     enquadramento certo pro formato da tela. */
+  var heroEhMobile = window.matchMedia && window.matchMedia('(max-width: 860px)').matches;
+  var HERO_FRAMES_PREFIXO = heroEhMobile ? '/hero/frames-mobile/frame-' : '/hero/frames/frame-';
+  var heroProgressoAlvo = 0;
+  var heroProgressoAtual = 0;
+
+  if (heroScrollyFrame) heroScrollyFrame.src = HERO_FRAMES_PREFIXO + '001.webp';
+
+  /* Preload dos 96 frames em resolução nativa (1280x720 no desktop,
+     720x1280 no mobile). Extraídos direto do vídeo pra PNG (sem perda)
+     e convertidos uma única vez pra webp qualidade 95 — evita o efeito
+     de "dupla compressão" (vídeo → jpg → webp) que borrava a pele nas
+     versões anteriores. ≈11MB no total por conjunto, mais pesado, mas
+     nítido — depois de carregados, trocar o src é leitura de cache,
+     sem flicker. */
+  var heroFramesCache = [];
+  for (var hf = 1; hf <= HERO_TOTAL_FRAMES; hf++) {
+    var numero = hf < 100 ? ('00' + hf).slice(-3) : String(hf);
+    var imgPreload = new Image();
+    imgPreload.src = HERO_FRAMES_PREFIXO + numero + '.webp';
+    heroFramesCache.push(imgPreload.src);
+  }
+
+  function faixaOpacidade(p, entradaIni, entradaFim, saidaIni, saidaFim) {
+    var entra = entradaIni == null ? 1 : Math.min(Math.max((p - entradaIni) / (entradaFim - entradaIni), 0), 1);
+    var sai = saidaIni == null ? 1 : 1 - Math.min(Math.max((p - saidaIni) / (saidaFim - saidaIni), 0), 1);
+    return Math.min(entra, sai);
+  }
+
+  function heroCalcularProgressoAlvo() {
+    var rect = heroScrollySecao.getBoundingClientRect();
+    var distanciaRolavel = rect.height - window.innerHeight;
+    if (distanciaRolavel <= 0) return 0;
+    return Math.min(Math.max(-rect.top / distanciaRolavel, 0), 1);
+  }
+
+  function heroRenderizar(p) {
+    var indice = Math.min(HERO_TOTAL_FRAMES - 1, Math.floor(p * HERO_TOTAL_FRAMES));
+    var proximoSrc = heroFramesCache[indice];
+    if (heroScrollyFrame.src !== proximoSrc) heroScrollyFrame.src = proximoSrc;
+
+    if (!prefersReduced) {
+      var rotacao = (p - 0.5) * 6;
+      var escala = 1 + p * 0.04;
+      heroScrollyFrame.style.transform = 'rotateY(' + rotacao.toFixed(2) + 'deg) scale(' + escala.toFixed(3) + ')';
+    }
+
+    var opTitulo = faixaOpacidade(p, null, null, 0.14, 0.20);
+    var opMsg1 = faixaOpacidade(p, 0.24, 0.32, 0.44, 0.52);
+    var opMsg2 = faixaOpacidade(p, 0.54, 0.62, 0.74, 0.82);
+    var opCta = faixaOpacidade(p, 0.84, 0.92, null, null);
+
+    heroBlocos.titulo.style.opacity = opTitulo;
+    heroBlocos.titulo.style.transform = 'translateY(' + ((1 - opTitulo) * -18) + 'px)';
+    heroBlocos.msg1.style.opacity = opMsg1;
+    heroBlocos.msg1.style.transform = 'translateX(' + ((1 - opMsg1) * -24) + 'px)';
+    heroBlocos.msg2.style.opacity = opMsg2;
+    heroBlocos.msg2.style.transform = 'translateX(' + ((1 - opMsg2) * 24) + 'px)';
+    heroBlocos.cta.style.opacity = opCta;
+    heroBlocos.cta.style.transform = 'translateY(' + ((1 - opCta) * 18) + 'px)';
+
+    if (heroScroll) heroScroll.style.opacity = Math.max(0, 0.75 - p * 5);
+  }
+
+  function heroLoop() {
+    heroProgressoAlvo = heroCalcularProgressoAlvo();
+    var diferenca = heroProgressoAlvo - heroProgressoAtual;
+    heroProgressoAtual += Math.abs(diferenca) < 0.0004 ? diferenca : diferenca * HERO_SUAVIZACAO;
+    heroRenderizar(heroProgressoAtual);
+    requestAnimationFrame(heroLoop);
+  }
+
+  if (heroScrollyFrame) {
+    if (prefersReduced) {
+      heroScrollySecao.classList.add('reduzido');
+      heroBlocos.titulo.style.opacity = 1;
+      if (heroScroll) heroScroll.style.display = 'none';
+    } else {
+      requestAnimationFrame(heroLoop);
+    }
+  }
+
+  /* ===== EFEITO 2 — Interlúdio (esfera de cristal, sequência de imagens) =====
+     Mesma técnica do hero: 96 frames extraídos de interludio-cristal.mp4
+     (12fps, resolução nativa, ver /interludio/frames/), trocados por
+     índice conforme o scroll. Preload só começa quando a seção se
+     aproxima do viewport (mesmo gatilho que antes carregava o .mp4),
+     pra não competir com o hero pelo carregamento inicial. */
+  var interludioSecao = document.getElementById('interludio');
+  var interludioFrame = document.getElementById('interludioFrame');
+  var interludioBloco = document.getElementById('interludioBloco');
+  var INTERLUDIO_TOTAL_FRAMES = 96;
+  var INTERLUDIO_FRAMES_PREFIXO = '/interludio/frames/frame-';
+  var interludioFramesCache = [];
+  var interProgressoAlvo = 0;
+  var interProgressoAtual = 0;
+
+  function interCalcularProgressoAlvo() {
+    if (!interludioSecao) return 0;
+    var rect = interludioSecao.getBoundingClientRect();
+    var distanciaRolavel = rect.height - window.innerHeight;
+    if (distanciaRolavel <= 0) return 0;
+    return Math.min(Math.max(-rect.top / distanciaRolavel, 0), 1);
+  }
+
+  function interRenderizar(p) {
+    if (interludioFramesCache.length) {
+      var indice = Math.min(INTERLUDIO_TOTAL_FRAMES - 1, Math.floor(p * INTERLUDIO_TOTAL_FRAMES));
+      var proximoSrc = interludioFramesCache[indice];
+      if (interludioFrame.src !== proximoSrc) interludioFrame.src = proximoSrc;
+    }
+    if (interludioBloco) {
+      var op = faixaOpacidade(p, 0.28, 0.42, 0.68, 0.84);
+      interludioBloco.style.opacity = op;
+      interludioBloco.style.transform = 'translateY(' + ((1 - op) * 16) + 'px)';
+    }
+  }
+
+  function interLoop() {
+    interProgressoAlvo = interCalcularProgressoAlvo();
+    var diferenca = interProgressoAlvo - interProgressoAtual;
+    interProgressoAtual += prefersReduced ? diferenca : (Math.abs(diferenca) < 0.0004 ? diferenca : diferenca * 0.1);
+    interRenderizar(interProgressoAtual);
+    requestAnimationFrame(interLoop);
+  }
+
+  if (interludioFrame) {
+    var interludioCarregado = false;
+    function carregarInterludio() {
+      if (interludioCarregado) return;
+      interludioCarregado = true;
+      for (var itf = 1; itf <= INTERLUDIO_TOTAL_FRAMES; itf++) {
+        var numeroInter = itf < 100 ? ('00' + itf).slice(-3) : String(itf);
+        var imgInterPreload = new Image();
+        imgInterPreload.src = INTERLUDIO_FRAMES_PREFIXO + numeroInter + '.webp';
+        interludioFramesCache.push(imgInterPreload.src);
+      }
+      interludioFrame.src = interludioFramesCache[0];
+    }
+
+    if ('IntersectionObserver' in window && interludioSecao) {
+      var interludioObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            carregarInterludio();
+            interludioObserver.disconnect();
+          }
+        });
+      }, { rootMargin: '0px 0px 1500px 0px' });
+      interludioObserver.observe(interludioSecao);
+    } else {
+      carregarInterludio();
+    }
+
+    requestAnimationFrame(interLoop);
+  }
+
+  /* ===== Banner de cookies / Consent Mode ===== */
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAceitar = document.getElementById('cookieAceitar');
+  var cookieRecusar = document.getElementById('cookieRecusar');
+  var linkPreferenciasCookies = document.getElementById('linkPreferenciasCookies');
+
+  if (window.SolutionRAOConsent && cookieBanner) {
+    window.SolutionRAOConsent.inicializar(function () {
+      cookieBanner.classList.add('visivel');
+    });
+    cookieAceitar.addEventListener('click', function () {
+      window.SolutionRAOConsent.definirPreferencia('granted');
+      cookieBanner.classList.remove('visivel');
+    });
+    cookieRecusar.addEventListener('click', function () {
+      window.SolutionRAOConsent.definirPreferencia('denied');
+      cookieBanner.classList.remove('visivel');
+    });
+    if (linkPreferenciasCookies) {
+      linkPreferenciasCookies.addEventListener('click', function (e) {
+        e.preventDefault();
+        cookieBanner.classList.add('visivel');
+      });
+    }
+  }
+
+  /* ===== Smooth scroll com offset do header fixo ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var alvo = document.querySelector(a.getAttribute('href'));
+      if (!alvo) return;
+      e.preventDefault();
+      var y = alvo.getBoundingClientRect().top + window.scrollY - 84;
+      window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
+      menuPrincipal.style.cssText = '';
+    });
+  });
+})();
+</script>
+</body>
+</html>
