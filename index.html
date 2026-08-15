@@ -166,6 +166,21 @@
   .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
   .menu-toggle span { width: 22px; height: 1px; background: var(--texto); }
 
+  /* ===== Botão de música ambiente =====
+     Desligado por padrão (navegador bloqueia autoplay com som mesmo
+     que não fosse) — só liga com clique do visitante. Mesmo padrão
+     usado em /estetica. */
+  .btn-musica {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; margin-left: 14px; flex: none;
+    border-radius: 999px; border: 1px solid var(--linha); background: rgba(18,22,31,0.5);
+    color: var(--texto-suave); cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+  .btn-musica:hover { color: var(--texto); border-color: var(--platina); }
+  .btn-musica.tocando { color: var(--aco-forte); border-color: var(--aco-forte); background: rgba(58,92,224,0.14); }
+  .btn-musica svg { width: 17px; height: 17px; display: block; }
+
   /* ===== HERO / SCROLLYTELLING =====
      Vídeo (laptop numa mesa, câmera avança até revelar um site "premium")
      preso à rolagem — a experiência de rolar A PÁGINA já demonstra o que a
@@ -413,6 +428,10 @@
     </ul>
   </nav>
   <a class="btn btn-solido btn-header" href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener">Falar no WhatsApp</a>
+  <button class="btn-musica" id="btnMusica" type="button" aria-pressed="false" aria-label="Ativar música ambiente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><line x1="16.5" y1="9" x2="21.5" y2="15"/><line x1="21.5" y1="9" x2="16.5" y2="15"/></svg>
+  </button>
+  <audio id="audioAmbiente" src="/audio/ambiente.mp3" loop preload="none"></audio>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
@@ -632,6 +651,50 @@
   "use strict";
 
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ===== Música ambiente — desligada por padrão, opt-in por clique ===== */
+  var audioAmbiente = document.getElementById('audioAmbiente');
+  var btnMusica = document.getElementById('btnMusica');
+  var ICONE_MUDO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><line x1="16.5" y1="9" x2="21.5" y2="15"/><line x1="21.5" y1="9" x2="16.5" y2="15"/></svg>';
+  var ICONE_TOCANDO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><path d="M16 8a5 5 0 0 1 0 8"/><path d="M18.7 5.3a9 9 0 0 1 0 13.4"/></svg>';
+  if (audioAmbiente && btnMusica) {
+    audioAmbiente.volume = 0.35;
+
+    /* Liga por padrão. Navegador bloqueia autoplay com som sem gesto
+       do usuário — se bloquear, a música começa no primeiro clique,
+       toque ou tecla em qualquer lugar da página. */
+    function tentarTocar() { return audioAmbiente.play().catch(function () {}); }
+    var resultadoAutoplay = tentarTocar();
+    if (resultadoAutoplay && resultadoAutoplay.then) {
+      resultadoAutoplay.then(function () {
+        if (!audioAmbiente.paused) return;
+        function iniciarNoPrimeiroGesto() { tentarTocar(); }
+        ['pointerdown', 'keydown', 'scroll'].forEach(function (evt) {
+          document.addEventListener(evt, iniciarNoPrimeiroGesto, { once: true, passive: true });
+        });
+      });
+    }
+
+    btnMusica.addEventListener('click', function () {
+      if (audioAmbiente.paused) {
+        tentarTocar();
+      } else {
+        audioAmbiente.pause();
+      }
+    });
+    audioAmbiente.addEventListener('play', function () {
+      btnMusica.classList.add('tocando');
+      btnMusica.setAttribute('aria-pressed', 'true');
+      btnMusica.setAttribute('aria-label', 'Pausar música ambiente');
+      btnMusica.innerHTML = ICONE_TOCANDO;
+    });
+    audioAmbiente.addEventListener('pause', function () {
+      btnMusica.classList.remove('tocando');
+      btnMusica.setAttribute('aria-pressed', 'false');
+      btnMusica.setAttribute('aria-label', 'Ativar música ambiente');
+      btnMusica.innerHTML = ICONE_MUDO;
+    });
+  }
 
   /* ===== Header: estado "rolado" ===== */
   var cabecalho = document.getElementById('cabecalho');
