@@ -71,6 +71,13 @@
     --aco: #3A5CE0;
     --aco-forte: #6C8CFF;
     --platina: #C7CEDC;
+    /* Terracota sampleado da paleta real dos carrosséis de conteúdo
+       (fundos creme/pele das artes) — ponte entre o azul técnico
+       (quem constrói) e o calor humano do resultado (o que a clínica
+       entrega). Usado com moderação: ícones de dor, seção de
+       conteúdo, CTA final. */
+    --terracota: #C9835A;
+    --terracota-forte: #DDA179;
     --texto: #F2F4F9;
     --texto-suave: #8E9AB2;
     --linha: rgba(199, 206, 220, 0.14);
@@ -101,12 +108,27 @@
     * { animation: none !important; transition: none !important; }
   }
 
-  .moldura { position: relative; }
+  .moldura { position: relative; --mx: 50%; --my: 50%; }
   .moldura .canto {
     position: absolute; width: 18px; height: 18px;
     border-style: solid; opacity: 0.8; transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
   }
   .moldura:hover .canto { opacity: 1; width: 24px; height: 24px; }
+  /* ===== LUZ QUE SEGUE O CURSOR =====
+     Micro-interação sutil nos cards com moldura — um facho de luz
+     acompanha o mouse (posição via --mx/--my, atualizada por JS),
+     como se a moldura de seleção estivesse "escaneando" o conteúdo.
+     Some por completo fora do hover; não interfere no toque (mobile). */
+  .moldura::after {
+    content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: radial-gradient(260px circle at var(--mx) var(--my), rgba(199,206,220,0.14), transparent 72%);
+    opacity: 0; transition: opacity 0.5s ease;
+  }
+  .moldura:hover::after { opacity: 1; }
+  @media (hover: none) { .moldura::after { display: none; } }
+
+  .portfolio-foto img { transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .portfolio-card:hover .portfolio-foto img { transform: scale(1.045); }
   .moldura .canto-tl { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; border-color: var(--platina); }
   .moldura .canto-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; border-color: var(--platina); }
   .moldura .canto-tr { top: -1px; right: -1px; border-width: 1.5px 1.5px 0 0; border-color: var(--aco-forte); }
@@ -235,7 +257,7 @@
      oferecer a solução. */
   .problema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
   .problema-card { background: var(--noite); padding: 44px 34px; position: relative; }
-  .problema-icone { color: #E0725A; display: inline-flex; }
+  .problema-icone { color: var(--terracota); display: inline-flex; }
   .problema-icone svg { display: block; }
   .problema-card h3 { font-size: 1.12rem; margin-top: 16px; font-weight: 400; }
   .problema-card p { margin-top: 12px; color: var(--texto-suave); font-size: 0.92rem; }
@@ -311,7 +333,11 @@
   }
   .carrosseis-marca img { width: 18px; height: 18px; border-radius: 5px; flex: none; }
   .carrosseis-marca span { font-family: var(--fonte-mono); font-size: 0.6rem; letter-spacing: 0.05em; color: var(--texto); white-space: nowrap; }
-  .carrosseis-dica { margin-top: 10px; font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--texto-suave); }
+  .carrosseis-dica { margin-top: 10px; font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--terracota-forte); }
+  /* Eyebrow desta seção foge do azul padrão — é onde a página mostra
+     resultado real (fotos de pele, não interface), o acento quente
+     marca essa virada de registro. */
+  #conteudo .eyebrow { color: var(--terracota-forte); }
 
   .sobre-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 70px; align-items: center; }
   .sobre-foto { aspect-ratio: 4/5; padding: 4px; }
@@ -332,7 +358,15 @@
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
   .cta-final p { margin-top: 20px; color: var(--texto-suave); max-width: 46ch; margin-left: auto; margin-right: auto; }
-  .cta-final .btn { margin-top: 34px; }
+  /* Único botão da página com o degradê azul→terracota — fecha a
+     página na "ponte" entre o técnico (quem constrói) e o humano
+     (o resultado), em vez de repetir o azul sólido usado em todo
+     o resto da UI. */
+  .cta-final .btn {
+    margin-top: 34px; border-color: transparent;
+    background: linear-gradient(100deg, var(--aco) 0%, var(--terracota) 100%);
+  }
+  .cta-final .btn:hover { background: linear-gradient(100deg, var(--aco-forte) 0%, var(--terracota-forte) 100%); }
 
   .rodape { border-top: 1px solid var(--linha); padding: 48px 0; }
   .rodape-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
@@ -571,7 +605,7 @@
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <span>Bella Aura<br>Instituto de Estética</span>
+            <img src="/estetica/portfolio/bella-aura-capa.webp" alt="Site da Bella Aura, instituto de estética" width="900" height="675" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
             <span class="categoria">Estética · projeto de site</span>
@@ -582,7 +616,7 @@
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <span>Vivaben<br>Instituto de Estética</span>
+            <img src="/estetica/portfolio/vivaben-capa.webp" alt="Site da Vivaben, instituto de estética" width="900" height="675" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
             <span class="categoria">Estética · projeto de site</span>
@@ -593,7 +627,7 @@
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <span>Relpps<br>Cosméticos</span>
+            <img src="/estetica/portfolio/relpps-capa.webp" alt="Site da Relpps Cosméticos" width="900" height="506" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
             <span class="categoria">Cosméticos · loja online</span>
@@ -749,6 +783,30 @@
     revealEls.forEach(function (el) { el.classList.add('visivel'); });
   }
 
+  /* ===== Micro-interações de cursor (só mouse fino, sem reduced-motion) =====
+     1) Luz que segue o mouse dentro de cada card com moldura (--mx/--my).
+     2) Puxão magnético sutil nos botões sólidos, na direção do cursor. */
+  var temMousePreciso = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (temMousePreciso && !prefersReduced) {
+    document.querySelectorAll('.moldura').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      });
+    });
+
+    document.querySelectorAll('.btn-solido').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var dx = (e.clientX - r.left - r.width / 2) * 0.2;
+        var dy = (e.clientY - r.top - r.height / 2) * 0.35;
+        btn.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + (dy - 1).toFixed(1) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
+    });
+  }
+
   /* ===== EFEITO 1 — Hero em scrollytelling (sequência de imagens) ===== */
   var heroScrollySecao = document.getElementById('topo');
   var heroScrollyFrame = document.getElementById('heroScrollyFrame');
@@ -759,14 +817,12 @@
     msg2: document.getElementById('heroBlocoMsg2'),
     cta: document.getElementById('heroBlocoCta')
   };
-  var HERO_SUAVIZACAO = 0.1;
   var HERO_TOTAL_FRAMES = 96;
   /* Abaixo de 861px usa o vídeo vertical (9:16) gravado específico pra
      celular — em vez de forçar o corte do vídeo horizontal, mostra o
      enquadramento certo pro formato da tela. */
   var heroEhMobile = window.matchMedia && window.matchMedia('(max-width: 860px)').matches;
   var HERO_FRAMES_PREFIXO = heroEhMobile ? '/hero/frames-mobile/frame-' : '/hero/frames/frame-';
-  var heroProgressoAlvo = 0;
   var heroProgressoAtual = 0;
 
   if (heroScrollyFrame) heroScrollyFrame.src = HERO_FRAMES_PREFIXO + '001.webp';
@@ -828,9 +884,10 @@
   }
 
   function heroLoop() {
-    heroProgressoAlvo = heroCalcularProgressoAlvo();
-    var diferenca = heroProgressoAlvo - heroProgressoAtual;
-    heroProgressoAtual += Math.abs(diferenca) < 0.0004 ? diferenca : diferenca * HERO_SUAVIZACAO;
+    /* Sem suavização/lag: com frames discretos (imagens), atraso entre
+       o scroll e o frame mostrado dá sensação de travado/fora de
+       sincronia — diferente de vídeo, aqui o ideal é 1:1 com o mouse. */
+    heroProgressoAtual = heroCalcularProgressoAlvo();
     heroRenderizar(heroProgressoAtual);
     requestAnimationFrame(heroLoop);
   }
@@ -857,7 +914,6 @@
   var INTERLUDIO_TOTAL_FRAMES = 96;
   var INTERLUDIO_FRAMES_PREFIXO = '/interludio/frames/frame-';
   var interludioFramesCache = [];
-  var interProgressoAlvo = 0;
   var interProgressoAtual = 0;
 
   function interCalcularProgressoAlvo() {
@@ -882,9 +938,8 @@
   }
 
   function interLoop() {
-    interProgressoAlvo = interCalcularProgressoAlvo();
-    var diferenca = interProgressoAlvo - interProgressoAtual;
-    interProgressoAtual += prefersReduced ? diferenca : (Math.abs(diferenca) < 0.0004 ? diferenca : diferenca * 0.1);
+    /* Mesmo motivo do hero: sem lag, frame sincronizado 1:1 com o scroll. */
+    interProgressoAtual = interCalcularProgressoAlvo();
     interRenderizar(interProgressoAtual);
     requestAnimationFrame(interLoop);
   }
