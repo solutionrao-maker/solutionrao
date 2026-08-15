@@ -208,11 +208,13 @@
     font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -0.01em;
   }
   .hero-scrolly-titulo h1 em {
-    /* itálico de peso 600 (não 400) — traço grosso o bastante para segurar
-       o preenchimento em gradiente sem virar linha fina difícil de ler */
+    /* Era degradê com preenchimento transparente — ilegível em trechos
+       claros do vídeo. Agora azul sólido mais forte com contorno
+       platina, mesma correção aplicada em site-institucional/estetica. */
     font-style: italic; font-weight: 600;
-    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
+    color: var(--aco-forte);
+    -webkit-text-stroke: 0.6px var(--platina);
+    text-shadow: 0 0 26px rgba(58,92,224,0.55), 0 2px 24px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
   }
   .hero-scrolly-eyebrow { margin-top: 18px; }
   .hero-scrolly-titulo-extra { display: none; }

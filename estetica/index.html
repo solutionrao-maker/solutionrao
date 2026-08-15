@@ -244,8 +244,13 @@
   .hero-momento-linha2 {
     margin-top: 14px; font-family: var(--fonte-titulo); font-weight: 500; font-style: italic;
     font-size: clamp(1.9rem, 5.4vw, 3.6rem); letter-spacing: -0.01em; text-wrap: balance; max-width: 22ch;
-    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
+    /* Era degradê com preenchimento transparente (background-clip:text)
+       — legível só em trechos escuros do vídeo. Agora é azul sólido
+       mais forte, com contorno platina pra separar da imagem atrás em
+       qualquer condição de fundo. */
+    color: var(--aco-forte);
+    -webkit-text-stroke: 0.6px var(--platina);
+    text-shadow: 0 0 26px rgba(58,92,224,0.55), 0 2px 24px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
   }
   .hero-momento-linha3 {
     margin-top: 14px; font-family: var(--fonte-corpo); font-weight: 300;
