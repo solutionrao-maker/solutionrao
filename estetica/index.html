@@ -176,62 +176,103 @@
   .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
   .menu-toggle span { width: 22px; height: 1px; background: var(--texto); }
 
-  /* ===== HERO — scrollytelling (vídeo preso à rolagem) =====
-     currentTime do vídeo é amarrado ao progresso do scroll (ver JS) —
-     no repouso (topo da página) mostra o primeiro frame; rolar o mouse
-     avança o vídeo quadro a quadro. Mesma técnica do site institucional
-     principal, agora com o vídeo e poster específicos da clínica. */
-  .hero-scrolly { position: relative; height: 300vh; }
+  /* ===== Botão de música ambiente =====
+     Desligado por padrão (navegador bloqueia autoplay com som mesmo
+     que não fosse) — só liga com clique do visitante. Fica sempre
+     visível (desktop e mobile), ao lado do CTA/hambúrguer. */
+  .btn-musica {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; margin-left: 14px; flex: none;
+    border-radius: 999px; border: 1px solid var(--linha); background: rgba(18,22,31,0.5);
+    color: var(--texto-suave); cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+  .btn-musica:hover { color: var(--texto); border-color: var(--platina); }
+  .btn-musica.tocando { color: var(--aco-forte); border-color: var(--aco-forte); background: rgba(58,92,224,0.14); }
+  .btn-musica svg { width: 17px; height: 17px; display: block; }
+
+  /* ===== HERO — vídeo preso ao scroll (scrollytelling cinematográfico) =====
+     currentTime do vídeo é amarrado ao progresso do scroll dentro de um
+     wrapper de 450vh (ver JS) — o vídeo NUNCA dá play sozinho, ele só
+     "roda" enquanto o usuário rola o mouse. 5 momentos de texto entram
+     de baixo (translateY 120px→0, opacity 0→1), seguram por um trecho
+     e saem por cima (translateY 0→-100px, opacity 1→0), um de cada vez. */
+  .hero-scrolly { position: relative; height: 450vh; }
   .hero-scrolly.reduzido { height: 100vh; min-height: 640px; }
   .hero-scrolly-stage {
-    position: sticky; top: 0; height: 100vh; width: 100%;
-    overflow: hidden; display: flex; align-items: center; justify-content: center;
-    background: var(--noite); perspective: 1400px;
+    position: sticky; top: 0; height: 100vh; height: 100svh; width: 100%;
+    overflow: hidden; background: var(--noite);
   }
   .hero-scrolly.reduzido .hero-scrolly-stage { position: relative; }
   .hero-scrolly-video {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover;
-    will-change: transform; transform-origin: 50% 50%;
+    object-fit: cover; background: var(--noite);
   }
   .hero-scrolly-overlay {
     position: absolute; inset: 0; pointer-events: none; z-index: 1;
-    background: linear-gradient(to bottom, rgba(5,7,14,0.82) 0%, rgba(5,7,14,0.58) 32%, rgba(5,7,14,0.6) 66%, rgba(5,7,14,0.88) 100%);
+    background: linear-gradient(to bottom, rgba(5,7,14,0.6) 0%, rgba(5,7,14,0.32) 38%, rgba(5,7,14,0.4) 64%, rgba(5,7,14,0.82) 100%);
   }
-  .hero-scrolly-bloco {
+  .hero-momento {
     position: absolute; inset: 0; z-index: 2;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 0 24px; opacity: 0; pointer-events: none; color: var(--texto);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 0 24px; opacity: 0; pointer-events: none; color: var(--texto);
     text-shadow: 0 2px 24px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.85);
+    will-change: transform, opacity;
   }
-  .hero-scrolly-bloco .btn { pointer-events: auto; }
-  .hero-scrolly-titulo, .hero-scrolly-cta { align-items: center; text-align: center; }
-  .hero-scrolly-titulo h1 {
-    font-family: var(--fonte-titulo); font-weight: 500;
-    font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -0.01em;
+  .hero-momento .btn { pointer-events: auto; margin-top: 26px; }
+  /* Escurecimento atmosférico atrás do texto — não é um "card" (sem
+     cantos, sem contorno visível): um gradiente radial que já esmaece
+     sozinho nas bordas, só o suficiente pra garantir contraste em
+     qualquer trecho do vídeo. Sem border-radius/glow, pra não virar um
+     retângulo de vidro genérico — a moldura de cantos já é a assinatura
+     geométrica da página, esse efeito fica quieto por baixo dela. */
+  .hero-momento-texto { position: relative; display: inline-flex; flex-direction: column; padding: 20px 10px; }
+  .hero-momento-texto::before {
+    content: ""; position: absolute; inset: -22% -14%; z-index: -1;
+    background: radial-gradient(closest-side, rgba(5,7,14,0.34) 0%, rgba(5,7,14,0.16) 55%, transparent 80%);
+    filter: blur(20px);
   }
-  .hero-scrolly-titulo h1 em {
-    font-style: italic; font-weight: 600;
+  .hero-momento-linha1 {
+    font-family: var(--fonte-mono); font-size: clamp(0.8rem, 1.6vw, 0.98rem);
+    letter-spacing: 0.12em; text-transform: uppercase; color: rgba(242,244,249,0.82);
+  }
+  .hero-momento-linha2 {
+    margin-top: 14px; font-family: var(--fonte-titulo); font-weight: 500; font-style: italic;
+    font-size: clamp(1.9rem, 5.4vw, 3.6rem); letter-spacing: -0.01em; text-wrap: balance; max-width: 22ch;
     background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .hero-scrolly-eyebrow { margin-top: 18px; }
-  .hero-scrolly-titulo-extra { display: none; }
-  .hero-scrolly-titulo-extra p { margin-top: 22px; font-size: clamp(1.05rem, 2.2vw, 1.3rem); max-width: 34ch; text-wrap: balance; color: rgba(242,244,249,0.9); }
-  .hero-scrolly-titulo-extra .btn { margin-top: 28px; }
-  .hero-scrolly.reduzido .hero-scrolly-titulo-extra { display: flex; flex-direction: column; align-items: center; }
-  .hero-scrolly.reduzido .hero-scrolly-msg1,
-  .hero-scrolly.reduzido .hero-scrolly-msg2,
-  .hero-scrolly.reduzido .hero-scrolly-cta { display: none; }
-  .hero-scrolly-msg1 { align-items: flex-start; text-align: left; }
-  .hero-scrolly-msg2 { align-items: flex-end; text-align: right; }
-  .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 {
-    font-family: var(--fonte-titulo); font-size: clamp(1.5rem, 3vw, 2.1rem); text-wrap: balance; max-width: 22ch;
+  .hero-momento-linha3 {
+    margin-top: 14px; font-family: var(--fonte-corpo); font-weight: 300;
+    font-size: clamp(1rem, 2.1vw, 1.25rem); color: rgba(242,244,249,0.9); max-width: 36ch;
   }
-  .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { margin-top: 16px; color: rgba(242,244,249,0.9); font-size: 1rem; max-width: 40ch; }
-  .hero-scrolly-cta h2 { font-family: var(--fonte-titulo); font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
-  .hero-scrolly-cta p { margin-top: 12px; color: rgba(242,244,249,0.9); max-width: 38ch; }
-  .hero-scrolly-cta .btn { margin-top: 30px; }
+  .hero-momento-marca {
+    margin-top: 32px; font-family: var(--fonte-mono); font-size: 0.8rem;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--aco-forte);
+  }
+  .hero-momento-marca span {
+    display: block; margin-top: 8px; font-family: var(--fonte-corpo); font-weight: 300;
+    font-size: 0.92rem; letter-spacing: 0.01em; text-transform: none; color: var(--texto-suave);
+  }
+  /* Momentos alternam de lado (esquerda/direita) em vez de ficarem
+     sempre centralizados — texto "entra e fica" na lateral, só o
+     momento final (CTA) fecha centralizado. */
+  .hero-momento-esq { align-items: flex-start; text-align: left; padding-left: 9vw; padding-right: 9vw; }
+  .hero-momento-dir { align-items: flex-end; text-align: right; padding-left: 9vw; padding-right: 9vw; }
+  .hero-momento-esq .hero-momento-linha2, .hero-momento-dir .hero-momento-linha2 { max-width: 15ch; }
+  .hero-scrolly.reduzido .hero-momento { display: none; }
+  .hero-scrolly.reduzido #heroMomento1 { display: flex; opacity: 1; transform: none; }
+
+  /* ===== Barra de progresso do scroll do hero ===== */
+  .hero-progresso {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 3px; z-index: 4;
+    background: rgba(199,206,220,0.14);
+  }
+  .hero-progresso-preenchimento {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--aco) 0%, var(--aco-forte) 60%, var(--platina) 100%);
+  }
+  .hero-scrolly.reduzido .hero-progresso { display: none; }
   .hero-scroll {
     position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
     z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -415,10 +456,12 @@
     .sobre-grid { grid-template-columns: 1fr; }
     .secao { padding: 88px 0; }
     .interludio { height: 120vh; }
-    .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 { font-size: 1.4rem; max-width: 18ch; }
-    .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { font-size: 0.92rem; }
-    .hero-scrolly-titulo h1 { font-size: clamp(1.7rem, 8.5vw, 2.4rem); max-width: 92%; }
-    .hero-scrolly-bloco { padding: 0 18px; }
+    .hero-scrolly { height: 400vh; }
+    .hero-momento { padding: 0 18px; }
+    .hero-momento-esq, .hero-momento-dir { align-items: center; text-align: center; padding-left: 18px; padding-right: 18px; }
+    .hero-momento-linha2 { font-size: clamp(1.6rem, 8vw, 2.2rem); max-width: 94%; }
+    .hero-momento-esq .hero-momento-linha2, .hero-momento-dir .hero-momento-linha2 { max-width: 94%; }
+    .hero-momento-linha3 { font-size: 0.95rem; max-width: 94%; }
     .cta-final h2 { font-size: clamp(1.4rem, 6.5vw, 1.9rem); max-width: 94%; }
   }
 </style>
@@ -442,46 +485,67 @@
     </ul>
   </nav>
   <a class="btn btn-solido btn-header" href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20para%20cl%C3%ADnicas%20de%20est%C3%A9tica%20e%20quero%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
+  <button class="btn-musica" id="btnMusica" type="button" aria-pressed="false" aria-label="Ativar música ambiente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><line x1="16.5" y1="9" x2="21.5" y2="15"/><line x1="21.5" y1="9" x2="16.5" y2="15"/></svg>
+  </button>
+  <audio id="audioAmbiente" src="/estetica/audio/ambiente.mp3" loop preload="none"></audio>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
-<!-- ===== HERO — scrollytelling (sequência de imagens presa à rolagem) =====
-     96 frames extraídos dos vídeos da clínica (12fps, ver /hero/frames/
-     no desktop e /hero/frames-mobile/ no celular — vídeo vertical 9:16
-     dedicado, não o horizontal cortado) em vez do <video> original —
-     nitidez maior (sem blur de compressão de vídeo) e troca de frame por
-     índice é instantânea (imagens já em cache), sem a latência/imprecisão
-     de video.currentTime seeking. O JS escolhe o conjunto de frames pela
-     largura da tela. ===== -->
+<!-- ===== HERO — vídeo controlado pelo scroll (450vh) =====
+     Wrapper de 450vh com estágio sticky de 100vh dentro — o vídeo NUNCA
+     dá autoplay, o JS liga currentTime ao progresso do scroll (fila de
+     1 seek por vez, ver criarBuscadorDeVideo). 5 momentos de texto
+     entram/saem em sincronia com o mesmo progresso. Abaixo de 861px
+     troca pro vídeo vertical (hero-clinica-mobile.mp4) via <source
+     media>, sem precisar de JS pra decidir a fonte. ===== -->
 <section class="hero-scrolly" id="topo">
   <div class="hero-scrolly-stage" id="heroScrollyStage">
-    <img class="hero-scrolly-video" id="heroScrollyFrame" src="/hero/frames/frame-001.webp" width="1280" height="720" alt="" aria-hidden="true" fetchpriority="high">
+    <video class="hero-scrolly-video" id="heroScrollyVideo" muted playsinline preload="auto" poster="/hero/frames/frame-001.webp" aria-hidden="true" fetchpriority="high">
+      <source src="/hero/hero-clinica-mobile.mp4" type="video/mp4" media="(max-width: 860px)">
+      <source src="/hero/hero-clinica.mp4" type="video/mp4">
+    </video>
     <div class="hero-scrolly-overlay" aria-hidden="true"></div>
 
-    <div class="hero-scrolly-bloco hero-scrolly-titulo" id="heroBlocoTitulo">
-      <span class="eyebrow hero-scrolly-eyebrow">Solution RAO para Clínicas de Estética</span>
-      <h1>Sua clínica merece parar de<br><em>viver só de indicação.</em></h1>
-      <div class="hero-scrolly-titulo-extra">
-        <p>Site, posts para redes sociais e anúncios pensados pra quem procura "clínica de estética perto de mim" — e encontra você antes do concorrente.</p>
-        <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
+    <div class="hero-momento hero-momento-esq" id="heroMomento1">
+      <div class="hero-momento-texto">
+        <p class="hero-momento-linha1">Sua clínica é linda.</p>
+        <p class="hero-momento-linha2">Mas sua agenda está cheia?</p>
       </div>
     </div>
 
-    <div class="hero-scrolly-bloco hero-scrolly-msg1" id="heroBlocoMsg1">
-      <h2>Um site que vende procedimento, não só "sobre nós".</h2>
-      <p>Página por especialidade, antes-e-depois em destaque, botão de agendamento a um toque — pensado pra quem já está decidido a marcar um horário.</p>
+    <div class="hero-momento hero-momento-dir" id="heroMomento2">
+      <div class="hero-momento-texto">
+        <p class="hero-momento-linha1">Não é sobre anunciar mais.</p>
+        <p class="hero-momento-linha2">É sobre aparecer para as pessoas certas.</p>
+      </div>
     </div>
 
-    <div class="hero-scrolly-bloco hero-scrolly-msg2" id="heroBlocoMsg2">
-      <h2>Posts e anúncios na mesma mão que criou o site.</h2>
-      <p>Conteúdo que mostra resultado sem parecer propaganda de farmácia, e campanhas segmentadas por bairro e por procedimento.</p>
+    <div class="hero-momento hero-momento-esq" id="heroMomento3">
+      <div class="hero-momento-texto">
+        <p class="hero-momento-linha1">Tráfego pago</p>
+        <p class="hero-momento-linha2">Para clínicas de estética</p>
+      </div>
     </div>
 
-    <div class="hero-scrolly-bloco hero-scrolly-cta" id="heroBlocoCta">
-      <h2>Vamos lotar sua agenda de verdade?</h2>
-      <p>Resposta rápida, direto comigo, sem intermediário.</p>
-      <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
+    <div class="hero-momento hero-momento-dir" id="heroMomento4">
+      <div class="hero-momento-texto">
+        <p class="hero-momento-linha1">Mais visibilidade</p>
+        <p class="hero-momento-linha2">Mais leads qualificados</p>
+        <p class="hero-momento-linha3">Mais oportunidades de agendamento</p>
+      </div>
     </div>
+
+    <div class="hero-momento" id="heroMomento5">
+      <div class="hero-momento-texto">
+        <p class="hero-momento-linha1">Transforme cliques</p>
+        <p class="hero-momento-linha2">Em oportunidades reais.</p>
+        <p class="hero-momento-marca">Solution RAO<span>Estratégia digital para clínicas.</span></p>
+      </div>
+      <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20para%20cl%C3%ADnicas%20de%20est%C3%A9tica%20e%20quero%20saber%20mais." target="_blank" rel="noopener" class="btn btn-solido">Falar comigo →</a>
+    </div>
+
+    <div class="hero-progresso" aria-hidden="true"><div class="hero-progresso-preenchimento" id="heroProgressoBarra"></div></div>
 
     <div class="hero-scroll" id="heroScroll">
       <span>Role para ver</span>
@@ -754,6 +818,51 @@
 
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ===== Música ambiente — desligada por padrão, opt-in por clique ===== */
+  var audioAmbiente = document.getElementById('audioAmbiente');
+  var btnMusica = document.getElementById('btnMusica');
+  var ICONE_MUDO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><line x1="16.5" y1="9" x2="21.5" y2="15"/><line x1="21.5" y1="9" x2="16.5" y2="15"/></svg>';
+  var ICONE_TOCANDO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><path d="M16 8a5 5 0 0 1 0 8"/><path d="M18.7 5.3a9 9 0 0 1 0 13.4"/></svg>';
+  if (audioAmbiente && btnMusica) {
+    audioAmbiente.volume = 0.35;
+
+    /* Liga por padrão. Navegador bloqueia autoplay com som sem gesto
+       do usuário — se bloquear, a música começa no primeiro clique,
+       toque ou tecla em qualquer lugar da página (sem precisar ser
+       especificamente no botão). */
+    function tentarTocar() { return audioAmbiente.play().catch(function () {}); }
+    var resultadoAutoplay = tentarTocar();
+    if (resultadoAutoplay && resultadoAutoplay.then) {
+      resultadoAutoplay.then(function () {
+        if (!audioAmbiente.paused) return;
+        function iniciarNoPrimeiroGesto() { tentarTocar(); }
+        ['pointerdown', 'keydown', 'scroll'].forEach(function (evt) {
+          document.addEventListener(evt, iniciarNoPrimeiroGesto, { once: true, passive: true });
+        });
+      });
+    }
+
+    btnMusica.addEventListener('click', function () {
+      if (audioAmbiente.paused) {
+        tentarTocar();
+      } else {
+        audioAmbiente.pause();
+      }
+    });
+    audioAmbiente.addEventListener('play', function () {
+      btnMusica.classList.add('tocando');
+      btnMusica.setAttribute('aria-pressed', 'true');
+      btnMusica.setAttribute('aria-label', 'Pausar música ambiente');
+      btnMusica.innerHTML = ICONE_TOCANDO;
+    });
+    audioAmbiente.addEventListener('pause', function () {
+      btnMusica.classList.remove('tocando');
+      btnMusica.setAttribute('aria-pressed', 'false');
+      btnMusica.setAttribute('aria-label', 'Ativar música ambiente');
+      btnMusica.innerHTML = ICONE_MUDO;
+    });
+  }
+
   /* ===== Header: estado "rolado" ===== */
   var cabecalho = document.getElementById('cabecalho');
   window.addEventListener('scroll', function () {
@@ -807,39 +916,32 @@
     });
   }
 
-  /* ===== EFEITO 1 — Hero em scrollytelling (sequência de imagens) ===== */
-  var heroScrollySecao = document.getElementById('topo');
-  var heroScrollyFrame = document.getElementById('heroScrollyFrame');
-  var heroScroll = document.getElementById('heroScroll');
-  var heroBlocos = {
-    titulo: document.getElementById('heroBlocoTitulo'),
-    msg1: document.getElementById('heroBlocoMsg1'),
-    msg2: document.getElementById('heroBlocoMsg2'),
-    cta: document.getElementById('heroBlocoCta')
-  };
-  var HERO_TOTAL_FRAMES = 96;
-  /* Abaixo de 861px usa o vídeo vertical (9:16) gravado específico pra
-     celular — em vez de forçar o corte do vídeo horizontal, mostra o
-     enquadramento certo pro formato da tela. */
-  var heroEhMobile = window.matchMedia && window.matchMedia('(max-width: 860px)').matches;
-  var HERO_FRAMES_PREFIXO = heroEhMobile ? '/hero/frames-mobile/frame-' : '/hero/frames/frame-';
-  var heroProgressoAtual = 0;
-
-  if (heroScrollyFrame) heroScrollyFrame.src = HERO_FRAMES_PREFIXO + '001.webp';
-
-  /* Preload dos 96 frames em resolução nativa (1280x720 no desktop,
-     720x1280 no mobile). Extraídos direto do vídeo pra PNG (sem perda)
-     e convertidos uma única vez pra webp qualidade 95 — evita o efeito
-     de "dupla compressão" (vídeo → jpg → webp) que borrava a pele nas
-     versões anteriores. ≈11MB no total por conjunto, mais pesado, mas
-     nítido — depois de carregados, trocar o src é leitura de cache,
-     sem flicker. */
-  var heroFramesCache = [];
-  for (var hf = 1; hf <= HERO_TOTAL_FRAMES; hf++) {
-    var numero = hf < 100 ? ('00' + hf).slice(-3) : String(hf);
-    var imgPreload = new Image();
-    imgPreload.src = HERO_FRAMES_PREFIXO + numero + '.webp';
-    heroFramesCache.push(imgPreload.src);
+  /* =========================================================
+     Fila de 1 seek por vez — evita empilhar buscas mais rápido do que
+     o vídeo consegue decodificar (trava o scroll em vez de deixá-lo
+     contínuo). Libera a próxima busca assim que o navegador confirma
+     o 'seeked' anterior (sem espera fixa), pra ficar o mais próximo
+     possível de "vídeo realmente rolando". Compartilhada pelo hero e
+     pelo interlúdio.
+     ========================================================= */
+  function criarBuscadorDeVideo(video) {
+    var emAndamento = false;
+    var alvoPendente = null;
+    function buscar(tempo) {
+      if (Math.abs(video.currentTime - tempo) < 0.008) return;
+      if (emAndamento) { alvoPendente = tempo; return; }
+      emAndamento = true;
+      try { video.currentTime = tempo; } catch (e) { emAndamento = false; }
+    }
+    video.addEventListener('seeked', function () {
+      emAndamento = false;
+      if (alvoPendente !== null) {
+        var alvo = alvoPendente;
+        alvoPendente = null;
+        buscar(alvo);
+      }
+    });
+    return buscar;
   }
 
   function faixaOpacidade(p, entradaIni, entradaFim, saidaIni, saidaFim) {
@@ -848,6 +950,45 @@
     return Math.min(entra, sai);
   }
 
+  /* Curva suave (smoothstep) pro deslocamento/entrada dos textos —
+     "sem animações abruptas", como pedido. */
+  function suavizar(t) { return t * t * (3 - 2 * t); }
+
+  /* Calcula opacidade + deslocamento vertical de um "momento" de texto:
+     entra de baixo (120px → 0, opacity 0 → 1), segura, sai por cima
+     (0 → -100px, opacity 1 → 0). saidaIni null = fica visível até o fim
+     (usado só no último momento). */
+  function faixaMomento(p, entradaIni, entradaFim, saidaIni, saidaFim) {
+    if (p <= entradaIni) return { op: 0, y: 120 };
+    if (p < entradaFim) {
+      var t = suavizar((p - entradaIni) / (entradaFim - entradaIni));
+      return { op: t, y: 120 * (1 - t) };
+    }
+    if (saidaIni == null || p < saidaIni) return { op: 1, y: 0 };
+    if (p < saidaFim) {
+      var t2 = suavizar((p - saidaIni) / (saidaFim - saidaIni));
+      return { op: 1 - t2, y: -100 * t2 };
+    }
+    return { op: 0, y: -100 };
+  }
+
+  /* ===== EFEITO 1 — Hero: vídeo controlado pelo scroll + 5 momentos ===== */
+  var heroScrollySecao = document.getElementById('topo');
+  var heroScrollyVideo = document.getElementById('heroScrollyVideo');
+  var heroScroll = document.getElementById('heroScroll');
+  var heroMomentos = [
+    { el: document.getElementById('heroMomento1'), entradaIni: 0.00, entradaFim: 0.05, saidaIni: 0.14, saidaFim: 0.19 },
+    { el: document.getElementById('heroMomento2'), entradaIni: 0.21, entradaFim: 0.26, saidaIni: 0.35, saidaFim: 0.40 },
+    { el: document.getElementById('heroMomento3'), entradaIni: 0.42, entradaFim: 0.47, saidaIni: 0.56, saidaFim: 0.61 },
+    { el: document.getElementById('heroMomento4'), entradaIni: 0.63, entradaFim: 0.68, saidaIni: 0.78, saidaFim: 0.83 },
+    { el: document.getElementById('heroMomento5'), entradaIni: 0.85, entradaFim: 0.91, saidaIni: null, saidaFim: null }
+  ];
+  var heroProgressoBarra = document.getElementById('heroProgressoBarra');
+  var heroDuracao = 0;
+  var heroProgressoAtual = 0;
+  var heroVideoAlvoSuave = 0;
+  var buscarNoHero = heroScrollyVideo ? criarBuscadorDeVideo(heroScrollyVideo) : function () {};
+
   function heroCalcularProgressoAlvo() {
     var rect = heroScrollySecao.getBoundingClientRect();
     var distanciaRolavel = rect.height - window.innerHeight;
@@ -855,47 +996,47 @@
     return Math.min(Math.max(-rect.top / distanciaRolavel, 0), 1);
   }
 
-  function heroRenderizar(p) {
-    var indice = Math.min(HERO_TOTAL_FRAMES - 1, Math.floor(p * HERO_TOTAL_FRAMES));
-    var proximoSrc = heroFramesCache[indice];
-    if (heroScrollyFrame.src !== proximoSrc) heroScrollyFrame.src = proximoSrc;
+  function heroRenderizar(p, pVideo) {
+    /* Vídeo busca uma versão levemente suavizada do progresso (não o
+       valor cru) — reduz o "engasgo" de seeks bruscos e passa mais a
+       sensação de vídeo rolando de verdade em vez de saltar quadros. */
+    if (heroDuracao) buscarNoHero(pVideo * heroDuracao);
 
-    if (!prefersReduced) {
-      var rotacao = (p - 0.5) * 6;
-      var escala = 1 + p * 0.04;
-      heroScrollyFrame.style.transform = 'rotateY(' + rotacao.toFixed(2) + 'deg) scale(' + escala.toFixed(3) + ')';
-    }
+    heroMomentos.forEach(function (m) {
+      if (!m.el) return;
+      var r = faixaMomento(p, m.entradaIni, m.entradaFim, m.saidaIni, m.saidaFim);
+      m.el.style.opacity = r.op;
+      m.el.style.pointerEvents = r.op > 0.4 ? 'auto' : 'none';
+      m.el.style.transform = 'translateY(' + r.y.toFixed(1) + 'px)';
+    });
 
-    var opTitulo = faixaOpacidade(p, null, null, 0.14, 0.20);
-    var opMsg1 = faixaOpacidade(p, 0.24, 0.32, 0.44, 0.52);
-    var opMsg2 = faixaOpacidade(p, 0.54, 0.62, 0.74, 0.82);
-    var opCta = faixaOpacidade(p, 0.84, 0.92, null, null);
-
-    heroBlocos.titulo.style.opacity = opTitulo;
-    heroBlocos.titulo.style.transform = 'translateY(' + ((1 - opTitulo) * -18) + 'px)';
-    heroBlocos.msg1.style.opacity = opMsg1;
-    heroBlocos.msg1.style.transform = 'translateX(' + ((1 - opMsg1) * -24) + 'px)';
-    heroBlocos.msg2.style.opacity = opMsg2;
-    heroBlocos.msg2.style.transform = 'translateX(' + ((1 - opMsg2) * 24) + 'px)';
-    heroBlocos.cta.style.opacity = opCta;
-    heroBlocos.cta.style.transform = 'translateY(' + ((1 - opCta) * 18) + 'px)';
-
-    if (heroScroll) heroScroll.style.opacity = Math.max(0, 0.75 - p * 5);
+    if (heroScroll) heroScroll.style.opacity = Math.max(0, 0.75 - p * 8);
+    if (heroProgressoBarra) heroProgressoBarra.style.width = (p * 100).toFixed(2) + '%';
   }
 
   function heroLoop() {
-    /* Sem suavização/lag: com frames discretos (imagens), atraso entre
-       o scroll e o frame mostrado dá sensação de travado/fora de
-       sincronia — diferente de vídeo, aqui o ideal é 1:1 com o mouse. */
+    /* Texto e barra seguem o scroll 1:1 (responsivos); só o alvo do
+       vídeo recebe uma suavização rápida, suficiente pra disfarçar
+       o "degrau" entre um seek e outro sem introduzir lag perceptível. */
     heroProgressoAtual = heroCalcularProgressoAlvo();
-    heroRenderizar(heroProgressoAtual);
+    heroVideoAlvoSuave += (heroProgressoAtual - heroVideoAlvoSuave) * (prefersReduced ? 1 : 0.35);
+    heroRenderizar(heroProgressoAtual, heroVideoAlvoSuave);
     requestAnimationFrame(heroLoop);
   }
 
-  if (heroScrollyFrame) {
+  if (heroScrollyVideo) {
+    function marcarDuracaoHero() { heroDuracao = heroScrollyVideo.duration || 0; }
+    if (heroScrollyVideo.readyState >= 1 && heroScrollyVideo.duration) {
+      marcarDuracaoHero();
+    } else {
+      heroScrollyVideo.addEventListener('loadedmetadata', marcarDuracaoHero);
+    }
+    /* Aquece o decodificador (play imediato + pause) sem autoplay real
+       — sem isso, o primeiro seek demora e o vídeo "pisca" preto. */
+    heroScrollyVideo.play().then(function () { heroScrollyVideo.pause(); }).catch(function () {});
+
     if (prefersReduced) {
       heroScrollySecao.classList.add('reduzido');
-      heroBlocos.titulo.style.opacity = 1;
       if (heroScroll) heroScroll.style.display = 'none';
     } else {
       requestAnimationFrame(heroLoop);
