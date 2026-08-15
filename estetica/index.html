@@ -208,6 +208,11 @@
     position: absolute; inset: 0; width: 100%; height: 100%;
     object-fit: cover; background: var(--noite);
   }
+  .hero-scrolly-video-mobile { display: none; }
+  @media (max-width: 860px) {
+    .hero-scrolly-video-desktop { display: none; }
+    .hero-scrolly-video-mobile { display: block; }
+  }
   .hero-scrolly-overlay {
     position: absolute; inset: 0; pointer-events: none; z-index: 1;
     background: linear-gradient(to bottom, rgba(5,7,14,0.6) 0%, rgba(5,7,14,0.32) 38%, rgba(5,7,14,0.4) 64%, rgba(5,7,14,0.82) 100%);
@@ -413,7 +418,7 @@
   .rodape-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
   .rodape .marca-header span { font-size: 0.98rem; }
   .rodape p { font-size: 0.82rem; color: var(--texto-suave); }
-  .rodape-links { display: flex; gap: 24px; }
+  .rodape-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
   .rodape-links a { font-size: 0.82rem; color: var(--texto-suave); transition: color 0.25s ease; }
   .rodape-links a:hover { color: var(--texto); }
 
@@ -463,6 +468,8 @@
     .hero-momento-esq .hero-momento-linha2, .hero-momento-dir .hero-momento-linha2 { max-width: 94%; }
     .hero-momento-linha3 { font-size: 0.95rem; max-width: 94%; }
     .cta-final h2 { font-size: clamp(1.4rem, 6.5vw, 1.9rem); max-width: 94%; }
+    .rodape-grid { flex-direction: column; text-align: center; }
+    .rodape-links { justify-content: center; }
   }
 </style>
 </head>
@@ -496,15 +503,19 @@
      Wrapper de 450vh com estágio sticky de 100vh dentro — o vídeo NUNCA
      dá autoplay, o JS liga currentTime ao progresso do scroll (fila de
      1 seek por vez, ver criarBuscadorDeVideo). 5 momentos de texto
-     entram/saem em sincronia com o mesmo progresso. Abaixo de 861px
-     troca pro vídeo vertical (hero-clinica-mobile.mp4) via <source
-     media>, sem precisar de JS pra decidir a fonte. ===== -->
+     entram/saem em sincronia com o mesmo progresso.
+     Mobile (≤860px) NÃO usa o <video> — iOS/Android bloqueiam ou
+     ignoram seek programático de vídeo sem gesto contínuo do usuário,
+     então o efeito simplesmente não aparecia lá. Em vez disso, usa a
+     sequência de 96 imagens já extraída em /hero/frames-mobile/ (a
+     mesma técnica que já funcionava bem antes desta página voltar a
+     usar vídeo no desktop). ===== -->
 <section class="hero-scrolly" id="topo">
   <div class="hero-scrolly-stage" id="heroScrollyStage">
-    <video class="hero-scrolly-video" id="heroScrollyVideo" muted playsinline preload="auto" poster="/hero/frames/frame-001.webp" aria-hidden="true" fetchpriority="high">
-      <source src="/hero/hero-clinica-mobile.mp4" type="video/mp4" media="(max-width: 860px)">
+    <video class="hero-scrolly-video hero-scrolly-video-desktop" id="heroScrollyVideo" muted playsinline preload="none" poster="/hero/frames/frame-001.webp" aria-hidden="true">
       <source src="/hero/hero-clinica.mp4" type="video/mp4">
     </video>
+    <img class="hero-scrolly-video hero-scrolly-video-mobile" id="heroScrollyFrameMobile" src="/hero/frames-mobile/frame-001.webp" alt="" aria-hidden="true" fetchpriority="high">
     <div class="hero-scrolly-overlay" aria-hidden="true"></div>
 
     <div class="hero-momento hero-momento-esq" id="heroMomento1">
@@ -972,9 +983,18 @@
     return { op: 0, y: -100 };
   }
 
-  /* ===== EFEITO 1 — Hero: vídeo controlado pelo scroll + 5 momentos ===== */
+  /* ===== EFEITO 1 — Hero: vídeo (desktop) ou sequência de imagens
+     (mobile) controlado pelo scroll, + 5 momentos de texto =====
+     iOS/Android bloqueiam ou ignoram seek programático de vídeo sem
+     gesto contínuo do usuário — no mobile o efeito simplesmente não
+     aparecia. Por isso o mobile usa os 96 frames já extraídos em
+     /hero/frames-mobile/ (troca de src por índice, sem depender do
+     navegador decodificar vídeo sob demanda), e só o desktop usa
+     video.currentTime de verdade. */
   var heroScrollySecao = document.getElementById('topo');
-  var heroScrollyVideo = document.getElementById('heroScrollyVideo');
+  var heroEhMobile = window.matchMedia && window.matchMedia('(max-width: 860px)').matches;
+  var heroScrollyVideo = heroEhMobile ? null : document.getElementById('heroScrollyVideo');
+  var heroScrollyFrameMobile = heroEhMobile ? document.getElementById('heroScrollyFrameMobile') : null;
   var heroScroll = document.getElementById('heroScroll');
   var heroMomentos = [
     { el: document.getElementById('heroMomento1'), entradaIni: 0.00, entradaFim: 0.05, saidaIni: 0.14, saidaFim: 0.19 },
@@ -989,6 +1009,17 @@
   var heroVideoAlvoSuave = 0;
   var buscarNoHero = heroScrollyVideo ? criarBuscadorDeVideo(heroScrollyVideo) : function () {};
 
+  var HERO_TOTAL_FRAMES_MOBILE = 96;
+  var heroFramesMobileCache = [];
+  if (heroScrollyFrameMobile) {
+    for (var hf = 1; hf <= HERO_TOTAL_FRAMES_MOBILE; hf++) {
+      var numero = hf < 100 ? ('00' + hf).slice(-3) : String(hf);
+      var imgPreload = new Image();
+      imgPreload.src = '/hero/frames-mobile/frame-' + numero + '.webp';
+      heroFramesMobileCache.push(imgPreload.src);
+    }
+  }
+
   function heroCalcularProgressoAlvo() {
     var rect = heroScrollySecao.getBoundingClientRect();
     var distanciaRolavel = rect.height - window.innerHeight;
@@ -997,10 +1028,16 @@
   }
 
   function heroRenderizar(p, pVideo) {
-    /* Vídeo busca uma versão levemente suavizada do progresso (não o
-       valor cru) — reduz o "engasgo" de seeks bruscos e passa mais a
-       sensação de vídeo rolando de verdade em vez de saltar quadros. */
-    if (heroDuracao) buscarNoHero(pVideo * heroDuracao);
+    if (heroScrollyFrameMobile) {
+      var indice = Math.min(HERO_TOTAL_FRAMES_MOBILE - 1, Math.floor(p * HERO_TOTAL_FRAMES_MOBILE));
+      var proximoSrc = heroFramesMobileCache[indice];
+      if (proximoSrc && heroScrollyFrameMobile.src !== proximoSrc) heroScrollyFrameMobile.src = proximoSrc;
+    } else if (heroDuracao) {
+      /* Vídeo busca uma versão levemente suavizada do progresso (não o
+         valor cru) — reduz o "engasgo" de seeks bruscos e passa mais a
+         sensação de vídeo rolando de verdade em vez de saltar quadros. */
+      buscarNoHero(pVideo * heroDuracao);
+    }
 
     heroMomentos.forEach(function (m) {
       if (!m.el) return;
@@ -1017,23 +1054,25 @@
   function heroLoop() {
     /* Texto e barra seguem o scroll 1:1 (responsivos); só o alvo do
        vídeo recebe uma suavização rápida, suficiente pra disfarçar
-       o "degrau" entre um seek e outro sem introduzir lag perceptível. */
+       o "degrau" entre um seek e outro sem introduzir lag perceptível.
+       No mobile (imagens) não há suavização — troca de frame é
+       instantânea, então segue 1:1 também. */
     heroProgressoAtual = heroCalcularProgressoAlvo();
     heroVideoAlvoSuave += (heroProgressoAtual - heroVideoAlvoSuave) * (prefersReduced ? 1 : 0.35);
     heroRenderizar(heroProgressoAtual, heroVideoAlvoSuave);
     requestAnimationFrame(heroLoop);
   }
 
-  if (heroScrollyVideo) {
-    function marcarDuracaoHero() { heroDuracao = heroScrollyVideo.duration || 0; }
-    if (heroScrollyVideo.readyState >= 1 && heroScrollyVideo.duration) {
-      marcarDuracaoHero();
-    } else {
+  if (heroScrollyVideo || heroScrollyFrameMobile) {
+    if (heroScrollyVideo) {
+      function marcarDuracaoHero() { heroDuracao = heroScrollyVideo.duration || 0; }
       heroScrollyVideo.addEventListener('loadedmetadata', marcarDuracaoHero);
+      heroScrollyVideo.preload = 'auto';
+      heroScrollyVideo.load();
+      /* Aquece o decodificador (play imediato + pause) sem autoplay real
+         — sem isso, o primeiro seek demora e o vídeo "pisca" preto. */
+      heroScrollyVideo.play().then(function () { heroScrollyVideo.pause(); }).catch(function () {});
     }
-    /* Aquece o decodificador (play imediato + pause) sem autoplay real
-       — sem isso, o primeiro seek demora e o vídeo "pisca" preto. */
-    heroScrollyVideo.play().then(function () { heroScrollyVideo.pause(); }).catch(function () {});
 
     if (prefersReduced) {
       heroScrollySecao.classList.add('reduzido');
