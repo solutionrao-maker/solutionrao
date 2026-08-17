@@ -84,4 +84,17 @@
       }
     }
   };
+
+  // Evento de conversão: clique em qualquer link do WhatsApp (wa.me).
+  // Só dispara se o gtag já foi carregado (usuário aceitou cookies) — ver
+  // limitação do Consent Mode no topo deste arquivo.
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (link && window.gtag) {
+      window.gtag("event", "clique_whatsapp", {
+        event_category: "engagement",
+        event_label: link.href
+      });
+    }
+  });
 })();
