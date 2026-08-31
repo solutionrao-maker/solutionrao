@@ -459,24 +459,192 @@
   .cookie-banner-recusar { border-color: var(--linha); }
   .cookie-banner-recusar:hover { background: rgba(199,206,220,0.08); border-color: var(--platina); }
 
+  /* ===== FAIXA DE INTEGRAÇÕES (LOGO STRIP) ===== */
+  .faixa-integracoes {
+    background: rgba(13, 17, 28, 0.7);
+    border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha);
+    padding: 38px 0; position: relative; overflow: hidden;
+  }
+  .faixa-integracoes-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center;
+  }
+  .integracoes-titulo {
+    font-family: var(--fonte-mono); font-size: 0.74rem; letter-spacing: 0.16em;
+    color: var(--platina); text-transform: uppercase;
+  }
+  .integracoes-grid {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 16px 28px; width: 100%;
+  }
+  .integracao-chip {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 999px;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--linha);
+    font-size: 0.82rem; font-weight: 500; color: var(--texto-suave);
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+  .integracao-chip:hover {
+    transform: translateY(-2px); border-color: var(--aco-forte);
+    background: rgba(58,92,224,0.1); color: var(--texto);
+  }
+  .integracao-chip-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--aco-forte);
+    box-shadow: 0 0 8px var(--aco-forte);
+  }
+
+  /* ===== BENTO GRID DE SOLUÇÕES & TECNOLOGIA ===== */
+  .bento-servicos {
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; margin-top: 50px;
+  }
+  .bento-card {
+    position: relative; overflow: hidden;
+    background: rgba(18, 22, 31, 0.75); backdrop-filter: blur(12px);
+    border: 1px solid var(--linha); border-radius: 18px;
+    padding: 34px 30px; display: flex; flex-direction: column; justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .bento-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(58, 92, 224, 0.45);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(58, 92, 224, 0.12);
+  }
+  .bento-card.col-8 { grid-column: span 8; }
+  .bento-card.col-4 { grid-column: span 4; }
+  .bento-card.col-6 { grid-column: span 6; }
+  .bento-card.col-12 { grid-column: span 12; }
+
+  .bento-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--fonte-mono); font-size: 0.68rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--aco-forte); margin-bottom: 14px;
+  }
+  .bento-card h3 {
+    font-size: 1.35rem; font-weight: 500; color: var(--texto); line-height: 1.25; margin-bottom: 12px;
+  }
+  .bento-card p {
+    color: var(--texto-suave); font-size: 0.92rem; line-height: 1.6; max-width: 52ch;
+  }
+
+  /* Micro-Componente: Wave Equalizer (Áudio Humanizado) */
+  .micro-wave-box {
+    margin-top: 24px; padding: 14px 18px; border-radius: 12px;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--linha);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .micro-wave-info {
+    display: flex; align-items: center; gap: 10px; font-size: 0.8rem; color: var(--platina);
+  }
+  .audio-wave-bars {
+    display: flex; align-items: center; gap: 4px; height: 24px;
+  }
+  .audio-wave-bars span {
+    width: 3px; border-radius: 99px; background: var(--aco-forte);
+    animation: waveBar 1.2s ease-in-out infinite alternate;
+  }
+  .audio-wave-bars span:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+  .audio-wave-bars span:nth-child(2) { height: 18px; animation-delay: 0.3s; }
+  .audio-wave-bars span:nth-child(3) { height: 24px; animation-delay: 0.5s; }
+  .audio-wave-bars span:nth-child(4) { height: 14px; animation-delay: 0.2s; }
+  .audio-wave-bars span:nth-child(5) { height: 20px; animation-delay: 0.4s; }
+  .audio-wave-bars span:nth-child(6) { height: 10px; animation-delay: 0.15s; }
+  @keyframes waveBar {
+    0% { transform: scaleY(0.4); opacity: 0.6; }
+    100% { transform: scaleY(1); opacity: 1; }
+  }
+
+  /* Micro-Componente: PIX Instantâneo */
+  .micro-pix-box {
+    margin-top: 22px; padding: 14px 16px; border-radius: 12px;
+    background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .micro-pix-status {
+    display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: #34d399;
+  }
+  .micro-pix-badge {
+    font-family: var(--fonte-mono); font-size: 0.68rem; padding: 4px 8px; border-radius: 6px;
+    background: rgba(16, 185, 129, 0.15); color: #6ee7b7;
+  }
+
+  /* Micro-Componente: Google Calendar Slots */
+  .micro-cal-box {
+    margin-top: 22px; display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .micro-cal-slot {
+    padding: 6px 12px; border-radius: 8px; font-size: 0.78rem; font-family: var(--fonte-mono);
+    background: rgba(255,255,255,0.04); border: 1px solid var(--linha); color: var(--platina);
+  }
+  .micro-cal-slot.reservado {
+    background: rgba(58,92,224,0.18); border-color: var(--aco-forte); color: #93c5fd;
+  }
+
+  /* Micro-Componente: Velocidade do Site */
+  .micro-speed-box {
+    margin-top: 22px; display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--linha);
+  }
+  .micro-speed-score {
+    font-size: 1.1rem; font-weight: 700; color: #10b981; font-family: var(--fonte-mono);
+  }
+
+  /* ===== SEÇÃO FAQ (ACORDEÃO INTERATIVO) ===== */
+  .faq-layout {
+    display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: flex-start;
+  }
+  .faq-sticky { position: sticky; top: 120px; }
+  .faq-lista { display: flex; flex-direction: column; gap: 14px; }
+  .faq-item {
+    border: 1px solid var(--linha); border-radius: 14px;
+    background: rgba(18, 22, 31, 0.65); backdrop-filter: blur(10px);
+    overflow: hidden; transition: border-color 0.25s ease, background 0.25s ease;
+  }
+  .faq-item:hover { border-color: rgba(199,206,220,0.3); }
+  .faq-item.aberto {
+    border-color: var(--aco-forte); background: rgba(18, 22, 31, 0.95);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .faq-pergunta {
+    width: 100%; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; background: none; border: none; cursor: pointer; text-align: left;
+    color: var(--texto); font-family: var(--fonte-corpo); font-size: 0.98rem; font-weight: 500;
+  }
+  .faq-icone {
+    width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--linha);
+    color: var(--texto-suave); font-size: 1.1rem; line-height: 1; flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  }
+  .faq-item.aberto .faq-icone {
+    transform: rotate(45deg); background: var(--aco-forte); color: #fff; border-color: var(--aco-forte);
+  }
+  .faq-resposta {
+    max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out;
+  }
+  .faq-resposta-inner {
+    padding: 0 24px 22px; color: var(--texto-suave); font-size: 0.92rem; line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .bento-card.col-8, .bento-card.col-4, .bento-card.col-6 { grid-column: span 12; }
+    .faq-layout { grid-template-columns: 1fr; gap: 36px; }
+    .faq-sticky { position: static; }
+  }
+
   @media (max-width: 600px) {
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
     .cookie-banner-botoes { width: 100%; }
     .cookie-banner-botoes .btn { flex: 1; text-align: center; justify-content: center; }
+    .bento-card { padding: 24px 20px; }
   }
 
   @media (max-width: 860px) {
     .menu-principal { display: none; }
     .btn-header { display: none; }
     .menu-toggle { display: flex; }
-    .servicos-grid { grid-template-columns: 1fr; }
     .portfolio-grid { grid-template-columns: 1fr; }
     .sobre-grid { grid-template-columns: 1fr; }
     .secao { padding: 88px 0; }
     .interludio { height: 120vh; }
-    /* título do hero: em telas estreitas o clamp() batia no piso (2.4rem)
-       e, dentro do flex centralizado, a linha "Um site assim para" ficava
-       mais larga que a tela em vez de quebrar — max-width força a quebra */
     .hero-scrolly-titulo h1 { font-size: clamp(1.7rem, 8.5vw, 2.4rem); max-width: 92%; }
     .hero-scrolly-bloco { padding: 0 18px; }
     .hero-scrolly-titulo-botoes { flex-direction: column; width: 100%; }
@@ -497,8 +665,9 @@
   </a>
   <nav>
     <ul class="menu-principal">
-      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#servicos">Soluções &amp; IA</a></li>
       <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="#contato">Contato</a></li>
@@ -618,61 +787,123 @@
   </div>
 </section>
 
+<!-- ===== FAIXA DE INTEGRAÇÕES & TECNOLOGIA OFICIAL ===== -->
+<section class="faixa-integracoes">
+  <div class="container faixa-integracoes-inner reveal">
+    <span class="integracoes-titulo">Tecnologia &amp; Integrações Nativas Homologadas</span>
+    <div class="integracoes-grid">
+      <div class="integracao-chip">
+        <span class="integracao-chip-dot"></span>
+        <span>WhatsApp Business API</span>
+      </div>
+      <div class="integracao-chip">
+        <span class="integracao-chip-dot"></span>
+        <span>Google Calendar &amp; Meet</span>
+      </div>
+      <div class="integracao-chip">
+        <span class="integracao-chip-dot"></span>
+        <span>Mercado Pago · PIX 2s</span>
+      </div>
+      <div class="integracao-chip">
+        <span class="integracao-chip-dot"></span>
+        <span>OpenAI GPT-4o &amp; Claude 3.5</span>
+      </div>
+      <div class="integracao-chip">
+        <span class="integracao-chip-dot"></span>
+        <span>Meta Ads &amp; Instagram Direct</span>
+      </div>
+      <div class="integracao-chip">
+        <span class="integracao-chip-dot"></span>
+        <span>CRM &amp; Painel em Tempo Real</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <main>
 
-  <!-- ===== SERVIÇOS ===== -->
+  <!-- ===== BENTO GRID — SOLUÇÕES & IA APLICADA ===== -->
   <section class="secao" id="servicos">
     <div class="container">
       <div class="secao-cabecalho reveal">
-        <span class="eyebrow">Serviços</span>
-        <h2>Quatro frentes, uma só responsável</h2>
-        <p>Não é uma agência com vários atendentes repassando seu projeto. É uma pessoa só cuidando de tudo — do primeiro rascunho ao robô que atende no seu WhatsApp.</p>
+        <span class="eyebrow">Soluções &amp; Tecnologia</span>
+        <h2>O ecossistema que transforma visitantes em clientes fiéis</h2>
+        <p>Não entregamos códigos isolados ou templates prontos. Construímos a infraestrutura comercial completa para sua empresa vender no piloto automático.</p>
       </div>
-      <div class="servicos-grid reveal">
-        <div class="servico-card moldura">
-          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><circle cx="6.3" cy="6.5" r="0.5" fill="currentColor" stroke="none"/><circle cx="8.6" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></span>
-          <h3>Criação &amp; edição de site</h3>
-          <p>Site novo do zero ou reforma de um site que já existe — desenhado para o seu negócio, não montado a partir de um template genérico.</p>
-          <ul>
-            <li>Design sob medida, responsivo</li>
-            <li>Textos pensados para conversão</li>
-            <li>Publicação e domínio próprio</li>
-          </ul>
+
+      <div class="bento-servicos reveal">
+        
+        <!-- Bento 1 (Grande - 8 Colunas): Agente de IA Conversacional Humanizado -->
+        <div class="bento-card col-8">
+          <div>
+            <span class="bento-tag">🟢 Inteligência Artificial Conversacional</span>
+            <h3>Agente de IA para WhatsApp &amp; Instagram (Atendimento 24/7)</h3>
+            <p>Um atendente com raciocínio avançado treinado com a base de conhecimento da sua clínica ou negócio. Atende em 3 segundos, compreende mensagens de áudio, tira dúvidas complexas e conduz o lead para a compra ou agendamento.</p>
+          </div>
+          <div class="micro-wave-box">
+            <div class="micro-wave-info">
+              <span>🎙️ Entende e transcreve áudios com empatia humana</span>
+            </div>
+            <div class="audio-wave-bars">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
         </div>
-        <div class="servico-card moldura">
-          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="14" height="14" rx="1.5"/><path d="M3 13V5.5A1.5 1.5 0 0 1 4.5 4H17"/></svg></span>
-          <h3>Criação de posts</h3>
-          <p>Conteúdo para redes sociais com identidade visual consistente — sem parecer que foi feito às pressas ou copiado de um concorrente.</p>
-          <ul>
-            <li>Carrosséis, artes e legendas</li>
-            <li>Calendário de publicação</li>
-            <li>Tom de voz da sua marca</li>
-          </ul>
+
+        <!-- Bento 2 (4 Colunas): Cobrança Automática PIX -->
+        <div class="bento-card col-4">
+          <div>
+            <span class="bento-tag">⚡ Liquidação Instantânea</span>
+            <h3>Módulo de Cobrança PIX</h3>
+            <p>Emita PIX Copia-e-Cola direto na conversa para cobrança de sinais de consultas ou procedimentos. Reconhece o pagamento em 2 segundos e envia a confirmação automática.</p>
+          </div>
+          <div class="micro-pix-box">
+            <div class="micro-pix-status">
+              <span>✅ Pago via Mercado Pago</span>
+            </div>
+            <span class="micro-pix-badge">2 segundos</span>
+          </div>
         </div>
-        <div class="servico-card moldura">
-          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.8"/><circle cx="12" cy="12" r="0.7" fill="currentColor" stroke="none"/></svg></span>
-          <h3>Tráfego pago</h3>
-          <p>Anúncios no Meta e no Google configurados e otimizados para trazer gente que realmente pode virar cliente — não só curtidas.</p>
-          <ul>
-            <li>Campanhas no Meta Ads e Google Ads</li>
-            <li>Google Meu Negócio otimizado</li>
-            <li>Acompanhamento de resultado</li>
-          </ul>
+
+        <!-- Bento 3 (4 Colunas): Sincronização Google Calendar -->
+        <div class="bento-card col-4">
+          <div>
+            <span class="bento-tag">📅 Agenda Sincronizada</span>
+            <h3>Google Calendar Integrado</h3>
+            <p>A IA consulta seus horários livres em tempo real e agenda consultas ou reuniões sem choque de horários e com envio automático de lembretes.</p>
+          </div>
+          <div class="micro-cal-box">
+            <span class="micro-cal-slot">09:30</span>
+            <span class="micro-cal-slot reservado">14:00 ✓</span>
+            <span class="micro-cal-slot">16:30</span>
+          </div>
         </div>
-        <div class="servico-card moldura">
-          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6.5" width="17" height="13" rx="2"/><path d="M8 6.5V4.5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><line x1="8" y1="12" x2="8.01" y2="12"/><line x1="16" y1="12" x2="16.01" y2="12"/><path d="M9 16c0.7 0.6 1.9 1 3 1s2.3-0.4 3-1"/></svg></span>
-          <h3>Agente de IA para WhatsApp</h3>
-          <p>Um robô que conversa com quem chega pelo site ou pelo Instagram, tira dúvida e já direciona pra venda — sem esperar você ficar disponível.</p>
-          <ul>
-            <li>Atende 24 horas, todo dia</li>
-            <li>Qualifica o lead antes de chegar até você</li>
-            <li>Nenhum contato perdido fora do horário comercial</li>
-          </ul>
+
+        <!-- Bento 4 (4 Colunas): Sites de Alta Performance -->
+        <div class="bento-card col-4">
+          <div>
+            <span class="bento-tag">💎 Autoridade &amp; Conversão</span>
+            <h3>Sites &amp; Landing Pages Premium</h3>
+            <p>Design sob medida e tecnologia ultra-rápida. Seu negócio posicionado no mais alto escalão de credibilidade para atrair os melhores clientes.</p>
+          </div>
+          <div class="micro-speed-box">
+            <span style="font-size:0.8rem; color:var(--platina);">Google PageSpeed</span>
+            <span class="micro-speed-score">99/100 ⚡</span>
+          </div>
         </div>
+
+        <!-- Bento 5 (4 Colunas): Gestão Comercial e Tráfego -->
+        <div class="bento-card col-4">
+          <div>
+            <span class="bento-tag">📈 Escala &amp; Leads</span>
+            <h3>Tráfego Pago &amp; Gestão de Leads</h3>
+            <p>Campanhas estratégicas no Meta Ads e Google Ads calibradas para trazer leads qualificados no WhatsApp com acompanhamento no painel em tempo real.</p>
+          </div>
+          <div class="micro-wave-box" style="justify-content:center;">
+            <span style="font-size:0.82rem; color:#60a5fa; font-weight:600;">📊 Funil Comercial Ativo</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -748,6 +979,100 @@
           <p>A Solution RAO sou eu: cada site, cada post e cada campanha passam pelas minhas mãos, do primeiro rascunho até o resultado no ar. Isso significa resposta rápida, decisão sem burocracia e um trabalho que reflete exatamente o que foi combinado.</p>
           <p class="sobre-assinatura">"Prefiro atender poucos negócios com excelência do que muitos pela metade. Por isso, limitamos a entrada a no máximo 2 a 3 projetos por mês para garantir dedicação exclusiva."</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DÚVIDAS FREQUENTES (FAQ INTERATIVO) ===== -->
+  <section class="secao" id="duvidas">
+    <div class="container">
+      <div class="faq-layout">
+        
+        <div class="faq-sticky reveal">
+          <span class="eyebrow">Perguntas Frequentes</span>
+          <h2 style="font-size:clamp(1.8rem,3.2vw,2.4rem); margin-top:12px;">Tudo o que você precisa saber antes de dar o próximo passo</h2>
+          <p style="margin-top:16px; color:var(--texto-suave); font-size:0.96rem; line-height:1.65;">
+            Transparência total sobre prazos, funcionamento da IA, segurança e entregas. Se ainda tiver qualquer dúvida, estou a um clique de distância no WhatsApp.
+          </p>
+          <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20servi%C3%A7os%20da%20Solution%20RAO." target="_blank" rel="noopener" class="btn" style="margin-top:28px;">Tirar Dúvida no WhatsApp →</a>
+        </div>
+
+        <div class="faq-lista reveal">
+          
+          <div class="faq-item">
+            <button class="faq-pergunta" type="button">
+              <span>Como a Inteligência Artificial funciona no dia a dia da minha empresa?</span>
+              <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">
+                Ela atende seus clientes no WhatsApp e Instagram 24 horas por dia em apenas 3 segundos. Ouve áudios de clientes com empatia, responde dúvidas técnicas com base nas informações do seu negócio, cobra sinais via PIX e reserva horários na sua agenda do Google Calendar sem choque de horários.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-pergunta" type="button">
+              <span>A IA não vai parecer aqueles menus mecânicos de "digite 1 ou 2"?</span>
+              <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">
+                De forma alguma! Nossos agentes utilizam modelos de linguagem avançados (GPT-4o e Claude 3.5 Sonnet) calibrados para um tom de voz empático, natural e elegante. E o principal: se a conversa exigir ou o cliente solicitar, a IA transfere no mesmo segundo para você ou sua equipe.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-pergunta" type="button">
+              <span>Qual é o prazo de entrega para ter o site e a IA funcionando?</span>
+              <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">
+                Nosso processo é ágil e direto comigo, sem intermediários. Em 7 a 15 dias úteis sua presença digital estará 100% no ar e seu agente de IA estará calibrado, integrado e rodando perfeitamente.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-pergunta" type="button">
+              <span>Eu ou minha equipe precisamos entender de programação ou tecnologia?</span>
+              <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">
+                Zero conhecimento técnico necessário. Toda a implantação, infraestrutura de servidores, integração de APIs e banco de dados é feita por nós. Você e sua secretária recebem um painel web super simples e intuitivo para acompanhar os atendimentos em tempo real.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-pergunta" type="button">
+              <span>Como funciona o módulo de cobrança PIX automática no WhatsApp?</span>
+              <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">
+                Conectamos de forma 100% segura com a sua conta do Mercado Pago. Durante a conversa, a IA gera o código PIX Copia-e-Cola automaticamente para o cliente pagar a consulta ou sinal. O sistema reconhece a liquidação em 2 segundos e a IA envia o comprovante de agendamento na hora.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-pergunta" type="button">
+              <span>Por que a Solution RAO é diferente de contratar uma ferramenta genérica de SaaS?</span>
+              <span class="faq-icone">+</span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">
+                Ferramentas genéricas entregam apenas uma tela vazia para você gastar dezenas de horas tentando programar sozinho. Na Solution RAO, você recebe uma solução completa "chave na mão" com design de alto padrão, acompanhamento exclusivo e suporte contínuo direto comigo.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
@@ -932,6 +1257,30 @@
       });
     }
   }
+
+  /* ===== Acordeão de Perguntas Frequentes (FAQ) ===== */
+  var faqItens = document.querySelectorAll('.faq-item');
+  faqItens.forEach(function (item) {
+    var btn = item.querySelector('.faq-pergunta');
+    var resposta = item.querySelector('.faq-resposta');
+    if (!btn || !resposta) return;
+
+    btn.addEventListener('click', function () {
+      var jaAberto = item.classList.contains('aberto');
+      
+      // Fecha outros itens para foco único
+      faqItens.forEach(function (outro) {
+        outro.classList.remove('aberto');
+        var r = outro.querySelector('.faq-resposta');
+        if (r) r.style.maxHeight = null;
+      });
+
+      if (!jaAberto) {
+        item.classList.add('aberto');
+        resposta.style.maxHeight = resposta.scrollHeight + 'px';
+      }
+    });
+  });
 
   /* ===== Smooth scroll com offset do header fixo ===== */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
