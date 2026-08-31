@@ -505,10 +505,6 @@
     </ul>
   </nav>
   <a class="btn btn-solido btn-header" href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener">Falar no WhatsApp</a>
-  <button class="btn-musica" id="btnMusica" type="button" aria-pressed="false" aria-label="Ativar música ambiente">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><line x1="16.5" y1="9" x2="21.5" y2="15"/><line x1="21.5" y1="9" x2="16.5" y2="15"/></svg>
-  </button>
-  <audio id="audioAmbiente" src="/audio/ambiente.mp3" loop preload="none"></audio>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
@@ -520,7 +516,7 @@
     <div class="hero-col-texto">
       <div class="hero-status-pill">
         <span class="hero-status-dot"></span>
-        <span>Sites Premium &amp; Automação com IA</span>
+        <span>Vagas Limitadas · Apenas 2 Projetos para este mês</span>
       </div>
 
       <h1>O Site que posiciona sua marca.<br><em>A Inteligência Artificial que fecha vendas.</em></h1>
@@ -581,13 +577,13 @@
 
           <!-- Mensagem IA 1 -->
           <div class="chat-balloon chat-balloon-out chat-msg">
-            Olá! 👋 Criamos o seu site exclusivo de alta conversão e já integramos um agente de IA no seu WhatsApp para atender seus clientes 24h por dia.
+            Olá, Sr. Raphael! 👋 Criamos o seu site exclusivo de alta conversão e já integramos um agente de IA no seu WhatsApp para atender seus clientes 24h por dia.
             <span class="chat-time">22:40 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
 
-          <!-- Mensagem IA 2 -->
+          <!-- Mensagem IA 2 (Gatilho de Escassez) -->
           <div class="chat-balloon chat-balloon-out chat-msg">
-            Temos vagas para iniciar seu projeto esta semana. Gostaria de agendar uma demonstração rápida?
+            Como o Raphael cuida pessoalmente de cada projeto, temos apenas <strong>2 vagas abertas para este mês</strong>. Gostaria de garantir uma demonstração rápida?
             <span class="chat-time">22:40 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
 
@@ -599,7 +595,7 @@
 
           <!-- Confirmação IA -->
           <div class="chat-balloon chat-balloon-out chat-msg">
-            ✅ <strong>Agendamento Confirmado!</strong> Te vejo na quinta-feira às 14h com o Raphael.
+            ✅ <strong>Agendamento Confirmado, Sr. Raphael!</strong> Sua vaga foi reservada para quinta-feira às 14h.
             <span class="chat-time">22:41 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
 
@@ -750,7 +746,7 @@
           <hr class="regua">
           <h2>Sem equipe grande, sem intermediário — só quem realmente vai cuidar do seu projeto.</h2>
           <p>A Solution RAO sou eu: cada site, cada post e cada campanha passam pelas minhas mãos, do primeiro rascunho até o resultado no ar. Isso significa resposta rápida, decisão sem burocracia e um trabalho que reflete exatamente o que foi combinado.</p>
-          <p class="sobre-assinatura">"Prefiro atender poucos negócios bem do que muitos pela metade."</p>
+          <p class="sobre-assinatura">"Prefiro atender poucos negócios com excelência do que muitos pela metade. Por isso, limitamos a entrada a no máximo 2 a 3 projetos por mês para garantir dedicação exclusiva."</p>
         </div>
       </div>
     </div>
@@ -805,49 +801,7 @@
 
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ===== Música ambiente — desligada por padrão, opt-in por clique ===== */
-  var audioAmbiente = document.getElementById('audioAmbiente');
-  var btnMusica = document.getElementById('btnMusica');
-  var ICONE_MUDO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><line x1="16.5" y1="9" x2="21.5" y2="15"/><line x1="21.5" y1="9" x2="16.5" y2="15"/></svg>';
-  var ICONE_TOCANDO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3,9 8,9 13,4 13,20 8,15 3,15"/><path d="M16 8a5 5 0 0 1 0 8"/><path d="M18.7 5.3a9 9 0 0 1 0 13.4"/></svg>';
-  if (audioAmbiente && btnMusica) {
-    audioAmbiente.volume = 0.35;
 
-    /* Liga por padrão. Navegador bloqueia autoplay com som sem gesto
-       do usuário — se bloquear, a música começa no primeiro clique,
-       toque ou tecla em qualquer lugar da página. */
-    function tentarTocar() { return audioAmbiente.play().catch(function () {}); }
-    var resultadoAutoplay = tentarTocar();
-    if (resultadoAutoplay && resultadoAutoplay.then) {
-      resultadoAutoplay.then(function () {
-        if (!audioAmbiente.paused) return;
-        function iniciarNoPrimeiroGesto() { tentarTocar(); }
-        ['pointerdown', 'keydown', 'scroll'].forEach(function (evt) {
-          document.addEventListener(evt, iniciarNoPrimeiroGesto, { once: true, passive: true });
-        });
-      });
-    }
-
-    btnMusica.addEventListener('click', function () {
-      if (audioAmbiente.paused) {
-        tentarTocar();
-      } else {
-        audioAmbiente.pause();
-      }
-    });
-    audioAmbiente.addEventListener('play', function () {
-      btnMusica.classList.add('tocando');
-      btnMusica.setAttribute('aria-pressed', 'true');
-      btnMusica.setAttribute('aria-label', 'Pausar música ambiente');
-      btnMusica.innerHTML = ICONE_TOCANDO;
-    });
-    audioAmbiente.addEventListener('pause', function () {
-      btnMusica.classList.remove('tocando');
-      btnMusica.setAttribute('aria-pressed', 'false');
-      btnMusica.setAttribute('aria-label', 'Ativar música ambiente');
-      btnMusica.innerHTML = ICONE_MUDO;
-    });
-  }
 
   /* ===== Header: estado "rolado" ===== */
   var cabecalho = document.getElementById('cabecalho');
