@@ -220,6 +220,8 @@
   .hero-col-texto h1 em {
     font-style: italic; font-weight: 600;
     color: var(--aco-forte);
+    -webkit-text-stroke: 0.6px var(--platina);
+    text-shadow: 0 0 26px rgba(58,92,224,0.55), 0 2px 24px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
     display: inline-block;
   }
   .hero-col-texto p.hero-descricao {
@@ -282,7 +284,7 @@
   .chat-body {
     padding: 20px 16px; display: flex; flex-direction: column; gap: 12px;
     background: #0b141a radial-gradient(circle at 50% 50%, rgba(32,44,51,0.4) 0%, transparent 80%);
-    font-size: 0.86rem; line-height: 1.45;
+    font-size: 0.86rem; line-height: 1.45; min-height: 380px; justify-content: flex-start;
   }
   .chat-balloon {
     max-width: 86%; padding: 10px 14px 8px; border-radius: 12px;
@@ -301,6 +303,32 @@
     float: right; margin: 4px 0 -2px 10px; display: flex; align-items: center; gap: 3px;
   }
   .chat-time svg { width: 13px; height: 13px; color: #53bdeb; }
+
+  /* Animação das mensagens aparecendo */
+  .chat-msg {
+    opacity: 0; transform: translateY(10px) scale(0.96);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+  }
+  .chat-msg.visivel {
+    display: block; opacity: 1; transform: translateY(0) scale(1);
+  }
+
+  .chat-typing-indicator {
+    align-self: flex-start; display: none; align-items: center;
+    gap: 4px; padding: 10px 14px; background: #202c33;
+    border-radius: 12px; border-bottom-left-radius: 3px;
+  }
+  .chat-typing-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #8696a0;
+    animation: typingBounce 1.4s infinite ease-in-out both;
+  }
+  .chat-typing-dot:nth-child(1) { animation-delay: -0.32s; }
+  .chat-typing-dot:nth-child(2) { animation-delay: -0.16s; }
+  @keyframes typingBounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.1); opacity: 1; background: #25d366; }
+  }
 
   .chat-footer {
     background: #202c33; padding: 10px 14px;
@@ -544,35 +572,42 @@
         </div>
 
         <!-- Mensagens Trocadas -->
-        <div class="chat-body">
+        <div class="chat-body" id="chatBody">
           <!-- Mensagem Cliente -->
-          <div class="chat-balloon chat-balloon-in">
+          <div class="chat-balloon chat-balloon-in chat-msg">
             Olá! Gostaria de saber como funciona o site com IA integrada.
             <span class="chat-time">22:40</span>
           </div>
 
           <!-- Mensagem IA 1 -->
-          <div class="chat-balloon chat-balloon-out">
+          <div class="chat-balloon chat-balloon-out chat-msg">
             Olá! 👋 Criamos o seu site exclusivo de alta conversão e já integramos um agente de IA no seu WhatsApp para atender seus clientes 24h por dia.
             <span class="chat-time">22:40 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
 
           <!-- Mensagem IA 2 -->
-          <div class="chat-balloon chat-balloon-out">
+          <div class="chat-balloon chat-balloon-out chat-msg">
             Temos vagas para iniciar seu projeto esta semana. Gostaria de agendar uma demonstração rápida?
             <span class="chat-time">22:40 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
 
           <!-- Resposta Cliente -->
-          <div class="chat-balloon chat-balloon-in">
+          <div class="chat-balloon chat-balloon-in chat-msg">
             Quero sim! Quinta às 14h é possível?
             <span class="chat-time">22:41</span>
           </div>
 
           <!-- Confirmação IA -->
-          <div class="chat-balloon chat-balloon-out">
+          <div class="chat-balloon chat-balloon-out chat-msg">
             ✅ <strong>Agendamento Confirmado!</strong> Te vejo na quinta-feira às 14h com o Raphael.
             <span class="chat-time">22:41 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+
+          <!-- Indicador de Digitação -->
+          <div class="chat-typing-indicator" id="chatTyping">
+            <span class="chat-typing-dot"></span>
+            <span class="chat-typing-dot"></span>
+            <span class="chat-typing-dot"></span>
           </div>
         </div>
 
@@ -844,6 +879,79 @@
   }
 
 
+
+  /* ===== Animação Sequencial da Conversa do WhatsApp (IA ao vivo) ===== */
+  var chatBody = document.getElementById('chatBody');
+  var chatTyping = document.getElementById('chatTyping');
+  var chatMsgs = document.querySelectorAll('.chat-msg');
+
+  if (chatBody && chatMsgs.length) {
+    function rodarSequenciaChat() {
+      // 0. Esconde todas
+      chatMsgs.forEach(function(m) {
+        m.classList.remove('visivel');
+        m.style.display = 'none';
+      });
+      if (chatTyping) chatTyping.style.display = 'none';
+
+      // 1. Mensagem 1 (Cliente)
+      setTimeout(function() {
+        if (chatMsgs[0]) {
+          chatMsgs[0].style.display = 'block';
+          setTimeout(function() { chatMsgs[0].classList.add('visivel'); }, 30);
+        }
+      }, 600);
+
+      // 2. IA digitando...
+      setTimeout(function() {
+        if (chatTyping) chatTyping.style.display = 'inline-flex';
+      }, 1600);
+
+      // 3. Mensagem 2 (IA 1)
+      setTimeout(function() {
+        if (chatTyping) chatTyping.style.display = 'none';
+        if (chatMsgs[1]) {
+          chatMsgs[1].style.display = 'block';
+          setTimeout(function() { chatMsgs[1].classList.add('visivel'); }, 30);
+        }
+      }, 2900);
+
+      // 4. Mensagem 3 (IA 2)
+      setTimeout(function() {
+        if (chatMsgs[2]) {
+          chatMsgs[2].style.display = 'block';
+          setTimeout(function() { chatMsgs[2].classList.add('visivel'); }, 30);
+        }
+      }, 4300);
+
+      // 5. Mensagem 4 (Cliente resposta)
+      setTimeout(function() {
+        if (chatMsgs[3]) {
+          chatMsgs[3].style.display = 'block';
+          setTimeout(function() { chatMsgs[3].classList.add('visivel'); }, 30);
+        }
+      }, 5900);
+
+      // 6. IA digitando confirmação...
+      setTimeout(function() {
+        if (chatTyping) chatTyping.style.display = 'inline-flex';
+      }, 7000);
+
+      // 7. Mensagem 5 (Confirmação IA)
+      setTimeout(function() {
+        if (chatTyping) chatTyping.style.display = 'none';
+        if (chatMsgs[4]) {
+          chatMsgs[4].style.display = 'block';
+          setTimeout(function() { chatMsgs[4].classList.add('visivel'); }, 30);
+        }
+      }, 8200);
+
+      // 8. Reinicia o ciclo após 9 segundos de visualização completa
+      setTimeout(rodarSequenciaChat, 17500);
+    }
+
+    rodarSequenciaChat();
+  }
 
   /* ===== Banner de cookies / Consent Mode ===== */
   var cookieBanner = document.getElementById('cookieBanner');
