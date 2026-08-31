@@ -391,22 +391,37 @@
   }
   .interludio-conteudo p {
     color: var(--texto-suave); font-size: 1.05rem; line-height: 1.65; max-width: 58ch; margin: 0 auto;
-  }loco p { margin-top: 18px; color: rgba(242,244,249,0.92); font-size: 1.02rem; text-shadow: 0 2px 20px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.9); }
-
-  /* ===== PORTFÓLIO ===== */
-  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .portfolio-card { padding: 4px; }
-  .portfolio-foto {
-    aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(155deg, var(--painel), var(--noite));
-    color: var(--texto-suave); font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
-    text-align: center; padding: 20px; overflow: hidden;
   }
-  .portfolio-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-  .portfolio-info { padding: 20px 6px 4px; }
-  .portfolio-info .categoria { font-family: var(--fonte-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aco-forte); }
-  .portfolio-info h3 { font-size: 1.1rem; margin-top: 10px; font-weight: 400; }
-  .portfolio-info p { margin-top: 8px; color: var(--texto-suave); font-size: 0.9rem; }
+
+  /* ===== PORTFÓLIO & CASES ===== */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .portfolio-card {
+    padding: 6px; background: rgba(18, 22, 31, 0.6);
+    border: 1px solid var(--linha); border-radius: 16px;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+    overflow: hidden;
+  }
+  .portfolio-card:hover {
+    transform: translateY(-5px); border-color: rgba(58, 92, 224, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(58, 92, 224, 0.15);
+  }
+  .portfolio-foto {
+    aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(155deg, var(--painel), var(--noite));
+    border-radius: 10px; overflow: hidden; position: relative;
+  }
+  .portfolio-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.6s ease; }
+  .portfolio-card:hover .portfolio-foto img { transform: scale(1.04); }
+  .portfolio-info { padding: 18px 12px 14px; }
+  .portfolio-info .categoria { font-family: var(--fonte-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--aco-forte); font-weight: 600; }
+  .portfolio-info h3 { font-size: 1.25rem; margin-top: 8px; font-weight: 600; color: #fff; }
+  .portfolio-info p { margin-top: 8px; color: var(--texto-suave); font-size: 0.88rem; line-height: 1.55; }
+  .portfolio-badge-impacto {
+    margin-top: 14px; padding: 6px 12px; border-radius: 8px;
+    background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #34d399; font-size: 0.78rem; font-family: var(--fonte-mono); font-weight: 700;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
 
   /* ===== SOBRE / CREDIBILIDADE ===== */
   .sobre-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 70px; align-items: center; }
@@ -1140,48 +1155,64 @@
     </div>
   </section>
 
-  <!-- ===== PORTFÓLIO ===== -->
+  <!-- ===== PORTFÓLIO & CASES REAIS ===== -->
   <section class="secao" id="portfolio">
     <div class="container">
       <div class="secao-cabecalho reveal">
-        <span class="eyebrow">Portfólio</span>
-        <h2>Segmentos que já atendi</h2>
-        <p>Alguns dos negócios que já passaram pela Solution RAO — provas reais, não maquete.</p>
+        <span class="eyebrow">Portfólio &amp; Cases de Sucesso</span>
+        <h2>Resultados reais para quem busca o topo do mercado</h2>
+        <p>Negócios que transformaram sua presença digital em máquinas ativas de vendas com a Solution RAO.</p>
       </div>
       <div class="portfolio-grid reveal">
+        
+        <!-- Case 1: Clínica de Estética & Saúde -->
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <img src="arrazus-capa-otimizado.webp" alt="Site da Arrazus, clínica de estética avançada" width="1100" height="504" loading="lazy" decoding="async">
+            <img src="arrazus-capa-otimizado.webp" alt="Site da Clínica de Estética com IA integrada" width="1100" height="504" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
-            <span class="categoria">Estética avançada · site</span>
-            <h3>Arrazus</h3>
-            <p>Site com hero em vídeo e jornada em scroll, Brasília-DF.</p>
+            <span class="categoria">Estética &amp; Saúde · Site + IA 24/7</span>
+            <h3>Clínica Estética &amp; Bem-Estar</h3>
+            <p>Site de luxo integrado com Agente de IA para WhatsApp. Atendimento em 3s, transcrição de mensagens de áudio e cobrança de sinal via PIX.</p>
+            <div class="portfolio-badge-impacto">
+              <span>⚡ +32 Agendamentos automáticos/mês</span>
+            </div>
           </div>
         </div>
+
+        <!-- Case 2: Avanty Seguros -->
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <img src="portfolio-avanty-otimizado.webp" alt="Post para redes sociais da Avanty Seguros" width="1000" height="750" loading="lazy" decoding="async">
+            <img src="portfolio-avanty-otimizado.webp" alt="Avanty Seguros presença digital e captação de clientes" width="1000" height="750" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
-            <span class="categoria">Seguros · conteúdo</span>
+            <span class="categoria">Seguros &amp; Benefícios · Tráfego &amp; IA</span>
             <h3>Avanty Seguros</h3>
-            <p>Identidade visual e posts para redes sociais.</p>
+            <p>Posicionamento de marca, anúncios estratégicos no Meta Ads e triagem automatizada de cotações de seguros sem perda de leads à noite.</p>
+            <div class="portfolio-badge-impacto">
+              <span>⚡ 100% dos leads qualificados em &lt; 3s</span>
+            </div>
           </div>
         </div>
+
+        <!-- Case 3: Arca dos Colchões & Varejo Premium -->
         <div class="portfolio-card">
           <div class="portfolio-foto moldura">
             <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-            <img src="portfolio-aquarela-otimizado.webp" alt="Site da Aquarela Mármores e Granitos" width="1000" height="560" loading="lazy" decoding="async">
+            <img src="portfolio-aquarela-otimizado.webp" alt="Catálogo e presença digital de alto padrão" width="1000" height="560" loading="lazy" decoding="async">
           </div>
           <div class="portfolio-info">
-            <span class="categoria">Marmoraria &amp; granito · site</span>
-            <h3>Aquarela</h3>
-            <p>Site institucional com proposta comercial digital.</p>
+            <span class="categoria">Varejo &amp; Decoração · Presença Digital</span>
+            <h3>Arca dos Colchões &amp; Aquarela</h3>
+            <p>Catálogo digital de alto padrão, proposta comercial interativa e direcionamento estratégico de clientes de alta renda para fechamento.</p>
+            <div class="portfolio-badge-impacto">
+              <span>⚡ Máxima autoridade e conversão direta</span>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
