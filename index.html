@@ -732,6 +732,14 @@
   var interProgressoAlvo = 0;
   var interProgressoAtual = 0;
 
+  function faixaOpacidade(p, inicioIn, fimIn, inicioOut, fimOut) {
+    if (p < inicioIn) return 0;
+    if (p < fimIn) return (p - inicioIn) / (fimIn - inicioIn);
+    if (p <= inicioOut) return 1;
+    if (p < fimOut) return 1 - (p - inicioOut) / (fimOut - inicioOut);
+    return 0;
+  }
+
   function interCalcularProgressoAlvo() {
     if (!interludioSecao) return 0;
     var rect = interludioSecao.getBoundingClientRect();
