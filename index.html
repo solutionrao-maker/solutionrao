@@ -181,55 +181,101 @@
   .btn-musica.tocando { color: var(--aco-forte); border-color: var(--aco-forte); background: rgba(58,92,224,0.14); }
   .btn-musica svg { width: 17px; height: 17px; display: block; }
 
-  /* ===== HERO / SCROLLYTELLING =====
-     Vídeo (laptop numa mesa, câmera avança até revelar um site "premium")
-     preso à rolagem — a experiência de rolar A PÁGINA já demonstra o que a
-     Solution RAO vende. Mesmo mecanismo (scroll-scrubbing + rotateY de
-     profundidade) usado no hero da Arrazus, portado aqui. */
-  .hero-scrolly { position: relative; height: 100vh; min-height: 640px; }
-  .hero-scrolly-stage {
-    position: relative; height: 100%; width: 100%;
-    overflow: hidden; display: flex; align-items: center; justify-content: center;
-    background: var(--noite);
+  /* ===== HERO / SPLIT SCREEN (2 COLUNAS) ===== */
+  .hero-split {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 140px 0 90px; position: relative;
+    background: radial-gradient(circle at 85% 25%, rgba(58,92,224,0.15) 0%, transparent 55%), var(--noite);
+    overflow: hidden;
   }
-  .hero-scrolly-video {
-    /* visível desde já (não espera o evento 'loadeddata' para aparecer) —
-       um vídeo local de poucos MB carrega rápido o bastante que a espera
-       não valia o risco: se o evento atrasar ou não disparar em algum
-       navegador, o vídeo não pode ficar invisível para sempre */
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover;
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 52px;
+    align-items: center; width: 100%;
   }
-  .hero-scrolly-overlay {
-    position: absolute; inset: 0; pointer-events: none; z-index: 1;
-    /* mais escuro que a primeira versão — o vídeo mostra a tela de um site
-       (branco, cheio de detalhe) bem atrás de onde o texto fica, e a
-       sombra de texto sozinha não segurava a leitura (relato real de uso) */
-    background: linear-gradient(to bottom, rgba(5,7,14,0.82) 0%, rgba(5,7,14,0.58) 32%, rgba(5,7,14,0.6) 66%, rgba(5,7,14,0.88) 100%);
+  .hero-col-texto {
+    display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+    z-index: 2;
   }
-  .hero-scrolly-bloco {
-    position: absolute; inset: 0; z-index: 2;
-    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-    padding: 0 24px; color: var(--texto);
-    text-shadow: 0 2px 24px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.85);
+  .hero-status-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 999px;
+    background: rgba(18,22,31,0.85); border: 1px solid var(--linha);
+    font-family: var(--fonte-mono); font-size: 0.72rem; letter-spacing: 0.08em;
+    color: var(--platina); text-transform: uppercase; margin-bottom: 22px;
   }
-  .hero-scrolly-titulo h1 {
+  .hero-status-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #10b981; box-shadow: 0 0 10px #10b981;
+    animation: pulseDot 2s infinite ease-in-out;
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+  .hero-col-texto h1 {
     font-family: var(--fonte-titulo); font-weight: 500;
-    font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -0.01em;
+    font-size: clamp(2.3rem, 4.4vw, 3.8rem); line-height: 1.1;
+    color: var(--texto);
   }
-  .hero-scrolly-titulo h1 em {
-    /* Era degradê com preenchimento transparente — ilegível em trechos
-       claros do vídeo. Agora azul sólido mais forte com contorno
-       platina, mesma correção aplicada em site-institucional/estetica. */
+  .hero-col-texto h1 em {
     font-style: italic; font-weight: 600;
     color: var(--aco-forte);
-    -webkit-text-stroke: 0.6px var(--platina);
-    text-shadow: 0 0 26px rgba(58,92,224,0.55), 0 2px 24px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
+    display: inline-block;
   }
-  .hero-scrolly-eyebrow { margin-top: 18px; }
-  .hero-scrolly-titulo-extra { display: flex; flex-direction: column; align-items: center; }
-  .hero-scrolly-titulo-extra p { margin-top: 22px; font-size: clamp(1.05rem, 2.2vw, 1.3rem); max-width: 34ch; text-wrap: balance; color: rgba(242,244,249,0.9); }
-  .hero-scrolly-titulo-botoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 28px; }
+  .hero-col-texto p.hero-descricao {
+    margin-top: 22px; font-size: 1.05rem; line-height: 1.65;
+    color: var(--texto-suave); max-width: 52ch;
+  }
+  .hero-diferenciais-rapidos {
+    display: flex; flex-wrap: wrap; gap: 18px; margin-top: 24px;
+    font-size: 0.84rem; color: var(--platina); font-family: var(--fonte-corpo);
+  }
+  .hero-diferencial-item {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .hero-diferencial-item svg {
+    color: var(--aco-forte); width: 15px; height: 15px; flex-shrink: 0;
+  }
+  .hero-botoes {
+    display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px;
+  }
+  .hero-col-visual {
+    position: relative; width: 100%; display: flex; justify-content: center;
+    z-index: 1;
+  }
+  .hero-video-box {
+    position: relative; width: 100%; aspect-ratio: 16/11;
+    border-radius: 16px; overflow: hidden;
+    background: var(--painel); border: 1px solid var(--linha);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(58,92,224,0.15);
+  }
+  .hero-video-box video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .hero-floating-card {
+    position: absolute; bottom: 14px; right: 14px;
+    background: rgba(13, 17, 28, 0.94); backdrop-filter: blur(12px);
+    border: 1px solid var(--aco-forte); border-radius: 12px;
+    padding: 10px 16px; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.5); z-index: 3;
+  }
+  .hero-floating-icon {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: rgba(58,92,224,0.2); display: flex; align-items: center; justify-content: center;
+    color: var(--aco-forte); font-size: 1.1rem;
+  }
+  .hero-floating-texto { display: flex; flex-direction: column; text-align: left; }
+  .hero-floating-texto strong { font-size: 0.8rem; color: var(--texto); }
+  .hero-floating-texto span { font-size: 0.72rem; color: #10b981; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-split { padding: 110px 0 60px; min-height: auto; }
+    .hero-col-texto { align-items: center; text-align: center; }
+    .hero-diferenciais-rapidos { justify-content: center; }
+    .hero-botoes { justify-content: center; }
+    .hero-floating-card { bottom: 10px; right: 10px; }
+  }
 
   /* ===== SEÇÕES GERAIS ===== */
   .secao { padding: 130px 0; }
@@ -408,25 +454,63 @@
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
-<!-- ===== HERO — estático, vídeo ambiente em loop ===== -->
-<section class="hero-scrolly" id="topo">
-  <div class="hero-scrolly-stage" id="heroScrollyStage">
-    <video class="hero-scrolly-video" id="heroScrollyVideo" aria-hidden="true" muted autoplay loop playsinline preload="auto" poster="hero-poster.jpg" fetchpriority="high">
-      <source src="hero-site.mp4" type="video/mp4">
-    </video>
-    <div class="hero-scrolly-overlay" aria-hidden="true"></div>
+<!-- ===== HERO — SPLIT SCREEN (2 COLUNAS) ===== -->
+<section class="hero-split" id="topo">
+  <div class="container hero-grid">
+    
+    <!-- Coluna Esquerda: Mensagem de Alto Impacto & Conversão -->
+    <div class="hero-col-texto">
+      <div class="hero-status-pill">
+        <span class="hero-status-dot"></span>
+        <span>Sites Premium &amp; Automação com IA</span>
+      </div>
 
-    <div class="hero-scrolly-bloco hero-scrolly-titulo" id="heroBlocoTitulo">
-      <span class="eyebrow hero-scrolly-eyebrow">Sites Premium &amp; Automação com IA</span>
       <h1>O Site que posiciona sua marca.<br><em>A Inteligência Artificial que fecha vendas.</em></h1>
-      <div class="hero-scrolly-titulo-extra">
-        <p>Desenvolvemos presenças digitais exclusivas com atendimento automatizado 24/7 no WhatsApp. Do design à conversão, direto comigo.</p>
-        <div class="hero-scrolly-titulo-botoes">
-          <a href="#contato" class="btn btn-solido">Iniciar Meu Projeto</a>
-          <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20testar%20o%20agente%20de%20IA." class="btn" target="_blank" rel="noopener">🤖 Testar IA no WhatsApp</a>
+
+      <p class="hero-descricao">
+        Desenvolvemos presenças digitais exclusivas com atendimento automatizado 24/7 no WhatsApp. Do design à conversão, direto comigo.
+      </p>
+
+      <div class="hero-diferenciais-rapidos">
+        <span class="hero-diferencial-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Design sob medida
+        </span>
+        <span class="hero-diferencial-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          IA ativa 24/7 no WhatsApp
+        </span>
+        <span class="hero-diferencial-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Sem intermediários
+        </span>
+      </div>
+
+      <div class="hero-botoes">
+        <a href="#contato" class="btn btn-solido">Iniciar Meu Projeto →</a>
+        <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20testar%20o%20agente%20de%20IA." class="btn" target="_blank" rel="noopener">🤖 Testar IA no WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Coluna Direita: Mockup Visual Tecnológico 3D -->
+    <div class="hero-col-visual">
+      <div class="hero-video-box moldura">
+        <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+        <video id="heroScrollyVideo" aria-hidden="true" muted autoplay loop playsinline preload="auto" poster="hero-poster.jpg">
+          <source src="hero-site.mp4" type="video/mp4">
+        </video>
+
+        <!-- Card Flutuante de Credibilidade -->
+        <div class="hero-floating-card">
+          <div class="hero-floating-icon">🤖</div>
+          <div class="hero-floating-texto">
+            <strong>Agente de IA Solution RAO</strong>
+            <span>Online · Resposta em 3s</span>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
