@@ -733,14 +733,41 @@
     .hero-botoes { width: 100%; max-width: 360px; margin: 20px auto 0; flex-direction: column; }
     .hero-botoes .btn { width: 100%; text-align: center; justify-content: center; }
     .hero-chat-device { max-width: 100%; }
+
+    /* Cabeçalhos de Seção no Mobile (Perfeitamente Centralizados & Balanceados) */
+    .secao-cabecalho {
+      text-align: center; margin: 0 auto 36px; display: flex; flex-direction: column; align-items: center;
+    }
+    .secao-cabecalho h2 {
+      font-size: clamp(1.65rem, 6.8vw, 2.2rem); text-wrap: balance; line-height: 1.2;
+    }
+    .secao-cabecalho p {
+      text-align: center; font-size: 0.94rem; line-height: 1.6;
+      color: rgba(199, 206, 220, 0.88); max-width: 44ch; margin: 12px auto 0; text-wrap: pretty;
+    }
+
+    /* Bento Grid no Mobile */
     .bento-card.col-8, .bento-card.col-4, .bento-card.col-6 { grid-column: span 12; }
+    .bento-card h3 { font-size: 1.2rem; text-wrap: balance; }
+    .bento-card p { font-size: 0.88rem; line-height: 1.55; color: rgba(199, 206, 220, 0.85); }
+
+    /* Portfólio & Sobre no Mobile */
     .portfolio-grid { grid-template-columns: 1fr; }
-    .sobre-grid { grid-template-columns: 1fr; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 32px; }
+    .sobre-texto { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .sobre-texto hr.regua { margin-left: auto; margin-right: auto; }
+    .sobre-texto h2 { text-wrap: balance; font-size: clamp(1.6rem, 6.2vw, 2.1rem); }
+    .sobre-texto p { font-size: 0.95rem; line-height: 1.6; text-align: center; color: rgba(199, 206, 220, 0.88); }
+
+    /* FAQ no Mobile */
     .faq-layout { grid-template-columns: 1fr; gap: 36px; }
-    .faq-sticky { position: static; }
+    .faq-sticky { text-align: center; position: static; display: flex; flex-direction: column; align-items: center; }
+    .faq-sticky h2 { text-wrap: balance; font-size: clamp(1.65rem, 6.5vw, 2.1rem); }
+    .faq-sticky p { text-align: center; max-width: 44ch; margin: 12px auto 0; color: rgba(199, 206, 220, 0.88); }
+
     .metricas-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .whatsapp-flutuante-texto { display: none; }
-    .secao { padding: 76px 0; }
+    .secao { padding: 72px 0; }
     .interludio { height: 100vh; }
     .cta-final h2 { font-size: clamp(1.5rem, 6.5vw, 2.0rem); max-width: 94%; }
     .rodape-grid { flex-direction: column; text-align: center; }
