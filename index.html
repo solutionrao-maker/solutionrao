@@ -232,9 +232,9 @@
     text-shadow: 0 0 26px rgba(58,92,224,0.55), 0 2px 24px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
   }
   .hero-scrolly-eyebrow { margin-top: 18px; }
-  .hero-scrolly-titulo-extra { display: none; }
+  .hero-scrolly-titulo-extra { display: flex; flex-direction: column; align-items: center; }
   .hero-scrolly-titulo-extra p { margin-top: 22px; font-size: clamp(1.05rem, 2.2vw, 1.3rem); max-width: 34ch; text-wrap: balance; color: rgba(242,244,249,0.9); }
-  .hero-scrolly-titulo-extra .btn { margin-top: 28px; }
+  .hero-scrolly-titulo-botoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 28px; }
   .hero-scrolly.reduzido .hero-scrolly-titulo-extra { display: flex; flex-direction: column; align-items: center; }
   .hero-scrolly.reduzido .hero-scrolly-msg1,
   .hero-scrolly.reduzido .hero-scrolly-msg2,
@@ -268,7 +268,7 @@
   .secao-cabecalho.centro p { margin-left: auto; margin-right: auto; }
 
   /* ===== SERVIÇOS ===== */
-  .servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
+  .servicos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
   .servico-card { background: var(--noite); padding: 48px 36px; position: relative; }
   /* ícone no lugar de numeração 01/02/03 (revisão de design 2026-08-14) —
      os 3 serviços são ofertas paralelas, não um processo em sequência;
@@ -404,6 +404,8 @@
        mais larga que a tela em vez de quebrar — max-width força a quebra */
     .hero-scrolly-titulo h1 { font-size: clamp(1.7rem, 8.5vw, 2.4rem); max-width: 92%; }
     .hero-scrolly-bloco { padding: 0 18px; }
+    .hero-scrolly-titulo-botoes { flex-direction: column; width: 100%; }
+    .hero-scrolly-titulo-botoes .btn { justify-content: center; }
     .cta-final h2 { font-size: clamp(1.4rem, 6.5vw, 1.9rem); max-width: 94%; }
     .rodape-grid { flex-direction: column; text-align: center; }
     .rodape-links { justify-content: center; }
@@ -445,10 +447,13 @@
 
     <div class="hero-scrolly-bloco hero-scrolly-titulo" id="heroBlocoTitulo">
       <span class="eyebrow hero-scrolly-eyebrow">Solution RAO</span>
-      <h1>Um site feito para<br><em>transformar visita em cliente.</em></h1>
+      <h1>Um site que atrai clientes.<br><em>Uma IA que atende e vende no seu WhatsApp, 24 horas por dia.</em></h1>
       <div class="hero-scrolly-titulo-extra">
-        <p>Sites, conteúdo para redes sociais e tráfego pago — conduzidos por uma só pessoa, do briefing ao resultado.</p>
-        <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
+        <p>Sites, conteúdo para redes sociais, tráfego pago e agentes de IA — conduzidos por uma só pessoa, do briefing ao resultado.</p>
+        <div class="hero-scrolly-titulo-botoes">
+          <a href="#contato" class="btn btn-solido">Quero um projeto para minha empresa</a>
+          <a href="https://wa.me/5561982584350?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20testar%20o%20agente%20de%20IA." class="btn" target="_blank" rel="noopener">🤖 Testar o robô no WhatsApp agora</a>
+        </div>
       </div>
     </div>
 
@@ -482,8 +487,8 @@
     <div class="container">
       <div class="secao-cabecalho reveal">
         <span class="eyebrow">Serviços</span>
-        <h2>Três frentes, uma só responsável</h2>
-        <p>Não é uma agência com vários atendentes repassando seu projeto. É uma pessoa só cuidando de tudo — do primeiro rascunho ao anúncio no ar.</p>
+        <h2>Quatro frentes, uma só responsável</h2>
+        <p>Não é uma agência com vários atendentes repassando seu projeto. É uma pessoa só cuidando de tudo — do primeiro rascunho ao robô que atende no seu WhatsApp.</p>
       </div>
       <div class="servicos-grid reveal">
         <div class="servico-card moldura">
@@ -517,6 +522,17 @@
             <li>Campanhas no Meta Ads e Google Ads</li>
             <li>Google Meu Negócio otimizado</li>
             <li>Acompanhamento de resultado</li>
+          </ul>
+        </div>
+        <div class="servico-card moldura">
+          <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
+          <span class="servico-icone" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6.5" width="17" height="13" rx="2"/><path d="M8 6.5V4.5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><line x1="8" y1="12" x2="8.01" y2="12"/><line x1="16" y1="12" x2="16.01" y2="12"/><path d="M9 16c0.7 0.6 1.9 1 3 1s2.3-0.4 3-1"/></svg></span>
+          <h3>Agente de IA para WhatsApp</h3>
+          <p>Um robô que conversa com quem chega pelo site ou pelo Instagram, tira dúvida e já direciona pra venda — sem esperar você ficar disponível.</p>
+          <ul>
+            <li>Atende 24 horas, todo dia</li>
+            <li>Qualifica o lead antes de chegar até você</li>
+            <li>Nenhum contato perdido fora do horário comercial</li>
           </ul>
         </div>
       </div>
