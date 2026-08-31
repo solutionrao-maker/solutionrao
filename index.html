@@ -186,14 +186,12 @@
      preso à rolagem — a experiência de rolar A PÁGINA já demonstra o que a
      Solution RAO vende. Mesmo mecanismo (scroll-scrubbing + rotateY de
      profundidade) usado no hero da Arrazus, portado aqui. */
-  .hero-scrolly { position: relative; height: 300vh; }
-  .hero-scrolly.reduzido { height: 100vh; min-height: 640px; }
+  .hero-scrolly { position: relative; height: 100vh; min-height: 640px; }
   .hero-scrolly-stage {
-    position: sticky; top: 0; height: 100vh; width: 100%;
+    position: relative; height: 100%; width: 100%;
     overflow: hidden; display: flex; align-items: center; justify-content: center;
-    background: var(--noite); perspective: 1400px;
+    background: var(--noite);
   }
-  .hero-scrolly.reduzido .hero-scrolly-stage { position: relative; }
   .hero-scrolly-video {
     /* visível desde já (não espera o evento 'loadeddata' para aparecer) —
        um vídeo local de poucos MB carrega rápido o bastante que a espera
@@ -201,7 +199,6 @@
        navegador, o vídeo não pode ficar invisível para sempre */
     position: absolute; inset: 0; width: 100%; height: 100%;
     object-fit: cover;
-    will-change: transform; transform-origin: 50% 50%;
   }
   .hero-scrolly-overlay {
     position: absolute; inset: 0; pointer-events: none; z-index: 1;
@@ -212,12 +209,10 @@
   }
   .hero-scrolly-bloco {
     position: absolute; inset: 0; z-index: 2;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 0 24px; opacity: 0; pointer-events: none; color: var(--texto);
+    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+    padding: 0 24px; color: var(--texto);
     text-shadow: 0 2px 24px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.85);
   }
-  .hero-scrolly-bloco .btn { pointer-events: auto; }
-  .hero-scrolly-titulo, .hero-scrolly-cta { align-items: center; text-align: center; }
   .hero-scrolly-titulo h1 {
     font-family: var(--fonte-titulo); font-weight: 500;
     font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -0.01em;
@@ -235,28 +230,6 @@
   .hero-scrolly-titulo-extra { display: flex; flex-direction: column; align-items: center; }
   .hero-scrolly-titulo-extra p { margin-top: 22px; font-size: clamp(1.05rem, 2.2vw, 1.3rem); max-width: 34ch; text-wrap: balance; color: rgba(242,244,249,0.9); }
   .hero-scrolly-titulo-botoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 28px; }
-  .hero-scrolly.reduzido .hero-scrolly-titulo-extra { display: flex; flex-direction: column; align-items: center; }
-  .hero-scrolly.reduzido .hero-scrolly-msg1,
-  .hero-scrolly.reduzido .hero-scrolly-msg2,
-  .hero-scrolly.reduzido .hero-scrolly-cta { display: none; }
-  .hero-scrolly-msg1 { align-items: flex-start; text-align: left; }
-  .hero-scrolly-msg2 { align-items: flex-end; text-align: right; }
-  .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 {
-    font-family: var(--fonte-titulo); font-size: clamp(1.5rem, 3vw, 2.1rem); text-wrap: balance; max-width: 22ch;
-  }
-  .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { margin-top: 16px; color: rgba(242,244,249,0.9); font-size: 1rem; max-width: 40ch; }
-  .hero-scrolly-cta h2 { font-family: var(--fonte-titulo); font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
-  .hero-scrolly-cta p { margin-top: 12px; color: rgba(242,244,249,0.9); max-width: 38ch; }
-  .hero-scrolly-cta .btn { margin-top: 30px; }
-  .hero-scroll {
-    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
-    z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 10px;
-    font-family: var(--fonte-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(242,244,249,0.85);
-    text-shadow: 0 1px 10px rgba(0,0,0,0.6);
-    opacity: 0; transition: opacity 0.6s ease;
-  }
-  .hero-scroll .linha-scroll { width: 1px; height: 32px; background: linear-gradient(var(--aco-forte), transparent); animation: scrollPulse 2.2s ease-in-out infinite; }
-  @keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
 
   /* ===== SEÇÕES GERAIS ===== */
   .secao { padding: 130px 0; }
@@ -397,8 +370,6 @@
     .sobre-grid { grid-template-columns: 1fr; }
     .secao { padding: 88px 0; }
     .interludio { height: 120vh; }
-    .hero-scrolly-msg1 h2, .hero-scrolly-msg2 h2 { font-size: 1.4rem; max-width: 18ch; }
-    .hero-scrolly-msg1 p, .hero-scrolly-msg2 p { font-size: 0.92rem; }
     /* título do hero: em telas estreitas o clamp() batia no piso (2.4rem)
        e, dentro do flex centralizado, a linha "Um site assim para" ficava
        mais larga que a tela em vez de quebrar — max-width força a quebra */
@@ -437,10 +408,10 @@
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
-<!-- ===== HERO — scrollytelling (vídeo preso à rolagem) ===== -->
+<!-- ===== HERO — estático, vídeo ambiente em loop ===== -->
 <section class="hero-scrolly" id="topo">
   <div class="hero-scrolly-stage" id="heroScrollyStage">
-    <video class="hero-scrolly-video" id="heroScrollyVideo" aria-hidden="true" muted autoplay playsinline preload="auto" poster="hero-poster.jpg" fetchpriority="high">
+    <video class="hero-scrolly-video" id="heroScrollyVideo" aria-hidden="true" muted autoplay loop playsinline preload="auto" poster="hero-poster.jpg" fetchpriority="high">
       <source src="hero-site.mp4" type="video/mp4">
     </video>
     <div class="hero-scrolly-overlay" aria-hidden="true"></div>
@@ -455,27 +426,6 @@
           <a href="https://wa.me/5561982584350?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20testar%20o%20agente%20de%20IA." class="btn" target="_blank" rel="noopener">🤖 Testar o robô no WhatsApp agora</a>
         </div>
       </div>
-    </div>
-
-    <div class="hero-scrolly-bloco hero-scrolly-msg1" id="heroBlocoMsg1">
-      <h2>Sites que parecem ter custado muito mais caro.</h2>
-      <p>Cada detalhe pensado para parecer feito sob medida — porque foi. Sem template genérico, sem editor arrastar-e-soltar.</p>
-    </div>
-
-    <div class="hero-scrolly-bloco hero-scrolly-msg2" id="heroBlocoMsg2">
-      <h2>Conteúdo e tráfego pago, na mesma mão que criou o site.</h2>
-      <p>Posts que combinam com a marca. Anúncios que trazem gente de verdade. Sem precisar contratar três fornecedores diferentes.</p>
-    </div>
-
-    <div class="hero-scrolly-bloco hero-scrolly-cta" id="heroBlocoCta">
-      <h2>Vamos colocar seu negócio nesse nível?</h2>
-      <p>Resposta rápida, direto comigo, sem intermediário.</p>
-      <a href="#contato" class="btn btn-solido">Falar no WhatsApp</a>
-    </div>
-
-    <div class="hero-scroll" id="heroScroll">
-      <span>Role para ver</span>
-      <div class="linha-scroll"></div>
     </div>
   </div>
 </section>
@@ -767,88 +717,10 @@
     return buscar;
   }
 
-  /* ===== EFEITO 1 — Hero em scrollytelling ===== */
-  var heroScrollySecao = document.getElementById('topo');
+  /* ===== HERO — vídeo ambiente em loop, estático (sem scroll-scrubbing) ===== */
   var heroScrollyVideo = document.getElementById('heroScrollyVideo');
-  var heroScroll = document.getElementById('heroScroll');
-  var heroBlocos = {
-    titulo: document.getElementById('heroBlocoTitulo'),
-    msg1: document.getElementById('heroBlocoMsg1'),
-    msg2: document.getElementById('heroBlocoMsg2'),
-    cta: document.getElementById('heroBlocoCta')
-  };
-  var HERO_SUAVIZACAO = 0.1;
-  var heroDuracao = 0;
-  var heroProgressoAlvo = 0;
-  var heroProgressoAtual = 0;
-  var buscarNoHero = heroScrollyVideo ? criarBuscadorDeVideo(heroScrollyVideo) : function () {};
-
-  function faixaOpacidade(p, entradaIni, entradaFim, saidaIni, saidaFim) {
-    var entra = entradaIni == null ? 1 : Math.min(Math.max((p - entradaIni) / (entradaFim - entradaIni), 0), 1);
-    var sai = saidaIni == null ? 1 : 1 - Math.min(Math.max((p - saidaIni) / (saidaFim - saidaIni), 0), 1);
-    return Math.min(entra, sai);
-  }
-
-  function heroCalcularProgressoAlvo() {
-    var rect = heroScrollySecao.getBoundingClientRect();
-    var distanciaRolavel = rect.height - window.innerHeight;
-    if (distanciaRolavel <= 0) return 0;
-    return Math.min(Math.max(-rect.top / distanciaRolavel, 0), 1);
-  }
-
-  function heroRenderizar(p) {
-    if (heroDuracao) buscarNoHero(p * heroDuracao);
-
-    if (!prefersReduced) {
-      var rotacao = (p - 0.5) * 6;
-      var escala = 1 + p * 0.04;
-      heroScrollyVideo.style.transform = 'rotateY(' + rotacao.toFixed(2) + 'deg) scale(' + escala.toFixed(3) + ')';
-    }
-
-    var opTitulo = faixaOpacidade(p, null, null, 0.14, 0.20);
-    var opMsg1 = faixaOpacidade(p, 0.24, 0.32, 0.44, 0.52);
-    var opMsg2 = faixaOpacidade(p, 0.54, 0.62, 0.74, 0.82);
-    var opCta = faixaOpacidade(p, 0.84, 0.92, null, null);
-
-    heroBlocos.titulo.style.opacity = opTitulo;
-    heroBlocos.titulo.style.transform = 'translateY(' + ((1 - opTitulo) * -18) + 'px)';
-    heroBlocos.msg1.style.opacity = opMsg1;
-    heroBlocos.msg1.style.transform = 'translateX(' + ((1 - opMsg1) * -24) + 'px)';
-    heroBlocos.msg2.style.opacity = opMsg2;
-    heroBlocos.msg2.style.transform = 'translateX(' + ((1 - opMsg2) * 24) + 'px)';
-    heroBlocos.cta.style.opacity = opCta;
-    heroBlocos.cta.style.transform = 'translateY(' + ((1 - opCta) * 18) + 'px)';
-
-    if (heroScroll) heroScroll.style.opacity = Math.max(0, 0.75 - p * 5);
-  }
-
-  function heroLoop() {
-    heroProgressoAlvo = heroCalcularProgressoAlvo();
-    var diferenca = heroProgressoAlvo - heroProgressoAtual;
-    heroProgressoAtual += Math.abs(diferenca) < 0.0004 ? diferenca : diferenca * HERO_SUAVIZACAO;
-    heroRenderizar(heroProgressoAtual);
-    requestAnimationFrame(heroLoop);
-  }
-
-  if (heroScrollyVideo) {
-    function marcarDuracaoHero() { heroDuracao = heroScrollyVideo.duration || 0; }
-    if (heroScrollyVideo.readyState >= 1 && heroScrollyVideo.duration) {
-      marcarDuracaoHero();
-    } else {
-      heroScrollyVideo.addEventListener('loadedmetadata', marcarDuracaoHero);
-    }
-    heroScrollyVideo.addEventListener('loadeddata', function () {
-      heroScrollyVideo.classList.add('pronta');
-    }, { once: true });
-    heroScrollyVideo.play().then(function () { heroScrollyVideo.pause(); }).catch(function () {});
-
-    if (prefersReduced) {
-      heroScrollySecao.classList.add('reduzido');
-      heroBlocos.titulo.style.opacity = 1;
-      if (heroScroll) heroScroll.style.display = 'none';
-    } else {
-      requestAnimationFrame(heroLoop);
-    }
+  if (heroScrollyVideo && prefersReduced) {
+    heroScrollyVideo.pause();
   }
 
   /* ===== EFEITO 2 — Interlúdio (esfera de cristal) ===== */
