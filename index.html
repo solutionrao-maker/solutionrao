@@ -233,40 +233,81 @@
   .hero-diferencial-item {
     display: flex; align-items: center; gap: 6px;
   }
-  .hero-diferencial-item svg {
-    color: var(--aco-forte); width: 15px; height: 15px; flex-shrink: 0;
-  }
-  .hero-botoes {
-    display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px;
+  .hero-diferencial-    display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px;
   }
   .hero-col-visual {
     position: relative; width: 100%; display: flex; justify-content: center;
     z-index: 1;
   }
-  .hero-video-box {
-    position: relative; width: 100%; aspect-ratio: 16/11;
-    border-radius: 16px; overflow: hidden;
-    background: var(--painel); border: 1px solid var(--linha);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(58,92,224,0.15);
+  
+  /* ===== MOCKUP WHATSAPP IA (COLUNA DIREITA) ===== */
+  .hero-chat-device {
+    width: 100%; max-width: 440px;
+    background: #0b141a; border-radius: 20px;
+    border: 1px solid rgba(108,140,255,0.3);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.85), 0 0 50px rgba(58,92,224,0.22);
+    overflow: hidden; display: flex; flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
-  .hero-video-box video {
-    width: 100%; height: 100%; object-fit: cover; display: block;
+  .chat-header {
+    background: #202c33; padding: 14px 18px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .hero-floating-card {
-    position: absolute; bottom: 14px; right: 14px;
-    background: rgba(13, 17, 28, 0.94); backdrop-filter: blur(12px);
-    border: 1px solid var(--aco-forte); border-radius: 12px;
-    padding: 10px 16px; display: flex; align-items: center; gap: 12px;
-    box-shadow: 0 16px 32px rgba(0,0,0,0.5); z-index: 3;
+  .chat-header-user { display: flex; align-items: center; gap: 12px; }
+  .chat-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--aco), var(--aco-forte));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; position: relative; color: #fff;
   }
-  .hero-floating-icon {
-    width: 30px; height: 30px; border-radius: 8px;
-    background: rgba(58,92,224,0.2); display: flex; align-items: center; justify-content: center;
-    color: var(--aco-forte); font-size: 1.1rem;
+  .chat-avatar-dot {
+    position: absolute; bottom: 0; right: 0; width: 11px; height: 11px;
+    background: #25d366; border: 2px solid #202c33; border-radius: 50%;
   }
-  .hero-floating-texto { display: flex; flex-direction: column; text-align: left; }
-  .hero-floating-texto strong { font-size: 0.8rem; color: var(--texto); }
-  .hero-floating-texto span { font-size: 0.72rem; color: #10b981; }
+  .chat-header-info { display: flex; flex-direction: column; }
+  .chat-header-name { font-size: 0.92rem; font-weight: 600; color: #e9edef; display: flex; align-items: center; gap: 6px; }
+  .chat-header-name svg { width: 15px; height: 15px; color: #53bdeb; }
+  .chat-header-status { font-size: 0.74rem; color: #25d366; }
+  .chat-badge-top {
+    background: rgba(37, 211, 102, 0.12); color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.3); font-size: 0.7rem; font-weight: 600;
+    padding: 4px 8px; border-radius: 6px;
+  }
+
+  .chat-body {
+    padding: 20px 16px; display: flex; flex-direction: column; gap: 12px;
+    background: #0b141a radial-gradient(circle at 50% 50%, rgba(32,44,51,0.4) 0%, transparent 80%);
+    font-size: 0.86rem; line-height: 1.45;
+  }
+  .chat-balloon {
+    max-width: 86%; padding: 10px 14px 8px; border-radius: 12px;
+    position: relative; word-wrap: break-word;
+  }
+  .chat-balloon-in {
+    background: #202c33; color: #e9edef; align-self: flex-start;
+    border-bottom-left-radius: 3px;
+  }
+  .chat-balloon-out {
+    background: #005c4b; color: #e9edef; align-self: flex-end;
+    border-bottom-right-radius: 3px;
+  }
+  .chat-time {
+    font-size: 0.65rem; color: rgba(255,255,255,0.55);
+    float: right; margin: 4px 0 -2px 10px; display: flex; align-items: center; gap: 3px;
+  }
+  .chat-time svg { width: 13px; height: 13px; color: #53bdeb; }
+
+  .chat-footer {
+    background: #202c33; padding: 10px 14px;
+    display: flex; align-items: center; gap: 10px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .chat-input-fake {
+    flex: 1; background: #2a3942; border-radius: 8px;
+    padding: 8px 12px; font-size: 0.82rem; color: #8696a0;
+  }
+  .chat-mic-fake { color: #8696a0; font-size: 1.1rem; }
 
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -274,7 +315,7 @@
     .hero-col-texto { align-items: center; text-align: center; }
     .hero-diferenciais-rapidos { justify-content: center; }
     .hero-botoes { justify-content: center; }
-    .hero-floating-card { bottom: 10px; right: 10px; }
+    .hero-chat-device { max-width: 100%; }
   }
 
   /* ===== SEÇÕES GERAIS ===== */
@@ -289,9 +330,6 @@
   /* ===== SERVIÇOS ===== */
   .servicos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
   .servico-card { background: var(--noite); padding: 48px 36px; position: relative; }
-  /* ícone no lugar de numeração 01/02/03 (revisão de design 2026-08-14) —
-     os 3 serviços são ofertas paralelas, não um processo em sequência;
-     numerar sugeria uma ordem que não existe. */
   .servico-icone { color: var(--aco-forte); display: inline-flex; }
   .servico-icone svg { display: block; }
   .servico-card h3 { font-size: 1.3rem; margin-top: 18px; font-weight: 400; }
@@ -300,35 +338,23 @@
   .servico-card li { font-size: 0.88rem; color: var(--texto-suave); padding-left: 16px; position: relative; }
   .servico-card li::before { content: "—"; position: absolute; left: 0; color: var(--aco); }
 
-  /* =====================================================
-     INTERLÚDIO — esfera de cristal presa na tela, mesmo princípio de
-     scroll-scrubbing do hero (currentTime = f(scroll)), só que mais curto
-     e com 1 mensagem só — o vídeo forma a esfera e ela estilhaça numa
-     explosão de partículas: metáfora de "ideia tomando forma".
-     ===================================================== */
-  /* altura reduzida de 260vh para 150vh (revisão de design 2026-08-14) —
-     o trecho hero+interlúdio somava ~5,6 telas de rolagem antes do
-     primeiro CTA de conteúdo, custo de atenção alto para quem chega por
-     anúncio pago. Efeito de scroll-scrubbing continua funcionando, só
-     mais curto. */
-  .interludio { position: relative; height: 150vh; }
-  .interludio-stage {
-    position: sticky; top: 0; height: 100vh; overflow: hidden;
-    background: #000; display: flex; align-items: center; justify-content: center;
+  /* ===== TRANSIÇÃO FLUIDA (COMO EU TRABALHO) ===== */
+  .interludio-fluido {
+    padding: 100px 0; position: relative;
+    background: linear-gradient(180deg, var(--noite) 0%, var(--noite-alt) 50%, var(--noite) 100%);
+    border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha);
+    text-align: center;
   }
-  .interludio-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .interludio-overlay {
-    /* faltava — o cristal é um vídeo muito claro/brilhante o tempo todo,
-       sombra de texto sozinha não bastava (mesmo problema do hero, ver nota lá) */
-    position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background: radial-gradient(ellipse 620px 420px at 50% 50%, rgba(5,7,14,0.68) 0%, rgba(5,7,14,0.42) 55%, rgba(5,7,14,0.15) 78%);
+  .interludio-conteudo {
+    max-width: 780px; margin: 0 auto; padding: 0 24px;
   }
-  .interludio-bloco {
-    position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 0 32px;
-    text-align: center; opacity: 0; pointer-events: none;
+  .interludio-conteudo h2 {
+    font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.25;
+    margin: 18px 0; color: var(--texto);
   }
-  .interludio-bloco h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); text-wrap: balance; text-shadow: 0 2px 28px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.9); }
-  .interludio-bloco p { margin-top: 18px; color: rgba(242,244,249,0.92); font-size: 1.02rem; text-shadow: 0 2px 20px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.9); }
+  .interludio-conteudo p {
+    color: var(--texto-suave); font-size: 1.05rem; line-height: 1.65; max-width: 58ch; margin: 0 auto;
+  }loco p { margin-top: 18px; color: rgba(242,244,249,0.92); font-size: 1.02rem; text-shadow: 0 2px 20px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.9); }
 
   /* ===== PORTFÓLIO ===== */
   .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -492,21 +518,64 @@
       </div>
     </div>
 
-    <!-- Coluna Direita: Mockup Visual Tecnológico 3D -->
+    <!-- Coluna Direita: Mockup Real do WhatsApp com IA -->
     <div class="hero-col-visual">
-      <div class="hero-video-box moldura">
-        <span class="canto canto-tl"></span><span class="canto canto-tr"></span><span class="canto canto-bl"></span><span class="canto canto-br"></span>
-        <video id="heroScrollyVideo" aria-hidden="true" muted autoplay loop playsinline preload="auto" poster="hero-poster.jpg">
-          <source src="hero-site.mp4" type="video/mp4">
-        </video>
-
-        <!-- Card Flutuante de Credibilidade -->
-        <div class="hero-floating-card">
-          <div class="hero-floating-icon">🤖</div>
-          <div class="hero-floating-texto">
-            <strong>Agente de IA Solution RAO</strong>
-            <span>Online · Resposta em 3s</span>
+      <div class="hero-chat-device">
+        <!-- Topo do WhatsApp -->
+        <div class="chat-header">
+          <div class="chat-header-user">
+            <div class="chat-avatar">
+              🤖
+              <span class="chat-avatar-dot"></span>
+            </div>
+            <div class="chat-header-info">
+              <span class="chat-header-name">
+                Solution RAO · IA
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </span>
+              <span class="chat-header-status">Online agora · Resposta em 3s</span>
+            </div>
           </div>
+          <span class="chat-badge-top">Atendimento 24/7</span>
+        </div>
+
+        <!-- Mensagens Trocadas -->
+        <div class="chat-body">
+          <!-- Mensagem Cliente -->
+          <div class="chat-balloon chat-balloon-in">
+            Olá! Gostaria de saber como funciona o site com IA integrada.
+            <span class="chat-time">22:40</span>
+          </div>
+
+          <!-- Mensagem IA 1 -->
+          <div class="chat-balloon chat-balloon-out">
+            Olá! 👋 Criamos o seu site exclusivo de alta conversão e já integramos um agente de IA no seu WhatsApp para atender seus clientes 24h por dia.
+            <span class="chat-time">22:40 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+
+          <!-- Mensagem IA 2 -->
+          <div class="chat-balloon chat-balloon-out">
+            Temos vagas para iniciar seu projeto esta semana. Gostaria de agendar uma demonstração rápida?
+            <span class="chat-time">22:40 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+
+          <!-- Resposta Cliente -->
+          <div class="chat-balloon chat-balloon-in">
+            Quero sim! Quinta às 14h é possível?
+            <span class="chat-time">22:41</span>
+          </div>
+
+          <!-- Confirmação IA -->
+          <div class="chat-balloon chat-balloon-out">
+            ✅ <strong>Agendamento Confirmado!</strong> Te vejo na quinta-feira às 14h com o Raphael.
+            <span class="chat-time">22:41 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </div>
+
+        <!-- Rodapé do WhatsApp -->
+        <div class="chat-footer">
+          <div class="chat-input-fake">Mensagem...</div>
+          <span class="chat-mic-fake">🎙️</span>
         </div>
       </div>
     </div>
@@ -573,18 +642,13 @@
     </div>
   </section>
 
-  <!-- ===== INTERLÚDIO — esfera de cristal presa na tela ===== -->
-  <section class="interludio" id="interludio">
-    <div class="interludio-stage">
-      <video class="interludio-video" id="interludioVideo" muted autoplay playsinline preload="none">
-        <source data-src="interludio-cristal.mp4" type="video/mp4">
-      </video>
-      <div class="interludio-overlay" aria-hidden="true"></div>
-      <div class="interludio-bloco" id="interludioBloco">
-        <span class="eyebrow">Como eu trabalho</span>
-        <hr class="regua centro">
-        <h2>Uma ideia solta vira estratégia, design e execução — sem passar por mais ninguém no meio do caminho.</h2>
-      </div>
+  <!-- ===== TRANSIÇÃO FLUIDA — COMO EU TRABALHO ===== -->
+  <section class="interludio-fluido" id="metodo">
+    <div class="container interludio-conteudo reveal">
+      <span class="eyebrow">Como eu trabalho</span>
+      <hr class="regua centro">
+      <h2>Uma ideia solta vira estratégia, design e execução — sem passar por mais ninguém no meio do caminho.</h2>
+      <p>Do primeiro rascunho do site ao robô que atende seus clientes no WhatsApp, tudo é conduzido com precisão e dedicação direta, sem burocracia de agência.</p>
     </div>
   </section>
 
@@ -655,11 +719,11 @@
 
   <!-- ===== CTA FINAL ===== -->
   <section class="secao cta-final" id="contato">
-    <div class="container">
+    <div class="container reveal">
       <span class="eyebrow">Direto ao ponto</span>
-      <h2 style="margin-top:10px;">Seu concorrente tem site. Você tem desculpas.<br><em>Quem você acha que o cliente vai escolher?</em></h2>
-      <p>Coloque sua empresa no digital antes que mais clientes escolham quem já está lá.</p>
-      <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20criar%20meu%20site." target="_blank" rel="noopener" class="btn btn-solido">Quero meu site agora →</a>
+      <h2 style="margin-top:10px;">Seu concorrente responde em 3 segundos e tem um site impecável.<br><em>Enquanto você demora horas para atender, quem você acha que o cliente vai escolher?</em></h2>
+      <p>Tenha um site de alto padrão e uma Inteligência Artificial que fecha vendas 24h por dia no seu WhatsApp antes que seu cliente compre de outro.</p>
+      <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20minha%20estrutura%20de%20vendas." target="_blank" rel="noopener" class="btn btn-solido">Quero Minha Estrutura de Vendas →</a>
     </div>
   </section>
 
@@ -775,126 +839,7 @@
     revealEls.forEach(function (el) { el.classList.add('visivel'); });
   }
 
-  /* =========================================================
-     Fila de 1 seek por vez, compartilhada pelos vídeos com
-     scroll-scrubbing — mesma técnica (e mesmo motivo) do site da Arrazus:
-     sem isso, o vídeo trava tentando decodificar buscas mais rápido do
-     que consegue, e o scroll fica travado em vez de contínuo.
-     ========================================================= */
-  function criarBuscadorDeVideo(video) {
-    var emAndamento = false;
-    var alvoPendente = null;
-    function buscar(tempo) {
-      if (emAndamento) { alvoPendente = tempo; return; }
-      emAndamento = true;
-      try { video.currentTime = tempo; } catch (e) { emAndamento = false; }
-      setTimeout(function () { emAndamento = false; }, 250);
-    }
-    video.addEventListener('seeked', function () {
-      emAndamento = false;
-      if (alvoPendente !== null) {
-        var alvo = alvoPendente;
-        alvoPendente = null;
-        buscar(alvo);
-      }
-    });
-    return buscar;
-  }
 
-  /* ===== HERO — vídeo ambiente em loop, estático (sem scroll-scrubbing) ===== */
-  var heroScrollyVideo = document.getElementById('heroScrollyVideo');
-  if (heroScrollyVideo && prefersReduced) {
-    heroScrollyVideo.pause();
-  }
-
-  /* ===== EFEITO 2 — Interlúdio (esfera de cristal) ===== */
-  var interludioSecao = document.getElementById('interludio');
-  var interludioVideo = document.getElementById('interludioVideo');
-  var interludioBloco = document.getElementById('interludioBloco');
-  var interludioDuracao = 0;
-  var buscarNoInterludio = interludioVideo ? criarBuscadorDeVideo(interludioVideo) : function () {};
-  var interProgressoAlvo = 0;
-  var interProgressoAtual = 0;
-
-  function faixaOpacidade(p, inicioIn, fimIn, inicioOut, fimOut) {
-    if (p < inicioIn) return 0;
-    if (p < fimIn) return (p - inicioIn) / (fimIn - inicioIn);
-    if (p <= inicioOut) return 1;
-    if (p < fimOut) return 1 - (p - inicioOut) / (fimOut - inicioOut);
-    return 0;
-  }
-
-  function interCalcularProgressoAlvo() {
-    if (!interludioSecao) return 0;
-    var rect = interludioSecao.getBoundingClientRect();
-    var distanciaRolavel = rect.height - window.innerHeight;
-    if (distanciaRolavel <= 0) return 0;
-    return Math.min(Math.max(-rect.top / distanciaRolavel, 0), 1);
-  }
-
-  function interRenderizar(p) {
-    if (interludioDuracao) buscarNoInterludio(p * interludioDuracao);
-    if (interludioBloco) {
-      var op = faixaOpacidade(p, 0.28, 0.42, 0.68, 0.84);
-      interludioBloco.style.opacity = op;
-      interludioBloco.style.transform = 'translateY(' + ((1 - op) * 16) + 'px)';
-    }
-  }
-
-  function interLoop() {
-    interProgressoAlvo = interCalcularProgressoAlvo();
-    var diferenca = interProgressoAlvo - interProgressoAtual;
-    interProgressoAtual += prefersReduced ? diferenca : (Math.abs(diferenca) < 0.0004 ? diferenca : diferenca * 0.1);
-    interRenderizar(interProgressoAtual);
-    requestAnimationFrame(interLoop);
-  }
-
-  if (interludioVideo) {
-    function marcarDuracaoInter() { interludioDuracao = interludioVideo.duration || 0; }
-    if (interludioVideo.readyState >= 1 && interludioVideo.duration) {
-      marcarDuracaoInter();
-    } else {
-      interludioVideo.addEventListener('loadedmetadata', marcarDuracaoInter);
-    }
-    interludioVideo.addEventListener('loadeddata', function () {
-      interludioVideo.classList.add('pronta');
-    }, { once: true });
-
-    /* ===== Carregamento tardio do vídeo do interlúdio =====
-       10,6 MB — preload="none" no HTML pra não disputar banda com o
-       hero no carregamento inicial (ver <video> acima, sem src direto
-       no <source>, só data-src). Só busca o arquivo quando a seção se
-       aproxima do viewport, com margem de antecedência generosa, pra
-       já estar pronto pro scroll-scrubbing quando o usuário chegar lá.
-       Mesmo warm-up (play + pause) que o hero já fazia. */
-    var interludioCarregado = false;
-    function carregarInterludio() {
-      if (interludioCarregado) return;
-      interludioCarregado = true;
-      var fonte = interludioVideo.querySelector('source');
-      if (fonte && fonte.dataset.src) {
-        fonte.src = fonte.dataset.src;
-        interludioVideo.load();
-      }
-      interludioVideo.play().then(function () { interludioVideo.pause(); }).catch(function () {});
-    }
-
-    if ('IntersectionObserver' in window && interludioSecao) {
-      var interludioObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            carregarInterludio();
-            interludioObserver.disconnect();
-          }
-        });
-      }, { rootMargin: '0px 0px 1500px 0px' });
-      interludioObserver.observe(interludioSecao);
-    } else {
-      carregarInterludio();
-    }
-
-    requestAnimationFrame(interLoop);
-  }
 
   /* ===== Banner de cookies / Consent Mode ===== */
   var cookieBanner = document.getElementById('cookieBanner');
