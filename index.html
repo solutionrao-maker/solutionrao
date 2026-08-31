@@ -219,9 +219,8 @@
   }
   .hero-col-texto h1 em {
     font-style: italic; font-weight: 600;
-    color: var(--aco-forte);
-    -webkit-text-stroke: 0.6px var(--platina);
-    text-shadow: 0 0 26px rgba(58,92,224,0.55), 0 2px 24px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
     display: inline-block;
   }
   .hero-col-texto p.hero-descricao {
