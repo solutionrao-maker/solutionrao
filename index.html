@@ -8,8 +8,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solution RAO — Sites, conteúdo e tráfego pago que vendem</title>
-<meta name="description" content="Sites premium, conteúdo para redes sociais e tráfego pago — tudo conduzido por uma só pessoa, do briefing ao resultado. Solution RAO.">
+<title>Solution RAO — Sites Premium &amp; Agentes de IA que Fecham Vendas</title>
+<meta name="description" content="Presenças digitais exclusivas e automação com Inteligência Artificial no WhatsApp 24/7. Do design ao fechamento de vendas, direto com Raphael Araújo.">
 
 <link rel="canonical" href="https://www.solutionrao.com.br/">
 
@@ -23,15 +23,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Solution RAO">
 <meta property="og:url" content="https://www.solutionrao.com.br/">
-<meta property="og:title" content="Solution RAO | Criação de Sites, Conteúdo e Tráfego Pago">
-<meta property="og:description" content="Criação de sites profissionais, conteúdo para redes sociais e gestão de tráfego pago. Soluções digitais sob medida para transformar presença online em clientes.">
+<meta property="og:title" content="Solution RAO | Sites Premium &amp; Agentes de IA que Fecham Vendas">
+<meta property="og:description" content="Desenvolvemos presenças digitais exclusivas e agentes de Inteligência Artificial humanizados para WhatsApp e Instagram. Sem intermediários, direto com o fundador.">
 <meta property="og:image" content="https://www.solutionrao.com.br/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Solution RAO | Criação de Sites, Conteúdo e Tráfego Pago">
-<meta name="twitter:description" content="Criação de sites profissionais, conteúdo para redes sociais e gestão de tráfego pago. Soluções digitais sob medida para transformar presença online em clientes.">
+<meta name="twitter:title" content="Solution RAO | Sites Premium &amp; Agentes de IA que Fecham Vendas">
+<meta name="twitter:description" content="Desenvolvemos presenças digitais exclusivas e agentes de Inteligência Artificial humanizados para WhatsApp e Instagram. Sem intermediários, direto com o fundador.">
 <meta name="twitter:image" content="https://www.solutionrao.com.br/og-image.jpg">
 
 <script type="application/ld+json">
@@ -41,7 +41,7 @@
   "name": "Solution RAO",
   "url": "https://www.solutionrao.com.br/",
   "logo": "https://www.solutionrao.com.br/logo.png",
-  "description": "Sites premium, conteúdo para redes sociais e tráfego pago — tudo conduzido por uma só pessoa, do briefing ao resultado."
+  "description": "Presenças digitais exclusivas e automação com Inteligência Artificial no WhatsApp 24/7. Do design ao fechamento de vendas, direto com Raphael Araújo."
 }
 </script>
 
@@ -623,10 +623,76 @@
     padding: 0 24px 22px; color: var(--texto-suave); font-size: 0.92rem; line-height: 1.65;
   }
 
+  /* ===== FAIXA DE MÉTRICAS & NÚMEROS DE IMPACTO ===== */
+  .metricas-faixa {
+    padding: 60px 0; border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha);
+    background: radial-gradient(circle at 50% 50%, rgba(58,92,224,0.08) 0%, transparent 60%), rgba(13,17,28,0.5);
+  }
+  .metricas-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;
+  }
+  .metrica-card {
+    padding: 20px 16px; border-radius: 14px;
+    background: rgba(255,255,255,0.02); border: 1px solid var(--linha);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .metrica-card:hover { transform: translateY(-3px); border-color: var(--aco-forte); }
+  .metrica-card strong {
+    display: block; font-family: var(--fonte-mono); font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    font-weight: 700; color: var(--texto);
+    background: linear-gradient(110deg, #fff 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .metrica-card span {
+    display: block; margin-top: 8px; font-size: 0.82rem; color: var(--texto-suave); font-weight: 500;
+  }
+
+  /* ===== SELO DE GARANTIA & INVERSÃO DE RISCO ===== */
+  .selo-garantia {
+    margin: 36px auto 0; max-width: 580px; padding: 14px 20px;
+    border-radius: 12px; background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.22);
+    display: flex; align-items: center; gap: 12px; font-size: 0.84rem; color: var(--platina); text-align: left;
+  }
+  .selo-garantia-icone { font-size: 1.2rem; flex-shrink: 0; }
+  .selo-garantia strong { color: #34d399; }
+
+  /* ===== BOTÃO FLUTUANTE WHATSAPP ===== */
+  .whatsapp-flutuante {
+    position: fixed; right: 26px; bottom: 26px; z-index: 190;
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+    opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .whatsapp-flutuante.visivel {
+    opacity: 1; transform: translateY(0) scale(1); pointer-events: auto;
+  }
+  .whatsapp-flutuante-texto {
+    background: #0f131f; color: #f2f4f9; font-size: 0.8rem; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5); white-space: nowrap;
+    animation: bounceText 3s infinite ease-in-out;
+  }
+  @keyframes bounceText {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-4px); }
+  }
+  .whatsapp-flutuante-icone {
+    width: 54px; height: 54px; border-radius: 50%;
+    background: #25d366; color: #fff; display: grid; place-items: center;
+    box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .whatsapp-flutuante:hover .whatsapp-flutuante-icone {
+    transform: scale(1.08); box-shadow: 0 14px 38px rgba(37,211,102,0.6);
+  }
+  .whatsapp-flutuante-icone svg { width: 28px; height: 28px; }
+
   @media (max-width: 900px) {
     .bento-card.col-8, .bento-card.col-4, .bento-card.col-6 { grid-column: span 12; }
     .faq-layout { grid-template-columns: 1fr; gap: 36px; }
     .faq-sticky { position: static; }
+    .metricas-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .whatsapp-flutuante-texto { display: none; }
   }
 
   @media (max-width: 600px) {
@@ -917,6 +983,28 @@
     </div>
   </section>
 
+  <!-- ===== MÉTRICAS & PROVA EM NÚMEROS ===== -->
+  <section class="metricas-faixa">
+    <div class="container metricas-grid reveal">
+      <div class="metrica-card">
+        <strong>&lt; 3s</strong>
+        <span>Tempo de Resposta no WhatsApp</span>
+      </div>
+      <div class="metrica-card">
+        <strong>24/7</strong>
+        <span>Atendimento Ativo sem Pausas</span>
+      </div>
+      <div class="metrica-card">
+        <strong>100%</strong>
+        <span>Projetos Sob Medida e Exclusivos</span>
+      </div>
+      <div class="metrica-card">
+        <strong>0</strong>
+        <span>Intermediários (Direto com Fundador)</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== PORTFÓLIO ===== -->
   <section class="secao" id="portfolio">
     <div class="container">
@@ -1083,6 +1171,11 @@
       <h2 style="margin-top:10px;">Seu concorrente responde em 3 segundos e tem um site impecável.<br><em>Enquanto você demora horas para atender, quem você acha que o cliente vai escolher?</em></h2>
       <p>Tenha um site de alto padrão e uma Inteligência Artificial que fecha vendas 24h por dia no seu WhatsApp antes que seu cliente compre de outro.</p>
       <a href="https://wa.me/5561996424001?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20e%20quero%20minha%20estrutura%20de%20vendas." target="_blank" rel="noopener" class="btn btn-solido">Quero Minha Estrutura de Vendas →</a>
+
+      <div class="selo-garantia">
+        <span class="selo-garantia-icone">🔒</span>
+        <span><strong>Garantia de Excelência:</strong> Aprovação do design e calibragem da IA antes da publicação. Você acompanha tudo do início ao fim até ficar 100% satisfeito.</span>
+      </div>
     </div>
   </section>
 
@@ -1096,15 +1189,16 @@
       <span>Solution <em>RAO</em></span>
     </a>
     <div class="rodape-links">
-      <a href="#servicos">Serviços</a>
+      <a href="#servicos">Soluções &amp; IA</a>
       <a href="#portfolio">Portfólio</a>
+      <a href="#duvidas">Dúvidas</a>
       <a href="#sobre">Sobre</a>
       <a href="/blog">Blog</a>
       <a href="/politica-de-privacidade">Política de Privacidade</a>
       <a href="/politica-de-cookies">Política de Cookies</a>
       <a href="#" id="linkPreferenciasCookies">Preferências de cookies</a>
     </div>
-    <p>Solution RAO — sites, conteúdo e tráfego pago.</p>
+    <p>Solution RAO — sites exclusivos e agentes de inteligência artificial.</p>
   </div>
 </footer>
 
@@ -1119,18 +1213,29 @@
   </div>
 </div>
 
+<!-- ===== BOTÃO FLUTUANTE WHATSAPP ===== -->
+<a href="https://wa.me/5561996424001?text=Ol%C3%A1%2C%20Raphael!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." class="whatsapp-flutuante" id="whatsappFlutuante" target="_blank" rel="noopener" aria-label="Falar no WhatsApp com Raphael Araújo">
+  <span class="whatsapp-flutuante-texto">Falar com o Raphael 🟢</span>
+  <div class="whatsapp-flutuante-icone">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.058-2.023-.49-1.692-.7-2.784-2.433-2.868-2.545-.084-.112-.686-.912-.686-1.74 0-.828.433-1.234.586-1.391.153-.157.334-.196.446-.196.111 0 .223.003.32.008.102.005.24-.039.375.286.14.338.477 1.164.519 1.25.042.086.07.186.014.298-.056.112-.084.183-.167.281-.084.098-.176.219-.251.295-.084.084-.171.176-.073.344.098.168.434.717.933 1.162.643.573 1.185.75 1.353.834.167.084.265.07.363-.042.098-.112.418-.488.53-.655.112-.168.223-.14.376-.084.153.056.974.46 1.141.544.167.084.279.126.32.196.042.07.042.405-.102.81zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.176L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+  </div>
+</a>
+
 <script>
 (function () {
   "use strict";
 
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-
-
-  /* ===== Header: estado "rolado" ===== */
+  /* ===== Header: estado "rolado" & Botão Flutuante do WhatsApp ===== */
   var cabecalho = document.getElementById('cabecalho');
+  var whatsappFlutuante = document.getElementById('whatsappFlutuante');
   window.addEventListener('scroll', function () {
-    cabecalho.classList.toggle('rolado', window.scrollY > 40);
+    var rolado = window.scrollY > 40;
+    cabecalho.classList.toggle('rolado', rolado);
+    if (whatsappFlutuante) {
+      whatsappFlutuante.classList.toggle('visivel', window.scrollY > 300);
+    }
   });
 
   /* ===== Menu mobile ===== */
@@ -1140,7 +1245,7 @@
     var aberto = menuPrincipal.style.display === 'flex';
     menuPrincipal.style.cssText = aberto
       ? ''
-      : 'display:flex; position:fixed; top:64px; left:0; right:0; flex-direction:column; gap:0; background:rgba(5,7,14,0.98); padding:20px 40px; border-bottom:1px solid var(--linha);';
+      : 'display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:rgba(18,22,31,0.98); padding:28px 24px; gap:20px; border-bottom:1px solid var(--linha);';
   });
 
   /* ===== Reveal on scroll ===== */
@@ -1155,8 +1260,6 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add('visivel'); });
   }
-
-
 
   /* ===== Animação Sequencial da Conversa do WhatsApp (IA ao vivo) ===== */
   var chatBody = document.getElementById('chatBody');
