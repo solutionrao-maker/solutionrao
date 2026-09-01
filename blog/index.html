@@ -5,8 +5,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Solution RAO</title>
-<meta name="description" content="Artigos sobre site, conteúdo para redes sociais e tráfego pago — escritos por quem executa, não só vende o serviço.">
+<title>Blog — Solution RAO | Sites Premium &amp; Agentes de IA</title>
+<meta name="description" content="Artigos práticos sobre Inteligência Artificial, automação comercial no WhatsApp e estratégias de vendas de alto padrão.">
 
 <link rel="canonical" href="https://www.solutionrao.com.br/blog">
 <meta name="robots" content="index, follow">
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Solution RAO">
 <meta property="og:url" content="https://www.solutionrao.com.br/blog">
 <meta property="og:title" content="Blog — Solution RAO">
-<meta property="og:description" content="Artigos sobre site, conteúdo para redes sociais e tráfego pago — escritos por quem executa, não só vende o serviço.">
+<meta property="og:description" content="Artigos práticos sobre Inteligência Artificial, automação comercial no WhatsApp e estratégias de vendas de alto padrão.">
 <meta property="og:image" content="https://www.solutionrao.com.br/og-image.jpg">
 
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -78,84 +78,67 @@
   .intro { margin-top: 18px; color: var(--texto-suave); font-size: 1.05rem; max-width: 56ch; }
   .regua { width: 40px; height: 1px; background: var(--aco); margin: 34px 0; border: none; }
 
-  .lista-artigos { display: flex; flex-direction: column; gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
+  .lista-artigos { display: flex; flex-direction: column; gap: 1px; background: var(--linha); border: 1px solid var(--linha); border-radius: 12px; overflow: hidden; }
   .artigo-card {
-    background: var(--noite); padding: 32px; display: block;
+    background: var(--noite); padding: 36px 32px; display: block;
     transition: background 0.25s ease;
   }
   .artigo-card:hover { background: var(--noite-alt); }
-  .artigo-card .data { font-family: var(--fonte-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--texto-suave); }
-  .artigo-card h2 { font-size: 1.4rem; margin-top: 10px; color: var(--texto); }
-  .artigo-card p { margin-top: 10px; color: var(--texto-suave); font-size: 0.96rem; max-width: 62ch; }
-  .artigo-card .ler-mais { margin-top: 16px; display: inline-block; font-family: var(--fonte-mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--aco-forte); }
+  .artigo-card .data { font-family: var(--fonte-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--aco-forte); }
+  .artigo-card h2 { font-size: 1.5rem; margin-top: 10px; color: var(--texto); }
+  .artigo-card p { margin-top: 10px; color: var(--texto-suave); font-size: 0.98rem; max-width: 68ch; line-height: 1.65; }
+  .artigo-card .ler-mais { margin-top: 18px; display: inline-block; font-family: var(--fonte-mono); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--aco-forte); font-weight: 700; }
 
   .rodape { border-top: 1px solid var(--linha); padding: 40px 0; margin-top: 60px; }
   .rodape-links { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
   .rodape-links a { font-size: 0.82rem; color: var(--texto-suave); }
   .rodape-links a:hover { color: var(--texto); }
   .rodape p { font-size: 0.82rem; color: var(--texto-suave); }
-
-  .cookie-banner {
-    position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 200;
-    max-width: 760px; margin: 0 auto;
-    background: rgba(13, 17, 28, 0.97); backdrop-filter: blur(10px);
-    border: 1px solid var(--linha); border-radius: 12px;
-    padding: 24px 28px;
-    display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-    transform: translateY(140%); opacity: 0; pointer-events: none;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-  }
-  .cookie-banner.visivel { transform: translateY(0); opacity: 1; pointer-events: auto; }
-  .cookie-banner-texto { flex: 1 1 320px; font-size: 0.9rem; color: var(--texto-suave); line-height: 1.6; }
-  .cookie-banner-texto a { color: var(--aco-forte); text-decoration: underline; }
-  .cookie-banner-botoes { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 12px 26px; border: 1px solid var(--aco-forte);
-    font-size: 0.8rem; letter-spacing: 0.06em; color: var(--texto);
-    background: transparent; cursor: pointer; font-family: var(--fonte-corpo); font-weight: 500;
-    transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-  }
-  .btn:hover { background: rgba(108,140,255,0.12); transform: translateY(-1px); }
-  .btn-solido { background: var(--aco); border-color: var(--aco); color: #fff; }
-  .btn-solido:hover { background: var(--aco-forte); border-color: var(--aco-forte); }
-  .cookie-banner-recusar { border-color: var(--linha); }
-  .cookie-banner-recusar:hover { background: rgba(199,206,220,0.08); border-color: var(--platina); }
-
-  @media (max-width: 600px) {
-    .cabecalho { padding: 18px 24px; }
-    .artigo-card { padding: 26px 22px; }
-    .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
-    .cookie-banner-botoes { width: 100%; }
-    .cookie-banner-botoes .btn { flex: 1; text-align: center; justify-content: center; }
-  }
 </style>
 </head>
 <body>
 
 <header class="cabecalho">
   <a href="/" class="marca-header">
-    <img src="../logo-otimizado.webp" alt="Solution RAO" width="34" height="34">
+    <img src="../logo-otimizado.webp" alt="Solution RAO" width="140" height="140">
     <span>Solution <em>RAO</em></span>
   </a>
-  <a href="/" class="voltar">← Voltar ao site</a>
+  <a href="/" class="voltar">← Voltar ao Início</a>
 </header>
 
 <main>
   <div class="container">
-    <span class="eyebrow">Blog</span>
-    <h1>Site, conteúdo e tráfego pago, sem enrolação</h1>
-    <p class="intro">Artigos sobre presença digital escritos por quem executa — não uma redação terceirizada repetindo genérico de marketing.</p>
+    <span class="eyebrow">Artigos &amp; Insights</span>
+    <h1>Blog Solution RAO</h1>
+    <p class="intro">Estratégias de Inteligência Artificial, atendimento automatizado no WhatsApp e presenças digitais que geram vendas reais.</p>
     <hr class="regua">
 
     <div class="lista-artigos">
-      <a class="artigo-card" href="/blog/servicos-agencia-marketing-digital">
-        <span class="data">14 de agosto de 2026</span>
-        <h2>Sua empresa é boa. Seu site ainda não mostra isso.</h2>
-        <p>Por que site, conteúdo e tráfego pago precisam andar juntos — e o que muda quando é uma pessoa só cuidando das três frentes, do briefing ao resultado.</p>
-        <span class="ler-mais">Ler artigo →</span>
+      
+      <!-- Artigo 1: Chatbot vs Agente de IA -->
+      <a href="/blog/chatbot-vs-agente-de-ia" class="artigo-card">
+        <span class="data">01 de Setembro de 2026 · Automação &amp; IA</span>
+        <h2>Chatbot Tradicional vs. Agente de IA: Por Que Menus Engessados Estão Matando Suas Vendas</h2>
+        <p>Descubra a diferença real entre ferramentas antigas como ManyChat e Agentes de IA modernos com GPT-4o que ouvem áudios, cobram via PIX e agendam no Google Calendar.</p>
+        <span class="ler-mais">Ler Artigo Completo →</span>
       </a>
+
+      <!-- Artigo 2: O Que É um Agente de IA -->
+      <a href="/blog/o-que-e-agente-de-ia" class="artigo-card">
+        <span class="data">01 de Setembro de 2026 · Tecnologia &amp; Negócios</span>
+        <h2>O Que É um Agente de IA e Como Ele Transforma Seu Atendimento em Vendas 24/7</h2>
+        <p>Entenda o que é um Agente de Inteligência Artificial, como funciona a tecnologia de LLMs com ferramentas no mundo real e por que sua empresa precisa de um agora.</p>
+        <span class="ler-mais">Ler Artigo Completo →</span>
+      </a>
+
+      <!-- Artigo 3: Presença Digital Completa -->
+      <a href="/blog/servicos-agencia-marketing-digital" class="artigo-card">
+        <span class="data">14 de Agosto de 2026 · Estratégia Digital</span>
+        <h2>Sua empresa é boa. Seu site ainda não mostra isso.</h2>
+        <p>Por que site, conteúdo para redes sociais e tráfego pago precisam andar juntos — e o que muda quando uma pessoa só cuida das três frentes, do briefing ao resultado.</p>
+        <span class="ler-mais">Ler Artigo Completo →</span>
+      </a>
+
     </div>
   </div>
 </main>
@@ -163,46 +146,16 @@
 <footer class="rodape">
   <div class="container">
     <div class="rodape-links">
-      <a href="/#servicos">Serviços</a>
+      <a href="/">Início</a>
+      <a href="/#servicos">Soluções</a>
       <a href="/#portfolio">Portfólio</a>
+      <a href="/#duvidas">Dúvidas</a>
       <a href="/#sobre">Sobre</a>
-      <a href="/politica-de-privacidade">Política de Privacidade</a>
-      <a href="/politica-de-cookies">Política de Cookies</a>
+      <a href="/politica-de-privacidade">Privacidade</a>
     </div>
-    <p>Solution RAO — sites, conteúdo e tráfego pago.</p>
+    <p>© 2026 Solution RAO — sites exclusivos e agentes de inteligência artificial.</p>
   </div>
 </footer>
 
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Preferências de cookies">
-  <p class="cookie-banner-texto">
-    Usamos cookies analíticos para entender o uso do site e melhorar sua experiência. Você pode aceitar ou recusar o uso de cookies não essenciais. Saiba mais na <a href="/politica-de-cookies">Política de Cookies</a>.
-  </p>
-  <div class="cookie-banner-botoes">
-    <button type="button" class="btn cookie-banner-recusar" id="cookieRecusar">Recusar</button>
-    <button type="button" class="btn btn-solido" id="cookieAceitar">Aceitar</button>
-  </div>
-</div>
-
-<script>
-(function () {
-  "use strict";
-  var cookieBanner = document.getElementById('cookieBanner');
-  var cookieAceitar = document.getElementById('cookieAceitar');
-  var cookieRecusar = document.getElementById('cookieRecusar');
-  if (window.SolutionRAOConsent && cookieBanner) {
-    window.SolutionRAOConsent.inicializar(function () {
-      cookieBanner.classList.add('visivel');
-    });
-    cookieAceitar.addEventListener('click', function () {
-      window.SolutionRAOConsent.definirPreferencia('granted');
-      cookieBanner.classList.remove('visivel');
-    });
-    cookieRecusar.addEventListener('click', function () {
-      window.SolutionRAOConsent.definirPreferencia('denied');
-      cookieBanner.classList.remove('visivel');
-    });
-  }
-})();
-</script>
 </body>
 </html>
