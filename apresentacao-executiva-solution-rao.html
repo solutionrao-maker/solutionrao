@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Solution RAO — Dossiê Estratégico & Apresentação Executiva</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :root {
+    --noite: #05070E;
+    --noite-alt: #0D111C;
+    --painel: #121622;
+    --painel-borda: rgba(199, 206, 220, 0.12);
+    --aco: #3A5CE0;
+    --aco-forte: #6C8CFF;
+    --platina: #C7CEDC;
+    --texto: #F2F4F9;
+    --texto-suave: #8E9AB2;
+    --verde: #10B981;
+    --ouro: #F59E0B;
+    --fonte-titulo: 'Cinzel', Georgia, serif;
+    --fonte-corpo: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --fonte-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    background: var(--noite);
+    color: var(--texto);
+    font-family: var(--fonte-corpo);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .pagina {
+    width: 210mm;
+    height: 297mm;
+    page-break-after: always;
+    position: relative;
+    padding: 20mm 18mm;
+    background: var(--noite);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Efeitos de Fundo Suave */
+  .bg-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58, 92, 224, 0.15) 0%, rgba(58, 92, 224, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .glow-top-right { top: -100px; right: -100px; }
+  .glow-bottom-left { bottom: -100px; left: -100px; }
+
+  .conteudo {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header & Footer de Página */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--painel-borda);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+  .page-header .brand {
+    font-family: var(--fonte-titulo);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--texto);
+  }
+  .page-header .brand span {
+    color: var(--aco-forte);
+  }
+  .page-header .doc-tag {
+    font-family: var(--fonte-mono);
+    font-size: 9px;
+    color: var(--platina);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--painel);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--painel-borda);
+  }
+
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--painel-borda);
+    padding-top: 10px;
+    font-size: 10px;
+    color: var(--texto-suave);
+    font-family: var(--fonte-mono);
+  }
+
+  /* Tipografia */
+  h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    color: var(--texto);
+  }
+  h1 { font-size: 27px; line-height: 1.2; letter-spacing: -0.01em; }
+  h2 { font-size: 19px; line-height: 1.3; color: var(--texto); margin-bottom: 8px; }
+  h3 { font-size: 13.5px; color: var(--aco-forte); margin-bottom: 5px; }
+
+  .eyebrow {
+    font-family: var(--fonte-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--aco-forte);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* Cards e Boxes */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .card-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .card {
+    background: var(--painel);
+    border: 1px solid var(--painel-borda);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .card-destaque {
+    border-color: rgba(108, 140, 255, 0.4);
+    background: linear-gradient(145deg, rgba(18, 22, 34, 0.95), rgba(13, 17, 28, 0.95));
+  }
+
+  /* Tabela de Comparação e Preços */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 11px;
+  }
+  th, td {
+    padding: 9px 11px;
+    border-bottom: 1px solid var(--painel-borda);
+    text-align: left;
+  }
+  th {
+    background: var(--noite-alt);
+    font-family: var(--fonte-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--platina);
+  }
+  .td-ruim { color: #F87171; font-weight: 500; }
+  .td-bom { color: #34D399; font-weight: 600; }
+
+  .badge-destaque {
+    display: inline-block;
+    padding: 2.5px 7px;
+    border-radius: 4px;
+    font-family: var(--fonte-mono);
+    font-size: 8.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .badge-ouro { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .badge-azul { background: rgba(58, 92, 224, 0.2); color: #93C5FD; border: 1px solid rgba(58, 92, 224, 0.4); }
+
+  /* Diagrama de Fluxo */
+  .fluxo-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--painel);
+    border: 1px solid var(--painel-borda);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 14px 0;
+  }
+  .fluxo-passo {
+    text-align: center;
+    flex: 1;
+  }
+  .fluxo-passo .icone {
+    font-size: 18px;
+    margin-bottom: 3px;
+  }
+  .fluxo-passo .titulo {
+    font-weight: 700;
+    font-size: 10.5px;
+    color: var(--texto);
+  }
+  .fluxo-passo .desc {
+    font-size: 9px;
+    color: var(--texto-suave);
+  }
+  .fluxo-seta {
+    color: var(--aco-forte);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 0 6px;
+  }
+
+  /* CAPA ESPECÍFICA */
+  .capa-corpo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 0;
+  }
+  .capa-selo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(58, 92, 224, 0.15);
+    border: 1px solid rgba(108, 140, 255, 0.4);
+    padding: 5px 12px;
+    border-radius: 30px;
+    width: fit-content;
+    margin-bottom: 20px;
+  }
+  .capa-selo span {
+    font-family: var(--fonte-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--aco-forte);
+    font-weight: 600;
+  }
+  .capa-titulo {
+    font-size: 32px;
+    line-height: 1.18;
+    margin-bottom: 14px;
+  }
+  .capa-titulo em {
+    font-style: normal;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 60%, var(--aco) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .capa-desc {
+    font-size: 13.5px;
+    color: var(--texto-suave);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .capa-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    border-top: 1px solid var(--painel-borda);
+    padding-top: 20px;
+  }
+  .capa-meta-item strong {
+    display: block;
+    font-family: var(--fonte-mono);
+    font-size: 11.5px;
+    color: var(--texto);
+  }
+  .capa-meta-item span {
+    font-size: 9.5px;
+    color: var(--texto-suave);
+  }
+</style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1: CAPA EDITORIAL ==================== -->
+  <section class="pagina">
+    <div class="bg-glow glow-top-right"></div>
+    <div class="bg-glow glow-bottom-left"></div>
+
+    <div class="page-header">
+      <div class="brand">SOLUTION <span>RAO</span></div>
+      <div class="doc-tag">Dossiê Estratégico 2026</div>
+    </div>
+
+    <div class="capa-corpo conteudo">
+      <div class="capa-selo">
+        <span>⚡ Infraestrutura Comercial com Inteligência Artificial</span>
+      </div>
+
+      <h1 class="capa-titulo">
+        O Site que posiciona sua marca.<br>
+        <em>A Inteligência Artificial que fecha vendas 24/7.</em>
+      </h1>
+
+      <p class="capa-desc">
+        Apresentação executiva das soluções integradas da Solution RAO: desenvolvimento de presenças digitais de alto padrão, agentes de IA conversacionais com voz e áudio, automação de agendamentos e cobrança PIX nativa.
+      </p>
+
+      <div class="capa-meta-grid">
+        <div class="capa-meta-item">
+          <strong>Raphael Araújo</strong>
+          <span>Fundador &amp; Estrategista</span>
+        </div>
+        <div class="capa-meta-item">
+          <strong>+55 (61) 98258-4350</strong>
+          <span>WhatsApp Executivo</span>
+        </div>
+        <div class="capa-meta-item">
+          <strong>solutionrao.com.br</strong>
+          <span>Portal Oficial</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Solution RAO · Confidencial &amp; Exclusivo</span>
+      <span>Página 01 / 04</span>
+    </div>
+  </section>
+
+
+  <!-- ==================== PÁGINA 2: O CENÁRIO & O SALTO COGNITIVO ==================== -->
+  <section class="pagina">
+    <div class="bg-glow glow-top-right"></div>
+
+    <div class="page-header">
+      <div class="brand">SOLUTION <span>RAO</span></div>
+      <div class="doc-tag">Diagnóstico de Mercado</div>
+    </div>
+
+    <div class="conteudo">
+      <span class="eyebrow">A Nova Realidade do Atendimento</span>
+      <h2>Por Que Menus Mecânicos Perdem Vendas de Alto Padrão</h2>
+      <p style="color: var(--texto-suave); margin-bottom: 14px; font-size: 11.5px;">
+        Empresas investem milhares de reais em anúncios, mas perdem até 70% dos clientes qualificados na primeira mensagem. Clientes de estética, saúde, advocacia e consultoria não aceitam menus de "digite 1 ou 2" — eles buscam agilidade com acolhimento humano.
+      </p>
+
+      <span class="eyebrow" style="margin-top: 16px;">Tabela Comparativa</span>
+      <h2>Chatbots Tradicionais vs. Agente Solution RAO</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Capacidade Operacional</th>
+            <th>ManyChat / Chatbots Clássicos 🤖</th>
+            <th>Agente de IA Solution RAO 🧠✨</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Compreensão Linguística</strong></td>
+            <td class="td-ruim">Árvores de decisão e botões rígidos</td>
+            <td class="td-bom">Linguagem natural (GPT-4o), entende gírias e contexto</td>
+          </tr>
+          <tr>
+            <td><strong>Mensagens de Áudio</strong></td>
+            <td class="td-ruim">Ignora 100% dos áudios enviados</td>
+            <td class="td-bom">Ouve, transcreve e responde com empatia em 3s</td>
+          </tr>
+          <tr>
+            <td><strong>Dúvidas Fora do Script</strong></td>
+            <td class="td-ruim">Trava e exibe "opção inválida"</td>
+            <td class="td-bom">Raciocina com base na base de conhecimento do negócio</td>
+          </tr>
+          <tr>
+            <td><strong>Agenda &amp; Horários</strong></td>
+            <td class="td-ruim">Dispara link externo (alta desistência)</td>
+            <td class="td-bom">Consulta o Google Calendar real e reserva na conversa</td>
+          </tr>
+          <tr>
+            <td><strong>Cobrança de Sinal PIX</strong></td>
+            <td class="td-ruim">Links de checkout com atrito</td>
+            <td class="td-bom">Gera PIX Copia-e-Cola (Mercado Pago) e liquida em 2s</td>
+          </tr>
+          <tr>
+            <td><strong>Escalação Inteligente</strong></td>
+            <td class="td-ruim">Deixa o cliente esperando no vácuo</td>
+            <td class="td-bom">Notifica a equipe no WhatsApp com resumo pronto</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="card card-destaque" style="margin-top: 14px;">
+        <h3>💡 O Princípio dos 3 Segundos</h3>
+        <p style="font-size: 10.5px; color: var(--platina);">
+          Um lead qualificado que chega de um anúncio está no ápice do interesse de compra. Se o atendimento demora 30 minutos ou exige que ele preencha formulários lentos, ele fecha com o concorrente. O Agente Solution RAO responde em <strong>menos de 3 segundos</strong>, dia e noite.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Solution RAO · Tecnologia &amp; IA Aplicada</span>
+      <span>Página 02 / 04</span>
+    </div>
+  </section>
+
+
+  <!-- ==================== PÁGINA 3: AS SOLUÇÕES & ARQUITETURA ==================== -->
+  <section class="pagina">
+    <div class="bg-glow glow-bottom-left"></div>
+
+    <div class="page-header">
+      <div class="brand">SOLUTION <span>RAO</span></div>
+      <div class="doc-tag">Arquitetura de Soluções</div>
+    </div>
+
+    <div class="conteudo">
+      <span class="eyebrow">Ecossistema Comercial Completo</span>
+      <h2>O Tripé de Fechamento de Vendas Solution RAO</h2>
+
+      <div class="card-grid">
+        <div class="card">
+          <span class="badge-destaque badge-azul">Design &amp; Autoridade</span>
+          <h3 style="margin-top:6px;">1. Presenças Digitais de Luxo</h3>
+          <p style="font-size: 10px; color: var(--texto-suave);">
+            Sites e Landing Pages sob medida, nota 99/100 no Google PageSpeed, com tipografia editorial e posicionamento de alto escalão para gerar credibilidade instantânea.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="badge-destaque badge-ouro">IA Cognitiva 24/7</span>
+          <h3 style="margin-top:6px;">2. Agente de IA Conversacional</h3>
+          <p style="font-size: 10px; color: var(--texto-suave);">
+            Assistente inteligente para WhatsApp e Instagram que atende em 3s, ouve áudios com clareza, agenda consultas e emite PIX de forma 100% autônoma e segura.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="badge-destaque badge-azul">Gestão em Tempo Real</span>
+          <h3 style="margin-top:6px;">3. RAO Painel &amp; CRM Kanban</h3>
+          <p style="font-size: 10px; color: var(--texto-suave);">
+            Interface web intuitiva para a equipe acompanhar atendimentos, mover leads no funil de vendas, gerenciar gatilhos de posts e disparar mensagens em massa.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="badge-destaque badge-ouro">Escala Previsível</span>
+          <h3 style="margin-top:6px;">4. Tráfego Pago &amp; Captação</h3>
+          <p style="font-size: 10px; color: var(--texto-suave);">
+            Campanhas de alta performance no Meta Ads (Instagram/Facebook) calibradas para atrair leads direto para a IA com custo por aquisição reduzido.
+          </p>
+        </div>
+      </div>
+
+      <span class="eyebrow" style="margin-top: 10px;">Fluxo Operacional Automatizado</span>
+      <h2>Como Funciona na Prática em 4 Etapas</h2>
+
+      <div class="fluxo-box">
+        <div class="fluxo-passo">
+          <div class="icone">📱</div>
+          <div class="titulo">1. Chegada do Lead</div>
+          <div class="desc">Mensagem ou áudio</div>
+        </div>
+        <div class="fluxo-seta">→</div>
+        <div class="fluxo-passo">
+          <div class="icone">🧠</div>
+          <div class="titulo">2. Raciocínio IA</div>
+          <div class="desc">Compreensão em 3s</div>
+        </div>
+        <div class="fluxo-seta">→</div>
+        <div class="fluxo-passo">
+          <div class="icone">📅</div>
+          <div class="titulo">3. Agendamento</div>
+          <div class="desc">Google Calendar</div>
+        </div>
+        <div class="fluxo-seta">→</div>
+        <div class="fluxo-passo">
+          <div class="icone">⚡</div>
+          <div class="titulo">4. PIX &amp; Fechamento</div>
+          <div class="desc">Liquidação em 2s</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Solution RAO · Integrações &amp; Engenharia de Vendas</span>
+      <span>Página 03 / 04</span>
+    </div>
+  </section>
+
+
+  <!-- ==================== PÁGINA 4: PLANOS, VALOR & PRÓXIMOS PASSOS ==================== -->
+  <section class="pagina">
+    <div class="bg-glow glow-top-right"></div>
+    <div class="bg-glow glow-bottom-left"></div>
+
+    <div class="page-header">
+      <div class="brand">SOLUTION <span>RAO</span></div>
+      <div class="doc-tag">Proposta Comercial &amp; Planos</div>
+    </div>
+
+    <div class="conteudo">
+      <span class="eyebrow">Investimento &amp; Modelos de Parceria</span>
+      <h2>Planos Oficiais de Implementação &amp; SaaS</h2>
+
+      <div class="card-grid-3" style="margin-top:10px;">
+        
+        <!-- PLANO 1 -->
+        <div class="card">
+          <span class="badge-destaque badge-azul">Starter</span>
+          <h3 style="margin-top:5px; font-size:12.5px;">IA Essencial</h3>
+          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">Para empresas que já têm site e precisam de IA no WhatsApp.</p>
+          <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
+          <div style="font-size:9.5px; line-height:1.6; color:var(--platina);">
+            ✓ Agente WhatsApp 24/7<br>
+            ✓ Transcrição de áudios<br>
+            ✓ Treinamento com tabela<br>
+            ✓ RAO Painel Básico
+          </div>
+          <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
+          <div style="margin-top:6px;">
+            <span style="font-size:8.5px; color:var(--texto-suave);">Setup Inicial:</span>
+            <strong style="display:block; font-size:13.5px; color:var(--texto);">R$ 1.500</strong>
+            <span style="font-size:8.5px; color:var(--texto-suave);">Mensalidade: <strong>R$ 297/mês</strong></span>
+          </div>
+        </div>
+
+        <!-- PLANO 2 (DESTAQUE) -->
+        <div class="card card-destaque" style="border-color: #6C8CFF;">
+          <span class="badge-destaque badge-ouro">Business Pro ⭐</span>
+          <h3 style="margin-top:5px; font-size:12.5px; color:#93C5FD;">Ecossistema Completo</h3>
+          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">A solução definitiva: Site Premium + IA no WhatsApp &amp; Instagram.</p>
+          <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
+          <div style="font-size:9.5px; line-height:1.6; color:var(--texto);">
+            ✓ <strong>Site de Luxo sob medida</strong><br>
+            ✓ <strong>IA WhatsApp + Instagram</strong><br>
+            ✓ <strong>Google Calendar integrado</strong><br>
+            ✓ <strong>PIX 2s (Mercado Pago)</strong><br>
+            ✓ <strong>CRM Funil de Vendas</strong>
+          </div>
+          <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
+          <div style="margin-top:6px;">
+            <span style="font-size:8.5px; color:var(--texto-suave);">Setup Inicial:</span>
+            <strong style="display:block; font-size:15px; color:#34D399;">R$ 3.200</strong>
+            <span style="font-size:8.5px; color:var(--texto-suave);">Mensalidade: <strong>R$ 497/mês</strong></span>
+          </div>
+        </div>
+
+        <!-- PLANO 3 -->
+        <div class="card">
+          <span class="badge-destaque badge-azul">Diamond Full</span>
+          <h3 style="margin-top:5px; font-size:12.5px;">Escala &amp; Tráfego</h3>
+          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">Para negócios que querem dominar o mercado local.</p>
+          <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
+          <div style="font-size:9.5px; line-height:1.6; color:var(--platina);">
+            ✓ Tudo do Business Pro<br>
+            ✓ Subpáginas de nicho<br>
+            ✓ Disparos em massa<br>
+            ✓ Gestão de Meta Ads<br>
+            ✓ Suporte VIP Prioritário
+          </div>
+          <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
+          <div style="margin-top:6px;">
+            <span style="font-size:8.5px; color:var(--texto-suave);">Setup Inicial:</span>
+            <strong style="display:block; font-size:13.5px; color:var(--texto);">R$ 5.500</strong>
+            <span style="font-size:8.5px; color:var(--texto-suave);">Mensalidade: <strong>R$ 890/mês</strong></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card" style="margin-top: 12px; background: linear-gradient(135deg, rgba(18,22,34,0.9), rgba(58,92,224,0.15)); border-color: rgba(108,140,255,0.3);">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <h3 style="margin-bottom:2px; font-size:12.5px;">Pronto para transformar sua empresa em uma máquina de vendas?</h3>
+            <p style="font-size:10px; color:var(--platina);">
+              Atendimento executivo direto com o fundador. Agende uma demonstração ao vivo no seu WhatsApp.
+            </p>
+          </div>
+          <div style="text-align:right;">
+            <span style="font-family:var(--fonte-mono); font-size:11.5px; color:var(--aco-forte); font-weight:700;">+55 61 98258-4350</span>
+            <span style="display:block; font-size:8.5px; color:var(--texto-suave);">solutionrao.com.br</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Solution RAO · Sites Premium &amp; Agentes de IA</span>
+      <span>Página 04 / 04</span>
+    </div>
+  </section>
+
+</body>
+</html>
