@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="../consent.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sites de Luxo & IA para Imobiliárias e Corretores | Solution RAO — Solution RAO</title>
+<meta name="description" content="Atendimento 24/7 no WhatsApp para o mercado imobiliário. Envie catálogos em PDF, filtre o perfil do comprador e agende visitas automáticas.">
+
+<link rel="canonical" href="https://www.solutionrao.com.br/imobiliaria/">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Solution RAO">
+<meta property="og:url" content="https://www.solutionrao.com.br/imobiliaria/">
+<meta property="og:title" content="Sites de Luxo & IA para Imobiliárias e Corretores | Solution RAO">
+<meta property="og:description" content="Atendimento 24/7 no WhatsApp para o mercado imobiliário. Envie catálogos em PDF, filtre o perfil do comprador e agende visitas automáticas.">
+<meta property="og:image" content="https://www.solutionrao.com.br/og-image.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sites de Luxo & IA para Imobiliárias e Corretores | Solution RAO">
+<meta name="twitter:description" content="Atendimento 24/7 no WhatsApp para o mercado imobiliário. Envie catálogos em PDF, filtre o perfil do comprador e agende visitas automáticas.">
+<meta name="twitter:image" content="https://www.solutionrao.com.br/og-image.jpg">
+
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --noite: #05070E;
+    --noite-alt: #0D111C;
+    --painel: #12161F;
+    --aco: #3A5CE0;
+    --aco-forte: #6C8CFF;
+    --platina: #C7CEDC;
+    --texto: #F2F4F9;
+    --texto-suave: #8E9AB2;
+    --linha: rgba(199, 206, 220, 0.14);
+    --fonte-titulo: 'Newsreader', Georgia, serif;
+    --fonte-corpo: 'Space Grotesk', -apple-system, sans-serif;
+    --fonte-mono: 'Space Mono', 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--noite); color: var(--texto);
+    font-family: var(--fonte-corpo); font-weight: 300; line-height: 1.7;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 400; line-height: 1.15; }
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    font-family: var(--fonte-mono); font-size: 0.74rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--aco-forte);
+  }
+  .regua { width: 40px; height: 1px; background: var(--aco); margin: 20px 0; border: none; }
+  .regua.centro { margin: 20px auto; }
+
+  /* Header */
+  .cabecalho {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
+    background: rgba(5, 7, 14, 0.85); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--linha); transition: padding 0.3s ease;
+  }
+  .marca-header { display: flex; align-items: center; gap: 12px; }
+  .marca-header img { width: 34px; height: 34px; border-radius: 8px; }
+  .marca-header span { font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em; }
+  .marca-header span em {
+    font-style: normal;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .menu-principal { display: flex; gap: 32px; list-style: none; }
+  .menu-principal a { font-size: 0.88rem; color: var(--texto-suave); transition: color 0.25s; }
+  .menu-principal a:hover { color: var(--texto); }
+
+  /* Botoes */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px;
+    font-family: var(--fonte-corpo); font-size: 0.9rem; font-weight: 500;
+    border-radius: 8px; border: 1px solid var(--linha); cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .btn-solido {
+    background: linear-gradient(135deg, var(--aco-forte), var(--aco));
+    color: #fff; border-color: transparent; font-weight: 600;
+    box-shadow: 0 4px 20px rgba(58, 92, 224, 0.35);
+  }
+  .btn-solido:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(58, 92, 224, 0.55);
+  }
+  .btn-header { padding: 8px 18px; font-size: 0.82rem; }
+
+  /* Hero Split */
+  .hero-split { padding: 140px 0 80px; position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+  .hero-status-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(58, 92, 224, 0.12); border: 1px solid rgba(108, 140, 255, 0.3);
+    padding: 6px 14px; border-radius: 30px; font-family: var(--fonte-mono);
+    font-size: 0.76rem; color: #93c5fd; margin-bottom: 20px;
+  }
+  .hero-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
+  .hero-col-texto h1 { font-size: clamp(2.3rem, 4.2vw, 3.4rem); text-wrap: balance; }
+  .hero-col-texto h1 em {
+    font-style: italic; font-weight: 600;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 60%, var(--aco) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-descricao { font-size: 1.08rem; color: var(--texto-suave); margin: 20px 0 28px; max-width: 50ch; line-height: 1.65; }
+  .hero-botoes { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* Chat Device Mockup */
+  .hero-chat-device {
+    background: var(--painel); border: 1px solid rgba(199, 206, 220, 0.16);
+    border-radius: 18px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  }
+  .chat-header {
+    background: var(--noite-alt); padding: 14px 18px; display: flex;
+    justify-content: space-between; align-items: center; border-bottom: 1px solid var(--linha);
+  }
+  .chat-header-user { display: flex; align-items: center; gap: 12px; }
+  .chat-avatar {
+    width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--aco), #1e293b);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem; position: relative;
+  }
+  .chat-avatar-dot { width: 9px; height: 9px; border-radius: 50%; background: #10b981; border: 2px solid var(--noite); position: absolute; bottom: 0; right: 0; }
+  .chat-header-info { display: flex; flex-direction: column; }
+  .chat-header-name { font-weight: 600; font-size: 0.9rem; color: var(--texto); display: flex; align-items: center; gap: 4px; }
+  .chat-header-name svg { width: 14px; height: 14px; color: #60a5fa; }
+  .chat-header-status { font-size: 0.72rem; color: #34d399; font-family: var(--fonte-mono); }
+  .chat-badge-top { font-size: 0.72rem; background: rgba(58,92,224,0.2); color: #93c5fd; padding: 4px 8px; border-radius: 6px; }
+
+  .chat-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .chat-balloon { max-width: 85%; padding: 12px 14px; border-radius: 12px; font-size: 0.86rem; line-height: 1.45; }
+  .chat-balloon-in { background: #1e293b; color: var(--texto); align-self: flex-start; border-bottom-left-radius: 2px; }
+  .chat-balloon-out { background: #1d3557; color: #f8fafc; align-self: flex-end; border-bottom-right-radius: 2px; border: 1px solid rgba(108,140,255,0.3); }
+  .chat-time { display: block; font-size: 0.65rem; color: rgba(255,255,255,0.5); text-align: right; margin-top: 4px; }
+
+  /* Secoes */
+  .secao { padding: 90px 0; }
+  .secao-cabecalho { text-align: center; max-width: 680px; margin: 0 auto 54px; }
+  .secao-cabecalho h2 { font-size: clamp(2rem, 3.8vw, 2.7rem); margin-top: 10px; }
+  .secao-cabecalho p { color: var(--texto-suave); margin-top: 14px; font-size: 1.02rem; }
+
+  /* Bento Grid */
+  .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .bento-card {
+    background: var(--painel); border: 1px solid var(--linha); border-radius: 14px;
+    padding: 32px 28px; transition: transform 0.25s, border-color 0.25s;
+  }
+  .bento-card:hover { transform: translateY(-4px); border-color: rgba(108,140,255,0.4); }
+  .bento-tag { font-family: var(--fonte-mono); font-size: 0.72rem; color: var(--aco-forte); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 12px; }
+  .bento-card h3 { font-size: 1.4rem; color: var(--texto); margin-bottom: 10px; }
+  .bento-card p { font-size: 0.95rem; color: var(--texto-suave); line-height: 1.6; }
+
+  /* Metricas */
+  .metricas-faixa { background: var(--noite-alt); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); padding: 50px 0; }
+  .metricas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .metrica-card strong { font-family: var(--fonte-mono); font-size: 2.2rem; color: var(--aco-forte); display: block; }
+  .metrica-card span { font-size: 0.85rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* FAQ */
+  .faq-lista { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: var(--painel); border: 1px solid var(--linha); border-radius: 10px; padding: 22px 24px; }
+  .faq-pergunta { font-weight: 600; font-size: 1.05rem; color: var(--texto); margin-bottom: 8px; }
+  .faq-resposta { font-size: 0.95rem; color: var(--texto-suave); line-height: 1.6; }
+
+  /* CTA Final */
+  .cta-final { text-align: center; background: linear-gradient(180deg, var(--noite), var(--painel)); padding: 100px 0; border-top: 1px solid var(--linha); }
+  .cta-final h2 { font-size: clamp(2rem, 3.8vw, 2.8rem); max-width: 26ch; margin: 12px auto; }
+  .cta-final p { color: var(--texto-suave); font-size: 1.05rem; max-width: 48ch; margin: 0 auto 32px; }
+
+  /* Rodape */
+  .rodape { border-top: 1px solid var(--linha); padding: 40px 0; font-size: 0.84rem; color: var(--texto-suave); }
+  .rodape-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .rodape-links { display: flex; gap: 20px; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .metricas-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .menu-principal { display: none; }
+    .cabecalho { padding: 18px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cabecalho">
+  <a href="/" class="marca-header">
+    <img src="../logo-otimizado.webp" alt="Solution RAO" width="140" height="140">
+    <span>Solution <em>RAO</em></span>
+  </a>
+  <ul class="menu-principal">
+    <li><a href="#solucoes">Soluções</a></li>
+    <li><a href="#como-funciona">Como Funciona</a></li>
+    <li><a href="#duvidas">Dúvidas</a></li>
+    <li><a href="/">← Início</a></li>
+  </ul>
+  <a href="https://wa.me/5561982584350?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20para%20imobiliarias%20e%20quero%20saber%20mais." target="_blank" rel="noopener" class="btn btn-solido btn-header">Falar no WhatsApp</a>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero-split">
+    <div class="container hero-grid">
+      <div class="hero-col-texto">
+        <div class="hero-status-pill">
+          <span class="hero-status-dot"></span>
+          <span>Tecnologia para Imobiliárias & Corretores de Alto Padrão</span>
+        </div>
+        <h1>Compradores de imóveis buscam à noite.<br><em>Sua imobiliária responde na hora ou deixa para o dia seguinte?</em></h1>
+        <p class="hero-descricao">Entregue catálogos de empreendimentos em PDF, filtre o perfil financeiro do cliente e agende visitas no plantão automaticamente em menos de 3 segundos.</p>
+        <div class="hero-botoes">
+          <a href="https://wa.me/5561982584350?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20para%20imobiliarias%20e%20quero%20saber%20mais." target="_blank" rel="noopener" class="btn btn-solido">Automatizar Minhas Vendas de Imóveis →</a>
+          <a href="#como-funciona" class="btn">Ver Como Funciona</a>
+        </div>
+      </div>
+
+      <div class="hero-col-visual">
+        <div class="hero-chat-device">
+          <div class="chat-header">
+            <div class="chat-header-user">
+              <div class="chat-avatar">🏢<span class="chat-avatar-dot"></span></div>
+              <div class="chat-header-info">
+                <span class="chat-header-name">Imobiliária Prime · IA <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                <span class="chat-header-status">Online agora · Resposta em 3s</span>
+              </div>
+            </div>
+            <span class="chat-badge-top">Atendimento 24/7</span>
+          </div>
+
+          <div class="chat-body">
+            <div class="chat-balloon chat-balloon-in">
+              Olá! Vi o anúncio da cobertura no Jardins e gostaria de saber o valor e fotos.
+              <span class="chat-time">22:15</span>
+            </div>
+            <div class="chat-balloon chat-balloon-out">
+              Olá, Mariana! 👋 A cobertura possui 280m², 4 suítes e vista panorâmica. Estou te enviando o PDF com a planta e fotos completas. Gostaria de agendar uma visita presencial neste sábado?
+              <span class="chat-time">22:15 ✓✓</span>
+            </div>
+            <div class="chat-balloon chat-balloon-in">
+              Recebi o PDF, maravilhoso! Sábado às 10h seria perfeito.
+              <span class="chat-time">22:16</span>
+            </div>
+            <div class="chat-balloon chat-balloon-out">
+              ✅ <strong>Visita Agendada!</strong> O corretor especialista já reservou o horário de sábado às 10h e te aguarda no local. Te mandei a localização exata!
+              <span class="chat-time">22:16 ✓✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICAS -->
+  <section class="metricas-faixa">
+    <div class="container metricas-grid">
+      <div class="metrica-card">
+        <strong>&lt; 3s</strong>
+        <span>Tempo de Resposta</span>
+      </div>
+      <div class="metrica-card">
+        <strong>24/7</strong>
+        <span>Atendimento Sem Pausas</span>
+      </div>
+      <div class="metrica-card">
+        <strong>100%</strong>
+        <span>Ouve &amp; Responde Áudios</span>
+      </div>
+      <div class="metrica-card">
+        <strong>0</strong>
+        <span>Intermediários (Direto com Fundador)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO SOLUCOES -->
+  <section class="secao" id="solucoes">
+    <div class="container">
+      <div class="secao-cabecalho">
+        <span class="eyebrow">Soluções Sob Medida</span>
+        <h2>Tecnologia que fecha mais clientes sem sobrecarregar sua equipe</h2>
+        <p>Desenvolvemos a estrutura completa "chave na mão" para sua empresa focar apenas na entrega.</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card">
+          <span class="bento-tag">🧠 Inteligência Cognitiva</span>
+          <h3>Agente de IA Treinado</h3>
+          <p>Envio instantâneo de catálogos em PDF, plantas, vídeos e tabelas de valores diretamente no Direct do Instagram ou WhatsApp.</p>
+        </div>
+        <div class="bento-card">
+          <span class="bento-tag">📅 Agenda Sincronizada</span>
+          <h3>Google Calendar Nativo</h3>
+          <p>Qualificação por faixa de renda e perfil de compra antes de transferir para o corretor fechar a proposta.</p>
+        </div>
+        <div class="bento-card">
+          <span class="bento-tag">⚡ Fechamento Rápido</span>
+          <h3>PIX &amp; Qualificação</h3>
+          <p>Agendamento de visitas presenciais ou chamadas de vídeo sincronizadas no Google Calendar da equipe comercial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="secao" id="duvidas" style="background: var(--noite-alt);">
+    <div class="container">
+      <div class="secao-cabecalho">
+        <span class="eyebrow">Perguntas Frequentes</span>
+        <h2>Dúvidas comuns sobre a implantação</h2>
+      </div>
+
+      <div class="faq-lista">
+        <div class="faq-item">
+          <div class="faq-pergunta">Quanto tempo leva para colocar no ar?</div>
+          <div class="faq-resposta">Em 7 a 15 dias úteis todo o seu site de alto padrão e o Agente de IA estarão testados, calibrados e funcionando oficialmente no seu WhatsApp e Instagram.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-pergunta">Como a IA sabe as regras do meu negócio?</div>
+          <div class="faq-resposta">Alimentamos o agente com a sua tabela de preços, procedimentos, regras de agendamento e políticas internas. Ela responde exatamente com a voz e a autoridade da sua marca.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-pergunta">E se o cliente fizer uma pergunta muito complexa?</div>
+          <div class="faq-resposta">A IA aciona a escalação humana inteligente: responde ao cliente com cordialidade que vai acionar os especialistas e dispara uma notificação imediata no WhatsApp da sua equipe com o resumo do caso.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <span class="eyebrow">Próximo Passo</span>
+      <h2>Feche mais vendas de imóveis sem deixar nenhum cliente esfriar.</h2>
+      <p>Tenha uma presença digital de luxo e um Agente de IA trabalhando para sua imobiliária 24 horas por dia.</p>
+      <a href="https://wa.me/5561982584350?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Solution%20RAO%20para%20imobiliarias%20e%20quero%20saber%20mais." target="_blank" rel="noopener" class="btn btn-solido" style="padding: 16px 36px; font-size: 1rem;">Falar com Especialista Imobiliário no WhatsApp →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container rodape-grid">
+    <div>© 2026 Solution RAO — Sites Premium &amp; Agentes de IA para Fechamento de Vendas.</div>
+    <div class="rodape-links">
+      <a href="/">Início</a>
+      <a href="/estetica/">Estética</a>
+      <a href="/blog">Blog</a>
+      <a href="/politica-de-privacidade">Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
