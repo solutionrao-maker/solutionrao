@@ -290,7 +290,7 @@
   }
 
   /* Seções Gerais */
-  .secao { padding: 100px 0; position: relative; }
+  .secao { padding: 100px 0; position: relative; scroll-margin-top: 90px; }
   .secao-alt { background: var(--noite-alt); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
   .secao-cabecalho { text-align: center; max-width: 720px; margin: 0 auto 60px; }
   .secao-cabecalho h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-top: 12px; }
@@ -315,6 +315,42 @@
   .dor-card h3 { font-size: 1.35rem; color: #ffffff; margin-bottom: 12px; }
   .dor-card p { font-size: 0.94rem; color: var(--texto-suave); line-height: 1.6; }
 
+  /* Matriz Financeira de ROI Imobiliário */
+  .roi-container {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(13, 18, 31, 0.95) 100%);
+    border: 1.5px solid rgba(52, 211, 153, 0.35); border-radius: 20px;
+    padding: 45px 36px; margin: 60px auto 0; max-width: 1040px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+  .roi-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+  .roi-header h3 { font-family: var(--fonte-titulo); font-size: 1.45rem; color: #ffffff; }
+  .roi-header h3 em { font-style: normal; color: #34d399; }
+  .roi-badge {
+    font-family: var(--fonte-mono); font-size: 0.75rem; color: #34d399;
+    background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(52, 211, 153, 0.4);
+    padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .roi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .roi-card {
+    background: var(--painel); border: 1px solid rgba(199, 206, 220, 0.15);
+    border-radius: 14px; padding: 24px 20px; text-align: center;
+  }
+  .roi-card .roi-label { font-size: 0.78rem; color: var(--texto-suave); text-transform: uppercase; font-family: var(--fonte-mono); margin-bottom: 8px; }
+  .roi-card .roi-val { font-family: var(--fonte-mono); font-size: 2rem; font-weight: 800; color: #ffffff; }
+  .roi-card .roi-val.verde { color: #34d399; }
+  .roi-card .roi-val.ciano { color: var(--ciano-neon); }
+  .roi-card p { font-size: 0.84rem; color: var(--texto-suave); margin-top: 8px; line-height: 1.45; }
+  .roi-conclusao {
+    background: rgba(16, 185, 129, 0.12); border: 1px dashed rgba(52, 211, 153, 0.45);
+    border-radius: 12px; padding: 20px 24px; margin-top: 24px; text-align: center;
+    font-size: 0.96rem; color: #e2e8f0; line-height: 1.6;
+  }
+  .roi-conclusao strong { color: #34d399; }
+  @media (max-width: 960px) {
+    .roi-grid { grid-template-columns: 1fr; }
+    .roi-container { padding: 30px 20px; }
+  }
+
   /* Bento Grid de Soluções */
   .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .bento-card {
@@ -325,6 +361,11 @@
   .bento-card.destaque {
     grid-column: span 2;
     background: linear-gradient(135deg, rgba(18, 22, 31, 0.95) 0%, rgba(30, 58, 138, 0.2) 100%);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+  .bento-card.full {
+    grid-column: span 3;
+    background: linear-gradient(135deg, rgba(18, 22, 31, 0.95) 0%, rgba(30, 58, 138, 0.25) 100%);
     border-color: rgba(56, 189, 248, 0.3);
   }
   .bento-tag {
@@ -442,7 +483,7 @@
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-col-texto h1 { font-size: 2.2rem; }
     .bento-grid { grid-template-columns: 1fr; }
-    .bento-card.destaque { grid-column: span 1; }
+    .bento-card.destaque, .bento-card.full { grid-column: span 1; }
     .dores-grid { grid-template-columns: 1fr; }
     .contraste-container { grid-template-columns: 1fr; }
     .sobre-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
@@ -501,6 +542,7 @@
   <ul class="menu-principal">
     <li><a href="#dores">O Problema</a></li>
     <li><a href="#solucoes">A Tecnologia</a></li>
+    <li><a href="/propostas/Proposta_SolutionRAO_Imobiliaria.pdf" target="_blank" rel="noopener">Dossiê (PDF)</a></li>
     <li><a href="#sobre">Fundador</a></li>
     <li><a href="#duvidas">Dúvidas</a></li>
     <li><a href="/">← Início</a></li>
@@ -531,6 +573,9 @@
           </a>
           <a href="/teste" class="btn">
             Testar Demonstração ao Vivo ⚡
+          </a>
+          <a href="/propostas/Proposta_SolutionRAO_Imobiliaria.pdf" target="_blank" rel="noopener" class="btn" style="border-color: rgba(56, 189, 248, 0.4); color: #bae6fd;">
+            Ver Dossiê Executivo (PDF) 📄
           </a>
         </div>
 
@@ -650,22 +695,81 @@
       </div>
 
       <div class="dores-grid">
+        <!-- Dor 1 -->
         <div class="dor-card">
           <span class="dor-tag">🔴 O Apagão Noturno e de Fim de Semana</span>
           <h3>52% dos compradores de alta renda buscam à noite</h3>
-          <p>O empresário ou médico pesquisa coberturas e mansões às 22h de sábado ou no domingo à tarde. Se o corretor só responde na segunda-feira às 10h, o cliente já desanimou ou agendou visita com outra imobiliária concorrente.</p>
+          <p>O empresário, médico ou investidor pesquisa coberturas e mansões às 22h de sábado ou no domingo. Se o corretor só responde na segunda-feira às 10h, o cliente já desanimou ou agendou visita com outra imobiliária concorrente.</p>
         </div>
 
+        <!-- Dor 2 -->
         <div class="dor-card">
-          <span class="dor-tag">🔴 O Desgaste com Curiosos sem Crédito</span>
-          <h3>Corretores sêniores virando 'motoristas de luxo'</h3>
-          <p>Sua equipe perde tardes inteiras mostrando imóveis para curiosos sem capacidade financeira real ou sem crédito aprovado, enquanto clientes decididos a comprar ficam sem retorno ágil.</p>
+          <span class="dor-tag">🔴 Corretores Sêniores Virando 'Motoristas'</span>
+          <h3>Desgaste brutal com curiosos sem crédito ou capacidade financeira</h3>
+          <p>Sua equipe mais experiente perde tardes inteiras mostrando imóveis para curiosos sem capacidade real de compra ou sem crédito aprovado, enquanto compradores com dinheiro na mão ficam sem atendimento ágil.</p>
         </div>
 
+        <!-- Dor 3 -->
         <div class="dor-card">
-          <span class="dor-tag">🔴 A Lentidão no Envio de Materiais Ricos</span>
+          <span class="dor-tag">🔴 Lentidão Crítica no Envio de Materiais Ricos</span>
           <h3>O cliente pede fotos e memorial e recebe textão amador</h3>
-          <p>Compradores de alto ticket esperam apresentação impecável: memorial descritivo, tour em vídeo, fotos em alta definição e dados de condomínio. Demorar para enviar ou mandar arquivos soltos destrói a percepção de exclusividade.</p>
+          <p>Compradores de alto ticket esperam apresentação impecável no ato: memorial descritivo, tour em vídeo, fotos em alta resolução e dados de condomínio. Demorar minutos ou horas destrói a percepção de exclusividade.</p>
+        </div>
+
+        <!-- Dor 4 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 Volume Descontrolado &amp; Leads Esquecidos</span>
+          <h3>Plantão sobrecarregado com mensagens acumuladas no WhatsApp</h3>
+          <p>Dezenas de contatos chegam simultaneamente dos portais (Zap, VivaReal) e anúncios do Meta Ads. Sem automação cognitiva, corretores esquecem conversas no meio do funil e perdem o timing da visita.</p>
+        </div>
+
+        <!-- Dor 5 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 Burnout e Alta Rotatividade de Corretores</span>
+          <h3>Impossível exigir que humanos fiquem de prontidão 24 horas por dia</h3>
+          <p>Tentar cobrir a noite e os finais de semana cobrando que corretores respondam mensagens de madrugada gera exaustão, rotatividade na equipe e falhas graves de atendimento nos maiores tickets.</p>
+        </div>
+
+        <!-- Dor 6 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 Falta de Métricas &amp; Previsibilidade Real</span>
+          <h3>Milhares de reais investidos em anúncios sem controle de conversão</h3>
+          <p>O diretor da imobiliária investe alto em tráfego e portais, mas não tem clareza sobre o tempo exato de resposta, qualificação do perfil dos leads e quantas visitas foram geradas fora do expediente comercial.</p>
+        </div>
+      </div>
+
+      <!-- MATRIZ FINANCEIRA DE RETORNO (ROI IMOBILIÁRIO) -->
+      <div class="roi-container">
+        <div class="roi-header">
+          <div>
+            <span class="roi-badge">A Matemática Exata do Lucro</span>
+            <h3 style="margin-top: 8px;">Por que <em>1 único cliente salvo</em> paga anos de Solution RAO?</h3>
+          </div>
+          <a href="https://wa.me/5561982584350?text=Ol%C3%A1%20Raphael!%20Quero%20fazer%20as%20contas%20de%20ROI%20para%20minha%20imobili%C3%A1ria." target="_blank" rel="noopener" class="btn btn-solido" style="font-size: 0.85rem; padding: 10px 20px;">
+            Simular com Meu Catálogo →
+          </a>
+        </div>
+
+        <div class="roi-grid">
+          <div class="roi-card">
+            <div class="roi-label">Ticket Médio do Imóvel</div>
+            <div class="roi-val ciano">R$ 1.500.000</div>
+            <p>Valor médio de um apartamento de alto padrão, cobertura ou casa em condomínio fechado.</p>
+          </div>
+          <div class="roi-card">
+            <div class="roi-label">Comissão da Imobiliária (6%)</div>
+            <div class="roi-val verde">R$ 90.000</div>
+            <p>Comissão líquida gerada para a sua imobiliária em uma única venda concluída com sucesso.</p>
+          </div>
+          <div class="roi-card">
+            <div class="roi-label">Investimento Solution RAO</div>
+            <div class="roi-val">R$ 497<span style="font-size: 1rem; color: var(--texto-suave);">/mês</span></div>
+            <p>Infraestrutura completa de IA 24/7, escuta de áudios, envio de PDFs e agenda integrada.</p>
+          </div>
+        </div>
+
+        <div class="roi-conclusao">
+          💡 <strong>A conta é simples:</strong> Se a nossa IA acolher e agendar apenas <strong>1 investidor extra por ano</strong> que entraria em contato às 22h30 de sábado e seria ignorado pela concorrência, a comissão de <strong>R$ 90.000</strong> paga mais de <strong>15 anos inteiros</strong> da infraestrutura comercial da Solution RAO.
         </div>
       </div>
     </div>
@@ -720,9 +824,9 @@
           <span class="canto-tr canto"></span>
           <span class="canto-bl canto"></span>
           <span class="canto-br canto"></span>
-          <span class="bento-tag">💎 Triagem Elegante de Perfil</span>
+          <span class="bento-tag">💎 Filtro BANT Anti-Curiosos</span>
           <h3>Qualificação Financeira Discreta</h3>
-          <p>Em vez de fazer perguntas invasivas, a IA qualifica elegantemente a faixa de investimento pretendida, modalidade de pagamento (recursos próprios, financiamento ou permuta) e urgência antes de envolver o corretor.</p>
+          <p>Chega de corretores seniores virando 'motoristas de luxo'. A IA qualifica com extrema elegância a faixa de orçamento, modalidade de pagamento (à vista, financiamento ou permuta) e urgência antes de agendar a visita.</p>
         </div>
 
         <!-- Card 5: Blindagem de Pré-Reserva -->
@@ -734,6 +838,17 @@
           <span class="bento-tag">⚡ Segurança em Lançamentos</span>
           <h3>Taxa de Reserva &amp; Sinal via PIX</h3>
           <p>Para lançamentos boutique, pré-reservas de lotes ou unidades disputadas, a IA emite o sinal de reserva via PIX Copia-e-Cola em 2 segundos para assegurar a preferência da unidade.</p>
+        </div>
+
+        <!-- Card 6: Painel Executivo para o Diretor -->
+        <div class="bento-card full moldura">
+          <span class="canto canto-tl"></span>
+          <span class="canto-tr canto"></span>
+          <span class="canto-bl canto"></span>
+          <span class="canto-br canto"></span>
+          <span class="bento-tag">📊 Controle Comercial Total</span>
+          <h3>Painel Executivo &amp; Previsibilidade de Vendas para a Diretoria</h3>
+          <p>Acompanhe em tempo real a velocidade de atendimento do plantão, taxa de qualificação BANT de cada canal (Meta Ads, Google, Zap Imóveis, VivaReal) e quais corretores estão convertendo mais visitas em propostas assinadas. Decisões baseadas em números exatos, não em 'achismos' de equipe.</p>
         </div>
       </div>
     </div>
@@ -887,6 +1002,16 @@
 
         <div class="faq-item">
           <button class="faq-pergunta" aria-expanded="false">
+            <span>Como a IA garante que corretores sêniores não percam tempo com curiosos?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-resposta">
+            Através da metodologia de qualificação BANT discreta. Durante a conversa, a IA identifica a faixa real de orçamento do interessado, a forma de pagamento pretendida (à vista, financiamento bancário ou permuta) e o prazo de tomada de decisão. Curiosos ou pessoas fora do perfil recebem informações gerais com educação, mas a agenda nobre e o tempo dos seus corretores seniores são reservados exclusivamente para compradores com poder de fechamento.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta" aria-expanded="false">
             <span>Quanto tempo leva para a tecnologia estar no ar e funcionando?</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -910,6 +1035,9 @@
         </a>
         <a href="/teste" class="btn" style="padding: 16px 32px; font-size: 0.95rem;">
           Testar Demonstração ao Vivo ⚡
+        </a>
+        <a href="/propostas/Proposta_SolutionRAO_Imobiliaria.pdf" target="_blank" rel="noopener" class="btn" style="padding: 16px 32px; font-size: 0.95rem; border-color: rgba(56, 189, 248, 0.4); color: #bae6fd;">
+          Baixar Dossiê Executivo (PDF) 📄
         </a>
       </div>
     </div>
