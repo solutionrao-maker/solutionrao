@@ -188,92 +188,100 @@
   }
   .hero-micro-selos span { display: flex; align-items: center; gap: 6px; }
 
-  /* ===== MOCKUP WHATSAPP IA IMOBILIÁRIA (ANIMADO) ===== */
+  /* ===== MOCKUP WHATSAPP IA (COLUNA DIREITA) ===== */
   .hero-chat-device {
-    background: var(--painel); border: 1px solid rgba(199, 206, 220, 0.2);
-    border-radius: 20px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 40px rgba(56, 189, 248, 0.1);
-    position: relative;
+    width: 100%; max-width: 410px;
+    background: #0b141a; border-radius: 18px;
+    border: 1px solid rgba(108,140,255,0.28);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(58,92,224,0.18);
+    overflow: hidden; display: flex; flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   .chat-header {
-    background: var(--noite-alt); padding: 14px 18px; display: flex;
-    justify-content: space-between; align-items: center; border-bottom: 1px solid var(--linha);
+    background: #202c33; padding: 10px 14px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .chat-header-user { display: flex; align-items: center; gap: 12px; }
+  .chat-header-user { display: flex; align-items: center; gap: 10px; }
   .chat-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--aco), #1e293b);
-    display: flex; align-items: center; justify-content: center; font-size: 1.2rem; position: relative;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--aco), var(--aco-forte));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; position: relative; color: #fff;
   }
   .chat-avatar-dot {
-    width: 10px; height: 10px; border-radius: 50%; background: var(--esmeralda);
-    border: 2px solid var(--noite); position: absolute; bottom: 0; right: 0;
-    box-shadow: 0 0 8px var(--esmeralda);
+    position: absolute; bottom: 0; right: 0; width: 10px; height: 10px;
+    background: #25d366; border: 2px solid #202c33; border-radius: 50%;
   }
   .chat-header-info { display: flex; flex-direction: column; }
-  .chat-header-name {
-    font-weight: 600; font-size: 0.92rem; color: var(--texto); display: flex; align-items: center; gap: 5px;
-  }
-  .chat-header-name svg { width: 14px; height: 14px; color: var(--ciano-neon); }
-  .chat-header-status { font-size: 0.72rem; color: var(--esmeralda); font-family: var(--fonte-mono); }
+  .chat-header-name { font-size: 0.88rem; font-weight: 600; color: #e9edef; display: flex; align-items: center; gap: 5px; }
+  .chat-header-name svg { width: 14px; height: 14px; color: #53bdeb; }
+  .chat-header-status { font-size: 0.7rem; color: #25d366; }
   .chat-badge-top {
-    font-size: 0.72rem; background: rgba(58,92,224,0.22); color: #93c5fd;
-    padding: 5px 10px; border-radius: 6px; font-family: var(--fonte-mono);
-    border: 1px solid rgba(108,140,255,0.3);
+    background: rgba(37, 211, 102, 0.12); color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.3); font-size: 0.68rem; font-weight: 600;
+    padding: 3px 7px; border-radius: 6px;
   }
 
   .chat-body {
-    padding: 22px 18px; display: flex; flex-direction: column; gap: 14px;
-    min-height: 380px; justify-content: flex-start;
+    padding: 14px 12px; display: flex; flex-direction: column; gap: 9px;
+    background: #0b141a radial-gradient(circle at 50% 50%, rgba(32,44,51,0.4) 0%, transparent 80%);
+    font-size: 0.82rem; line-height: 1.4; min-height: 310px; justify-content: flex-start;
   }
   .chat-balloon {
-    max-width: 88%; padding: 12px 16px; border-radius: 14px;
-    font-size: 0.88rem; line-height: 1.48; position: relative;
-    opacity: 0; transform: translateY(10px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-    display: none;
+    max-width: 88%; padding: 8px 12px 6px; border-radius: 10px;
+    position: relative; word-wrap: break-word;
   }
-  .chat-balloon.visivel { opacity: 1; transform: translateY(0); display: block; }
-  
   .chat-balloon-in {
-    background: #1e293b; color: #f8fafc; align-self: flex-start;
-    border-bottom-left-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #202c33; color: #e9edef; align-self: flex-start;
+    border-bottom-left-radius: 3px;
   }
   .chat-balloon-out {
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-    color: #ffffff; align-self: flex-end; border-bottom-right-radius: 4px;
-    border: 1px solid rgba(56, 189, 248, 0.35); box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    background: #005c4b; color: #e9edef; align-self: flex-end;
+    border-bottom-right-radius: 3px;
   }
   .chat-time {
-    display: flex; align-items: center; justify-content: flex-end; gap: 4px;
-    font-size: 0.68rem; color: rgba(255,255,255,0.55); margin-top: 5px;
-    font-family: var(--fonte-mono);
+    font-size: 0.62rem; color: rgba(255,255,255,0.55);
+    float: right; margin: 4px 0 -2px 8px; display: flex; align-items: center; gap: 3px;
   }
-  .chat-time svg { width: 13px; height: 13px; color: var(--ciano-neon); }
+  .chat-time svg { width: 12px; height: 12px; color: #53bdeb; }
 
-  /* Indicador de Digitação (Typing Indicator) */
+  /* Animação das mensagens aparecendo */
+  .chat-msg {
+    opacity: 0; transform: translateY(10px) scale(0.96);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+  }
+  .chat-msg.visivel {
+    display: block; opacity: 1; transform: translateY(0) scale(1);
+  }
+
   .chat-typing-indicator {
-    display: none; align-items: center; gap: 5px;
-    background: #1e293b; padding: 10px 16px; border-radius: 18px;
-    align-self: flex-start; border-bottom-left-radius: 4px;
-    border: 1px solid rgba(255,255,255,0.08); width: fit-content;
+    align-self: flex-start; display: none; align-items: center;
+    gap: 4px; padding: 8px 12px; background: #202c33;
+    border-radius: 10px; border-bottom-left-radius: 3px;
   }
   .chat-typing-dot {
-    width: 6px; height: 6px; border-radius: 50%; background: #94a3b8;
+    width: 5px; height: 5px; border-radius: 50%; background: #8696a0;
     animation: typingBounce 1.4s infinite ease-in-out both;
   }
   .chat-typing-dot:nth-child(1) { animation-delay: -0.32s; }
   .chat-typing-dot:nth-child(2) { animation-delay: -0.16s; }
   @keyframes typingBounce {
-    0%, 80%, 100% { transform: scale(0); opacity: 0.4; }
-    40% { transform: scale(1); opacity: 1; background: var(--ciano-neon); }
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.1); opacity: 1; background: #25d366; }
   }
 
   .chat-footer {
-    background: var(--noite-alt); padding: 12px 18px; display: flex;
-    align-items: center; justify-content: space-between; border-top: 1px solid var(--linha);
+    background: #202c33; padding: 8px 12px;
+    display: flex; align-items: center; gap: 8px;
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
-  .chat-input-fake { font-size: 0.82rem; color: #64748b; }
-  .chat-mic-fake { color: #94a3b8; font-size: 1.1rem; }
+  .chat-input-fake {
+    flex: 1; background: #2a3942; border-radius: 8px;
+    padding: 6px 10px; font-size: 0.78rem; color: #8696a0;
+  }
+  .chat-mic-fake { color: #8696a0; font-size: 1rem; }
 
   /* Faixa de Métricas */
   .metricas-faixa {
@@ -589,12 +597,7 @@
 
       <!-- Mockup WhatsApp com IA Imobiliária Animada -->
       <div class="hero-col-visual">
-        <div class="hero-chat-device moldura">
-          <span class="canto canto-tl"></span>
-          <span class="canto-tr canto"></span>
-          <span class="canto-bl canto"></span>
-          <span class="canto-br canto"></span>
-
+        <div class="hero-chat-device">
           <!-- Cabeçalho do WhatsApp -->
           <div class="chat-header">
             <div class="chat-header-user">
@@ -604,7 +607,7 @@
               </div>
               <div class="chat-header-info">
                 <span class="chat-header-name">
-                  Concierge Privado · Imobiliária Prime
+                  Imobiliária Prime · IA
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </span>
                 <span class="chat-header-status">Online agora · Resposta em 3s</span>
@@ -617,19 +620,19 @@
           <div class="chat-body" id="chatBody">
             <!-- Msg 0: Investidor buscando cobertura (22:15) -->
             <div class="chat-balloon chat-balloon-in chat-msg">
-              Boa noite! Vi o anúncio da cobertura duplex no Jardins. Poderiam me mandar o memorial descritivo, metragem e fotos das suítes? Gostaria de saber também se o proprietário estuda permuta. 🏙️
+              Boa noite! Vi a cobertura duplex no Jardins. Poderiam me enviar o memorial e se aceitam permuta? 🏙️
               <span class="chat-time">22:15</span>
             </div>
 
             <!-- Msg 1: IA acolhendo e enviando material rico -->
             <div class="chat-balloon chat-balloon-out chat-msg">
-              Boa noite! Com certeza. A cobertura duplex possui 380m², 4 suítes com closet, acabamento em mármore travertino e vista panorâmica permanente. Estou te enviando agora o book fotográfico completo e a planta em PDF. 📁✨
+              Boa noite! Possui 380m², 4 suítes e vista panorâmica. Estou te enviando agora o book fotográfico e a planta em PDF. 📁✨
               <span class="chat-time">22:15 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
 
             <!-- Msg 2: IA respondendo permuta e oferecendo visita -->
             <div class="chat-balloon chat-balloon-out chat-msg">
-              Sobre a permuta: o proprietário estuda propostas para imóveis de menor valor na mesma região. Gostaria de agendar uma visita privativa com o nosso corretor especialista neste sábado às 10h ou às 15h?
+              Sobre permuta: o proprietário estuda imóveis de menor valor. Gostaria de agendar uma visita privativa neste sábado às 10h ou às 15h?
               <span class="chat-time">22:15 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
 
@@ -641,7 +644,7 @@
 
             <!-- Msg 4: Confirmação no Google Calendar + Localização -->
             <div class="chat-balloon chat-balloon-out chat-msg">
-              ✅ <strong>Visita Privativa Confirmada!</strong> Já bloqueei a agenda do nosso consultor sênior no Google Calendar para sábado às 10h. Te enviei a localização exata e as orientações de portaria. Te aguardamos no local! 🔑
+              ✅ <strong>Visita Confirmada!</strong> Bloqueei o horário no Google Calendar com nosso consultor sênior. Te enviei a localização e portaria. Até sábado! 🔑
               <span class="chat-time">22:16 <svg viewBox="0 0 16 15" fill="none"><path d="M15 4L6.5 12.5L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4L6.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
 
