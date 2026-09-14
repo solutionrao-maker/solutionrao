@@ -1,43 +1,70 @@
 /*
- * Solution RAO — consentimento de cookies (Google Consent Mode, modo Basic)
+ * Solution RAO — Consentimento de Cookies Granular (LGPD & Google Consent Mode v2)
  *
- * Basic Consent Mode: o gtag.js do Google Analytics e o Meta Pixel só são
- * inseridos no DOM depois que o usuário aceita. Antes disso, nenhum request
- * sai pro Google ou pra Meta, nenhum cookie analítico/de marketing é criado.
- * Compartilhado entre index.html, politica-de-privacidade.html e
- * politica-de-cookies.html — mesma lógica nas 3 páginas, um arquivo só pra
- * evitar divergência entre cópias.
+ * Categorias:
+ * - Necessários: funcionamento básico e armazenamento da preferência (sempre ativos)
+ * - Analíticos: Google Analytics 4 (G-LJGPMWB42D)
+ * - Marketing: Meta Pixel (1419049243423112)
+ *
+ * O gtag.js e o Meta Pixel são estritamente bloqueados até o consentimento.
+ * O usuário pode aceitar todos, rejeitar não essenciais ou personalizar por categoria.
  */
 (function () {
   "use strict";
 
-  var CHAVE_CONSENTIMENTO = "solutionrao_consent"; // "granted" | "denied", em localStorage — não é cookie
+  var CHAVE_STORAGE = "solutionrao_consent_v2";
+  var CHAVE_ANTIGA = "solutionrao_consent";
   var GA_ID = "G-LJGPMWB42D";
   var META_PIXEL_ID = "1419049243423112";
+
   var gaCarregado = false;
   var metaPixelCarregado = false;
 
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+
+  gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    wait_for_update: 500
+  });
+
   function lerPreferencia() {
     try {
-      return window.localStorage.getItem(CHAVE_CONSENTIMENTO);
+      var salvo = window.localStorage.getItem(CHAVE_STORAGE);
+      if (salvo) {
+        return JSON.parse(salvo);
+      }
+      var antigo = window.localStorage.getItem(CHAVE_ANTIGA);
+      if (antigo === "granted") {
+        return { necessarios: true, analiticos: true, marketing: true };
+      } else if (antigo === "denied") {
+        return { necessarios: true, analiticos: false, marketing: false };
+      }
+      return null;
     } catch (e) {
       return null;
     }
   }
 
-  function salvarPreferencia(valor) {
+  function salvarPreferencia(pref) {
     try {
-      window.localStorage.setItem(CHAVE_CONSENTIMENTO, valor);
+      window.localStorage.setItem(CHAVE_STORAGE, JSON.stringify(pref));
     } catch (e) {}
   }
 
-  function apagarCookiesAnaliticos() {
+  function apagarCookies(tipos) {
     var partes = document.cookie.split(";");
     for (var i = 0; i < partes.length; i++) {
       var nome = partes[i].split("=")[0].trim();
-      var doGA = nome === "_ga" || nome === "_gid" || nome.indexOf("_ga_") === 0;
-      var doMeta = nome === "_fbp" || nome === "_fbc";
-      if (doGA || doMeta) {
+      var ehGA = nome === "_ga" || nome === "_gid" || nome.indexOf("_ga_") === 0;
+      var ehMeta = nome === "_fbp" || nome === "_fbc";
+      if ((tipos.analiticos && ehGA) || (tipos.marketing && ehMeta)) {
         document.cookie = nome + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = nome + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname + ";";
       }
@@ -45,23 +72,37 @@
   }
 
   function carregarGA4() {
-    if (gaCarregado) return;
+    if (gaCarregado) {
+      gtag("consent", "update", { analytics_storage: "granted" });
+      return;
+    }
     gaCarregado = true;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag("js", new Date());
-    window.gtag("config", GA_ID);
+    gtag("consent", "update", { analytics_storage: "granted" });
+    gtag("js", new Date());
+    gtag("config", GA_ID);
+
     var script = document.createElement("script");
     script.async = true;
     script.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
     document.head.appendChild(script);
   }
 
-  // Snippet oficial da Meta (Facebook Pixel base code), só com nomes de variável
-  // deixados como a própria Meta distribui.
   function carregarMetaPixel() {
-    if (metaPixelCarregado) return;
+    if (metaPixelCarregado) {
+      gtag("consent", "update", {
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted"
+      });
+      return;
+    }
     metaPixelCarregado = true;
+    gtag("consent", "update", {
+      ad_storage: "granted",
+      ad_user_data: "granted",
+      ad_personalization: "granted"
+    });
+
     (function (f, b, e, v, n, t, s) {
       if (f.fbq) return;
       n = f.fbq = function () {
@@ -78,37 +119,63 @@
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
     })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
     window.fbq("init", META_PIXEL_ID);
     window.fbq("track", "PageView");
   }
 
-  function aplicarPreferencia(valor) {
-    if (valor === "granted") {
+  function aplicarPreferencia(pref) {
+    if (!pref) return;
+
+    if (pref.analiticos) {
       carregarGA4();
-      carregarMetaPixel();
-    } else if (valor === "denied") {
-      if (gaCarregado && window.gtag) {
-        window.gtag("consent", "update", { analytics_storage: "denied" });
+    } else {
+      if (gaCarregado) {
+        gtag("consent", "update", { analytics_storage: "denied" });
       }
-      apagarCookiesAnaliticos();
+      apagarCookies({ analiticos: true });
+    }
+
+    if (pref.marketing) {
+      carregarMetaPixel();
+    } else {
+      if (metaPixelCarregado) {
+        gtag("consent", "update", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied"
+        });
+      }
+      apagarCookies({ marketing: true });
     }
   }
 
   window.SolutionRAOConsent = {
-    // "granted", "denied" ou null (usuário ainda não decidiu)
     obterPreferencia: lerPreferencia,
 
-    // usado pelos botões Aceitar/Recusar do banner
-    definirPreferencia: function (valor) {
-      salvarPreferencia(valor);
-      aplicarPreferencia(valor);
+    definirPreferencia: function (pref) {
+      var valorFinal = {
+        necessarios: true,
+        analiticos: Boolean(pref.analiticos),
+        marketing: Boolean(pref.marketing),
+        dataAtualizacao: new Date().toISOString()
+      };
+      salvarPreferencia(valorFinal);
+      aplicarPreferencia(valorFinal);
+      return valorFinal;
     },
 
-    // roda no carregamento de cada página: aplica a preferência já salva,
-    // ou pede pra mostrar o banner se ainda não houver decisão
+    aceitarTodos: function () {
+      return this.definirPreferencia({ analiticos: true, marketing: true });
+    },
+
+    apenasNecessarios: function () {
+      return this.definirPreferencia({ analiticos: false, marketing: false });
+    },
+
     inicializar: function (aoPrecisarDecisao) {
       var atual = lerPreferencia();
-      if (atual === "granted" || atual === "denied") {
+      if (atual) {
         aplicarPreferencia(atual);
       } else if (typeof aoPrecisarDecisao === "function") {
         aoPrecisarDecisao();
@@ -116,20 +183,16 @@
     }
   };
 
-  // Evento de conversão: clique em qualquer link do WhatsApp (wa.me). Manda pros
-  // dois (GA4 e Meta) sempre que estiverem carregados — é o mesmo clique que
-  // conta como "virou lead" pros dois lados, então os dois precisam do sinal
-  // pra otimizar entrega/relatório de conversão.
   document.addEventListener("click", function (e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (!link) return;
-    if (window.gtag) {
+    if (window.gtag && gaCarregado) {
       window.gtag("event", "whatsapp_click", {
-        event_category: "engagement",
+        event_category: "conversion",
         event_label: link.href
       });
     }
-    if (window.fbq) {
+    if (window.fbq && metaPixelCarregado) {
       window.fbq("track", "Contact");
     }
   });

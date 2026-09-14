@@ -2,57 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.solutionrao.com.br/</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.solutionrao.com.br/estetica/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.solutionrao.com.br/agente-ia-whatsapp/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.solutionrao.com.br/odontologia/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.solutionrao.com.br/automacao-whatsapp/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.solutionrao.com.br/advocacia/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.solutionrao.com.br/sites-profissionais/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/crm-atendimento-ia/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/automacao-agendamento-whatsapp/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/cases/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/cases/clinica-estetica/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/cases/avanty-seguros/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/cases/arca-colchoes-aquarela/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.solutionrao.com.br/imobiliaria/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.solutionrao.com.br/carros/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/odontologia/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/estetica/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/advocacia/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.solutionrao.com.br/medicos/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.solutionrao.com.br/blog</loc>
+    <loc>https://www.solutionrao.com.br/blog/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.solutionrao.com.br/blog/chatbot-vs-agente-de-ia</loc>
+    <loc>https://www.solutionrao.com.br/blog/chatbot-vs-agente-de-ia/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.solutionrao.com.br/blog/o-que-e-agente-de-ia</loc>
+    <loc>https://www.solutionrao.com.br/blog/o-que-e-agente-de-ia/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.solutionrao.com.br/blog/servicos-agencia-marketing-digital</loc>
+    <loc>https://www.solutionrao.com.br/blog/servicos-agencia-marketing-digital/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/termos-de-uso/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/privacidade-servicos/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/politica-de-privacidade/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/politica-de-cookies/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

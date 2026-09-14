@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /teste/
+Disallow: /como-funciona/
+Disallow: /nichos/
+Disallow: /guia/
+Disallow: /whatsapp/
+Disallow: /veiculos/
 
 Sitemap: https://www.solutionrao.com.br/sitemap.xml
