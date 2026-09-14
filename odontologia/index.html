@@ -1006,15 +1006,18 @@
     }
   });
 
-    /* ===== Animação Sequencial do WhatsApp com Síntese Sonora Web Audio API ===== */
+      /* ===== Animação Sequencial do WhatsApp com Síntese Sonora Web Audio API e Disparo Automático Inteligente ===== */
   var chatBody = document.getElementById('chatBody');
   var chatTyping = document.getElementById('chatTyping');
   var chatMsgs = document.querySelectorAll('.chat-msg');
   var btnChatSom = document.getElementById('btnChatSom');
+  var heroChatDevice = document.querySelector('.hero-chat-device');
 
   /* Motor Web Audio API (100% nativo, sem arquivos externos ou latência) */
   var audioCtx = null;
   var somAtivo = false;
+  var somDesativadoManualmente = false;
+  var chatVisivelNaTela = true;
   var typingInterval = null;
 
   function obterAudioContext() {
@@ -1028,9 +1031,24 @@
     return audioCtx;
   }
 
+  function sincronizarEstadoBotaoSom() {
+    if (!btnChatSom) return;
+    if (somAtivo) {
+      btnChatSom.classList.add('ativo');
+      btnChatSom.setAttribute('aria-pressed', 'true');
+      btnChatSom.innerHTML = '<span class="chat-som-icone">🔊</span> <span class="chat-som-texto">Som Ativo</span>';
+      btnChatSom.setAttribute('title', 'Som ativado! Clique para desativar');
+    } else {
+      btnChatSom.classList.remove('ativo');
+      btnChatSom.setAttribute('aria-pressed', 'false');
+      btnChatSom.innerHTML = '<span class="chat-som-icone">🔇</span> <span class="chat-som-texto">Ativar Som</span>';
+      btnChatSom.setAttribute('title', 'Ativar efeitos sonoros do WhatsApp');
+    }
+  }
+
   // 1. Som de Envio de Mensagem (Pop/Whoosh suave ascendente do WhatsApp)
   function tocarSomEnvio() {
-    if (!somAtivo) return;
+    if (!somAtivo || !chatVisivelNaTela) return;
     try {
       var ctx = obterAudioContext();
       if (!ctx) return;
@@ -1056,7 +1074,7 @@
 
   // 2. Som de Recebimento de Mensagem ("Ding" / "Plim" harmônico cristalino)
   function tocarSomRecebimento() {
-    if (!somAtivo) return;
+    if (!somAtivo || !chatVisivelNaTela) return;
     try {
       var ctx = obterAudioContext();
       if (!ctx) return;
@@ -1097,7 +1115,7 @@
 
   // 3. Cliques táteis de digitação (Cliques ultra-sutis mecânicos)
   function tocarCliqueDigitando() {
-    if (!somAtivo) return;
+    if (!somAtivo || !chatVisivelNaTela) return;
     try {
       var ctx = obterAudioContext();
       if (!ctx) return;
@@ -1123,7 +1141,7 @@
 
   function iniciarEfeitoDigitando() {
     pararEfeitoDigitando();
-    if (!somAtivo) return;
+    if (!somAtivo || !chatVisivelNaTela) return;
     tocarCliqueDigitando();
     typingInterval = setInterval(function() {
       if (Math.random() > 0.12) {
@@ -1139,27 +1157,65 @@
     }
   }
 
-  // Interação do Botão de Som
+  /* ===== Ativação Automática no Primeiro Gesto do Usuário (Compatível com Autoplay de Navegadores) ===== */
+  function ativarAudioAutomatico() {
+    if (somDesativadoManualmente || somAtivo) return;
+    try {
+      var ctx = obterAudioContext();
+      if (ctx) {
+        somAtivo = true;
+        sincronizarEstadoBotaoSom();
+        if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
+          iniciarEfeitoDigitando();
+        }
+      }
+    } catch (e) {}
+  }
+
+  var evOpcoes = { once: true, passive: true };
+  ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll'].forEach(function(ev) {
+    window.addEventListener(ev, ativarAudioAutomatico, evOpcoes);
+  });
+
+  /* ===== Observer de Visibilidade do Mockup (Pausa o som se rolar para longe) ===== */
+  if ('IntersectionObserver' in window && heroChatDevice) {
+    var obsChat = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        chatVisivelNaTela = entry.isIntersecting;
+        if (!chatVisivelNaTela) {
+          pararEfeitoDigitando();
+        } else if (somAtivo && chatTyping && chatTyping.style.display === 'inline-flex') {
+          iniciarEfeitoDigitando();
+        }
+      });
+    }, { threshold: 0.15 });
+    obsChat.observe(heroChatDevice);
+  }
+
+  // Silenciar caso a aba vá para segundo plano
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      pararEfeitoDigitando();
+    }
+  });
+
+  // Interação do Botão de Som (Controle manual do usuário)
   if (btnChatSom) {
     btnChatSom.addEventListener('click', function(e) {
       e.stopPropagation();
       var ctx = obterAudioContext();
       somAtivo = !somAtivo;
       if (somAtivo) {
-        btnChatSom.classList.add('ativo');
-        btnChatSom.setAttribute('aria-pressed', 'true');
-        btnChatSom.innerHTML = '<span class="chat-som-icone">🔊</span> <span class="chat-som-texto">Som Ativo</span>';
-        btnChatSom.setAttribute('title', 'Som ativado! Clique para desativar');
+        somDesativadoManualmente = false;
+        sincronizarEstadoBotaoSom();
         tocarSomRecebimento();
-        if (chatTyping && chatTyping.style.display === 'inline-flex') {
+        if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
           iniciarEfeitoDigitando();
         }
       } else {
+        somDesativadoManualmente = true;
         pararEfeitoDigitando();
-        btnChatSom.classList.remove('ativo');
-        btnChatSom.setAttribute('aria-pressed', 'false');
-        btnChatSom.innerHTML = '<span class="chat-som-icone">🔇</span> <span class="chat-som-texto">Ativar Som</span>';
-        btnChatSom.setAttribute('title', 'Ativar efeitos sonoros do WhatsApp');
+        sincronizarEstadoBotaoSom();
       }
     });
   }
