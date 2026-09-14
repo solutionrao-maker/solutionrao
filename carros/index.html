@@ -222,6 +222,7 @@
     border: 1px solid rgba(37, 211, 102, 0.3); font-size: 0.68rem; font-weight: 600;
     padding: 3px 7px; border-radius: 6px;
   }
+  
   /* Botão de Som no Mockup do WhatsApp */
   .chat-header-acoes {
     display: flex;
@@ -252,14 +253,25 @@
     color: #25d366;
     transform: translateY(-1px);
   }
+  .btn-chat-som.pulsando {
+    background: rgba(37, 211, 102, 0.12);
+    border-color: rgba(37, 211, 102, 0.5);
+    color: #25d366;
+    animation: pulsoBtnSom 1.8s infinite ease-in-out;
+  }
   .btn-chat-som.ativo {
     background: rgba(37, 211, 102, 0.18);
     border-color: #25d366;
     color: #25d366;
     box-shadow: 0 0 10px rgba(37, 211, 102, 0.28);
+    animation: none;
   }
   .btn-chat-som.ativo .chat-som-icone {
     animation: somOndas 1.5s infinite ease-in-out;
+  }
+  @keyframes pulsoBtnSom {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    50% { transform: scale(1.04); box-shadow: 0 0 8px 1px rgba(37, 211, 102, 0.35); }
   }
   @keyframes somOndas {
     0%, 100% { transform: scale(1); }
@@ -268,6 +280,48 @@
   @media (max-width: 420px) {
     .btn-chat-som .chat-som-texto { display: none; }
     .btn-chat-som { padding: 4px 6px; }
+  }
+
+  /* Aviso / Convite de Som dentro do Chat */
+  .chat-aviso-som {
+    background: rgba(37, 211, 102, 0.08);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    color: #25d366;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.35s ease;
+    user-select: none;
+    animation: pulsoAvisoSom 2s infinite ease-in-out;
+  }
+  .chat-aviso-som:hover {
+    background: rgba(37, 211, 102, 0.16);
+    border-color: #25d366;
+    transform: translateY(-1px);
+  }
+  .chat-aviso-som.oculto {
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-width: 0;
+    overflow: hidden;
+  }
+  @keyframes pulsoAvisoSom {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    50% { box-shadow: 0 0 10px 1px rgba(37, 211, 102, 0.2); }
   }
 
 
@@ -665,9 +719,9 @@
               </div>
             </div>
             <div class="chat-header-acoes">
-              <button type="button" class="btn-chat-som" id="btnChatSom" aria-label="Ativar som da demonstração do WhatsApp" title="Ativar efeitos sonoros do WhatsApp">
+              <button type="button" class="btn-chat-som pulsando" id="btnChatSom" aria-label="Ativar som da demonstração do WhatsApp" title="Ativar efeitos sonoros do WhatsApp">
                 <span class="chat-som-icone">🔇</span>
-                <span class="chat-som-texto">Ativar Som</span>
+                <span class="chat-som-texto">Ouvir com Som</span>
               </button>
               <span class="chat-badge-top">Atendimento 24/7</span>
             </div>
@@ -675,6 +729,11 @@
 
           <!-- Mensagens Animadas -->
           <div class="chat-body" id="chatBody">
+            <!-- Convite / Ativação de Som -->
+            <div class="chat-aviso-som" id="chatAvisoSom" role="button" tabindex="0" title="Clique para ouvir a conversa com som">
+              <span class="chat-aviso-som-icone">🔊</span>
+              <span>Clique aqui para ouvir a simulação com som</span>
+            </div>
             <!-- Msg 0: Comprador perguntando sobre SUV e troca (22:40) -->
             <div class="chat-balloon chat-balloon-in chat-msg">
               Boa noite! O Compass 2023 ainda está disponível? Aceitam Corolla 2020 na troca? 🚙
@@ -1142,11 +1201,12 @@
     }
   });
 
-      /* ===== Animação Sequencial do WhatsApp com Síntese Sonora Web Audio API e Disparo Automático Inteligente ===== */
+        /* ===== Animação Sequencial do WhatsApp com Síntese Sonora Web Audio API e Ativação por Clique/Toque ===== */
   var chatBody = document.getElementById('chatBody');
   var chatTyping = document.getElementById('chatTyping');
   var chatMsgs = document.querySelectorAll('.chat-msg');
   var btnChatSom = document.getElementById('btnChatSom');
+  var chatAvisoSom = document.getElementById('chatAvisoSom');
   var heroChatDevice = document.querySelector('.hero-chat-device');
 
   /* Motor Web Audio API (100% nativo, sem arquivos externos ou latência) */
@@ -1161,19 +1221,20 @@
       var AudioContextClass = window.AudioContext || window.webkitAudioContext;
       if (AudioContextClass) audioCtx = new AudioContextClass();
     }
-    if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
     return audioCtx;
   }
 
   function sincronizarEstadoBotaoSom() {
     if (!btnChatSom) return;
     if (somAtivo) {
+      btnChatSom.classList.remove('pulsando');
       btnChatSom.classList.add('ativo');
       btnChatSom.setAttribute('aria-pressed', 'true');
       btnChatSom.innerHTML = '<span class="chat-som-icone">🔊</span> <span class="chat-som-texto">Som Ativo</span>';
       btnChatSom.setAttribute('title', 'Som ativado! Clique para desativar');
+      if (chatAvisoSom) {
+        chatAvisoSom.classList.add('oculto');
+      }
     } else {
       btnChatSom.classList.remove('ativo');
       btnChatSom.setAttribute('aria-pressed', 'false');
@@ -1187,7 +1248,7 @@
     if (!somAtivo || !chatVisivelNaTela) return;
     try {
       var ctx = obterAudioContext();
-      if (!ctx) return;
+      if (!ctx || ctx.state !== 'running') return;
       var t = ctx.currentTime;
       var osc = ctx.createOscillator();
       var gain = ctx.createGain();
@@ -1213,7 +1274,7 @@
     if (!somAtivo || !chatVisivelNaTela) return;
     try {
       var ctx = obterAudioContext();
-      if (!ctx) return;
+      if (!ctx || ctx.state !== 'running') return;
       var t = ctx.currentTime;
 
       // Fundamental (Lá5 ~ 880Hz)
@@ -1254,7 +1315,7 @@
     if (!somAtivo || !chatVisivelNaTela) return;
     try {
       var ctx = obterAudioContext();
-      if (!ctx) return;
+      if (!ctx || ctx.state !== 'running') return;
       var t = ctx.currentTime;
       var osc = ctx.createOscillator();
       var gain = ctx.createGain();
@@ -1293,27 +1354,61 @@
     }
   }
 
-  /* ===== Ativação Automática no Primeiro Gesto do Usuário (Compatível com Autoplay de Navegadores) ===== */
-  function ativarAudioAutomatico() {
+  /* ===== Desbloqueio Real de Áudio por Gesto do Usuário ===== */
+  function destravarAudioComClique(tocarFeedback) {
     if (somDesativadoManualmente || somAtivo) return;
     try {
       var ctx = obterAudioContext();
-      if (ctx) {
-        somAtivo = true;
-        sincronizarEstadoBotaoSom();
-        if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
-          iniciarEfeitoDigitando();
+      if (!ctx) return;
+
+      var aplicarSucesso = function() {
+        if (ctx.state === 'running') {
+          somAtivo = true;
+          sincronizarEstadoBotaoSom();
+          if (tocarFeedback && chatVisivelNaTela) {
+            tocarSomRecebimento();
+          }
+          if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
+            iniciarEfeitoDigitando();
+          }
         }
+      };
+
+      if (ctx.state === 'suspended') {
+        ctx.resume().then(aplicarSucesso).catch(function() {});
+      } else if (ctx.state === 'running') {
+        aplicarSucesso();
       }
     } catch (e) {}
   }
 
-  var evOpcoes = { once: true, passive: true };
-  ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll'].forEach(function(ev) {
-    window.addEventListener(ev, ativarAudioAutomatico, evOpcoes);
-  });
+  // 1. Desbloqueia com qualquer clique ou toque na página
+  function handlerPrimeiroGestoGlobal(e) {
+    destravarAudioComClique(false);
+  }
+  window.addEventListener('pointerdown', handlerPrimeiroGestoGlobal, { passive: true });
+  window.addEventListener('touchstart', handlerPrimeiroGestoGlobal, { passive: true });
+  window.addEventListener('click', handlerPrimeiroGestoGlobal, { passive: true });
+  window.addEventListener('keydown', handlerPrimeiroGestoGlobal, { passive: true });
 
-  /* ===== Observer de Visibilidade do Mockup (Pausa o som se rolar para longe) ===== */
+  // 2. Clique em qualquer lugar do container da conversa (.hero-chat-device)
+  if (heroChatDevice) {
+    heroChatDevice.addEventListener('click', function(e) {
+      if (!somAtivo && !somDesativadoManualmente) {
+        destravarAudioComClique(true);
+      }
+    });
+  }
+
+  // 3. Clique no aviso específico
+  if (chatAvisoSom) {
+    chatAvisoSom.addEventListener('click', function(e) {
+      e.stopPropagation();
+      destravarAudioComClique(true);
+    });
+  }
+
+  // 4. Observer de Visibilidade do Mockup (Pausa o som se rolar para longe)
   if ('IntersectionObserver' in window && heroChatDevice) {
     var obsChat = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -1335,21 +1430,37 @@
     }
   });
 
-  // Interação do Botão de Som (Controle manual do usuário)
+  // 5. Interação do Botão de Som (Controle manual direto)
   if (btnChatSom) {
     btnChatSom.addEventListener('click', function(e) {
       e.stopPropagation();
       var ctx = obterAudioContext();
-      somAtivo = !somAtivo;
-      if (somAtivo) {
+      if (!ctx) return;
+
+      if (!somAtivo) {
         somDesativadoManualmente = false;
-        sincronizarEstadoBotaoSom();
-        tocarSomRecebimento();
-        if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
-          iniciarEfeitoDigitando();
+        if (ctx.state === 'suspended') {
+          ctx.resume().then(function() {
+            if (ctx.state === 'running') {
+              somAtivo = true;
+              sincronizarEstadoBotaoSom();
+              tocarSomRecebimento();
+              if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
+                iniciarEfeitoDigitando();
+              }
+            }
+          });
+        } else {
+          somAtivo = true;
+          sincronizarEstadoBotaoSom();
+          tocarSomRecebimento();
+          if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
+            iniciarEfeitoDigitando();
+          }
         }
       } else {
         somDesativadoManualmente = true;
+        somAtivo = false;
         pararEfeitoDigitando();
         sincronizarEstadoBotaoSom();
       }
