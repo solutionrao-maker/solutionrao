@@ -218,6 +218,54 @@
     padding: 5px 10px; border-radius: 6px; font-family: var(--fonte-mono);
     border: 1px solid rgba(108,140,255,0.3);
   }
+  /* Botão de Som no Mockup do WhatsApp */
+  .chat-header-acoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-chat-som {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #94a3b8;
+    font-size: 0.68rem;
+    font-weight: 500;
+    font-family: inherit;
+    padding: 3px 8px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    outline: none;
+    line-height: 1;
+    user-select: none;
+  }
+  .btn-chat-som:hover {
+    background: rgba(37, 211, 102, 0.12);
+    border-color: rgba(37, 211, 102, 0.4);
+    color: #25d366;
+    transform: translateY(-1px);
+  }
+  .btn-chat-som.ativo {
+    background: rgba(37, 211, 102, 0.18);
+    border-color: #25d366;
+    color: #25d366;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.28);
+  }
+  .btn-chat-som.ativo .chat-som-icone {
+    animation: somOndas 1.5s infinite ease-in-out;
+  }
+  @keyframes somOndas {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.22); }
+  }
+  @media (max-width: 420px) {
+    .btn-chat-som .chat-som-texto { display: none; }
+    .btn-chat-som { padding: 4px 6px; }
+  }
+
 
   .chat-body {
     padding: 22px 18px; display: flex; flex-direction: column; gap: 14px;
@@ -563,7 +611,13 @@
                 <span class="chat-header-status">Online agora · Resposta em 3s</span>
               </div>
             </div>
-            <span class="chat-badge-top">Atendimento 24/7</span>
+            <div class="chat-header-acoes">
+              <button type="button" class="btn-chat-som" id="btnChatSom" aria-label="Ativar som da demonstração do WhatsApp" title="Ativar efeitos sonoros do WhatsApp">
+                <span class="chat-som-icone">🔇</span>
+                <span class="chat-som-texto">Ativar Som</span>
+              </button>
+              <span class="chat-badge-top">Atendimento 24/7</span>
+            </div>
           </div>
 
           <!-- Mensagens Animadas -->
@@ -952,73 +1006,249 @@
     }
   });
 
-  // 2. Animação Sequencial do WhatsApp (IA ao Vivo)
+    /* ===== Animação Sequencial do WhatsApp com Síntese Sonora Web Audio API ===== */
   var chatBody = document.getElementById('chatBody');
   var chatTyping = document.getElementById('chatTyping');
   var chatMsgs = document.querySelectorAll('.chat-msg');
+  var btnChatSom = document.getElementById('btnChatSom');
+
+  /* Motor Web Audio API (100% nativo, sem arquivos externos ou latência) */
+  var audioCtx = null;
+  var somAtivo = false;
+  var typingInterval = null;
+
+  function obterAudioContext() {
+    if (!audioCtx) {
+      var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) audioCtx = new AudioContextClass();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  // 1. Som de Envio de Mensagem (Pop/Whoosh suave ascendente do WhatsApp)
+  function tocarSomEnvio() {
+    if (!somAtivo) return;
+    try {
+      var ctx = obterAudioContext();
+      if (!ctx) return;
+      var t = ctx.currentTime;
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(430, t);
+      osc.frequency.exponentialRampToValueAtTime(880, t + 0.07);
+
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.linearRampToValueAtTime(0.075, t + 0.008);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.075);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(t);
+      osc.stop(t + 0.08);
+    } catch (e) {}
+  }
+
+  // 2. Som de Recebimento de Mensagem ("Ding" / "Plim" harmônico cristalino)
+  function tocarSomRecebimento() {
+    if (!somAtivo) return;
+    try {
+      var ctx = obterAudioContext();
+      if (!ctx) return;
+      var t = ctx.currentTime;
+
+      // Fundamental (Lá5 ~ 880Hz)
+      var osc1 = ctx.createOscillator();
+      var gain1 = ctx.createGain();
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(880, t);
+
+      gain1.gain.setValueAtTime(0.0001, t);
+      gain1.gain.linearRampToValueAtTime(0.085, t + 0.006);
+      gain1.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
+
+      osc1.connect(gain1);
+      gain1.connect(ctx.destination);
+      osc1.start(t);
+      osc1.stop(t + 0.29);
+
+      // Harmônico Brilhante (Mi6 ~ 1318.5Hz disparado 40ms depois)
+      var osc2 = ctx.createOscillator();
+      var gain2 = ctx.createGain();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(1318.5, t + 0.04);
+
+      gain2.gain.setValueAtTime(0.0001, t);
+      gain2.gain.setValueAtTime(0.0001, t + 0.04);
+      gain2.gain.linearRampToValueAtTime(0.068, t + 0.046);
+      gain2.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+
+      osc2.connect(gain2);
+      gain2.connect(ctx.destination);
+      osc2.start(t + 0.04);
+      osc2.stop(t + 0.36);
+    } catch (e) {}
+  }
+
+  // 3. Cliques táteis de digitação (Cliques ultra-sutis mecânicos)
+  function tocarCliqueDigitando() {
+    if (!somAtivo) return;
+    try {
+      var ctx = obterAudioContext();
+      if (!ctx) return;
+      var t = ctx.currentTime;
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+
+      var freq = 1450 + (Math.random() * 350 - 175);
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, t);
+
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.linearRampToValueAtTime(0.016, t + 0.002);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.02);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(t);
+      osc.stop(t + 0.022);
+    } catch (e) {}
+  }
+
+  function iniciarEfeitoDigitando() {
+    pararEfeitoDigitando();
+    if (!somAtivo) return;
+    tocarCliqueDigitando();
+    typingInterval = setInterval(function() {
+      if (Math.random() > 0.12) {
+        tocarCliqueDigitando();
+      }
+    }, 115);
+  }
+
+  function pararEfeitoDigitando() {
+    if (typingInterval) {
+      clearInterval(typingInterval);
+      typingInterval = null;
+    }
+  }
+
+  // Interação do Botão de Som
+  if (btnChatSom) {
+    btnChatSom.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var ctx = obterAudioContext();
+      somAtivo = !somAtivo;
+      if (somAtivo) {
+        btnChatSom.classList.add('ativo');
+        btnChatSom.setAttribute('aria-pressed', 'true');
+        btnChatSom.innerHTML = '<span class="chat-som-icone">🔊</span> <span class="chat-som-texto">Som Ativo</span>';
+        btnChatSom.setAttribute('title', 'Som ativado! Clique para desativar');
+        tocarSomRecebimento();
+        if (chatTyping && chatTyping.style.display === 'inline-flex') {
+          iniciarEfeitoDigitando();
+        }
+      } else {
+        pararEfeitoDigitando();
+        btnChatSom.classList.remove('ativo');
+        btnChatSom.setAttribute('aria-pressed', 'false');
+        btnChatSom.innerHTML = '<span class="chat-som-icone">🔇</span> <span class="chat-som-texto">Ativar Som</span>';
+        btnChatSom.setAttribute('title', 'Ativar efeitos sonoros do WhatsApp');
+      }
+    });
+  }
 
   if (chatBody && chatMsgs.length) {
     function rodarSequenciaChat() {
-      // Esconde todas as mensagens
+      pararEfeitoDigitando();
       chatMsgs.forEach(function(m) {
         m.classList.remove('visivel');
         m.style.display = 'none';
       });
       if (chatTyping) chatTyping.style.display = 'none';
 
-      // 1. Mensagem Paciente (Pergunta)
+      // 1. Mensagem 1 (Cliente enviando)
       setTimeout(function() {
         if (chatMsgs[0]) {
           chatMsgs[0].style.display = 'block';
-          setTimeout(function() { chatMsgs[0].classList.add('visivel'); }, 30);
+          setTimeout(function() {
+            chatMsgs[0].classList.add('visivel');
+            tocarSomEnvio();
+          }, 30);
         }
       }, 500);
 
       // 2. IA digitando...
       setTimeout(function() {
-        if (chatTyping) chatTyping.style.display = 'inline-flex';
+        if (chatTyping) {
+          chatTyping.style.display = 'inline-flex';
+          iniciarEfeitoDigitando();
+        }
       }, 1600);
 
-      // 3. Resposta IA 1 (Acolhimento da dor)
+      // 3. Mensagem 2 (IA respondendo)
       setTimeout(function() {
+        pararEfeitoDigitando();
         if (chatTyping) chatTyping.style.display = 'none';
         if (chatMsgs[1]) {
           chatMsgs[1].style.display = 'block';
-          setTimeout(function() { chatMsgs[1].classList.add('visivel'); }, 30);
+          setTimeout(function() {
+            chatMsgs[1].classList.add('visivel');
+            tocarSomRecebimento();
+          }, 30);
         }
       }, 3000);
 
-      // 4. Resposta IA 2 (Oferta de Horários Google Calendar)
+      // 4. Mensagem 3 (IA complementando)
       setTimeout(function() {
         if (chatMsgs[2]) {
           chatMsgs[2].style.display = 'block';
-          setTimeout(function() { chatMsgs[2].classList.add('visivel'); }, 30);
+          setTimeout(function() {
+            chatMsgs[2].classList.add('visivel');
+            tocarSomRecebimento();
+          }, 30);
         }
       }, 4500);
 
-      // 5. Paciente escolhendo horário
+      // 5. Mensagem 4 (Cliente respondendo)
       setTimeout(function() {
         if (chatMsgs[3]) {
           chatMsgs[3].style.display = 'block';
-          setTimeout(function() { chatMsgs[3].classList.add('visivel'); }, 30);
+          setTimeout(function() {
+            chatMsgs[3].classList.add('visivel');
+            tocarSomEnvio();
+          }, 30);
         }
       }, 6200);
 
       // 6. IA digitando confirmação...
       setTimeout(function() {
-        if (chatTyping) chatTyping.style.display = 'inline-flex';
+        if (chatTyping) {
+          chatTyping.style.display = 'inline-flex';
+          iniciarEfeitoDigitando();
+        }
       }, 7300);
 
-      // 7. Confirmação IA + PIX
+      // 7. Mensagem 5 (IA confirmação final)
       setTimeout(function() {
+        pararEfeitoDigitando();
         if (chatTyping) chatTyping.style.display = 'none';
         if (chatMsgs[4]) {
           chatMsgs[4].style.display = 'block';
-          setTimeout(function() { chatMsgs[4].classList.add('visivel'); }, 30);
+          setTimeout(function() {
+            chatMsgs[4].classList.add('visivel');
+            tocarSomRecebimento();
+          }, 30);
         }
       }, 8600);
 
-      // 8. Reinicia o ciclo após visualização
+      // 8. Reinicia o ciclo
       setTimeout(rodarSequenciaChat, 18000);
     }
 
