@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /teste/
+Disallow: /agenterao-imobiliaria/
 Disallow: /como-funciona/
 Disallow: /nichos/
 Disallow: /guia/
