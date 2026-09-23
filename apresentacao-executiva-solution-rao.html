@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Solution RAO — Dossiê Estratégico & Apresentação Executiva</title>
+<title>Solution RAO — Apresentação Executiva Imobiliária 2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
   @page {
     size: A4;
@@ -20,15 +20,15 @@
   }
 
   :root {
-    --noite: #05070E;
-    --noite-alt: #0D111C;
-    --painel: #121622;
-    --painel-borda: rgba(199, 206, 220, 0.12);
-    --aco: #3A5CE0;
-    --aco-forte: #6C8CFF;
-    --platina: #C7CEDC;
-    --texto: #F2F4F9;
-    --texto-suave: #8E9AB2;
+    --noite: #030712;
+    --noite-alt: #0B111E;
+    --painel: #0F172A;
+    --painel-borda: rgba(56, 189, 248, 0.15);
+    --aco: #0284C7;
+    --aco-forte: #38BDF8;
+    --platina: #CBD5E1;
+    --texto: #F8FAFC;
+    --texto-suave: #94A3B8;
     --verde: #10B981;
     --ouro: #F59E0B;
     --fonte-titulo: 'Cinzel', Georgia, serif;
@@ -57,25 +57,25 @@
     justify-content: space-between;
   }
 
-  /* Efeitos de Fundo Suave */
+  /* Glows */
   .bg-glow {
     position: absolute;
-    width: 450px;
-    height: 450px;
+    width: 480px;
+    height: 480px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(58, 92, 224, 0.15) 0%, rgba(58, 92, 224, 0) 70%);
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0) 70%);
     pointer-events: none;
     z-index: 0;
   }
-  .glow-top-right { top: -100px; right: -100px; }
-  .glow-bottom-left { bottom: -100px; left: -100px; }
+  .glow-top-right { top: -120px; right: -120px; }
+  .glow-bottom-left { bottom: -120px; left: -120px; }
 
   .conteudo {
     position: relative;
     z-index: 1;
   }
 
-  /* Header & Footer de Página */
+  /* Header & Footer */
   .page-header {
     display: flex;
     justify-content: space-between;
@@ -86,7 +86,7 @@
   }
   .page-header .brand {
     font-family: var(--fonte-titulo);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.1em;
     color: var(--texto);
@@ -97,13 +97,14 @@
   .page-header .doc-tag {
     font-family: var(--fonte-mono);
     font-size: 9px;
-    color: var(--platina);
+    color: var(--aco-forte);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    background: var(--painel);
+    background: rgba(56, 189, 248, 0.1);
     padding: 4px 10px;
     border-radius: 4px;
     border: 1px solid var(--painel-borda);
+    font-weight: 600;
   }
 
   .page-footer {
@@ -123,7 +124,7 @@
     font-weight: 700;
     color: var(--texto);
   }
-  h1 { font-size: 27px; line-height: 1.2; letter-spacing: -0.01em; }
+  h1 { font-size: 27px; line-height: 1.22; letter-spacing: -0.01em; }
   h2 { font-size: 19px; line-height: 1.3; color: var(--texto); margin-bottom: 8px; }
   h3 { font-size: 13.5px; color: var(--aco-forte); margin-bottom: 5px; }
 
@@ -157,11 +158,11 @@
     padding: 14px;
   }
   .card-destaque {
-    border-color: rgba(108, 140, 255, 0.4);
-    background: linear-gradient(145deg, rgba(18, 22, 34, 0.95), rgba(13, 17, 28, 0.95));
+    border-color: rgba(56, 189, 248, 0.4);
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(11, 17, 30, 0.95));
   }
 
-  /* Tabela de Comparação e Preços */
+  /* Tabela de Comparação */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -182,7 +183,7 @@
     color: var(--platina);
   }
   .td-ruim { color: #F87171; font-weight: 500; }
-  .td-bom { color: #34D399; font-weight: 600; }
+  .td-bom { color: #38BDF8; font-weight: 600; }
 
   .badge-destaque {
     display: inline-block;
@@ -194,7 +195,7 @@
     font-weight: 600;
   }
   .badge-ouro { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
-  .badge-azul { background: rgba(58, 92, 224, 0.2); color: #93C5FD; border: 1px solid rgba(58, 92, 224, 0.4); }
+  .badge-azul { background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.35); }
 
   /* Diagrama de Fluxo */
   .fluxo-box {
@@ -231,7 +232,7 @@
     padding: 0 6px;
   }
 
-  /* CAPA ESPECÍFICA */
+  /* Capa Específica */
   .capa-corpo {
     flex: 1;
     display: flex;
@@ -243,9 +244,9 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(58, 92, 224, 0.15);
-    border: 1px solid rgba(108, 140, 255, 0.4);
-    padding: 5px 12px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 5px 14px;
     border-radius: 30px;
     width: fit-content;
     margin-bottom: 20px;
@@ -256,11 +257,11 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--aco-forte);
-    font-weight: 600;
+    font-weight: 700;
   }
   .capa-titulo {
-    font-size: 32px;
-    line-height: 1.18;
+    font-size: 31px;
+    line-height: 1.2;
     margin-bottom: 14px;
   }
   .capa-titulo em {
@@ -273,7 +274,7 @@
   .capa-desc {
     font-size: 13.5px;
     color: var(--texto-suave);
-    max-width: 500px;
+    max-width: 520px;
     line-height: 1.7;
     margin-bottom: 28px;
   }
@@ -287,7 +288,7 @@
   .capa-meta-item strong {
     display: block;
     font-family: var(--fonte-mono);
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--texto);
   }
   .capa-meta-item span {
@@ -305,21 +306,21 @@
 
     <div class="page-header">
       <div class="brand">SOLUTION <span>RAO</span></div>
-      <div class="doc-tag">Dossiê Estratégico 2026</div>
+      <div class="doc-tag">Dossiê Executivo Imobiliário 2026</div>
     </div>
 
     <div class="capa-corpo conteudo">
       <div class="capa-selo">
-        <span>⚡ Infraestrutura Comercial com Inteligência Artificial</span>
+        <span>🏢 Inteligência Artificial &amp; Infraestrutura Imobiliária</span>
       </div>
 
       <h1 class="capa-titulo">
-        O Site que posiciona sua marca.<br>
-        <em>A Inteligência Artificial que fecha vendas 24/7.</em>
+        O Site que posiciona sua imobiliária.<br>
+        <em>A Inteligência Artificial que agenda visitas 24/7.</em>
       </h1>
 
       <p class="capa-desc">
-        Apresentação executiva das soluções integradas da Solution RAO: desenvolvimento de presenças digitais de alto padrão, agentes de IA conversacionais com voz e áudio, automação de agendamentos e cobrança PIX nativa.
+        Apresentação executiva das soluções integradas da Solution RAO para imobiliárias boutique, incorporadoras e corretores de médio e alto padrão: vitrines digitais de alto escalão, concierges de IA no WhatsApp com compreensão nativa de áudio, qualificação automática de compradores e agendamento de visitas presenciais no plantão.
       </p>
 
       <div class="capa-meta-grid">
@@ -328,18 +329,18 @@
           <span>Fundador &amp; Estrategista</span>
         </div>
         <div class="capa-meta-item">
-          <strong>+55 (61) 98258-4350</strong>
+          <strong>+55 (61) 99601-8566</strong>
           <span>WhatsApp Executivo</span>
         </div>
         <div class="capa-meta-item">
-          <strong>solutionrao.com.br</strong>
+          <strong>solutionrao.com.br/imobiliaria</strong>
           <span>Portal Oficial</span>
         </div>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Solution RAO · Confidencial &amp; Exclusivo</span>
+      <span>Solution RAO · Confidencial &amp; Exclusivo para Decisores</span>
       <span>Página 01 / 04</span>
     </div>
   </section>
@@ -355,67 +356,67 @@
     </div>
 
     <div class="conteudo">
-      <span class="eyebrow">A Nova Realidade do Atendimento</span>
-      <h2>Por Que Menus Mecânicos Perdem Vendas de Alto Padrão</h2>
+      <span class="eyebrow">A Realidade do Comprador de Alto Padrão</span>
+      <h2>Por Que Menus Mecânicos Perdem Compradores de Imóveis</h2>
       <p style="color: var(--texto-suave); margin-bottom: 14px; font-size: 11.5px;">
-        Empresas investem milhares de reais em anúncios, mas perdem até 70% dos clientes qualificados na primeira mensagem. Clientes de estética, saúde, advocacia e consultoria não aceitam menus de "digite 1 ou 2" — eles buscam agilidade com acolhimento humano.
+        Imobiliárias investem milhares de reais em portais (ZAP, VivaReal, Imovelweb) e anúncios no Meta Ads, mas perdem até 70% dos contatos qualificados na primeira mensagem. Compradores de imóveis de médio e alto padrão pesquisam às 22h ou no domingo e não aceitam menus de "digite 1 ou 2" — eles buscam agilidade com acolhimento consultivo e respostas técnicas imediatas.
       </p>
 
-      <span class="eyebrow" style="margin-top: 16px;">Tabela Comparativa</span>
-      <h2>Chatbots Tradicionais vs. Agente Solution RAO</h2>
+      <span class="eyebrow" style="margin-top: 14px;">Tabela Comparativa de Atendimento</span>
+      <h2>Chatbots Tradicionais vs. Concierge de IA Solution RAO</h2>
 
       <table>
         <thead>
           <tr>
             <th>Capacidade Operacional</th>
-            <th>ManyChat / Chatbots Clássicos 🤖</th>
-            <th>Agente de IA Solution RAO 🧠✨</th>
+            <th>Chatbots Clássicos / ManyChat 🤖</th>
+            <th>Concierge de IA Solution RAO 🧠✨</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>Compreensão Linguística</strong></td>
-            <td class="td-ruim">Árvores de decisão e botões rígidos</td>
-            <td class="td-bom">Linguagem natural (GPT-4o), entende gírias e contexto</td>
+            <td class="td-ruim">Árvores rígidas e menus numéricos</td>
+            <td class="td-bom">Linguagem natural, entende tipologias, suítes e bairros</td>
           </tr>
           <tr>
             <td><strong>Mensagens de Áudio</strong></td>
             <td class="td-ruim">Ignora 100% dos áudios enviados</td>
-            <td class="td-bom">Ouve, transcreve e responde com empatia em 3s</td>
+            <td class="td-bom">Ouve, transcreve e responde com empatia técnica em 3s</td>
           </tr>
           <tr>
-            <td><strong>Dúvidas Fora do Script</strong></td>
-            <td class="td-ruim">Trava e exibe "opção inválida"</td>
-            <td class="td-bom">Raciocina com base na base de conhecimento do negócio</td>
+            <td><strong>Envio de Fotos e Plantas</strong></td>
+            <td class="td-ruim">Corretor precisa enviar manualmente</td>
+            <td class="td-bom">Dispara books, fotos e memoriais descritivos na hora</td>
           </tr>
           <tr>
-            <td><strong>Agenda &amp; Horários</strong></td>
+            <td><strong>Agendamento de Visitas</strong></td>
             <td class="td-ruim">Dispara link externo (alta desistência)</td>
-            <td class="td-bom">Consulta o Google Calendar real e reserva na conversa</td>
+            <td class="td-bom">Consulta o Google Calendar real do corretor e agenda na conversa</td>
           </tr>
           <tr>
-            <td><strong>Cobrança de Sinal PIX</strong></td>
-            <td class="td-ruim">Links de checkout com atrito</td>
-            <td class="td-bom">Gera PIX Copia-e-Cola (Mercado Pago) e liquida em 2s</td>
+            <td><strong>Filtro de Curiosos</strong></td>
+            <td class="td-ruim">Não qualifica (corretor perde tempo)</td>
+            <td class="td-bom">Valida se busca moradia ou investimento, faixa e urgência</td>
           </tr>
           <tr>
-            <td><strong>Escalação Inteligente</strong></td>
+            <td><strong>Transbordo para o Corretor</strong></td>
             <td class="td-ruim">Deixa o cliente esperando no vácuo</td>
-            <td class="td-bom">Notifica a equipe no WhatsApp com resumo pronto</td>
+            <td class="td-bom">Notifica o corretor no WhatsApp com a ficha completa pronta</td>
           </tr>
         </tbody>
       </table>
 
-      <div class="card card-destaque" style="margin-top: 14px;">
-        <h3>💡 O Princípio dos 3 Segundos</h3>
+      <div class="card card-destaque" style="margin-top: 12px;">
+        <h3>💡 O Princípio dos 3 Segundos no Mercado Imobiliário</h3>
         <p style="font-size: 10.5px; color: var(--platina);">
-          Um lead qualificado que chega de um anúncio está no ápice do interesse de compra. Se o atendimento demora 30 minutos ou exige que ele preencha formulários lentos, ele fecha com o concorrente. O Agente Solution RAO responde em <strong>menos de 3 segundos</strong>, dia e noite.
+          Um comprador interessado em um imóvel está no ápice do interesse no instante do clique. Mais de <strong>78% dos compradores de imóveis fecham negócio com a primeira imobiliária que responde com dados completos</strong>. Enquanto sua equipe está em visita, no trânsito ou descansando, a Solution RAO garante resposta em menos de 3 segundos, dia e noite.
         </p>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Solution RAO · Tecnologia &amp; IA Aplicada</span>
+      <span>Solution RAO · Tecnologia &amp; IA Imobiliária</span>
       <span>Página 02 / 04</span>
     </div>
   </section>
@@ -431,75 +432,75 @@
     </div>
 
     <div class="conteudo">
-      <span class="eyebrow">Ecossistema Comercial Completo</span>
+      <span class="eyebrow">Ecossistema Comercial Imobiliário</span>
       <h2>O Tripé de Fechamento de Vendas Solution RAO</h2>
 
       <div class="card-grid">
         <div class="card">
           <span class="badge-destaque badge-azul">Design &amp; Autoridade</span>
-          <h3 style="margin-top:6px;">1. Presenças Digitais de Luxo</h3>
+          <h3 style="margin-top:6px;">1. Site Imobiliário de Luxo</h3>
           <p style="font-size: 10px; color: var(--texto-suave);">
-            Sites e Landing Pages sob medida, nota 99/100 no Google PageSpeed, com tipografia editorial e posicionamento de alto escalão para gerar credibilidade instantânea.
+            Vitrines exclusivas sob medida, nota 99/100 no PageSpeed, com tipografia editorial, catálogo refinado de empreendimentos e posicionamento de alto escalão para gerar credibilidade instantânea.
           </p>
         </div>
 
         <div class="card">
           <span class="badge-destaque badge-ouro">IA Cognitiva 24/7</span>
-          <h3 style="margin-top:6px;">2. Agente de IA Conversacional</h3>
+          <h3 style="margin-top:6px;">2. Concierge de IA no WhatsApp</h3>
           <p style="font-size: 10px; color: var(--texto-suave);">
-            Assistente inteligente para WhatsApp e Instagram que atende em 3s, ouve áudios com clareza, agenda consultas e emite PIX de forma 100% autônoma e segura.
+            Assistente inteligente treinado no seu portfólio de imóveis que atende em 3s, compreende áudios com sotaques e termos imobiliários, envia fotos e qualifica compradores 24 horas por dia.
           </p>
         </div>
 
         <div class="card">
-          <span class="badge-destaque badge-azul">Gestão em Tempo Real</span>
-          <h3 style="margin-top:6px;">3. RAO Painel &amp; CRM Kanban</h3>
+          <span class="badge-destaque badge-azul">Agenda &amp; Gestão</span>
+          <h3 style="margin-top:6px;">3. Google Calendar &amp; CRM Integrados</h3>
           <p style="font-size: 10px; color: var(--texto-suave);">
-            Interface web intuitiva para a equipe acompanhar atendimentos, mover leads no funil de vendas, gerenciar gatilhos de posts e disparar mensagens em massa.
+            Sincronização em tempo real da agenda de visitas dos corretores do plantão, bloqueando horários vagos e organizando os leads em funil Kanban visual para a equipe comercial.
           </p>
         </div>
 
         <div class="card">
-          <span class="badge-destaque badge-ouro">Escala Previsível</span>
-          <h3 style="margin-top:6px;">4. Tráfego Pago &amp; Captação</h3>
+          <span class="badge-destaque badge-ouro">Captação Qualificada</span>
+          <h3 style="margin-top:6px;">4. Tráfego Pago Estratégico Meta Ads</h3>
           <p style="font-size: 10px; color: var(--texto-suave);">
-            Campanhas de alta performance no Meta Ads (Instagram/Facebook) calibradas para atrair leads direto para a IA com custo por aquisição reduzido.
+            Campanhas calibradas para o mercado imobiliário do DF com interesses homologados (CRECI, Mercado Imobiliário, Investidores), direcionando leads quentes direto para o WhatsApp do robô.
           </p>
         </div>
       </div>
 
-      <span class="eyebrow" style="margin-top: 10px;">Fluxo Operacional Automatizado</span>
+      <span class="eyebrow" style="margin-top: 10px;">Fluxo Operacional Imobiliário</span>
       <h2>Como Funciona na Prática em 4 Etapas</h2>
 
       <div class="fluxo-box">
         <div class="fluxo-passo">
           <div class="icone">📱</div>
           <div class="titulo">1. Chegada do Lead</div>
-          <div class="desc">Mensagem ou áudio</div>
+          <div class="desc">ZAP, Insta ou Anúncio</div>
         </div>
         <div class="fluxo-seta">→</div>
         <div class="fluxo-passo">
           <div class="icone">🧠</div>
-          <div class="titulo">2. Raciocínio IA</div>
-          <div class="desc">Compreensão em 3s</div>
+          <div class="titulo">2. Raciocínio &amp; Fotos</div>
+          <div class="desc">Áudios e Ficha em 3s</div>
         </div>
         <div class="fluxo-seta">→</div>
         <div class="fluxo-passo">
           <div class="icone">📅</div>
           <div class="titulo">3. Agendamento</div>
-          <div class="desc">Google Calendar</div>
+          <div class="desc">Google Calendar Real</div>
         </div>
         <div class="fluxo-seta">→</div>
         <div class="fluxo-passo">
-          <div class="icone">⚡</div>
-          <div class="titulo">4. PIX &amp; Fechamento</div>
-          <div class="desc">Liquidação em 2s</div>
+          <div class="icone">🤝</div>
+          <div class="titulo">4. Transbordo Handoff</div>
+          <div class="desc">Corretor assume pronto</div>
         </div>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Solution RAO · Integrações &amp; Engenharia de Vendas</span>
+      <span>Solution RAO · Integrações &amp; Engenharia de Vendas Imobiliárias</span>
       <span>Página 03 / 04</span>
     </div>
   </section>
@@ -512,12 +513,12 @@
 
     <div class="page-header">
       <div class="brand">SOLUTION <span>RAO</span></div>
-      <div class="doc-tag">Proposta Comercial &amp; Planos</div>
+      <div class="doc-tag">Proposta Comercial &amp; Planos 2026</div>
     </div>
 
     <div class="conteudo">
-      <span class="eyebrow">Investimento &amp; Modelos de Parceria</span>
-      <h2>Planos Oficiais de Implementação &amp; SaaS</h2>
+      <span class="eyebrow">Investimento Homologado</span>
+      <h2>Planos Oficiais de Implementação Imobiliária</h2>
 
       <div class="card-grid-3" style="margin-top:10px;">
         
@@ -525,39 +526,39 @@
         <div class="card">
           <span class="badge-destaque badge-azul">Starter</span>
           <h3 style="margin-top:5px; font-size:12.5px;">IA Essencial</h3>
-          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">Para empresas que já têm site e precisam de IA no WhatsApp.</p>
+          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">Para imobiliárias e corretores que já têm site e precisam de IA no WhatsApp.</p>
           <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
           <div style="font-size:9.5px; line-height:1.6; color:var(--platina);">
             ✓ Agente WhatsApp 24/7<br>
-            ✓ Transcrição de áudios<br>
-            ✓ Treinamento com tabela<br>
+            ✓ Transcrição nativa de áudios<br>
+            ✓ Catálogo de imóveis treinado<br>
             ✓ RAO Painel Básico
           </div>
           <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
           <div style="margin-top:6px;">
-            <span style="font-size:8.5px; color:var(--texto-suave);">Setup Inicial:</span>
+            <span style="font-size:8.5px; color:var(--texto-suave);">Setup de Implantação:</span>
             <strong style="display:block; font-size:13.5px; color:var(--texto);">R$ 1.500</strong>
             <span style="font-size:8.5px; color:var(--texto-suave);">Mensalidade: <strong>R$ 297/mês</strong></span>
           </div>
         </div>
 
         <!-- PLANO 2 (DESTAQUE) -->
-        <div class="card card-destaque" style="border-color: #6C8CFF;">
+        <div class="card card-destaque" style="border-color: #38BDF8;">
           <span class="badge-destaque badge-ouro">Business Pro ⭐</span>
-          <h3 style="margin-top:5px; font-size:12.5px; color:#93C5FD;">Ecossistema Completo</h3>
-          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">A solução definitiva: Site Premium + IA no WhatsApp &amp; Instagram.</p>
+          <h3 style="margin-top:5px; font-size:12.5px; color:#38BDF8;">Ecossistema Completo</h3>
+          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">O Carro-Chefe: Site de Luxo + IA WhatsApp &amp; Instagram + Google Calendar.</p>
           <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
           <div style="font-size:9.5px; line-height:1.6; color:var(--texto);">
-            ✓ <strong>Site de Luxo sob medida</strong><br>
-            ✓ <strong>IA WhatsApp + Instagram</strong><br>
+            ✓ <strong>Site Imobiliário de Luxo</strong><br>
+            ✓ <strong>IA WhatsApp &amp; Instagram</strong><br>
             ✓ <strong>Google Calendar integrado</strong><br>
-            ✓ <strong>PIX 2s (Mercado Pago)</strong><br>
+            ✓ <strong>PIX 2s integrado</strong><br>
             ✓ <strong>CRM Funil de Vendas</strong>
           </div>
           <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
           <div style="margin-top:6px;">
-            <span style="font-size:8.5px; color:var(--texto-suave);">Setup Inicial:</span>
-            <strong style="display:block; font-size:15px; color:#34D399;">R$ 3.200</strong>
+            <span style="font-size:8.5px; color:var(--texto-suave);">Setup de Implantação:</span>
+            <strong style="display:block; font-size:15px; color:#38BDF8;">R$ 3.200</strong>
             <span style="font-size:8.5px; color:var(--texto-suave);">Mensalidade: <strong>R$ 497/mês</strong></span>
           </div>
         </div>
@@ -566,18 +567,18 @@
         <div class="card">
           <span class="badge-destaque badge-azul">Diamond Full</span>
           <h3 style="margin-top:5px; font-size:12.5px;">Escala &amp; Tráfego</h3>
-          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">Para negócios que querem dominar o mercado local.</p>
+          <p style="font-size:9.5px; color:var(--texto-suave); margin-bottom:10px;">Para grandes imobiliárias, lançamentos e equipes comerciais robustas.</p>
           <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
           <div style="font-size:9.5px; line-height:1.6; color:var(--platina);">
             ✓ Tudo do Business Pro<br>
-            ✓ Subpáginas de nicho<br>
-            ✓ Disparos em massa<br>
-            ✓ Gestão de Meta Ads<br>
+            ✓ Subpáginas de empreendimentos<br>
+            ✓ Disparos Meta Cloud API<br>
+            ✓ Gestão de Tráfego Meta Ads<br>
             ✓ Suporte VIP Prioritário
           </div>
           <hr style="border:0; border-top:1px solid var(--painel-borda); margin:6px 0;">
           <div style="margin-top:6px;">
-            <span style="font-size:8.5px; color:var(--texto-suave);">Setup Inicial:</span>
+            <span style="font-size:8.5px; color:var(--texto-suave);">Setup de Implantação:</span>
             <strong style="display:block; font-size:13.5px; color:var(--texto);">R$ 5.500</strong>
             <span style="font-size:8.5px; color:var(--texto-suave);">Mensalidade: <strong>R$ 890/mês</strong></span>
           </div>
@@ -585,24 +586,24 @@
 
       </div>
 
-      <div class="card" style="margin-top: 12px; background: linear-gradient(135deg, rgba(18,22,34,0.9), rgba(58,92,224,0.15)); border-color: rgba(108,140,255,0.3);">
+      <div class="card" style="margin-top: 12px; background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(56,189,248,0.12)); border-color: rgba(56,189,248,0.35);">
         <div style="display:flex; justify-content:space-between; align-items:center;">
           <div>
-            <h3 style="margin-bottom:2px; font-size:12.5px;">Pronto para transformar sua empresa em uma máquina de vendas?</h3>
+            <h3 style="margin-bottom:2px; font-size:12.5px;">Quer ver o robô imobiliário funcionando ao vivo no seu WhatsApp?</h3>
             <p style="font-size:10px; color:var(--platina);">
-              Atendimento executivo direto com o fundador. Agende uma demonstração ao vivo no seu WhatsApp.
+              Teste o simulador imobiliário agora: <b>solutionrao.com.br/agenterao-imobiliaria</b> ou fale com o Raphael.
             </p>
           </div>
           <div style="text-align:right;">
-            <span style="font-family:var(--fonte-mono); font-size:11.5px; color:var(--aco-forte); font-weight:700;">+55 61 98258-4350</span>
-            <span style="display:block; font-size:8.5px; color:var(--texto-suave);">solutionrao.com.br</span>
+            <span style="font-family:var(--fonte-mono); font-size:11.5px; color:var(--aco-forte); font-weight:700;">+55 (61) 99601-8566</span>
+            <span style="display:block; font-size:8.5px; color:var(--texto-suave);">WhatsApp Direto com Raphael (Fundador)</span>
           </div>
         </div>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Solution RAO · Sites Premium &amp; Agentes de IA</span>
+      <span>Solution RAO · Inteligência Imobiliária de Alto Padrão</span>
       <span>Página 04 / 04</span>
     </div>
   </section>
