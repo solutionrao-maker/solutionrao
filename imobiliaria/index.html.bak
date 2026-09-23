@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) — carregado sob demanda por consent.js -->
+<script src="/consent.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sites de Luxo &amp; Agente de IA para Imobiliárias e Corretores de Alto Padrão | Solution RAO</title>
+<meta name="description" content="Atendimento 24/7 com inteligência artificial para imobiliárias boutique e corretores de luxo. Envie books fotográficos e memoriais em PDF, qualifique investidores e agende visitas no Google Calendar via WhatsApp.">
+
+<link rel="canonical" href="https://www.solutionrao.com.br/imobiliaria/">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Solution RAO">
+<meta property="og:url" content="https://www.solutionrao.com.br/imobiliaria/">
+<meta property="og:title" content="Sites de Luxo &amp; Agente de IA para Imobiliárias e Corretores de Alto Padrão | Solution RAO">
+<meta property="og:description" content="Atendimento 24/7 no WhatsApp para o mercado imobiliário de luxo. Envie catálogos em PDF, qualifique investidores e agende visitas automáticas no Google Calendar.">
+<meta property="og:image" content="https://www.solutionrao.com.br/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sites de Luxo &amp; Agente de IA para Imobiliárias e Corretores | Solution RAO">
+<meta name="twitter:description" content="Atendimento 24/7 no WhatsApp para o mercado imobiliário de alto padrão. Agende visitas presenciais 24 horas por dia.">
+<meta name="twitter:image" content="https://www.solutionrao.com.br/og-image.jpg">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Marketing Digital, Portais de Luxo e Concierge de IA para Imobiliárias e Corretores",
+  "provider": {
+    "@type": "Organization",
+    "name": "Solution RAO",
+    "url": "https://www.solutionrao.com.br/",
+    "logo": "https://www.solutionrao.com.br/logo.png"
+  },
+  "areaServed": "BR",
+  "description": "Desenvolvimento de portais imobiliários de luxo e agentes de inteligência artificial treinados para imobiliárias boutique, loteamentos fechados e corretores de alto padrão."
+}
+</script>
+
+<style>
+  :root {
+    --noite: #05070E;
+    --noite-alt: #0D111C;
+    --painel: #12161F;
+    --aco: #3A5CE0;
+    --aco-forte: #6C8CFF;
+    --platina: #C7CEDC;
+    --ciano-neon: #38bdf8;
+    --esmeralda: #10b981;
+    --vermelho: #ef4444;
+    --ouro: #F59E0B;
+    --ouro-texto: #FBBF24;
+    --texto: #F2F4F9;
+    --texto-suave: #8E9AB2;
+    --linha: rgba(199, 206, 220, 0.14);
+    --fonte-titulo: 'Newsreader', Georgia, serif;
+    --fonte-corpo: 'Space Grotesk', -apple-system, sans-serif;
+    --fonte-mono: 'Space Mono', 'Courier New', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--noite); color: var(--texto);
+    font-family: var(--fonte-corpo); font-weight: 300; line-height: 1.7;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 400; line-height: 1.14; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  
+  .eyebrow {
+    font-family: var(--fonte-mono); font-size: 0.74rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--aco-forte);
+  }
+  .regua { width: 40px; height: 1px; background: var(--aco); margin: 20px 0; border: none; }
+  .regua.centro { margin: 20px auto; }
+
+  /* ===== AURA DE LUZ VÍVIDA NO CURSOR (DESKTOP) ===== */
+  .cursor-luz {
+    position: fixed; width: 540px; height: 540px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.16) 0%, rgba(58, 92, 224, 0.10) 32%, rgba(56, 189, 248, 0.04) 55%, transparent 72%);
+    pointer-events: none; transform: translate(-50%, -50%);
+    z-index: 0; opacity: 0; transition: opacity 0.35s ease;
+    will-change: transform; filter: blur(8px);
+  }
+
+  /* ===== BARRA DE PROGRESSO DO SCROLL NO HEADER ===== */
+  .scroll-progresso {
+    position: absolute; bottom: 0; left: 0; height: 2px; width: 0%;
+    background: linear-gradient(90deg, var(--aco-forte), #93c5fd, #10b981);
+    box-shadow: 0 0 12px rgba(58,92,224,0.9);
+    transition: width 0.1s linear; z-index: 10;
+  }
+
+  /* ===== REVEAL ON SCROLL COM FÍSICA SUAVE ===== */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.visivel { opacity: 1; transform: translateY(0); }
+
+  /* Assinatura Solution RAO: Moldura de Cantos */
+  .moldura { position: relative; }
+  .moldura .canto {
+    position: absolute; width: 18px; height: 18px;
+    border-style: solid; opacity: 0.8; transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+  }
+  .moldura:hover .canto { opacity: 1; width: 24px; height: 24px; }
+  .moldura .canto-tl { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; border-color: var(--platina); }
+  .moldura .canto-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; border-color: var(--platina); }
+  .moldura .canto-tr { top: -1px; right: -1px; border-width: 1.5px 1.5px 0 0; border-color: var(--aco-forte); }
+  .moldura .canto-bl { bottom: -1px; left: -1px; border-width: 0 0 1.5px 1.5px; border-color: var(--aco-forte); }
+
+  /* ===== SPOTLIGHT DINÂMICO NOS CARDS (COM ILUMINAÇÃO RADIAL) ===== */
+  .bento-card, .dor-card, .metrica-card, .proc-card, .roi-card {
+    position: relative; overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .bento-card::before, .dor-card::before, .metrica-card::before, .proc-card::before, .roi-card::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit;
+    background: radial-gradient(380px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(58, 92, 224, 0.16), transparent 70%);
+    opacity: 0; transition: opacity 0.35s ease; pointer-events: none; z-index: 0;
+  }
+  .bento-card:hover::before, .dor-card:hover::before, .metrica-card:hover::before, .proc-card:hover::before, .roi-card:hover::before {
+    opacity: 1;
+  }
+  .bento-card > *, .dor-card > *, .metrica-card > *, .proc-card > *, .roi-card > * {
+    position: relative; z-index: 1;
+  }
+  .bento-card:hover, .dor-card:hover, .metrica-card:hover, .proc-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(58, 92, 224, 0.5);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(58, 92, 224, 0.14);
+  }
+
+  /* Botões Magnéticos */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 30px; border: 1px solid var(--aco-forte);
+    font-size: 0.85rem; letter-spacing: 0.05em; color: var(--texto);
+    background: transparent; cursor: pointer; font-family: var(--fonte-corpo); font-weight: 500;
+    border-radius: 8px; transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.18s ease-out;
+    will-change: transform;
+  }
+  .btn:hover { background: rgba(108,140,255,0.12); border-color: var(--ciano-neon); }
+  .btn-solido {
+    background: linear-gradient(135deg, var(--aco-forte) 0%, var(--aco) 100%);
+    border-color: transparent; color: #ffffff; font-weight: 600;
+    box-shadow: 0 4px 20px rgba(58, 92, 224, 0.4);
+  }
+  .btn-solido:hover {
+    background: linear-gradient(135deg, #819dff 0%, #4366ed 100%);
+    box-shadow: 0 8px 30px rgba(58, 92, 224, 0.65);
+  }
+  .btn-header { padding: 9px 20px; font-size: 0.82rem; }
+
+  /* Header */
+  .cabecalho {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px; transition: background 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .cabecalho.rolado {
+    background: rgba(5, 7, 14, 0.92); backdrop-filter: blur(14px);
+    padding: 14px 40px; border-bottom: 1px solid var(--linha);
+  }
+  .marca-header { display: flex; align-items: center; gap: 12px; }
+  .marca-header img { width: 34px; height: 34px; border-radius: 8px; }
+  .marca-header span { font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em; }
+  .marca-header span em {
+    font-style: normal;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .menu-principal { display: flex; gap: 32px; list-style: none; }
+  .menu-principal a { font-size: 0.88rem; color: var(--texto-suave); transition: color 0.25s; }
+  .menu-principal a:hover { color: var(--texto); }
+
+  .menu-toggle {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 6px;
+  }
+  .menu-toggle span { width: 22px; height: 1px; background: var(--texto); }
+
+  /* Hero Split */
+  .hero-split {
+    padding: 145px 0 85px; position: relative;
+    background-image: 
+      radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
+      radial-gradient(circle at 15% 85%, rgba(58, 92, 224, 0.08) 0%, transparent 50%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center; }
+  
+  .hero-status-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(58, 92, 224, 0.12); border: 1px solid rgba(108, 140, 255, 0.35);
+    padding: 6px 16px; border-radius: 30px; font-family: var(--fonte-mono);
+    font-size: 0.74rem; color: #bae6fd; margin-bottom: 22px;
+  }
+  .hero-status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--esmeralda); box-shadow: 0 0 10px var(--esmeralda); }
+  
+  .hero-col-texto h1 { font-size: clamp(2.3rem, 4.3vw, 3.4rem); text-wrap: balance; }
+  .hero-col-texto h1 em {
+    font-style: italic; font-weight: 600;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 60%, var(--ciano-neon) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-descricao { font-size: 1.05rem; color: var(--texto-suave); margin: 22px 0 30px; max-width: 52ch; line-height: 1.68; }
+  .hero-botoes { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+  
+  .hero-micro-selos {
+    display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--fonte-mono);
+    font-size: 0.74rem; color: var(--texto-suave);
+  }
+  .hero-micro-selos span { display: flex; align-items: center; gap: 6px; }
+
+  /* ===== MOCKUP WHATSAPP IA (COLUNA DIREITA) ===== */
+  .hero-chat-device {
+    width: 100%; max-width: 410px;
+    background: #0b141a; border-radius: 18px;
+    border: 1px solid rgba(108,140,255,0.28);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(58,92,224,0.18);
+    overflow: hidden; display: flex; flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .chat-header {
+    background: #202c33; padding: 10px 14px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .chat-header-user { display: flex; align-items: center; gap: 10px; }
+  .chat-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--aco), var(--aco-forte));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; position: relative; color: #fff;
+  }
+  .chat-avatar-dot {
+    position: absolute; bottom: 0; right: 0; width: 10px; height: 10px;
+    background: #25d366; border: 2px solid #202c33; border-radius: 50%;
+  }
+  .chat-header-info { display: flex; flex-direction: column; }
+  .chat-header-name { font-size: 0.88rem; font-weight: 600; color: #e9edef; display: flex; align-items: center; gap: 5px; }
+  .chat-header-name svg { width: 14px; height: 14px; color: #53bdeb; }
+  .chat-header-status { font-size: 0.7rem; color: #25d366; }
+  .chat-badge-top {
+    background: rgba(37, 211, 102, 0.12); color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.3); font-size: 0.68rem; font-weight: 600;
+    padding: 3px 7px; border-radius: 6px;
+  }
+  
+  /* Botão de Som no Mockup do WhatsApp */
+  .chat-header-acoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-chat-som {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #94a3b8;
+    font-size: 0.68rem;
+    font-weight: 500;
+    font-family: inherit;
+    padding: 3px 8px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    outline: none;
+    line-height: 1;
+    user-select: none;
+  }
+  .btn-chat-som:hover {
+    background: rgba(37, 211, 102, 0.12);
+    border-color: rgba(37, 211, 102, 0.4);
+    color: #25d366;
+    transform: translateY(-1px);
+  }
+  .btn-chat-som.pulsando {
+    background: rgba(37, 211, 102, 0.12);
+    border-color: rgba(37, 211, 102, 0.5);
+    color: #25d366;
+    animation: pulsoBtnSom 1.8s infinite ease-in-out;
+  }
+  .btn-chat-som.ativo {
+    background: rgba(37, 211, 102, 0.18);
+    border-color: #25d366;
+    color: #25d366;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.28);
+    animation: none;
+  }
+  .btn-chat-som.ativo .chat-som-icone {
+    animation: somOndas 1.5s infinite ease-in-out;
+  }
+  @keyframes pulsoBtnSom {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    50% { transform: scale(1.04); box-shadow: 0 0 8px 1px rgba(37, 211, 102, 0.35); }
+  }
+  @keyframes somOndas {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.22); }
+  }
+  @media (max-width: 420px) {
+    .btn-chat-som .chat-som-texto { display: none; }
+    .btn-chat-som { padding: 4px 6px; }
+  }
+
+  /* Aviso / Convite de Som dentro do Chat */
+  .chat-aviso-som {
+    background: rgba(37, 211, 102, 0.08);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    color: #25d366;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.35s ease;
+    user-select: none;
+    animation: pulsoAvisoSom 2s infinite ease-in-out;
+  }
+  .chat-aviso-som:hover {
+    background: rgba(37, 211, 102, 0.16);
+    border-color: #25d366;
+    transform: translateY(-1px);
+  }
+  .chat-aviso-som.oculto {
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-width: 0;
+    overflow: hidden;
+  }
+  @keyframes pulsoAvisoSom {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    50% { box-shadow: 0 0 10px 1px rgba(37, 211, 102, 0.2); }
+  }
+
+
+  .chat-body {
+    padding: 14px 12px; display: flex; flex-direction: column; gap: 9px;
+    background: #0b141a radial-gradient(circle at 50% 50%, rgba(32,44,51,0.4) 0%, transparent 80%);
+    font-size: 0.82rem; line-height: 1.4; min-height: 310px; justify-content: flex-start;
+  }
+  .chat-balloon {
+    max-width: 88%; padding: 8px 12px 6px; border-radius: 10px;
+    position: relative; word-wrap: break-word;
+  }
+  .chat-balloon-in {
+    background: #202c33; color: #e9edef; align-self: flex-start;
+    border-bottom-left-radius: 3px;
+  }
+  .chat-balloon-out {
+    background: #005c4b; color: #e9edef; align-self: flex-end;
+    border-bottom-right-radius: 3px;
+  }
+  .chat-time {
+    font-size: 0.62rem; color: rgba(255,255,255,0.55);
+    float: right; margin: 4px 0 -2px 8px; display: flex; align-items: center; gap: 3px;
+  }
+  .chat-time svg { width: 12px; height: 12px; color: #53bdeb; }
+
+  /* Animação das mensagens aparecendo */
+  .chat-msg {
+    opacity: 0; transform: translateY(10px) scale(0.96);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+  }
+  .chat-msg.visivel {
+    display: block; opacity: 1; transform: translateY(0) scale(1);
+  }
+
+  .chat-typing-indicator {
+    align-self: flex-start; display: none; align-items: center;
+    gap: 4px; padding: 8px 12px; background: #202c33;
+    border-radius: 10px; border-bottom-left-radius: 3px;
+  }
+  .chat-typing-dot {
+    width: 5px; height: 5px; border-radius: 50%; background: #8696a0;
+    animation: typingBounce 1.4s infinite ease-in-out both;
+  }
+  .chat-typing-dot:nth-child(1) { animation-delay: -0.32s; }
+  .chat-typing-dot:nth-child(2) { animation-delay: -0.16s; }
+  @keyframes typingBounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.1); opacity: 1; background: #25d366; }
+  }
+
+  .chat-footer {
+    background: #202c33; padding: 8px 12px;
+    display: flex; align-items: center; gap: 8px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .chat-input-fake {
+    flex: 1; background: #2a3942; border-radius: 8px;
+    padding: 6px 10px; font-size: 0.78rem; color: #8696a0;
+  }
+  .chat-mic-fake { color: #8696a0; font-size: 1rem; }
+
+  /* Faixa de Métricas */
+  .metricas-faixa {
+    background: var(--noite-alt); border-top: 1px solid var(--linha);
+    border-bottom: 1px solid var(--linha); padding: 55px 0;
+  }
+  .metricas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .metrica-card strong {
+    font-family: var(--fonte-mono); font-size: 2.3rem; color: var(--aco-forte);
+    display: block; margin-bottom: 4px;
+    background: linear-gradient(110deg, #fff 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .metrica-card span {
+    font-size: 0.82rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  /* ===== FAIXA DE INTEGRAÇÕES (LOGO STRIP IMOBILIÁRIO) ===== */
+  .faixa-integracoes {
+    background: rgba(13, 17, 28, 0.7);
+    border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha);
+    padding: 36px 0; position: relative; overflow: hidden;
+  }
+  .faixa-integracoes-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;
+  }
+  .integracoes-titulo {
+    font-family: var(--fonte-mono); font-size: 0.74rem; letter-spacing: 0.16em;
+    color: var(--platina); text-transform: uppercase;
+  }
+  .integracoes-grid {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 14px 24px; width: 100%;
+  }
+  .integracao-chip {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 9px 18px; border-radius: 999px;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--linha);
+    font-size: 0.82rem; font-weight: 500; color: var(--texto-suave);
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+  .integracao-chip:hover {
+    transform: translateY(-2px); border-color: var(--aco-forte);
+    background: rgba(58,92,224,0.1); color: var(--texto);
+  }
+  .integracao-chip-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--aco-forte);
+    box-shadow: 0 0 8px var(--aco-forte);
+  }
+
+  /* Seções Gerais */
+  .secao { padding: 100px 0; position: relative; scroll-margin-top: 90px; }
+  .secao-alt { background: var(--noite-alt); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
+  .secao-cabecalho { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+  .secao-cabecalho h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-top: 12px; }
+  .secao-cabecalho h2 em {
+    font-style: italic;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .secao-cabecalho p { color: var(--texto-suave); margin-top: 16px; font-size: 1.05rem; line-height: 1.65; }
+
+  /* Seção de Dores: Onde o Dinheiro Escorrega */
+  .dores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .dor-card {
+    background: var(--painel); border: 1px solid rgba(239, 68, 68, 0.25);
+    border-radius: 16px; padding: 34px 28px;
+  }
+  .dor-tag {
+    font-family: var(--fonte-mono); font-size: 0.72rem; color: #f87171;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; display: block;
+  }
+  .dor-card h3 { font-size: 1.35rem; color: #ffffff; margin-bottom: 12px; }
+  .dor-card p { font-size: 0.94rem; color: var(--texto-suave); line-height: 1.6; }
+
+  /* Matriz Financeira de ROI Imobiliário */
+  .roi-container {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(13, 18, 31, 0.95) 100%);
+    border: 1.5px solid rgba(52, 211, 153, 0.35); border-radius: 20px;
+    padding: 45px 36px; margin: 60px auto 0; max-width: 1040px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+  .roi-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+  .roi-header h3 { font-family: var(--fonte-titulo); font-size: 1.45rem; color: #ffffff; }
+  .roi-header h3 em { font-style: normal; color: #34d399; }
+  .roi-badge {
+    font-family: var(--fonte-mono); font-size: 0.75rem; color: #34d399;
+    background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(52, 211, 153, 0.4);
+    padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .roi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .roi-card {
+    background: var(--painel); border: 1px solid rgba(199, 206, 220, 0.15);
+    border-radius: 14px; padding: 24px 20px; text-align: center;
+  }
+  .roi-card .roi-label { font-size: 0.78rem; color: var(--texto-suave); text-transform: uppercase; font-family: var(--fonte-mono); margin-bottom: 8px; }
+  .roi-card .roi-val { font-family: var(--fonte-mono); font-size: 2rem; font-weight: 800; color: #ffffff; }
+  .roi-card .roi-val.verde { color: #34d399; }
+  .roi-card .roi-val.ciano { color: var(--ciano-neon); }
+  .roi-card p { font-size: 0.84rem; color: var(--texto-suave); margin-top: 8px; line-height: 1.45; }
+  .roi-conclusao {
+    background: rgba(16, 185, 129, 0.12); border: 1px dashed rgba(52, 211, 153, 0.45);
+    border-radius: 12px; padding: 20px 24px; margin-top: 24px; text-align: center;
+    font-size: 0.96rem; color: #e2e8f0; line-height: 1.6;
+  }
+  .roi-conclusao strong { color: #34d399; }
+  @media (max-width: 960px) {
+    .roi-grid { grid-template-columns: 1fr; }
+    .roi-container { padding: 30px 20px; }
+  }
+
+  /* Bento Grid de Soluções */
+  .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .bento-card {
+    background: var(--painel); border: 1px solid var(--linha); border-radius: 16px;
+    padding: 34px 28px;
+  }
+  .bento-card.destaque {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(18, 22, 31, 0.95) 0%, rgba(30, 58, 138, 0.2) 100%);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+  .bento-card.full {
+    grid-column: span 3;
+    background: linear-gradient(135deg, rgba(18, 22, 31, 0.95) 0%, rgba(30, 58, 138, 0.25) 100%);
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+  .bento-tag {
+    font-family: var(--fonte-mono); font-size: 0.72rem; color: var(--aco-forte);
+    text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 12px;
+  }
+  .bento-card h3 { font-size: 1.4rem; color: var(--texto); margin-bottom: 10px; }
+  .bento-card p { font-size: 0.94rem; color: var(--texto-suave); line-height: 1.62; }
+
+  /* ===== MICRO-COMPONENTES INTERATIVOS (BENTO CARDS) ===== */
+  .micro-wave-box {
+    margin-top: 20px; padding: 12px 16px; border-radius: 12px;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--linha);
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  }
+  .micro-wave-info {
+    display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--platina);
+  }
+  .audio-wave-bars {
+    display: flex; align-items: center; gap: 4px; height: 22px;
+  }
+  .audio-wave-bars span {
+    width: 3px; border-radius: 99px; background: var(--aco-forte);
+    animation: waveBar 1.2s ease-in-out infinite alternate;
+  }
+  .audio-wave-bars span:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+  .audio-wave-bars span:nth-child(2) { height: 18px; animation-delay: 0.3s; }
+  .audio-wave-bars span:nth-child(3) { height: 22px; animation-delay: 0.5s; }
+  .audio-wave-bars span:nth-child(4) { height: 14px; animation-delay: 0.2s; }
+  .audio-wave-bars span:nth-child(5) { height: 19px; animation-delay: 0.4s; }
+  .audio-wave-bars span:nth-child(6) { height: 10px; animation-delay: 0.15s; }
+  @keyframes waveBar {
+    0% { transform: scaleY(0.4); opacity: 0.6; }
+    100% { transform: scaleY(1); opacity: 1; }
+  }
+
+  .micro-cal-box {
+    margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .micro-cal-slot {
+    padding: 6px 12px; border-radius: 8px; font-size: 0.76rem; font-family: var(--fonte-mono);
+    background: rgba(255,255,255,0.04); border: 1px solid var(--linha); color: var(--platina);
+  }
+  .micro-cal-slot.reservado {
+    background: rgba(58,92,224,0.18); border-color: var(--aco-forte); color: #93c5fd;
+  }
+
+  .micro-speed-box {
+    margin-top: 20px; display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--linha);
+  }
+  .micro-speed-score {
+    font-size: 0.95rem; font-weight: 700; color: #38bdf8; font-family: var(--fonte-mono);
+  }
+
+  .micro-pix-box {
+    margin-top: 20px; padding: 12px 14px; border-radius: 12px;
+    background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .micro-pix-status {
+    display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: #34d399;
+  }
+  .micro-pix-badge {
+    font-family: var(--fonte-mono); font-size: 0.66rem; padding: 3px 7px; border-radius: 6px;
+    background: rgba(16, 185, 129, 0.15); color: #6ee7b7;
+  }
+
+  /* Tabela de Contraste */
+  .contraste-container {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 960px; margin: 0 auto;
+  }
+  .contraste-col { border-radius: 18px; padding: 36px 32px; }
+  .contraste-col.ruim {
+    background: rgba(30, 15, 20, 0.85); border: 1.5px solid rgba(239, 68, 68, 0.35);
+  }
+  .contraste-col.bom {
+    background: rgba(10, 25, 45, 0.9); border: 1.5px solid rgba(56, 189, 248, 0.45);
+    box-shadow: 0 10px 40px rgba(56, 189, 248, 0.15);
+  }
+  .contraste-header {
+    font-family: var(--fonte-titulo); font-size: 1.5rem; margin-bottom: 22px;
+    padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .contraste-header.ruim { color: #f87171; }
+  .contraste-header.bom { color: var(--ciano-neon); }
+  .contraste-lista { list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 0.92rem; }
+  .contraste-lista li { display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+
+  /* Seção Sobre / Raphael Araújo */
+  .sobre-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 70px; align-items: center; }
+  .sobre-foto { aspect-ratio: 4/5; padding: 4px; border-radius: 14px; overflow: hidden; }
+  .sobre-foto-dentro { width: 100%; height: 100%; overflow: hidden; background: #000; border-radius: 10px; }
+  .sobre-foto-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: grayscale(15%) contrast(105%); }
+  .sobre-texto h2 { font-size: clamp(2rem, 3.8vw, 2.7rem); }
+  .sobre-texto h2 em {
+    font-style: italic;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sobre-texto p { color: var(--texto-suave); margin-top: 18px; font-size: 1.02rem; line-height: 1.68; }
+  .sobre-assinatura {
+    margin-top: 28px; font-family: var(--fonte-titulo); font-style: italic;
+    color: var(--aco-forte); font-size: 1.25rem;
+  }
+  .sobre-cargo { font-family: var(--fonte-mono); font-size: 0.74rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* Imóveis de Alto Ticket */
+  .procedimentos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .proc-card {
+    background: var(--painel); border: 1px solid var(--linha); border-radius: 14px;
+    padding: 24px 20px; text-align: center;
+  }
+  .proc-ticket {
+    font-family: var(--fonte-mono); font-size: 0.74rem; color: var(--ciano-neon);
+    background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px;
+  }
+  .proc-card h4 { font-family: var(--fonte-titulo); font-size: 1.3rem; margin-bottom: 8px; color: #fff; }
+  .proc-card p { font-size: 0.85rem; color: var(--texto-suave); line-height: 1.45; }
+
+  /* FAQ Accordion */
+  .faq-lista { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .faq-item {
+    background: var(--painel); border: 1px solid var(--linha); border-radius: 12px;
+    overflow: hidden; transition: border-color 0.25s, background 0.25s;
+  }
+  .faq-item:hover { border-color: rgba(108,140,255,0.35); }
+  .faq-item.aberto {
+    border-color: var(--aco-forte); background: rgba(18, 22, 31, 0.95);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .faq-pergunta {
+    width: 100%; text-align: left; background: transparent; border: none;
+    padding: 22px 26px; font-family: var(--fonte-corpo); font-weight: 600;
+    font-size: 1.05rem; color: var(--texto); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-pergunta svg { width: 18px; height: 18px; color: var(--aco-forte); transition: transform 0.3s ease; }
+  .faq-item.aberto .faq-pergunta svg { transform: rotate(180deg); color: #fff; }
+  .faq-resposta {
+    max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 26px; color: var(--texto-suave); font-size: 0.95rem; line-height: 1.65;
+  }
+  .faq-item.aberto .faq-resposta { max-height: 280px; padding-bottom: 22px; }
+
+  /* CTA Final */
+  .cta-final {
+    text-align: center;
+    background: linear-gradient(180deg, var(--noite) 0%, #0a1122 100%);
+    padding: 110px 0; border-top: 1px solid var(--linha);
+  }
+  .cta-final h2 { font-size: clamp(2.1rem, 4vw, 3rem); max-width: 24ch; margin: 16px auto; }
+  .cta-final h2 em {
+    font-style: italic; font-weight: 600;
+    background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 55%, var(--aco) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .cta-final p { color: var(--texto-suave); font-size: 1.08rem; max-width: 52ch; margin: 0 auto 36px; line-height: 1.65; }
+
+  /* ===== BOTÃO FLUTUANTE WHATSAPP COM TEXTO ANIMADO ===== */
+  .whatsapp-flutuante {
+    position: fixed; right: 26px; bottom: 26px; z-index: 190;
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+    opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .whatsapp-flutuante.visivel {
+    opacity: 1; transform: translateY(0) scale(1); pointer-events: auto;
+  }
+  .whatsapp-flutuante-texto {
+    background: #0f131f; color: #f2f4f9; font-size: 0.8rem; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5); white-space: nowrap;
+    animation: bounceText 3s infinite ease-in-out;
+  }
+  @keyframes bounceText {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-4px); }
+  }
+  .whatsapp-flutuante-icone {
+    width: 54px; height: 54px; border-radius: 50%;
+    background: #25d366; color: #fff; display: grid; place-items: center;
+    box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .whatsapp-flutuante:hover .whatsapp-flutuante-icone {
+    transform: scale(1.08); box-shadow: 0 14px 38px rgba(37,211,102,0.6);
+  }
+  .whatsapp-flutuante-icone svg { width: 28px; height: 28px; fill: currentColor; }
+
+  /* Rodapé */
+  .rodape { border-top: 1px solid var(--linha); padding: 45px 0; font-size: 0.85rem; color: var(--texto-suave); }
+  .rodape-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .rodape-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .rodape-links a:hover { color: var(--texto); }
+
+  /* Responsividade */
+  @media (max-width: 960px) {
+    .menu-principal { display: none; }
+    .btn-header { display: none; }
+    .menu-toggle { display: flex; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-col-texto h1 { font-size: 2.2rem; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-card.destaque, .bento-card.full { grid-column: span 1; }
+    .dores-grid { grid-template-columns: 1fr; }
+    .contraste-container { grid-template-columns: 1fr; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+    .sobre-texto { display: flex; flex-direction: column; align-items: center; }
+    .sobre-foto { max-width: 380px; margin: 0 auto; }
+    .procedimentos-grid { grid-template-columns: repeat(2, 1fr); }
+    .metricas-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .cabecalho { padding: 16px 24px; }
+  }
+  @media (max-width: 600px) {
+    .procedimentos-grid { grid-template-columns: 1fr; }
+    .metricas-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hero-botoes { flex-direction: column; }
+    .btn { width: 100%; text-align: center; justify-content: center; }
+    .whatsapp-flutuante-texto { display: none; }
+  }
+
+  /* ===== BANNER DE COOKIES (CONSENT MODE V2) ===== */
+  .cookie-banner {
+    position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 200;
+    max-width: 760px; margin: 0 auto;
+    background: rgba(13, 17, 28, 0.97); backdrop-filter: blur(10px);
+    border: 1px solid var(--linha); border-radius: 12px;
+    padding: 24px 28px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    transform: translateY(140%); opacity: 0; pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  .cookie-banner.visivel { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .cookie-banner-texto { flex: 1 1 320px; font-size: 0.9rem; color: var(--texto-suave); line-height: 1.6; }
+  .cookie-banner-texto a { color: var(--aco-forte); text-decoration: underline; }
+  .cookie-banner-botoes { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cookie-banner-botoes .btn { padding: 12px 20px; font-size: 0.8rem; width: auto; }
+  .cookie-banner-recusar { border-color: var(--linha); }
+  .cookie-banner-recusar:hover { background: rgba(199,206,220,0.08); border-color: var(--platina); }
+  #cookieAceitar { box-shadow: 0 4px 18px rgba(58,92,224,0.35); }
+
+  /* Modal de Preferências de Cookies */
+  .cookie-modal-overlay {
+    position: fixed; inset: 0; z-index: 210;
+    background: rgba(4, 6, 12, 0.85); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px; opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .cookie-modal-overlay.visivel { opacity: 1; pointer-events: auto; }
+  .cookie-modal {
+    background: #0d121f; border: 1px solid var(--linha); border-radius: 16px;
+    max-width: 540px; width: 100%; padding: 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  }
+  .cookie-modal h3 { font-size: 1.4rem; color: #fff; margin-bottom: 8px; }
+  .cookie-modal p { font-size: 0.88rem; color: var(--texto-suave); line-height: 1.5; margin-bottom: 20px; }
+  .cookie-modal-categoria {
+    padding: 14px 16px; border: 1px solid var(--linha); border-radius: 10px;
+    margin-bottom: 12px; background: rgba(255,255,255,0.02);
+  }
+  .cookie-modal-cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .cookie-modal-cat-header strong { font-size: 0.95rem; color: #fff; }
+  .cookie-modal-cat-header span { font-size: 0.76rem; color: var(--esmeralda); font-family: var(--fonte-mono); }
+  .cookie-modal-acoes { display: flex; gap: 12px; margin-top: 24px; justify-content: flex-end; }
+</style>
+</head>
+<body>
+
+<!-- AURA DE LUZ NO CURSOR (DESKTOP) -->
+<div class="cursor-luz" id="cursorLuz"></div>
+
+<!-- HEADER -->
+<header class="cabecalho" id="cabecalho">
+  <div class="scroll-progresso" id="scrollProgresso"></div>
+  <a href="/" class="marca-header">
+    <img src="/logo-otimizado.webp" alt="Solution RAO" width="34" height="34">
+    <span>Solution <em>RAO</em></span>
+  </a>
+  <nav>
+    <ul class="menu-principal">
+      <li><a href="#dores">O Problema</a></li>
+      <li><a href="#solucoes">Tecnologia IA</a></li>
+      <li><a href="#contraste">Comparativo</a></li>
+      <li><a href="#imoveis">Imóveis</a></li>
+      <li><a href="#sobre">Especialista</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn-solido btn-header" href="https://wa.me/5561982584350?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20imobili%C3%A1rias%20da%20Solution%20RAO%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+
+  <!-- HERO SPLIT COM CHAT AO VIVO -->
+  <section class="hero-split" id="topo">
+    <div class="container hero-grid reveal">
+      <div class="hero-col-texto">
+        <div class="hero-status-pill">
+          <span class="hero-status-dot"></span>
+          <span>Tecnologia de Vendas para Imobiliárias &amp; Corretores de Alto Padrão</span>
+        </div>
+
+        <h1>Compradores de imóveis pesquisam à noite.<br><em>Quantas comissões de R$ 25 mil sua imobiliária perde no WhatsApp?</em></h1>
+        
+        <p class="hero-descricao">
+          Transforme investidores e compradores de imóveis em visitas agendadas no plantão. Um Concierge de IA 24/7 com escuta de áudios, envio de books fotográficos em PDF e qualificação financeira que opera enquanto sua equipe descansa.
+        </p>
+
+        <div class="hero-botoes">
+          <a class="btn btn-solido" href="https://wa.me/5561982584350?text=Ol%C3%A1%2C%20Raphael!%20Tenho%20uma%20imobili%C3%A1ria%20e%20quero%20conhecer%20o%20Agente%20de%20IA." target="_blank" rel="noopener">
+            Agendar Demonstração Executiva →
+          </a>
+          <a class="btn" href="#solucoes">
+            Ver Funcionalidades
+          </a>
+        </div>
+
+        <div class="hero-micro-selos">
+          <span>✓ Atendimento 24/7 em 3 segundos</span>
+          <span>✓ Transcreve áudios de clientes</span>
+          <span>✓ Sem intermediários</span>
+        </div>
+      </div>
+
+      <!-- MOCKUP WHATSAPP IA AO VIVO -->
+      <div class="hero-col-visual">
+        <div class="hero-chat-device">
+          <div class="chat-header">
+            <div class="chat-header-user">
+              <div class="chat-avatar">
+                🏢
+                <span class="chat-avatar-dot"></span>
+              </div>
+              <div class="chat-header-info">
+                <span class="chat-header-name">
+                  Concierge Imobiliário IA
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </span>
+                <span class="chat-header-status">online agora · tempo real</span>
+              </div>
+            </div>
+            <div class="chat-header-acoes">
+              <button type="button" class="btn-chat-som pulsando" id="btnChatSom" aria-label="Ativar som da demonstração do WhatsApp" title="Ativar efeitos sonoros do WhatsApp">
+                <span class="chat-som-icone">🔇</span>
+                <span class="chat-som-texto">Ouvir com Som</span>
+              </button>
+              <span class="chat-badge-top">Solution RAO</span>
+            </div>
+          </div>
+
+          <div class="chat-body" id="chatBody">
+            <!-- Convite / Ativação de Som -->
+            <div class="chat-aviso-som" id="chatAvisoSom" role="button" tabindex="0" title="Clique para ouvir a conversa com som">
+              <span class="chat-aviso-som-icone">🔊</span>
+              <span>Clique aqui para ouvir a simulação com som</span>
+            </div>
+            <!-- Msg 1: Comprador/Investidor -->
+            <div class="chat-msg">
+              <div class="chat-balloon chat-balloon-in">
+                Boa noite! Vi a cobertura duplex no Noroeste. Vocês aceitam permuta de imóvel menor? Tenho urgência pra visitar.
+                <span class="chat-time">21:42</span>
+              </div>
+            </div>
+
+            <!-- Indicador de Digitação da IA -->
+            <div class="chat-typing-indicator" id="chatTyping">
+              <span class="chat-typing-dot"></span>
+              <span class="chat-typing-dot"></span>
+              <span class="chat-typing-dot"></span>
+            </div>
+
+            <!-- Msg 2: IA Respondendo com Elegância -->
+            <div class="chat-msg">
+              <div class="chat-balloon chat-balloon-out">
+                Olá! Perfeita escolha. A cobertura de 340m² possui vista livre para o parque e acabamento em mármore travertino. 📄 Acabei de enviar o memorial descritivo completo e as plantas em anexo.
+                <span class="chat-time">21:42 <svg viewBox="0 0 16 15" fill="none"><path d="M15.01 3.316l-7.79 7.79-4.22-4.22-.71.71 4.93 4.93 8.5-8.5-.71-.71z" fill="currentColor"/><path d="M11.51 3.316l-7.79 7.79-1.22-1.22-.71.71 1.93 1.93 8.5-8.5-.71-.71z" fill="currentColor"/></svg></span>
+              </div>
+            </div>
+
+            <!-- Msg 3: IA Qualificando Permuta -->
+            <div class="chat-msg">
+              <div class="chat-balloon chat-balloon-out">
+                Sobre a permuta: o proprietário avalia imóveis de até 30% do valor nas quadras 100/300. Tenho horário com o corretor responsável amanhã às 10h ou às 15h30. Qual fica melhor para você?
+                <span class="chat-time">21:43 <svg viewBox="0 0 16 15" fill="none"><path d="M15.01 3.316l-7.79 7.79-4.22-4.22-.71.71 4.93 4.93 8.5-8.5-.71-.71z" fill="currentColor"/><path d="M11.51 3.316l-7.79 7.79-1.22-1.22-.71.71 1.93 1.93 8.5-8.5-.71-.71z" fill="currentColor"/></svg></span>
+              </div>
+            </div>
+
+            <!-- Msg 4: Comprador Confirmando -->
+            <div class="chat-msg">
+              <div class="chat-balloon chat-balloon-in">
+                Às 15h30 fica excelente! Estarei com minha esposa.
+                <span class="chat-time">21:44</span>
+              </div>
+            </div>
+
+            <!-- Msg 5: IA Fechando Agendamento no Google Calendar -->
+            <div class="chat-msg">
+              <div class="chat-balloon chat-balloon-out">
+                Excelente! Visita confirmada para amanhã, 15h30. 📅 Já incluí no Google Calendar do nosso corretor sênior Dr. Eduardo e liberei os nomes de vocês na portaria do edifício. Até amanhã!
+                <span class="chat-time">21:44 <svg viewBox="0 0 16 15" fill="none"><path d="M15.01 3.316l-7.79 7.79-4.22-4.22-.71.71 4.93 4.93 8.5-8.5-.71-.71z" fill="currentColor"/><path d="M11.51 3.316l-7.79 7.79-1.22-1.22-.71.71 1.93 1.93 8.5-8.5-.71-.71z" fill="currentColor"/></svg></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-footer">
+            <div class="chat-input-fake">Mensagem no WhatsApp...</div>
+            <span class="chat-mic-fake">🎙️</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICAS AUDITADAS -->
+  <section class="metricas-faixa">
+    <div class="container metricas-grid reveal">
+      <div class="metrica-card">
+        <strong>&lt; 3s</strong>
+        <span>Tempo de Resposta 24/7</span>
+      </div>
+      <div class="metrica-card">
+        <strong>Zero</strong>
+        <span>Visitas com Especuladores sem Crédito</span>
+      </div>
+      <div class="metrica-card">
+        <strong>100%</strong>
+        <span>Áudios de Investidores Compreendidos</span>
+      </div>
+      <div class="metrica-card">
+        <strong>Zero</strong>
+        <span>Intermediários (Direto com Fundador)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAIXA DE INTEGRAÇÕES IMOBILIÁRIAS (TECNOLOGIA EM TEMPO REAL) -->
+  <section class="faixa-integracoes reveal">
+    <div class="container faixa-integracoes-inner">
+      <span class="integracoes-titulo">Tecnologias &amp; Ecossistema de Portais Imobiliários Integrados</span>
+      <div class="integracoes-grid">
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>ZAP Imóveis</span>
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>VivaReal</span>
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>Imovelweb</span>
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>WhatsApp Cloud API</span>
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>Google Calendar</span>
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>RD Station CRM</span>
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>Vista CRM</span>
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>Mercado Pago (PIX)</span>
+        <span class="integracao-chip"><span class="integracao-chip-dot"></span>DocuSign</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- O PROBLEMA SOFISTICADO: AS DORES DO MERCADO IMOBILIÁRIO -->
+  <section class="secao" id="dores">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Diagnóstico de Mercado</span>
+        <h2>Onde sua imobiliária está <em>perdendo compradores todos os dias</em></h2>
+        <p>Não é falta de tráfego nem de imóveis no estoque. O gargalo real está na velocidade da abordagem e na qualidade do primeiro atendimento entre a curiosidade do comprador e a visita presencial.</p>
+      </div>
+
+      <div class="dores-grid reveal">
+        <!-- Dor 1 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 O Apagão Noturno e de Fim de Semana</span>
+          <h3>Mais da metade dos compradores qualificados buscam fora do expediente</h3>
+          <p>Compradores e famílias pesquisam imóveis com calma à noite e nos fins de semana. Se a imobiliária só retorna na segunda-feira pela manhã, o cliente já desanimou ou agendou visita com outra imobiliária concorrente.</p>
+        </div>
+
+        <!-- Dor 2 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 Corretores Sêniores Virando 'Motoristas'</span>
+          <h3>Desgaste brutal com curiosos sem crédito ou capacidade financeira</h3>
+          <p>Sua equipe mais experiente perde tardes inteiras mostrando imóveis para curiosos sem capacidade real de compra ou sem crédito aprovado, enquanto compradores com dinheiro na mão ficam sem atendimento ágil.</p>
+        </div>
+
+        <!-- Dor 3 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 Lentidão Crítica no Envio de Materiais Ricos</span>
+          <h3>O cliente pede fotos e memorial e recebe textão amador</h3>
+          <p>Compradores de alto ticket esperam apresentação impecável no ato: memorial descritivo, tour em vídeo, fotos em alta resolução e dados de condomínio. Demorar minutos ou horas destrói a percepção de exclusividade.</p>
+        </div>
+
+        <!-- Dor 4 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 Volume Descontrolado &amp; Leads Esquecidos</span>
+          <h3>Plantão sobrecarregado com mensagens acumuladas no WhatsApp</h3>
+          <p>Dezenas de contatos chegam simultaneamente dos portais (Zap, VivaReal) e anúncios do Meta Ads. Sem automação cognitiva, corretores esquecem conversas no meio do funil e perdem o timing da visita.</p>
+        </div>
+
+        <!-- Dor 5 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 Burnout e Alta Rotatividade de Corretores</span>
+          <h3>Impossível exigir que humanos fiquem de prontidão 24 horas por dia</h3>
+          <p>Tentar cobrir a noite e os finais de semana cobrando que corretores respondam mensagens de madrugada gera exaustão, rotatividade na equipe e falhas graves de atendimento nos maiores tickets.</p>
+        </div>
+
+        <!-- Dor 6 -->
+        <div class="dor-card">
+          <span class="dor-tag">🔴 Falta de Métricas &amp; Previsibilidade Real</span>
+          <h3>Milhares de reais investidos em anúncios sem controle de conversão</h3>
+          <p>O diretor da imobiliária investe alto em tráfego e portais, mas não tem clareza sobre o tempo exato de resposta, qualificação do perfil dos leads e quantas visitas foram geradas fora do expediente comercial.</p>
+        </div>
+      </div>
+
+      <!-- MATRIZ FINANCEIRA DE RETORNO (ROI IMOBILIÁRIO) -->
+      <div class="roi-container reveal">
+        <div class="roi-header">
+          <div>
+            <span class="roi-badge">A Matemática Exata do Lucro</span>
+            <h3 style="margin-top: 8px;">Por que <em>1 único cliente salvo</em> paga anos de Solution RAO?</h3>
+          </div>
+          <span style="font-family: var(--fonte-mono); font-size: 0.85rem; color: #a7f3d0;">Simulação de Comissão Média (5%)</span>
+        </div>
+
+        <div class="roi-grid">
+          <div class="roi-card">
+            <span class="roi-label">Imóvel Médio</span>
+            <span class="roi-val">R$ 500.000</span>
+            <p>Comissão líquida estimada:<br><strong class="verde">R$ 25.000</strong></p>
+          </div>
+          <div class="roi-card">
+            <span class="roi-label">Imóvel Alto Padrão</span>
+            <span class="roi-val ciano">R$ 1.500.000</span>
+            <p>Comissão líquida estimada:<br><strong class="verde">R$ 75.000</strong></p>
+          </div>
+          <div class="roi-card">
+            <span class="roi-label">Cobertura / Mansão</span>
+            <span class="roi-val verde">R$ 3.000.000</span>
+            <p>Comissão líquida estimada:<br><strong class="verde">R$ 150.000</strong></p>
+          </div>
+        </div>
+
+        <div class="roi-conclusao">
+          💡 <strong>Conclusão Matemática:</strong> Basta que a nossa Inteligência Artificial resgate <strong>1 único comprador no ano</strong> que desistiria pela demora no atendimento noturno para cobrir com folga <strong>anos inteiros de toda a infraestrutura Solution RAO</strong>. O restante é lucro líquido para a sua imobiliária.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO GRID DE TECNOLOGIA SOLUTION RAO -->
+  <section class="secao secao-alt" id="solucoes">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">A Tecnologia Solution RAO</span>
+        <h2>Engenharia de Inteligência Artificial <em>calibrada para o Mercado Imobiliário</em></h2>
+        <p>Esqueça chatbots robóticos de 'digite 1 para locação, 2 para vendas'. Nosso Concierge de IA conduz conversas de altíssimo padrão com vocabulário executivo e postura consultiva.</p>
+      </div>
+
+      <div class="bento-grid reveal">
+        <!-- Card 1: Áudio com Empatia e Compreensão -->
+        <div class="bento-card destaque moldura">
+          <span class="canto canto-tl"></span>
+          <span class="canto-tr canto"></span>
+          <span class="canto-bl canto"></span>
+          <span class="canto-br canto"></span>
+          <span class="bento-tag">🎧 Escuta Consultiva Profunda</span>
+          <h3>Compreende e Responde Áudios Longos de Compradores e Investidores</h3>
+          <p>Compradores de alta renda costumam mandar áudios de até 5 minutos com exigências detalhadas: quantidade de vagas para carros esportivos, espaço para adega climatizada, pé-direito duplo ou condomínios com heliponto. Nossa IA transcreve, sintetiza os critérios, responde com elegância e apresenta apenas as opções perfeitamente aderentes do seu portfólio.</p>
+          
+          <!-- Micro-Equalizador Dinâmico -->
+          <div class="micro-wave-box">
+            <div class="micro-wave-info">
+              <span>🎙️ Áudio de investidor (03:42)</span>
+            </div>
+            <div class="audio-wave-bars">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Google Calendar com Plantão -->
+        <div class="bento-card moldura">
+          <span class="canto canto-tl"></span>
+          <span class="canto-tr canto"></span>
+          <span class="canto-bl canto"></span>
+          <span class="canto-br canto"></span>
+          <span class="bento-tag">📅 Sincronização em Tempo Real</span>
+          <h3>Google Calendar com Plantão de Vendas</h3>
+          <p>A IA consulta a disponibilidade dos corretores de plantão em 1 segundo. Agenda visitas presenciais no imóvel ou reuniões de apresentação no Google Meet sem nenhum choque de horários na sua equipe.</p>
+          
+          <!-- Micro-Slots de Agendamento -->
+          <div class="micro-cal-box">
+            <span class="micro-cal-slot">Terça 10:00 · Livre</span>
+            <span class="micro-cal-slot reservado">Terça 15:30 · Reservado</span>
+            <span class="micro-cal-slot">Quarta 11:00 · Livre</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Envio de Books e Plantas em PDF -->
+        <div class="bento-card moldura">
+          <span class="canto canto-tl"></span>
+          <span class="canto-tr canto"></span>
+          <span class="canto-bl canto"></span>
+          <span class="canto-br canto"></span>
+          <span class="bento-tag">📁 Envio Instantâneo de Material</span>
+          <h3>Books Fotográficos, Plantas &amp; Vídeos</h3>
+          <p>Dispara o memorial descritivo em PDF, book fotográfico em alta resolução, planta humanizada e tour em vídeo diretamente na conversa do WhatsApp no instante exato do pedido do cliente.</p>
+          
+          <!-- Micro-Indicador de Velocidade -->
+          <div class="micro-speed-box">
+            <span style="font-size: 0.8rem; color: var(--platina);">📄 Book em PDF enviado</span>
+            <span class="micro-speed-score">⚡ 1.8s</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Qualificação Financeira BANT -->
+        <div class="bento-card moldura">
+          <span class="canto canto-tl"></span>
+          <span class="canto-tr canto"></span>
+          <span class="canto-bl canto"></span>
+          <span class="canto-br canto"></span>
+          <span class="bento-tag">💎 Filtro BANT Anti-Curiosos</span>
+          <h3>Qualificação Financeira Discreta</h3>
+          <p>Chega de corretores seniores virando 'motoristas de luxo'. A IA qualifica com extrema elegância a faixa de orçamento, modalidade de pagamento (à vista, financiamento ou permuta) e urgência antes de agendar a visita.</p>
+        </div>
+
+        <!-- Card 5: Blindagem de Pré-Reserva -->
+        <div class="bento-card moldura">
+          <span class="canto canto-tl"></span>
+          <span class="canto-tr canto"></span>
+          <span class="canto-bl canto"></span>
+          <span class="canto-br canto"></span>
+          <span class="bento-tag">⚡ Segurança em Lançamentos</span>
+          <h3>Taxa de Reserva &amp; Sinal via PIX</h3>
+          <p>Para lançamentos boutique, pré-reservas de lotes ou unidades disputadas, a IA emite o sinal de reserva via PIX Copia-e-Cola em 2 segundos para assegurar a preferência da unidade.</p>
+          
+          <!-- Micro-PIX Instantâneo -->
+          <div class="micro-pix-box">
+            <div class="micro-pix-status">
+              <span>● PIX Reserva Confirmado</span>
+            </div>
+            <span class="micro-pix-badge">Baixa em 2s</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Painel Executivo para o Diretor -->
+        <div class="bento-card full moldura">
+          <span class="canto canto-tl"></span>
+          <span class="canto-tr canto"></span>
+          <span class="canto-bl canto"></span>
+          <span class="canto-br canto"></span>
+          <span class="bento-tag">📊 Controle Comercial Total</span>
+          <h3>Painel Executivo &amp; Previsibilidade de Vendas para a Diretoria</h3>
+          <p>Acompanhe em tempo real a velocidade de atendimento do plantão, taxa de qualificação BANT de cada canal (Meta Ads, Google, Zap Imóveis, VivaReal) e quais corretores estão convertendo mais visitas em propostas assinadas. Decisões baseadas em números exatos, não em 'achismos' de equipe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABELA DE CONTRASTE: ANTIGO vs NOVO -->
+  <section class="secao" id="contraste">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Comparativo Técnico</span>
+        <h2>A diferença brutal entre <em>um Chatbot Antigo e a Inteligência Artificial</em></h2>
+        <p>Entenda por que soluções baratas de chatbot afastam compradores qualificados enquanto nossa IA eleva a percepção da sua marca.</p>
+      </div>
+
+      <div class="contraste-container reveal">
+        <!-- Coluna Ruim -->
+        <div class="contraste-col ruim">
+          <div class="contraste-header ruim">
+            🤖 Chatbot Tradicional (ManyChat / "Digite 1")
+          </div>
+          <ul class="contraste-lista">
+            <li><span>✕</span> Menus numéricos tipo 'digite 1 para comprar, 2 para alugar' que irritam compradores de alta renda</li>
+            <li><span>✕</span> Fica mudo ou trava quando o cliente envia mensagem de áudio explicando o que busca</li>
+            <li><span>✕</span> Não sabe enviar memorial descritivo, planta em PDF ou vídeos dos imóveis</li>
+            <li><span>✕</span> Não qualifica perfil financeiro e lota a equipe com especuladores sem verba</li>
+            <li><span>✕</span> Respostas genéricas que destroem a percepção de exclusividade da imobiliária</li>
+          </ul>
+        </div>
+
+        <!-- Coluna Boa -->
+        <div class="contraste-col bom">
+          <div class="contraste-header bom">
+            🧠 Agente Cognitivo Solution RAO ✨
+          </div>
+          <ul class="contraste-lista">
+            <li><span>✓</span> Conversa humana, calorosa e fluida com a elegância de um concierge imobiliário sênior</li>
+            <li><span>✓</span> Ouve, transcreve e compreende áudios de até 5 minutos com precisão cirúrgica</li>
+            <li><span>✓</span> Dispara books fotográficos em alta resolução e memoriais em PDF no ato da conversa</li>
+            <li><span>✓</span> Aplica filtro financeiro discreto e entrega visitas qualificadas no Google Calendar</li>
+            <li><span>✓</span> Atendimento instantâneo 24/7 sem folgas, feriados ou perda de contexto de negociação</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMÓVEIS DE ALTO PADRÃO ATENDIDOS -->
+  <section class="secao secao-alt" id="imoveis">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Aplicações Reais</span>
+        <h2>Especializado no Mercado de Médio e Alto Padrão</h2>
+        <p>Nossa inteligência artificial é treinada com vocabulário arquitetônico e comercial para dialogar com compradores dos mais diversos segmentos imobiliários.</p>
+      </div>
+
+      <div class="procedimentos-grid reveal">
+        <div class="proc-card">
+          <span class="proc-ticket">R$ 500k a R$ 1.5M</span>
+          <h4>Apartamentos 2 e 3 Quartos</h4>
+          <p>Triagem de vagas de garagem, sol da manhã, área de lazer do condomínio e simulação de financiamento bancário.</p>
+        </div>
+        <div class="proc-card">
+          <span class="proc-ticket">R$ 1.8M a R$ 6M+</span>
+          <h4>Coberturas &amp; Penthouses</h4>
+          <p>Apresentação de vista panorâmica, piscina privativa, área gourmet e critérios de privacidade do edifício.</p>
+        </div>
+        <div class="proc-card">
+          <span class="proc-ticket">R$ 2.5M a R$ 15M+</span>
+          <h4>Mansões em Condomínio Fechado</h4>
+          <p>Segurança armada, heliponto, metragem do lote, projeto assinado por arquiteto renomado e documentação jurídica.</p>
+        </div>
+        <div class="proc-card">
+          <span class="proc-ticket">R$ 300k a R$ 1.2M</span>
+          <h4>Lotes em Condomínio &amp; Lançamentos</h4>
+          <p>Envio de tabela de preços atualizada, memorial de infraestrutura, topografia e pré-reserva de lotes com sinal via PIX.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE RAPHAEL ARAÚJO -->
+  <section class="secao" id="sobre">
+    <div class="container">
+      <div class="sobre-grid reveal">
+        <div class="sobre-foto moldura">
+          <span class="canto canto-tl"></span>
+          <span class="canto-tr canto"></span>
+          <span class="canto-bl canto"></span>
+          <span class="canto-br canto"></span>
+          <div class="sobre-foto-dentro">
+            <img class="sobre-foto-img" src="/raphael-araujo.webp" alt="Raphael Araújo de Oliveira" width="480" height="600" loading="lazy">
+          </div>
+        </div>
+
+        <div class="sobre-texto">
+          <span class="eyebrow">Quem Constrói a Solução</span>
+          <hr class="regua">
+          <h2>Engenharia Digital &amp; Inteligência Artificial conduzidas <em>diretamente pelo fundador</em></h2>
+          <p>A Solution RAO não é uma agência tradicional onde o seu projeto é terceirizado para estagiários ou atendentes sem preparo. Cada agente de IA, cada integração de CRM e cada funil de atendimento imobiliário é arquitetado pessoalmente por mim.</p>
+          <p>Unimos engenharia de software de ponta, modelos de linguagem de última geração e profundo entendimento da psicologia de compra imobiliária de alto ticket para que a sua empresa nunca mais deixe um cliente qualificado sem resposta.</p>
+
+          <p class="sobre-assinatura">Raphael Araújo de Oliveira</p>
+          <span class="sobre-cargo">Fundador da Solution RAO · Desenvolvedor &amp; Estrategista de IA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACORDEÃO INTERATIVO -->
+  <section class="secao secao-alt" id="duvidas">
+    <div class="container">
+      <div class="secao-cabecalho reveal">
+        <span class="eyebrow">Perguntas Frequentes</span>
+        <h2>Tudo o que você precisa saber sobre <em>a implantação da IA na sua imobiliária</em></h2>
+        <p>Respostas diretas sobre tecnologia, integração com a equipe de corretores, prazos e funcionamento operacional.</p>
+      </div>
+
+      <div class="faq-lista reveal">
+        <div class="faq-item aberto">
+          <button type="button" class="faq-pergunta" aria-expanded="true">
+            <span>A IA substitui a minha equipe de corretores?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-resposta">
+            Não. A IA não fecha a venda final no cartório nem substitui o olho no olho. A função dela é agir como um <strong>filtro de ouro e acelerador de visitas</strong>: ela acolhe o comprador de madrugada em 3 segundos, envia o book, filtra os curiosos sem crédito e entrega para o corretor apenas o cliente pronto para visitar o imóvel. O corretor economiza tempo e fecha mais vendas.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-pergunta" aria-expanded="false">
+            <span>E se o cliente enviar uma mensagem de áudio longa?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-resposta">
+            Nossa IA possui módulo avançado de transcrição e compreensão de áudio. Ela ouve mensagens de até 5 minutos, identifica todas as exigências (número de suítes, bairro preferido, valor de entrada) e responde com empatia e precisão técnica em texto natural.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-pergunta" aria-expanded="false">
+            <span>A IA pode falar preços errados ou inventar dados dos imóveis?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-resposta">
+            Não. Nós aplicamos rigorosas <strong>telas de blindagem anti-alucinação</strong>. A IA responde estritamente com base nos dados oficiais cadastrados do seu estoque (memorial descritivo, tabela de preços e regras de permuta). Se o cliente fizer uma pergunta muito específica fora da base, a IA repassa elegantemente o caso para o corretor responsável.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-pergunta" aria-expanded="false">
+            <span>Como funciona a integração com o WhatsApp da imobiliária?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-resposta">
+            Utilizamos a infraestrutura oficial da Meta (WhatsApp Cloud API) ou conexões corporativas seguras. O número oficial da sua imobiliária permanece o mesmo, sem risco de bloqueios e com múltiplos atendentes humanos podendo acompanhar e assumir qualquer conversa em tempo real pelo painel.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-pergunta" aria-expanded="false">
+            <span>Qual é o prazo de implementação do ecossistema?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-resposta">
+            O setup completo — incluindo treinamento dos dados dos seus imóveis, sincronização com o Google Calendar da equipe e testes de validação — é entregue em <strong>5 a 7 dias úteis</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container reveal">
+      <span class="eyebrow">Próximo Passo</span>
+      <h2>Pare de perder comissões de alto padrão na madrugada. <em>Coloque sua IA no ar.</em></h2>
+      <p>Agende uma conversa estratégica de 15 minutos diretamente comigo. Vou te mostrar a IA funcionando ao vivo com os imóveis da sua imobiliária.</p>
+      
+      <div class="hero-botoes" style="justify-content: center;">
+        <a class="btn btn-solido" href="https://wa.me/5561982584350?text=Ol%C3%A1%2C%20Raphael!%20Li%20a%20p%C3%A1gina%20de%20imobili%C3%A1rias%20e%20quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          Conversar Diretamente com Raphael no WhatsApp →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- RODAPÉ INSTITUCIONAL -->
+<footer class="rodape">
+  <div class="container rodape-grid">
+    <a href="/" class="marca-header">
+      <img src="/logo-otimizado.webp" alt="Solution RAO" width="28" height="28">
+      <span>Solution <em>RAO</em></span>
+    </a>
+    <div class="rodape-links">
+      <a href="/">Início</a>
+      <a href="/cases/">Cases de Sucesso</a>
+      <a href="/termos-de-uso/">Termos de Uso</a>
+      <a href="/privacidade-servicos/">Privacidade de Serviços</a>
+      <a href="/politica-de-privacidade/">Política de Privacidade</a>
+      <a href="/politica-de-cookies/">Política de Cookies</a>
+    </div>
+    <p>© 2026 Solution RAO. Todos os direitos reservados. CNPJ sob consulta.</p>
+  </div>
+</footer>
+
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a href="https://wa.me/5561982584350?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20imobili%C3%A1rias%20da%20Solution%20RAO%20e%20gostaria%20de%20ver%20uma%20demonstra%C3%A7%C3%A3o." class="whatsapp-flutuante" id="whatsappFlutuante" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <span class="whatsapp-flutuante-texto">Falar com especialista em IA</span>
+  <div class="whatsapp-flutuante-icone">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.34C9.35 7.35 9.09 7.41 8.87 7.65C8.65 7.89 8.04 8.46 8.04 9.62C8.04 10.78 8.89 11.9 9.01 12.06C9.13 12.22 10.67 14.58 13.03 15.6C13.59 15.84 14.03 15.99 14.37 16.1C14.93 16.28 15.44 16.25 15.85 16.19C16.31 16.12 17.26 15.61 17.46 15.06C17.65 14.5 17.65 14.03 17.59 13.93C17.53 13.83 17.37 13.77 17.13 13.65C16.89 13.53 15.7 12.95 15.48 12.87C15.26 12.79 15.1 12.75 14.94 12.99C14.78 13.23 14.33 13.77 14.19 13.93C14.05 14.09 13.91 14.11 13.67 13.99C13.43 13.87 12.65 13.61 11.73 12.79C11.01 12.15 10.53 11.36 10.41 11.16C10.29 10.96 10.4 10.85 10.52 10.73C10.63 10.62 10.77 10.44 10.89 10.3C11.01 10.16 11.05 10.06 11.13 9.9C11.21 9.74 11.17 9.6 11.11 9.48C11.05 9.36 10.59 8.22 10.4 7.76C10.21 7.31 10.02 7.37 9.87 7.36C9.73 7.35 9.57 7.35 9.53 7.34Z"/></svg>
+  </div>
+</a>
+
+<!-- ===== BANNER DE COOKIES (CONSENT MODE V2) ===== -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Preferências de cookies">
+  <p class="cookie-banner-texto">
+    Utilizamos cookies para analisar o tráfego do site e aprimorar campanhas. Seus dados estão protegidos pela LGPD. Detalhes na nossa <a href="/politica-de-cookies/">Política de Cookies</a>.
+  </p>
+  <div class="cookie-banner-botoes">
+    <button type="button" class="btn cookie-banner-recusar" id="cookieRecusar">Apenas Necessários</button>
+    <button type="button" class="btn cookie-banner-recusar" id="btnCookiesPersonalizar">Personalizar</button>
+    <button type="button" class="btn btn-solido" id="cookieAceitar">Aceitar Todos</button>
+  </div>
+</div>
+
+<!-- MODAL DE PREFERÊNCIAS DE COOKIES -->
+<div class="cookie-modal-overlay" id="cookieModalOverlay">
+  <div class="cookie-modal">
+    <h3>Preferências de Cookies</h3>
+    <p>Personalize as categorias de cookies que você autoriza na Solution RAO:</p>
+    
+    <div class="cookie-modal-categoria">
+      <div class="cookie-modal-cat-header">
+        <strong>Essenciais &amp; Segurança</strong>
+        <span>Sempre Ativo</span>
+      </div>
+      <small style="color: var(--texto-suave);">Necessários para navegação segura e integridade do site.</small>
+    </div>
+
+    <div class="cookie-modal-categoria">
+      <div class="cookie-modal-cat-header">
+        <strong>Analíticos (Google Analytics)</strong>
+        <input type="checkbox" id="cookieAnaliticos" checked style="accent-color: var(--aco-forte);">
+      </div>
+      <small style="color: var(--texto-suave);">Métricas anônimas de páginas acessadas para melhoria contínua.</small>
+    </div>
+
+    <div class="cookie-modal-categoria">
+      <div class="cookie-modal-cat-header">
+        <strong>Marketing (Meta Pixel)</strong>
+        <input type="checkbox" id="cookieMarketing" checked style="accent-color: var(--aco-forte);">
+      </div>
+      <small style="color: var(--texto-suave);">Exibição de anúncios relevantes para quem já nos conhece.</small>
+    </div>
+
+    <div class="cookie-modal-acoes">
+      <button type="button" class="btn cookie-banner-recusar" id="btnFecharModalCookies">Cancelar</button>
+      <button type="button" class="btn btn-solido" id="btnSalvarPreferencias">Salvar Preferências</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCRIPT DE EFEITOS & INTERATIVIDADE COMPLETO ==================== -->
+<script>
+(function () {
+  "use strict";
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ===== 1. Header: estado "rolado" & Botão Flutuante do WhatsApp ===== */
+  var cabecalho = document.getElementById('cabecalho');
+  var whatsappFlutuante = document.getElementById('whatsappFlutuante');
+
+  window.addEventListener('scroll', function () {
+    var rolado = window.scrollY > 40;
+    if (cabecalho) cabecalho.classList.toggle('rolado', rolado);
+    if (whatsappFlutuante) {
+      whatsappFlutuante.classList.toggle('visivel', window.scrollY > 280);
+    }
+  }, { passive: true });
+
+  /* ===== 2. Menu mobile ===== */
+  var menuToggle = document.getElementById('menuToggle');
+  var menuPrincipal = document.querySelector('.menu-principal');
+  if (menuToggle && menuPrincipal) {
+    menuToggle.addEventListener('click', function () {
+      var aberto = menuPrincipal.style.display === 'flex';
+      menuPrincipal.style.display = aberto ? 'none' : 'flex';
+      if (!aberto) {
+        menuPrincipal.style.flexDirection = 'column';
+        menuPrincipal.style.position = 'absolute';
+        menuPrincipal.style.top = '100%';
+        menuPrincipal.style.left = '0';
+        menuPrincipal.style.right = '0';
+        menuPrincipal.style.background = 'rgba(5, 7, 14, 0.98)';
+        menuPrincipal.style.padding = '24px 32px';
+        menuPrincipal.style.borderBottom = '1px solid var(--linha)';
+        menuPrincipal.style.gap = '20px';
+      }
+    });
+  }
+
+  /* ===== 3. Reveal on scroll ===== */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !prefersReduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visivel');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visivel'); });
+  }
+
+        /* ===== Animação Sequencial do WhatsApp com Síntese Sonora Web Audio API e Ativação por Clique/Toque ===== */
+  var chatBody = document.getElementById('chatBody');
+  var chatTyping = document.getElementById('chatTyping');
+  var chatMsgs = document.querySelectorAll('.chat-msg');
+  var btnChatSom = document.getElementById('btnChatSom');
+  var chatAvisoSom = document.getElementById('chatAvisoSom');
+  var heroChatDevice = document.querySelector('.hero-chat-device');
+
+  /* Motor Web Audio API (100% nativo, sem arquivos externos ou latência) */
+  var audioCtx = null;
+  var somAtivo = false;
+  var somDesativadoManualmente = false;
+  var chatVisivelNaTela = true;
+  var typingInterval = null;
+
+  function obterAudioContext() {
+    if (!audioCtx) {
+      var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) audioCtx = new AudioContextClass();
+    }
+    return audioCtx;
+  }
+
+  function sincronizarEstadoBotaoSom() {
+    if (!btnChatSom) return;
+    if (somAtivo) {
+      btnChatSom.classList.remove('pulsando');
+      btnChatSom.classList.add('ativo');
+      btnChatSom.setAttribute('aria-pressed', 'true');
+      btnChatSom.innerHTML = '<span class="chat-som-icone">🔊</span> <span class="chat-som-texto">Som Ativo</span>';
+      btnChatSom.setAttribute('title', 'Som ativado! Clique para desativar');
+      if (chatAvisoSom) {
+        chatAvisoSom.classList.add('oculto');
+      }
+    } else {
+      btnChatSom.classList.remove('ativo');
+      btnChatSom.setAttribute('aria-pressed', 'false');
+      btnChatSom.innerHTML = '<span class="chat-som-icone">🔇</span> <span class="chat-som-texto">Ativar Som</span>';
+      btnChatSom.setAttribute('title', 'Ativar efeitos sonoros do WhatsApp');
+    }
+  }
+
+  // 1. Som de Envio de Mensagem (Pop/Whoosh suave ascendente do WhatsApp)
+  function tocarSomEnvio() {
+    if (!somAtivo || !chatVisivelNaTela) return;
+    try {
+      var ctx = obterAudioContext();
+      if (!ctx || ctx.state !== 'running') return;
+      var t = ctx.currentTime;
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(430, t);
+      osc.frequency.exponentialRampToValueAtTime(880, t + 0.07);
+
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.linearRampToValueAtTime(0.075, t + 0.008);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.075);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(t);
+      osc.stop(t + 0.08);
+    } catch (e) {}
+  }
+
+  // 2. Som de Recebimento de Mensagem ("Ding" / "Plim" harmônico cristalino)
+  function tocarSomRecebimento() {
+    if (!somAtivo || !chatVisivelNaTela) return;
+    try {
+      var ctx = obterAudioContext();
+      if (!ctx || ctx.state !== 'running') return;
+      var t = ctx.currentTime;
+
+      // Fundamental (Lá5 ~ 880Hz)
+      var osc1 = ctx.createOscillator();
+      var gain1 = ctx.createGain();
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(880, t);
+
+      gain1.gain.setValueAtTime(0.0001, t);
+      gain1.gain.linearRampToValueAtTime(0.085, t + 0.006);
+      gain1.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
+
+      osc1.connect(gain1);
+      gain1.connect(ctx.destination);
+      osc1.start(t);
+      osc1.stop(t + 0.29);
+
+      // Harmônico Brilhante (Mi6 ~ 1318.5Hz disparado 40ms depois)
+      var osc2 = ctx.createOscillator();
+      var gain2 = ctx.createGain();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(1318.5, t + 0.04);
+
+      gain2.gain.setValueAtTime(0.0001, t);
+      gain2.gain.setValueAtTime(0.0001, t + 0.04);
+      gain2.gain.linearRampToValueAtTime(0.068, t + 0.046);
+      gain2.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+
+      osc2.connect(gain2);
+      gain2.connect(ctx.destination);
+      osc2.start(t + 0.04);
+      osc2.stop(t + 0.36);
+    } catch (e) {}
+  }
+
+  // 3. Cliques táteis de digitação (Cliques ultra-sutis mecânicos)
+  function tocarCliqueDigitando() {
+    if (!somAtivo || !chatVisivelNaTela) return;
+    try {
+      var ctx = obterAudioContext();
+      if (!ctx || ctx.state !== 'running') return;
+      var t = ctx.currentTime;
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+
+      var freq = 1450 + (Math.random() * 350 - 175);
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, t);
+
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.linearRampToValueAtTime(0.016, t + 0.002);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.02);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(t);
+      osc.stop(t + 0.022);
+    } catch (e) {}
+  }
+
+  function iniciarEfeitoDigitando() {
+    pararEfeitoDigitando();
+    if (!somAtivo || !chatVisivelNaTela) return;
+    tocarCliqueDigitando();
+    typingInterval = setInterval(function() {
+      if (Math.random() > 0.12) {
+        tocarCliqueDigitando();
+      }
+    }, 115);
+  }
+
+  function pararEfeitoDigitando() {
+    if (typingInterval) {
+      clearInterval(typingInterval);
+      typingInterval = null;
+    }
+  }
+
+  /* ===== Desbloqueio Real de Áudio por Gesto do Usuário ===== */
+  function destravarAudioComClique(tocarFeedback) {
+    if (somDesativadoManualmente || somAtivo) return;
+    try {
+      var ctx = obterAudioContext();
+      if (!ctx) return;
+
+      var aplicarSucesso = function() {
+        if (ctx.state === 'running') {
+          somAtivo = true;
+          sincronizarEstadoBotaoSom();
+          if (tocarFeedback && chatVisivelNaTela) {
+            tocarSomRecebimento();
+          }
+          if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
+            iniciarEfeitoDigitando();
+          }
+        }
+      };
+
+      if (ctx.state === 'suspended') {
+        ctx.resume().then(aplicarSucesso).catch(function() {});
+      } else if (ctx.state === 'running') {
+        aplicarSucesso();
+      }
+    } catch (e) {}
+  }
+
+  // 1. Desbloqueia com qualquer clique ou toque na página
+  function handlerPrimeiroGestoGlobal(e) {
+    destravarAudioComClique(false);
+  }
+  window.addEventListener('pointerdown', handlerPrimeiroGestoGlobal, { passive: true });
+  window.addEventListener('touchstart', handlerPrimeiroGestoGlobal, { passive: true });
+  window.addEventListener('click', handlerPrimeiroGestoGlobal, { passive: true });
+  window.addEventListener('keydown', handlerPrimeiroGestoGlobal, { passive: true });
+
+  // 2. Clique em qualquer lugar do container da conversa (.hero-chat-device)
+  if (heroChatDevice) {
+    heroChatDevice.addEventListener('click', function(e) {
+      if (!somAtivo && !somDesativadoManualmente) {
+        destravarAudioComClique(true);
+      }
+    });
+  }
+
+  // 3. Clique no aviso específico
+  if (chatAvisoSom) {
+    chatAvisoSom.addEventListener('click', function(e) {
+      e.stopPropagation();
+      destravarAudioComClique(true);
+    });
+  }
+
+  // 4. Observer de Visibilidade do Mockup (Pausa o som se rolar para longe)
+  if ('IntersectionObserver' in window && heroChatDevice) {
+    var obsChat = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        chatVisivelNaTela = entry.isIntersecting;
+        if (!chatVisivelNaTela) {
+          pararEfeitoDigitando();
+        } else if (somAtivo && chatTyping && chatTyping.style.display === 'inline-flex') {
+          iniciarEfeitoDigitando();
+        }
+      });
+    }, { threshold: 0.15 });
+    obsChat.observe(heroChatDevice);
+  }
+
+  // Silenciar caso a aba vá para segundo plano
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      pararEfeitoDigitando();
+    }
+  });
+
+  // 5. Interação do Botão de Som (Controle manual direto)
+  if (btnChatSom) {
+    btnChatSom.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var ctx = obterAudioContext();
+      if (!ctx) return;
+
+      if (!somAtivo) {
+        somDesativadoManualmente = false;
+        if (ctx.state === 'suspended') {
+          ctx.resume().then(function() {
+            if (ctx.state === 'running') {
+              somAtivo = true;
+              sincronizarEstadoBotaoSom();
+              tocarSomRecebimento();
+              if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
+                iniciarEfeitoDigitando();
+              }
+            }
+          });
+        } else {
+          somAtivo = true;
+          sincronizarEstadoBotaoSom();
+          tocarSomRecebimento();
+          if (chatVisivelNaTela && chatTyping && chatTyping.style.display === 'inline-flex') {
+            iniciarEfeitoDigitando();
+          }
+        }
+      } else {
+        somDesativadoManualmente = true;
+        somAtivo = false;
+        pararEfeitoDigitando();
+        sincronizarEstadoBotaoSom();
+      }
+    });
+  }
+
+  if (chatBody && chatMsgs.length) {
+    function rodarSequenciaChat() {
+      pararEfeitoDigitando();
+      chatMsgs.forEach(function(m) {
+        m.classList.remove('visivel');
+        m.style.display = 'none';
+      });
+      if (chatTyping) chatTyping.style.display = 'none';
+
+      // 1. Mensagem 1 (Cliente enviando)
+      setTimeout(function() {
+        if (chatMsgs[0]) {
+          chatMsgs[0].style.display = 'block';
+          setTimeout(function() {
+            chatMsgs[0].classList.add('visivel');
+            tocarSomEnvio();
+          }, 30);
+        }
+      }, 500);
+
+      // 2. IA digitando...
+      setTimeout(function() {
+        if (chatTyping) {
+          chatTyping.style.display = 'inline-flex';
+          iniciarEfeitoDigitando();
+        }
+      }, 1600);
+
+      // 3. Mensagem 2 (IA respondendo)
+      setTimeout(function() {
+        pararEfeitoDigitando();
+        if (chatTyping) chatTyping.style.display = 'none';
+        if (chatMsgs[1]) {
+          chatMsgs[1].style.display = 'block';
+          setTimeout(function() {
+            chatMsgs[1].classList.add('visivel');
+            tocarSomRecebimento();
+          }, 30);
+        }
+      }, 3000);
+
+      // 4. Mensagem 3 (IA complementando)
+      setTimeout(function() {
+        if (chatMsgs[2]) {
+          chatMsgs[2].style.display = 'block';
+          setTimeout(function() {
+            chatMsgs[2].classList.add('visivel');
+            tocarSomRecebimento();
+          }, 30);
+        }
+      }, 4500);
+
+      // 5. Mensagem 4 (Cliente respondendo)
+      setTimeout(function() {
+        if (chatMsgs[3]) {
+          chatMsgs[3].style.display = 'block';
+          setTimeout(function() {
+            chatMsgs[3].classList.add('visivel');
+            tocarSomEnvio();
+          }, 30);
+        }
+      }, 6200);
+
+      // 6. IA digitando confirmação...
+      setTimeout(function() {
+        if (chatTyping) {
+          chatTyping.style.display = 'inline-flex';
+          iniciarEfeitoDigitando();
+        }
+      }, 7300);
+
+      // 7. Mensagem 5 (IA confirmação final)
+      setTimeout(function() {
+        pararEfeitoDigitando();
+        if (chatTyping) chatTyping.style.display = 'none';
+        if (chatMsgs[4]) {
+          chatMsgs[4].style.display = 'block';
+          setTimeout(function() {
+            chatMsgs[4].classList.add('visivel');
+            tocarSomRecebimento();
+          }, 30);
+        }
+      }, 8600);
+
+      // 8. Reinicia o ciclo
+      setTimeout(rodarSequenciaChat, 18000);
+    }
+
+    rodarSequenciaChat();
+  }
+
+  /* ===== 5. Barra de Progresso do Scroll no Header ===== */
+  var scrollProgresso = document.getElementById('scrollProgresso');
+  if (scrollProgresso) {
+    window.addEventListener('scroll', function () {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      scrollProgresso.style.width = scrolled + '%';
+    }, { passive: true });
+  }
+
+  /* ===== 6. Aura de Luz Vívida no Cursor (Desktop) ===== */
+  var cursorLuz = document.getElementById('cursorLuz');
+  if (cursorLuz && window.matchMedia && window.matchMedia('(pointer: fine)').matches && !prefersReduced) {
+    var mouseX = -999, mouseY = -999;
+    var curX = -999, curY = -999;
+    var cursorVisivel = false;
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!cursorVisivel) {
+        cursorVisivel = true;
+        cursorLuz.style.opacity = '1';
+      }
+    });
+
+    document.addEventListener('mouseleave', function () {
+      cursorVisivel = false;
+      cursorLuz.style.opacity = '0';
+    });
+
+    function animarCursor() {
+      if (cursorVisivel) {
+        curX += (mouseX - curX) * 0.14;
+        curY += (mouseY - curY) * 0.14;
+        cursorLuz.style.transform = 'translate(' + (curX - 270) + 'px, ' + (curY - 270) + 'px)';
+      }
+      requestAnimationFrame(animarCursor);
+    }
+    animarCursor();
+  }
+
+  /* ===== 7. Spotlight Dinâmico nos Cards ===== */
+  var spotlightCards = document.querySelectorAll('.bento-card, .dor-card, .metrica-card, .proc-card, .roi-card');
+  spotlightCards.forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', x + 'px');
+      card.style.setProperty('--mouse-y', y + 'px');
+    });
+  });
+
+  /* ===== 8. Botões Magnéticos (Atração Suave ao Cursor) ===== */
+  if (window.matchMedia && window.matchMedia('(pointer: fine)').matches && !prefersReduced) {
+    var magneticBtns = document.querySelectorAll('.hero-botoes .btn, .btn-header, .cta-final .btn, .btn-solido');
+    magneticBtns.forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = 'translate(' + (x * 0.22) + 'px, ' + (y * 0.22) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  /* ===== 9. Acordeão de Perguntas Frequentes (FAQ) ===== */
+  var faqItens = document.querySelectorAll('.faq-item');
+  faqItens.forEach(function (item) {
+    var btn = item.querySelector('.faq-pergunta');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var aberto = item.classList.contains('aberto');
+      faqItens.forEach(function (outro) {
+        outro.classList.remove('aberto');
+        var b = outro.querySelector('.faq-pergunta');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!aberto) {
+        item.classList.add('aberto');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ===== 10. Smooth Scroll com offset do header fixo ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (href === '#' || !href) return;
+      var alvo = document.querySelector(href);
+      if (alvo) {
+        e.preventDefault();
+        var topo = alvo.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: topo, behavior: 'smooth' });
+        if (menuPrincipal && window.innerWidth <= 960) {
+          menuPrincipal.style.display = 'none';
+        }
+      }
+    });
+  });
+
+  /* ===== 11. Banner de Cookies e Consent Mode v2 ===== */
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAceitar = document.getElementById('cookieAceitar');
+  var cookieRecusar = document.getElementById('cookieRecusar');
+  var btnCookiesPersonalizar = document.getElementById('btnCookiesPersonalizar');
+  var cookieModalOverlay = document.getElementById('cookieModalOverlay');
+  var btnFecharModalCookies = document.getElementById('btnFecharModalCookies');
+  var btnSalvarPreferencias = document.getElementById('btnSalvarPreferencias');
+  var cookieAnaliticos = document.getElementById('cookieAnaliticos');
+  var cookieMarketing = document.getElementById('cookieMarketing');
+
+  if (window.SolutionRAOConsent && cookieBanner) {
+    window.SolutionRAOConsent.inicializar(function () {
+      cookieBanner.classList.add('visivel');
+    });
+
+    if (cookieAceitar) {
+      cookieAceitar.addEventListener('click', function () {
+        window.SolutionRAOConsent.aceitarTodos();
+        cookieBanner.classList.remove('visivel');
+      });
+    }
+
+    if (cookieRecusar) {
+      cookieRecusar.addEventListener('click', function () {
+        window.SolutionRAOConsent.apenasNecessarios();
+        cookieBanner.classList.remove('visivel');
+      });
+    }
+
+    if (btnCookiesPersonalizar) {
+      btnCookiesPersonalizar.addEventListener('click', function () {
+        var atual = window.SolutionRAOConsent.obterPreferencia() || { analiticos: true, marketing: true };
+        if (cookieAnaliticos) cookieAnaliticos.checked = Boolean(atual.analiticos);
+        if (cookieMarketing) cookieMarketing.checked = Boolean(atual.marketing);
+        cookieModalOverlay.classList.add('visivel');
+      });
+    }
+
+    if (btnFecharModalCookies) {
+      btnFecharModalCookies.addEventListener('click', function () {
+        cookieModalOverlay.classList.remove('visivel');
+      });
+    }
+
+    if (btnSalvarPreferencias) {
+      btnSalvarPreferencias.addEventListener('click', function () {
+        window.SolutionRAOConsent.definirPreferencia({
+          analiticos: cookieAnaliticos ? cookieAnaliticos.checked : false,
+          marketing: cookieMarketing ? cookieMarketing.checked : false
+        });
+        cookieModalOverlay.classList.remove('visivel');
+        cookieBanner.classList.remove('visivel');
+      });
+    }
+  }
+
+})();
+</script>
+
+</body>
+</html>
