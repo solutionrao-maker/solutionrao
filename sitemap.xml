@@ -144,4 +144,28 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/blog/a-importancia-de-um-site-para-sustentar-sua-marca/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/blog/o-custo-invisivel-do-lead-noturno-imobiliario/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/blog/zap-vivareal-como-qualificar-leads-e-agendar-visitas/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.solutionrao.com.br/blog/permutas-e-financiamento-no-whatsapp-imobiliario/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
