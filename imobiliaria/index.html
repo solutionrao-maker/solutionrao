@@ -190,8 +190,8 @@
     background: linear-gradient(100deg, var(--platina) 0%, var(--aco-forte) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .menu-principal { display: flex; gap: 32px; list-style: none; }
-  .menu-principal a { font-size: 0.88rem; color: var(--texto-suave); transition: color 0.25s; }
+  .menu-principal { display: flex; gap: clamp(14px, 1.6vw, 28px); list-style: none; align-items: center; }
+  .menu-principal a { font-size: 0.88rem; color: var(--texto-suave); transition: color 0.25s; white-space: nowrap; }
   .menu-principal a:hover { color: var(--texto); }
 
   .menu-toggle {
@@ -843,6 +843,7 @@
       <li><a href="#imoveis">Imóveis</a></li>
       <li><a href="#sobre">Especialista</a></li>
       <li><a href="#duvidas">Dúvidas</a></li>
+      <li><a href="/blog/">Blog</a></li>
     </ul>
   </nav>
   <a class="btn btn-solido btn-header" href="https://wa.me/5561982584350?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20imobili%C3%A1rias%20da%20Solution%20RAO%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
@@ -1411,6 +1412,7 @@
     </a>
     <div class="rodape-links">
       <a href="/">Início</a>
+      <a href="/blog/">Blog</a>
       <a href="/cases/">Cases de Sucesso</a>
       <a href="/termos-de-uso/">Termos de Uso</a>
       <a href="/privacidade-servicos/">Privacidade de Serviços</a>
